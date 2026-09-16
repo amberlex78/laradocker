@@ -1,0 +1,191 @@
+name: ${COMPOSE_PROJECT_NAME:-laravel-app}
+
+x-app-image: &app-image "${COMPOSE_PROJECT_NAME:-laravel-app}-app:${IMAGE_TAG:-local}"
+x-nginx-image: &nginx-image "${COMPOSE_PROJECT_NAME:-laravel-app}-nginx:${IMAGE_TAG:-local}"
+x-mariadb-image: &mariadb-image "${COMPOSE_PROJECT_NAME:-laravel-app}-mariadb:${IMAGE_TAG:-local}"
+x-app-environment: &app-environment
+  # Application
+  APP_NAME: ${APP_NAME:-Laravel}
+  APP_ENV: ${APP_ENV:-local}
+  APP_KEY: ${APP_KEY:-}
+  APP_DEBUG: ${APP_DEBUG:-true}
+  APP_URL: ${APP_URL:-http://localhost:8000}
+  APP_MAINTENANCE_DRIVER: ${APP_MAINTENANCE_DRIVER:-file}
+  BCRYPT_ROUNDS: ${BCRYPT_ROUNDS:-12}
+
+  # Localization
+  APP_LOCALE: ${APP_LOCALE:-en}
+  APP_FALLBACK_LOCALE: ${APP_FALLBACK_LOCALE:-en}
+  APP_FAKER_LOCALE: ${APP_FAKER_LOCALE:-en_US}
+
+  # Logging
+  LOG_CHANNEL: ${LOG_CHANNEL:-stack}
+  LOG_STACK: ${LOG_STACK:-single}
+  LOG_DEPRECATIONS_CHANNEL: ${LOG_DEPRECATIONS_CHANNEL:-null}
+  LOG_LEVEL: ${LOG_LEVEL:-debug}
+
+  # Database
+  DB_CONNECTION: ${DB_CONNECTION:-mariadb}
+  DB_HOST: mariadb
+  DB_PORT: 3306
+  DB_DATABASE: ${DB_DATABASE:-laravel}
+  DB_USERNAME: ${DB_USERNAME:-laravel}
+  DB_PASSWORD: ${DB_PASSWORD:-laravel}
+
+  # Session, cache, queue and filesystem
+  SESSION_DRIVER: ${SESSION_DRIVER:-database}
+  SESSION_LIFETIME: ${SESSION_LIFETIME:-120}
+  SESSION_ENCRYPT: ${SESSION_ENCRYPT:-false}
+  SESSION_PATH: ${SESSION_PATH:-/}
+  SESSION_DOMAIN: ${SESSION_DOMAIN:-null}
+  BROADCAST_CONNECTION: ${BROADCAST_CONNECTION:-log}
+  FILESYSTEM_DISK: ${FILESYSTEM_DISK:-local}
+  QUEUE_CONNECTION: ${QUEUE_CONNECTION:-database}
+  CACHE_STORE: ${CACHE_STORE:-database}
+  CACHE_PREFIX: ${CACHE_PREFIX:-}
+
+  # Mail
+  MAIL_MAILER: ${MAIL_MAILER:-log}
+  MAIL_SCHEME: ${MAIL_SCHEME:-null}
+  MAIL_HOST: ${MAIL_HOST:-127.0.0.1}
+  MAIL_PORT: ${MAIL_PORT:-2525}
+  MAIL_USERNAME: ${MAIL_USERNAME:-null}
+  MAIL_PASSWORD: ${MAIL_PASSWORD:-null}
+  MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-hello@example.com}
+  MAIL_FROM_NAME: ${MAIL_FROM_NAME:-${APP_NAME:-Laravel}}
+
+  # AWS / S3-compatible storage
+  AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+  AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+  AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
+  AWS_BUCKET: ${AWS_BUCKET:-}
+  AWS_USE_PATH_STYLE_ENDPOINT: ${AWS_USE_PATH_STYLE_ENDPOINT:-false}
+
+  # Variables exposed to Vite
+  VITE_APP_NAME: ${VITE_APP_NAME:-${APP_NAME:-Laravel}}
+
+services:
+  app:
+    image: *app-image
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      target: dev
+      args:
+        APP_UID: ${APP_UID:-1000}
+        APP_GID: ${APP_GID:-1000}
+    environment: *app-environment
+    working_dir: /var/www/html
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "php-fpm", "-t"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 5
+
+  nginx:
+    image: *nginx-image
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+      args:
+        NODE_IMAGE: node:24-bookworm-slim
+    networks:
+      - frontend
+    depends_on:
+      app:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:8080/up >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 5
+
+  mariadb:
+    image: *mariadb-image
+    build:
+      context: docker/mariadb
+      dockerfile: Dockerfile
+    environment:
+      MARIADB_DATABASE: ${DB_DATABASE:-laravel}
+      MARIADB_USER: ${DB_USERNAME:-laravel}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-laravel}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh --connect --innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 10
+
+  composer:
+    image: *app-image
+    profiles:
+      - tools
+    entrypoint: ["composer"]
+    command: ["--version"]
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - vendor:/var/www/html/vendor
+    networks:
+      - frontend
+
+  node:
+    image: node:24-bookworm-slim
+    profiles:
+      - dev
+    working_dir: /var/www/html
+    command: ["sh", "-c", "if [ ! -x node_modules/.bin/vite ]; then npm ci --no-audit --no-fund; fi; exec npm run dev -- --host 0.0.0.0"]
+    volumes:
+      - .:/var/www/html
+      - node-modules:/var/www/html/node_modules
+    networks:
+      - frontend
+
+  queue-worker:
+    image: *app-image
+    profiles:
+      - worker
+    command: ["php", "artisan", "queue:work", "--sleep=3", "--tries=3", "--timeout=90"]
+    environment: *app-environment
+    working_dir: /var/www/html
+    networks:
+      - backend
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  scheduler:
+    image: *app-image
+    profiles:
+      - scheduler
+    command: ["php", "artisan", "schedule:work"]
+    environment: *app-environment
+    working_dir: /var/www/html
+    networks:
+      - backend
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+networks:
+  frontend:
+  backend:
+    internal: true
+
+volumes:
+  mariadb-data:
+  vendor:
+  node-modules:

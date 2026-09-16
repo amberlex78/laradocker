@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      target: prod
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+    restart: unless-stopped
+
+  nginx:
+    ports:
+      - "127.0.0.1:${PROD_HTTP_PORT:-8080}:8080"
+    restart: unless-stopped
+
+  mariadb:
+    restart: unless-stopped
+
+  queue-worker:
+    restart: unless-stopped
+
+  scheduler:
+    restart: unless-stopped
