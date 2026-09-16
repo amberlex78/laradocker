@@ -56,6 +56,7 @@ dev-build: config-dev ## Build development images
 
 dev-install: dev-build ## Prepare a fresh development checkout
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
+	$(DEV_COMPOSE) run --rm --no-deps app sh -lc 'if [ -z "$${APP_KEY:-}" ]; then php artisan key:generate --no-interaction; fi'
 	$(DEV_COMPOSE) run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
 
 dev-up: config-dev ## Start the development environment
