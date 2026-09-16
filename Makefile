@@ -23,7 +23,7 @@ PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 ## -----------------------------------------------------------------------------
 
 .PHONY: help ensure-env config-dev config-prod validate \
-        dev-install dev-up dev-build dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
+        dev-build dev-install dev-up dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
         dev-seed dev-test dev-vite \
         prod-build prod-up prod-down prod-restart prod-logs prod-status \
         prod-migrate prod-optimize prod-deploy \
@@ -54,7 +54,7 @@ validate: config-dev config-prod ## Validate both Compose configurations
 dev-build: config-dev ## Build development images
 	$(DEV_COMPOSE) build
 
-dev-install: dev-build ## Prepare a fresh development checkout
+dev-install: dev-build ## Install development dependencies and generate APP_KEY if missing
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
 	$(DEV_COMPOSE) run --rm --no-deps app sh -lc 'if [ -z "$${APP_KEY:-}" ]; then php artisan key:generate --no-interaction; fi'
 	$(DEV_COMPOSE) run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
