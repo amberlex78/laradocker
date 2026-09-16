@@ -82,6 +82,48 @@ Browser
 
 PHP runtime працює від non-root користувача `app`. Production MariaDB не публікується на host-порт. Дані MariaDB зберігаються у named volume `mariadb-data`.
 
+## Як запустити ще один локальний проєкт
+
+Щоб запустити ще один незалежний clone цього Laravel-проєкту, склонuj його в окрему директорію та створи власний `.env`:
+
+```bash
+git clone <URL-РЕПОЗИТОРІЮ> second-laravel-app
+cd second-laravel-app
+cp .env.example .env
+```
+
+У `.env` другого проєкту задай інше ім’я Compose-проєкту та вільні host-порти:
+
+```dotenv
+COMPOSE_PROJECT_NAME=second-laravel-app
+APP_NAME=Second Laravel App
+APP_URL=http://localhost:8001
+
+DEV_HTTP_PORT=8001
+VITE_FORWARD_PORT=5174
+VITE_PORT=5173
+VITE_HMR_PORT=5174
+DB_FORWARD_PORT=3307
+```
+
+Після цього виконай стандартний перший запуск:
+
+```bash
+make dev-install
+make dev-up
+make dev-migrate
+```
+
+`COMPOSE_PROJECT_NAME` ізолює контейнери, мережі, image names і MariaDB volume другого проєкту від першого. `DB_HOST`, `DB_PORT`, `DB_DATABASE` та внутрішній Vite-порт змінювати не потрібно: вони працюють усередині окремого Compose-оточення.
+
+Для другого clone будуть доступні такі host-порти:
+
+- Laravel: `http://localhost:8001`;
+- Vite HMR: `http://localhost:5174`;
+- MariaDB: `127.0.0.1:3307`.
+
+Не копіюй `.env` з першого проєкту: новий clone має отримати власний `APP_KEY`, а база даних буде порожньою та незалежною. Якщо потрібно перенести дані, зроби окремий backup і restore MariaDB.
+
 ## Основні команди
 
 Подивитися всі доступні команди:
