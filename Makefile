@@ -57,44 +57,41 @@ dev-build: config-dev ## Build development images
 dev-install: dev-build ## Prepare a fresh development checkout
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
 	$(DEV_COMPOSE) --profile dev run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
-	@if [ "$(ENV_FILE)" = ".env" ] && ! grep -Eq '^APP_KEY=.+$$' "$(ENV_FILE)"; then \
-		$(DEV_COMPOSE) run --rm --no-deps app php artisan key:generate --force; \
-	fi
 
-dev-up: ensure-env ## Start the development environment
+dev-up: dev-install ## Build, install dependencies, and start the development environment
 	$(DEV_COMPOSE) --profile dev up -d
 
-dev-down: ensure-env ## Stop the development environment without deleting volumes
+dev-down: config-dev ## Stop the development environment without deleting volumes
 	$(DEV_COMPOSE) --profile dev --profile worker --profile scheduler --profile tools down --remove-orphans
 
-dev-restart: ensure-env ## Restart development services
+dev-restart: config-dev ## Restart development services
 	$(DEV_COMPOSE) restart
 
-dev-logs: ensure-env ## Follow development service logs
+dev-logs: config-dev ## Follow development service logs
 	$(DEV_COMPOSE) logs -f --tail=100
 
-dev-status: ensure-env ## Show development container status
+dev-status: config-dev ## Show development container status
 	$(DEV_COMPOSE) ps
 
-dev-clear: ensure-env ## Clear Laravel optimization caches in development
+dev-clear: config-dev ## Clear Laravel optimization caches in development
 	$(DEV_COMPOSE) run --rm --no-deps app php artisan optimize:clear
 
-dev-migrate: ensure-env ## Run pending development migrations
+dev-migrate: config-dev ## Run pending development migrations
 	$(DEV_COMPOSE) run --rm app php artisan migrate --no-interaction
 
-dev-seed: ensure-env ## Run development database seeders
+dev-seed: config-dev ## Run development database seeders
 	$(DEV_COMPOSE) run --rm app php artisan db:seed --no-interaction
 
-dev-test: ensure-env ## Run the Laravel test suite in the development container
+dev-test: config-dev ## Run the Laravel test suite in the development container
 	$(DEV_COMPOSE) run --rm --no-deps app php artisan test --compact
 
-dev-vite: ensure-env ## Start or restart the Vite HMR service
+dev-vite: config-dev ## Start or restart the Vite HMR service
 	$(DEV_COMPOSE) --profile dev up -d --force-recreate node
 
-dev-worker: ensure-env ## Start the development queue worker profile
+dev-worker: config-dev ## Start the development queue worker profile
 	$(DEV_COMPOSE) --profile worker up -d queue-worker
 
-dev-scheduler: ensure-env ## Start the development scheduler profile
+dev-scheduler: config-dev ## Start the development scheduler profile
 	$(DEV_COMPOSE) --profile scheduler up -d scheduler
 
 ## -----------------------------------------------------------------------------
@@ -143,35 +140,35 @@ prod-scheduler: config-prod ## Start the production scheduler profile
 ## MONITORING
 ## -----------------------------------------------------------------------------
 
-docker-stats: ensure-env ## Show live resource usage for this Compose project
+docker-stats: config-dev ## Show live resource usage for this Compose project
 	$(DEV_COMPOSE) stats
 
 ## -----------------------------------------------------------------------------
 ## LARAVEL TOOLS
 ## -----------------------------------------------------------------------------
 
-tools-artisan: ensure-env ## Run an Artisan command, for example CMD="about"
+tools-artisan: config-dev ## Run an Artisan command, for example CMD="about"
 	@test -n "$(CMD)" || (echo 'Usage: make tools-artisan CMD="about"' && exit 1)
 	$(DEV_COMPOSE) run --rm app php artisan $(CMD)
 
-tools-composer: ensure-env ## Run a Composer command, for example CMD="show"
+tools-composer: config-dev ## Run a Composer command, for example CMD="show"
 	@test -n "$(CMD)" || (echo 'Usage: make tools-composer CMD="show"' && exit 1)
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer $(CMD)
 
-tools-npm: ensure-env ## Run an npm command, for example CMD="run build"
+tools-npm: config-dev ## Run an npm command, for example CMD="run build"
 	@test -n "$(CMD)" || (echo 'Usage: make tools-npm CMD="run build"' && exit 1)
 	$(DEV_COMPOSE) --profile dev run --rm --no-deps node $(CMD)
 
-tools-shell-php: ensure-env ## Open a shell in the development PHP container
+tools-shell-php: config-dev ## Open a shell in the development PHP container
 	$(DEV_COMPOSE) run --rm app sh
 
-tools-shell-node: ensure-env ## Open a shell in the development Node container
+tools-shell-node: config-dev ## Open a shell in the development Node container
 	$(DEV_COMPOSE) --profile dev run --rm --no-deps node sh
 
-tools-shell-mariadb: ensure-env ## Open the MariaDB client
+tools-shell-mariadb: config-dev ## Open the MariaDB client
 	$(DEV_COMPOSE) exec mariadb sh -lc 'mariadb -u"$${MARIADB_USER}" -p"$${MARIADB_PASSWORD}" "$${MARIADB_DATABASE}"'
 
-tools-pint: ensure-env ## Run Laravel Pint on modified PHP files
+tools-pint: config-dev ## Run Laravel Pint on modified PHP files
 	$(DEV_COMPOSE) run --rm --no-deps app vendor/bin/pint --dirty --format agent
 
 tools-test: dev-test ## Alias for the full Laravel test suite
@@ -180,6 +177,6 @@ tools-test: dev-test ## Alias for the full Laravel test suite
 ## CLEANUP
 ## -----------------------------------------------------------------------------
 
-tools-clean: ensure-env ## Stop this project's containers and networks without deleting volumes
+tools-clean: config-dev config-prod ## Stop this project's containers and networks without deleting volumes
 	$(DEV_COMPOSE) --profile dev --profile worker --profile scheduler --profile tools down --remove-orphans
 	$(PROD_COMPOSE) --profile worker --profile scheduler down --remove-orphans
