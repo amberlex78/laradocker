@@ -56,22 +56,22 @@ dev-build: config-dev ## Build development images
 
 dev-install: dev-build ## Prepare a fresh development checkout
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
-	$(DEV_COMPOSE) --profile dev run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
+	$(DEV_COMPOSE) run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
 
 dev-up: config-dev ## Start the development environment
-	$(DEV_COMPOSE) --profile dev up -d
+	$(DEV_COMPOSE) up -d
 
 dev-down: config-dev ## Stop the development environment without deleting volumes
-	$(DEV_COMPOSE) --profile dev --profile tools down --remove-orphans
+	$(DEV_COMPOSE) --profile tools down --remove-orphans
 
 dev-restart: config-dev ## Restart development services
-	$(DEV_COMPOSE) --profile dev restart
+	$(DEV_COMPOSE) restart
 
 dev-logs: config-dev ## Follow development service logs
-	$(DEV_COMPOSE) --profile dev logs -f --tail=100
+	$(DEV_COMPOSE) logs -f --tail=100
 
 dev-status: config-dev ## Show development container status
-	$(DEV_COMPOSE) --profile dev ps
+	$(DEV_COMPOSE) ps
 
 dev-clear: config-dev ## Clear Laravel optimization caches in development
 	$(DEV_COMPOSE) run --rm --no-deps app php artisan optimize:clear
@@ -86,7 +86,7 @@ dev-test: config-dev ## Run the Laravel test suite in the development container
 	$(DEV_COMPOSE) run --rm --no-deps app php artisan test --compact
 
 dev-vite: config-dev ## Start or restart the Vite HMR service
-	$(DEV_COMPOSE) --profile dev up -d --force-recreate node
+	$(DEV_COMPOSE) up -d --force-recreate node
 
 ## -----------------------------------------------------------------------------
 ## PRODUCTION (DEPLOYMENT)
@@ -129,7 +129,7 @@ prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-te
 ## -----------------------------------------------------------------------------
 
 docker-stats: config-dev ## Show live resource usage for this Compose project
-	$(DEV_COMPOSE) --profile dev stats
+	$(DEV_COMPOSE) stats
 
 ## -----------------------------------------------------------------------------
 ## LARAVEL TOOLS
@@ -145,13 +145,13 @@ tools-composer: config-dev ## Run a Composer command, for example CMD="show"
 
 tools-npm: config-dev ## Run an npm command, for example CMD="run build"
 	@test -n "$(CMD)" || (echo 'Usage: make tools-npm CMD="run build"' && exit 1)
-	$(DEV_COMPOSE) --profile dev run --rm --no-deps node $(CMD)
+	$(DEV_COMPOSE) run --rm --no-deps node $(CMD)
 
 tools-shell-php: config-dev ## Open a shell in the development PHP container
 	$(DEV_COMPOSE) run --rm app sh
 
 tools-shell-node: config-dev ## Open a shell in the development Node container
-	$(DEV_COMPOSE) --profile dev run --rm --no-deps node sh
+	$(DEV_COMPOSE) run --rm --no-deps node sh
 
 tools-shell-mariadb: config-dev ## Open the MariaDB client
 	$(DEV_COMPOSE) exec mariadb sh -lc 'mariadb -u"$${MARIADB_USER}" -p"$${MARIADB_PASSWORD}" "$${MARIADB_DATABASE}"'
@@ -166,5 +166,5 @@ tools-test: dev-test ## Alias for the full Laravel test suite
 ## -----------------------------------------------------------------------------
 
 tools-clean: config-dev config-prod ## Stop this project's containers and networks without deleting volumes
-	$(DEV_COMPOSE) --profile dev --profile tools down --remove-orphans
+	$(DEV_COMPOSE) --profile tools down --remove-orphans
 	$(PROD_COMPOSE) down --remove-orphans

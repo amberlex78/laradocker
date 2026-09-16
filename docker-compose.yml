@@ -89,17 +89,6 @@ services:
     networks:
       - frontend
 
-  node:
-    image: node:24-bookworm-slim
-    profiles:
-      - dev
-    working_dir: /var/www/html
-    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
-    volumes:
-      - .:/var/www/html
-    networks:
-      - frontend
-
 networks:
   frontend:
   backend:

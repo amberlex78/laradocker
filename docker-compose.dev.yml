@@ -19,11 +19,14 @@ services:
     volumes:
       - .:/var/www/html:ro
 
-  mariadb:
-    ports:
-      - "127.0.0.1:${DB_FORWARD_PORT:-3306}:3306"
-
   node:
+    image: node:24-bookworm-slim
+    working_dir: /var/www/html
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    volumes:
+      - .:/var/www/html
+    networks:
+      - frontend
     user: "${APP_UID:-1000}:${APP_GID:-1000}"
     environment:
       VITE_PORT: ${VITE_PORT:-5173}
@@ -31,3 +34,7 @@ services:
       VITE_HMR_PORT: ${VITE_HMR_PORT:-5173}
     ports:
       - "127.0.0.1:${VITE_FORWARD_PORT:-5173}:5173"
+
+  mariadb:
+    ports:
+      - "127.0.0.1:${DB_FORWARD_PORT:-3306}:3306"
