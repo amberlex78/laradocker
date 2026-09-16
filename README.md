@@ -144,10 +144,10 @@ make dev-scheduler
 
 Production images будуються на VPS із поточного Git checkout. Registry та автоматичний CI/CD pipeline не потрібні.
 
-На сервері створи production `.env` з готового шаблону:
+На сервері створи production `.env.prod` з готового шаблону:
 
 ```bash
-cp .env.prod.example .env
+cp .env.prod.example .env.prod
 ```
 
 Потім задай власні значення секретів, домену та бази даних. Шаблон містить:
@@ -166,17 +166,24 @@ DB_PASSWORD=strong-password
 DB_ROOT_PASSWORD=another-strong-password
 ```
 
-`.env.prod.example` не містить реальних секретів і може зберігатися в Git. Файл `.env` у Git не додається.
+`.env.prod.example` не містить реальних секретів і може зберігатися в Git. Файли `.env` і `.env.prod` у Git не додаються.
+
+Makefile використовує `.env` за замовчуванням. Для іншого env-файлу передай його через `ENV_FILE`:
+
+```bash
+make ENV_FILE=.env.prod config-prod
+make ENV_FILE=.env.prod prod-deploy
+```
 
 Deploy:
 
 ```bash
 git checkout <version>
-make config-prod
-make prod-deploy
+make ENV_FILE=.env.prod config-prod
+make ENV_FILE=.env.prod prod-deploy
 ```
 
-`make prod-deploy`:
+`make ENV_FILE=.env.prod prod-deploy`:
 
 1. будує PHP, Nginx і MariaDB images;
 2. запускає або оновлює production services;
@@ -189,8 +196,38 @@ make prod-deploy
 Для production worker і scheduler:
 
 ```bash
-make prod-worker
-make prod-scheduler
+make ENV_FILE=.env.prod prod-worker
+make ENV_FILE=.env.prod prod-scheduler
+```
+
+### Локальний production-like запуск
+
+Для перевірки production image локально створи окремий env-файл і project name:
+
+```bash
+cp .env.prod.example .env.prod
+```
+
+У `.env.prod` задай, наприклад:
+
+```dotenv
+COMPOSE_PROJECT_NAME=laravel-prod-local
+APP_URL=http://localhost:8080
+PROD_HTTP_PORT=8080
+```
+
+Потім запусти production-оточення:
+
+```bash
+make ENV_FILE=.env.prod prod-deploy
+make ENV_FILE=.env.prod prod-status
+```
+
+Повернення до локальної розробки:
+
+```bash
+make ENV_FILE=.env.prod prod-down
+make dev-up
 ```
 
 ## Reverse proxy та декілька проєктів на VPS
@@ -241,7 +278,7 @@ PROD_HTTP_PORT=8081
 Production MariaDB не має host-порту, тому backup виконується через контейнер:
 
 ```bash
-docker compose --env-file .env \
+docker compose --env-file .env.prod \
     -f docker-compose.yml \
     -f docker-compose.prod.yml \
     exec -T mariadb \
@@ -252,7 +289,7 @@ docker compose --env-file .env \
 Restore потрібно виконувати обережно, перевіривши цільову базу даних:
 
 ```bash
-cat backup.sql | docker compose --env-file .env \
+cat backup.sql | docker compose --env-file .env.prod \
     -f docker-compose.yml \
     -f docker-compose.prod.yml \
     exec -T mariadb \

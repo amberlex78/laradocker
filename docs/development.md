@@ -60,3 +60,29 @@ DB_FORWARD_PORT=3307
 ```
 
 Its containers and volumes will remain independent from the first project.
+
+## Running the production image locally
+
+Use a separate ignored env file and Compose project name so the production-like stack does not share containers or volumes with development:
+
+```bash
+cp .env.prod.example .env.prod
+```
+
+Set these local values in `.env.prod`:
+
+```dotenv
+COMPOSE_PROJECT_NAME=laravel-prod-local
+APP_URL=http://localhost:8080
+PROD_HTTP_PORT=8080
+```
+
+Start and stop it with the selected env file:
+
+```bash
+make ENV_FILE=.env.prod prod-deploy
+make ENV_FILE=.env.prod prod-status
+make ENV_FILE=.env.prod prod-down
+```
+
+The production-like stack uses built frontend assets, does not mount source code, and does not publish MariaDB to the host.

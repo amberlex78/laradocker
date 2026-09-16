@@ -1,14 +1,16 @@
 SHELL := /bin/sh
 
-PROJECT_NAME := $(or $(shell sed -n 's/^COMPOSE_PROJECT_NAME=//p' .env 2>/dev/null | tail -1),laravel-app)
-DEV_HTTP_PORT := $(or $(shell sed -n 's/^DEV_HTTP_PORT=//p' .env 2>/dev/null | tail -1),8000)
-PROD_HTTP_PORT := $(or $(shell sed -n 's/^PROD_HTTP_PORT=//p' .env 2>/dev/null | tail -1),8080)
-DB_FORWARD_PORT := $(or $(shell sed -n 's/^DB_FORWARD_PORT=//p' .env 2>/dev/null | tail -1),3306)
-VITE_FORWARD_PORT := $(or $(shell sed -n 's/^VITE_FORWARD_PORT=//p' .env 2>/dev/null | tail -1),5173)
-VITE_PORT := $(or $(shell sed -n 's/^VITE_PORT=//p' .env 2>/dev/null | tail -1),5173)
-VITE_HMR_PORT := $(or $(shell sed -n 's/^VITE_HMR_PORT=//p' .env 2>/dev/null | tail -1),5173)
+ENV_FILE ?= .env
 
-COMPOSE := COMPOSE_PROJECT_NAME=$(PROJECT_NAME) DEV_HTTP_PORT=$(DEV_HTTP_PORT) PROD_HTTP_PORT=$(PROD_HTTP_PORT) DB_FORWARD_PORT=$(DB_FORWARD_PORT) VITE_FORWARD_PORT=$(VITE_FORWARD_PORT) VITE_PORT=$(VITE_PORT) VITE_HMR_PORT=$(VITE_HMR_PORT) docker compose --env-file .env
+PROJECT_NAME := $(or $(shell sed -n 's/^COMPOSE_PROJECT_NAME=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),laravel-app)
+DEV_HTTP_PORT := $(or $(shell sed -n 's/^DEV_HTTP_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),8000)
+PROD_HTTP_PORT := $(or $(shell sed -n 's/^PROD_HTTP_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),8080)
+DB_FORWARD_PORT := $(or $(shell sed -n 's/^DB_FORWARD_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),3306)
+VITE_FORWARD_PORT := $(or $(shell sed -n 's/^VITE_FORWARD_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
+VITE_PORT := $(or $(shell sed -n 's/^VITE_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
+VITE_HMR_PORT := $(or $(shell sed -n 's/^VITE_HMR_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
+
+COMPOSE := COMPOSE_PROJECT_NAME=$(PROJECT_NAME) DEV_HTTP_PORT=$(DEV_HTTP_PORT) PROD_HTTP_PORT=$(PROD_HTTP_PORT) DB_FORWARD_PORT=$(DB_FORWARD_PORT) VITE_FORWARD_PORT=$(VITE_FORWARD_PORT) VITE_PORT=$(VITE_PORT) VITE_HMR_PORT=$(VITE_HMR_PORT) docker compose --env-file $(ENV_FILE)
 BASE_FILES := -f docker-compose.yml
 DEV_FILES := $(BASE_FILES) -f docker-compose.dev.yml
 PROD_FILES := $(BASE_FILES) -f docker-compose.prod.yml
@@ -34,7 +36,7 @@ help: ## Show available commands
 		/^[a-zA-Z0-9_.-]+:.*##/ {printf "  %-22s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 ensure-env:
-	@test -f .env || (echo "Missing .env. Run: cp .env.example .env" && exit 1)
+	@test -f "$(ENV_FILE)" || (echo "Missing $(ENV_FILE). Copy the appropriate example env file first." && exit 1)
 
 config-dev: ensure-env ## Validate the development Compose configuration
 	$(COMPOSE) $(DEV_FILES) config --quiet

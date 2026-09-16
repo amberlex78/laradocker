@@ -4,10 +4,10 @@ Production images are built on the VPS from the checked-out Git revision. No reg
 
 ## Prepare the server
 
-Create a production `.env` outside Git from the committed template:
+Create a production `.env.prod` outside Git from the committed template:
 
 ```bash
-cp .env.prod.example .env
+cp .env.prod.example .env.prod
 ```
 
 Then replace the placeholders with real production values:
@@ -26,14 +26,14 @@ DB_PASSWORD=use-a-strong-password
 DB_ROOT_PASSWORD=use-a-different-strong-root-password
 ```
 
-The `.env` file is excluded from the Docker build context. `APP_KEY` and database passwords are never baked into an image.
+The `.env.prod` file is excluded from the Docker build context. `APP_KEY` and database passwords are never baked into an image.
 
 ## Deploy
 
 ```bash
 git checkout <version>
-make config-prod
-make prod-deploy
+make ENV_FILE=.env.prod config-prod
+make ENV_FILE=.env.prod prod-deploy
 ```
 
 `prod-deploy` performs the following non-destructive sequence:
@@ -49,8 +49,8 @@ It does not run `migrate:fresh`, remove volumes, or delete database data.
 Queue workers and the scheduler are opt-in:
 
 ```bash
-make prod-worker
-make prod-scheduler
+make ENV_FILE=.env.prod prod-worker
+make ENV_FILE=.env.prod prod-scheduler
 ```
 
 If the application dispatches jobs or defines scheduled tasks, start the relevant profiles after deployment.
@@ -83,14 +83,14 @@ For a second Laravel project, use another hostname and port, for example `app-tw
 Create a logical backup without publishing MariaDB externally:
 
 ```bash
-docker compose --env-file .env -f docker-compose.yml -f docker-compose.prod.yml exec -T mariadb \
+docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml exec -T mariadb \
     sh -lc 'mariadb-dump -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"' > backup.sql
 ```
 
 Restore after reviewing the target database:
 
 ```bash
-cat backup.sql | docker compose --env-file .env -f docker-compose.yml -f docker-compose.prod.yml exec -T mariadb \
+cat backup.sql | docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml exec -T mariadb \
     sh -lc 'mariadb -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"'
 ```
 
@@ -98,8 +98,8 @@ Use a password manager or a protected shell environment for backup credentials. 
 
 ## Troubleshooting
 
-- `make config-prod`: checks Compose interpolation and service configuration.
-- `make prod-status`: shows service health.
-- `make prod-logs`: follows container logs.
+- `make ENV_FILE=.env.prod config-prod`: checks Compose interpolation and service configuration.
+- `make ENV_FILE=.env.prod prod-status`: shows service health.
+- `make ENV_FILE=.env.prod prod-logs`: follows container logs.
 - `docker compose ... exec app php artisan about --only=environment`: confirms the active Laravel environment.
 - If `/up` fails, check MariaDB health first, then PHP-FPM logs, then nginx logs.
