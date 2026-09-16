@@ -21,7 +21,7 @@ PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 ## -----------------------------------------------------------------------------
 
 .PHONY: help ensure-env config-dev config-prod build \
-        dev-up dev-build dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
+        dev-install dev-up dev-build dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
         dev-seed dev-test dev-vite dev-worker dev-scheduler \
         prod-build prod-up prod-down prod-restart prod-logs prod-status \
         prod-migrate prod-optimize prod-deploy prod-worker prod-scheduler \
@@ -52,8 +52,14 @@ build: config-dev config-prod ## Validate both Compose configurations
 dev-build: config-dev ## Build development images
 	$(DEV_COMPOSE) build
 
-dev-up: dev-build ## Install dependencies and start the development environment
+dev-install: dev-build ## Prepare a fresh development checkout
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
+	$(DEV_COMPOSE) --profile dev run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
+	@if [ "$(ENV_FILE)" = ".env" ] && ! grep -Eq '^APP_KEY=.+$$' "$(ENV_FILE)"; then \
+		$(DEV_COMPOSE) run --rm --no-deps app php artisan key:generate --force; \
+	fi
+
+dev-up: ensure-env ## Start the development environment
 	$(DEV_COMPOSE) --profile dev up -d
 
 dev-down: ensure-env ## Stop the development environment without deleting volumes

@@ -11,14 +11,12 @@ The host does not need PHP, Composer, Node, or MariaDB.
 
 ```bash
 cp .env.example .env
-make dev-build
-make tools-composer CMD="install --no-interaction --prefer-dist"
-make tools-artisan CMD="key:generate --force"
+make dev-install
 make dev-up
 make dev-migrate
 ```
 
-Generate `APP_KEY` before the first `dev-up`: Docker passes `.env` values to the application container when it is created.
+`make dev-install` builds the images, installs Composer and Node dependencies, and generates `APP_KEY` when it is empty. Run it after cloning the repository or when local dependencies have been removed.
 
 If the project was already initialized, keep the existing `APP_KEY` and only update the Docker/MariaDB values in `.env`.
 
@@ -41,7 +39,7 @@ make tools-composer CMD="show"
 make tools-npm CMD="run build"
 ```
 
-The first `make dev-up` builds the images, installs Composer dependencies into the project `vendor/` directory, and starts nginx, PHP-FPM, MariaDB, and Vite. Node dependencies are installed into the project `node_modules/` directory. Both directories remain visible to Zed and other host editors. The Makefile derives the host UID/GID automatically, so no permissions variables need to be edited manually. Queue workers and the scheduler are opt-in:
+`make dev-up` only starts nginx, PHP-FPM, MariaDB, and Vite. Use `make dev-build` to rebuild images and `make dev-install` to reinstall project dependencies. Both `vendor/` and `node_modules/` remain visible to Zed and other host editors. The Makefile derives the host UID/GID automatically, so no permissions variables need to be edited manually. Queue workers and the scheduler are opt-in:
 
 ```bash
 make dev-worker

@@ -146,7 +146,7 @@ services:
     profiles:
       - dev
     working_dir: /var/www/html
-    command: ["sh", "-c", "if [ ! -x node_modules/.bin/vite ]; then npm ci --no-audit --no-fund --cache /tmp/npm; fi; exec npm run dev -- --host 0.0.0.0"]
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
     volumes:
       - .:/var/www/html
     networks:

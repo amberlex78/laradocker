@@ -31,14 +31,12 @@ PHP, Composer, Node.js і MariaDB на host-машині не потрібні.
 
 ```bash
 cp .env.example .env
-make dev-build
-make tools-composer CMD="install --no-interaction --prefer-dist"
-make tools-artisan CMD="key:generate --force"
+make dev-install
 make dev-up
 make dev-migrate
 ```
 
-Генеруй `APP_KEY` до першого запуску `app`: Docker передає змінні з `.env` під час створення контейнера. Якщо `APP_KEY` вже існує, повторно генерувати його не потрібно.
+`make dev-install` потрібен тільки після clone або після видалення локальних залежностей. Він збирає образи, встановлює Composer і Node-залежності та генерує `APP_KEY`, якщо він порожній.
 
 Після запуску:
 
@@ -47,7 +45,7 @@ make dev-migrate
 - Vite HMR: <http://localhost:5173>;
 - MariaDB: `127.0.0.1:3306`.
 
-`make dev-up` будує dev-образи, встановлює Composer-залежності у локальну папку `vendor/` і запускає PHP-FPM, Nginx, MariaDB та Vite. Frontend-залежності встановлюються у локальну папку `node_modules/`.
+`make dev-up` лише запускає PHP-FPM, Nginx, MariaDB та Vite. Для повторної збірки образів використовуй `make dev-build`, а для оновлення залежностей — `make dev-install`.
 
 `vendor/`, `node_modules/`, `public/build/`, `public/hot` і Laravel cache створюються від UID/GID поточного користувача хоста. Тому Zed та інші редактори бачать залежності безпосередньо у робочому дереві, як у звичайній локальній Laravel-розробці.
 
