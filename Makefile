@@ -22,7 +22,7 @@ PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 ## GENERAL & CONFIGURATION
 ## -----------------------------------------------------------------------------
 
-.PHONY: help ensure-env config-dev config-prod build \
+.PHONY: help ensure-env config-dev config-prod validate \
         dev-install dev-up dev-build dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
         dev-seed dev-test dev-vite dev-worker dev-scheduler \
         prod-build prod-up prod-down prod-restart prod-logs prod-status \
@@ -45,7 +45,7 @@ config-dev: ensure-env ## Validate the development Compose configuration
 config-prod: ensure-env ## Validate the production Compose configuration
 	$(PROD_COMPOSE) config --quiet
 
-build: config-dev config-prod ## Validate both Compose configurations
+validate: config-dev config-prod ## Validate both Compose configurations
 
 ## -----------------------------------------------------------------------------
 ## DEVELOPMENT (LOCAL)
@@ -58,7 +58,7 @@ dev-install: dev-build ## Prepare a fresh development checkout
 	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
 	$(DEV_COMPOSE) --profile dev run --rm --no-deps node npm ci --no-audit --no-fund --cache /tmp/npm
 
-dev-up: dev-install ## Build, install dependencies, and start the development environment
+dev-up: config-dev ## Start the development environment
 	$(DEV_COMPOSE) --profile dev up -d
 
 dev-down: config-dev ## Stop the development environment without deleting volumes
