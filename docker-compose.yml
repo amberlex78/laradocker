@@ -138,7 +138,6 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
-      - vendor:/var/www/html/vendor
     networks:
       - frontend
 
@@ -147,10 +146,9 @@ services:
     profiles:
       - dev
     working_dir: /var/www/html
-    command: ["sh", "-c", "if [ ! -x node_modules/.bin/vite ]; then npm ci --no-audit --no-fund; fi; exec npm run dev -- --host 0.0.0.0"]
+    command: ["sh", "-c", "if [ ! -x node_modules/.bin/vite ]; then npm ci --no-audit --no-fund --cache /tmp/npm; fi; exec npm run dev -- --host 0.0.0.0"]
     volumes:
       - .:/var/www/html
-      - node-modules:/var/www/html/node_modules
     networks:
       - frontend
 
@@ -187,5 +185,3 @@ networks:
 
 volumes:
   mariadb-data:
-  vendor:
-  node-modules:

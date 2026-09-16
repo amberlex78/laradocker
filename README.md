@@ -45,7 +45,9 @@ make dev-migrate
 - Vite HMR: <http://localhost:5173>;
 - MariaDB: `127.0.0.1:3306`.
 
-`make dev-up` будує dev-образи, встановлює Composer-залежності у named volume і запускає PHP-FPM, Nginx, MariaDB та Vite.
+`make dev-up` будує dev-образи, встановлює Composer-залежності у локальну папку `vendor/` і запускає PHP-FPM, Nginx, MariaDB та Vite. Frontend-залежності встановлюються у локальну папку `node_modules/`.
+
+`vendor/`, `node_modules/`, `public/build/`, `public/hot` і Laravel cache створюються від UID/GID поточного користувача хоста. Тому Zed та інші редактори бачать залежності безпосередньо у робочому дереві, як у звичайній локальній Laravel-розробці.
 
 ## Як працює Docker-архітектура
 

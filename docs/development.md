@@ -37,7 +37,7 @@ make tools-composer CMD="show"
 make tools-npm CMD="run build"
 ```
 
-The first `make dev-up` builds the images, installs Composer dependencies into the named `vendor` volume, and starts nginx, PHP-FPM, MariaDB, and Vite. Queue workers and the scheduler are opt-in:
+The first `make dev-up` builds the images, installs Composer dependencies into the project `vendor/` directory, and starts nginx, PHP-FPM, MariaDB, and Vite. Node dependencies are installed into the project `node_modules/` directory. Both directories remain visible to Zed and other host editors. The Makefile derives the host UID/GID automatically, so no permissions variables need to be edited manually. Queue workers and the scheduler are opt-in:
 
 ```bash
 make dev-worker

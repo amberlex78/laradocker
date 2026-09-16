@@ -62,6 +62,8 @@ COPY --chown=app:app docker/php/entrypoint.sh /usr/local/bin/laravel-entrypoint
 
 RUN chmod 755 /usr/local/bin/laravel-entrypoint
 
+ENV HOME=/home/app
+
 WORKDIR /var/www/html
 USER app
 

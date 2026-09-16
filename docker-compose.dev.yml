@@ -1,5 +1,6 @@
 services:
   app:
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
     build:
       target: dev
     environment:
@@ -8,7 +9,9 @@ services:
       APP_URL: http://localhost:${DEV_HTTP_PORT:-8000}
     volumes:
       - .:/var/www/html
-      - vendor:/var/www/html/vendor
+
+  composer:
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
 
   nginx:
     ports:
@@ -21,6 +24,7 @@ services:
       - "127.0.0.1:${DB_FORWARD_PORT:-3306}:3306"
 
   node:
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
     environment:
       VITE_PORT: ${VITE_PORT:-5173}
       VITE_HMR_HOST: ${VITE_HMR_HOST:-localhost}

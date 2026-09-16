@@ -9,8 +9,11 @@ DB_FORWARD_PORT := $(or $(shell sed -n 's/^DB_FORWARD_PORT=//p' "$(ENV_FILE)" 2>
 VITE_FORWARD_PORT := $(or $(shell sed -n 's/^VITE_FORWARD_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
 VITE_PORT := $(or $(shell sed -n 's/^VITE_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
 VITE_HMR_PORT := $(or $(shell sed -n 's/^VITE_HMR_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
+# Dev containers write to bind-mounted project directories as the host user.
+APP_UID ?= $(shell id -u)
+APP_GID ?= $(shell id -g)
 
-COMPOSE := COMPOSE_PROJECT_NAME=$(PROJECT_NAME) DEV_HTTP_PORT=$(DEV_HTTP_PORT) PROD_HTTP_PORT=$(PROD_HTTP_PORT) DB_FORWARD_PORT=$(DB_FORWARD_PORT) VITE_FORWARD_PORT=$(VITE_FORWARD_PORT) VITE_PORT=$(VITE_PORT) VITE_HMR_PORT=$(VITE_HMR_PORT) docker compose --env-file $(ENV_FILE)
+COMPOSE := APP_UID=$(APP_UID) APP_GID=$(APP_GID) COMPOSE_PROJECT_NAME=$(PROJECT_NAME) DEV_HTTP_PORT=$(DEV_HTTP_PORT) PROD_HTTP_PORT=$(PROD_HTTP_PORT) DB_FORWARD_PORT=$(DB_FORWARD_PORT) VITE_FORWARD_PORT=$(VITE_FORWARD_PORT) VITE_PORT=$(VITE_PORT) VITE_HMR_PORT=$(VITE_HMR_PORT) docker compose --env-file $(ENV_FILE)
 BASE_COMPOSE := $(COMPOSE) -f docker-compose.yml
 DEV_COMPOSE := $(BASE_COMPOSE) -f docker-compose.dev.yml
 PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml

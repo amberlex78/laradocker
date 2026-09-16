@@ -33,10 +33,11 @@ The production images do not contain `.env`, `vendor` from the host, or `node_mo
 
 The development overlay additionally publishes nginx, Vite, and MariaDB on localhost.
 
-## Volumes
+## Development mounts and production volumes
 
 - `mariadb-data` persists the database.
-- `vendor` and `node-modules` are development dependency volumes.
+- Development bind-mounts the project source, including `vendor/` and `node_modules/`, so host editors can index the installed dependencies.
+- Development services run with the host user's UID/GID to prevent root-owned files in the working tree.
 - Production does not bind-mount source code.
 
 If the application later stores user uploads on the local filesystem, add a dedicated persistent volume for `storage/app` or move uploads to object storage. The current skeleton does not require that volume.
