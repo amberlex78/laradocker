@@ -2,13 +2,6 @@ SHELL := /bin/sh
 
 ENV_FILE ?= .env
 
-PROJECT_NAME := $(or $(shell sed -n 's/^COMPOSE_PROJECT_NAME=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),laravel-app)
-DEV_HTTP_PORT := $(or $(shell sed -n 's/^DEV_HTTP_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),8000)
-PROD_HTTP_PORT := $(or $(shell sed -n 's/^PROD_HTTP_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),8080)
-DB_FORWARD_PORT := $(or $(shell sed -n 's/^DB_FORWARD_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),3306)
-VITE_FORWARD_PORT := $(or $(shell sed -n 's/^VITE_FORWARD_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
-VITE_PORT := $(or $(shell sed -n 's/^VITE_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
-VITE_HMR_PORT := $(or $(shell sed -n 's/^VITE_HMR_PORT=//p' "$(ENV_FILE)" 2>/dev/null | tail -1),5173)
 # Dev containers write to bind-mounted project directories as the host user.
 APP_UID ?= $(shell id -u)
 APP_GID ?= $(shell id -g)
@@ -16,13 +9,6 @@ APP_GID ?= $(shell id -g)
 COMPOSE := \
 	APP_UID=$(APP_UID) \
 	APP_GID=$(APP_GID) \
-	COMPOSE_PROJECT_NAME=$(PROJECT_NAME) \
-	DEV_HTTP_PORT=$(DEV_HTTP_PORT) \
-	PROD_HTTP_PORT=$(PROD_HTTP_PORT) \
-	DB_FORWARD_PORT=$(DB_FORWARD_PORT) \
-	VITE_FORWARD_PORT=$(VITE_FORWARD_PORT) \
-	VITE_PORT=$(VITE_PORT) \
-	VITE_HMR_PORT=$(VITE_HMR_PORT) \
 	docker compose --env-file $(ENV_FILE)
 BASE_COMPOSE := $(COMPOSE) -f docker-compose.yml
 DEV_COMPOSE := $(BASE_COMPOSE) -f docker-compose.dev.yml
@@ -135,8 +121,9 @@ prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-te
 	$(MAKE) prod-migrate
 	$(MAKE) prod-optimize
 	$(PROD_COMPOSE) exec -T app php artisan about --only=environment
-	curl --fail --silent --show-error --retry 10 --retry-delay 1 http://127.0.0.1:$(PROD_HTTP_PORT)/up >/dev/null
-	@echo "Production smoke check passed on 127.0.0.1:$(PROD_HTTP_PORT)/up"
+	@published_port=$$($(PROD_COMPOSE) port nginx 8080 | sed 's/.*://'); \
+	curl --fail --silent --show-error --retry 10 --retry-delay 1 "http://127.0.0.1:$${published_port}/up" >/dev/null; \
+	echo "Production smoke check passed on 127.0.0.1:$${published_port}/up"
 
 prod-worker: config-prod ## Start the production queue worker profile
 	$(PROD_COMPOSE) --profile worker up -d queue-worker
