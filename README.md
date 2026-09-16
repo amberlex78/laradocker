@@ -18,7 +18,7 @@ Laravel-застосунок, підготовлений для роботи п�
 | Composer | `composer:2.9.8` | PHP-залежності |
 | Node.js | `node:24-bookworm-slim` | Vite та frontend dependencies |
 
-Redis на першому етапі не використовується. Session, cache і queue працюють через MariaDB.
+Redis на першому етапі не використовується. Session і cache працюють через MariaDB. Queue driver також налаштований на MariaDB, але queue worker наразі не входить до Compose-оточення, тому jobs не обробляються автоматично.
 
 ## Швидкий старт
 
