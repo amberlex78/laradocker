@@ -9,6 +9,7 @@ APP_GID ?= $(shell id -g)
 COMPOSE := \
 	APP_UID=$(APP_UID) \
 	APP_GID=$(APP_GID) \
+	RUNTIME_ENV_FILE=$(ENV_FILE) \
 	docker compose --env-file $(ENV_FILE)
 BASE_COMPOSE := $(COMPOSE) -f docker-compose.yml
 DEV_COMPOSE := $(BASE_COMPOSE) -f docker-compose.dev.yml
