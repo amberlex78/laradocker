@@ -15,6 +15,7 @@ DEV_COMPOSE := $(BASE_COMPOSE) -f docker-compose.dev.yml
 PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 
 .DEFAULT_GOAL := help
+.SILENT:
 
 ## -----------------------------------------------------------------------------
 ## GENERAL & CONFIGURATION
