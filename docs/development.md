@@ -39,12 +39,7 @@ make tools-composer CMD="show"
 make tools-npm CMD="run build"
 ```
 
-`make dev-up` only starts nginx, PHP-FPM, MariaDB, and Vite. Use `make dev-build` to rebuild images and `make dev-install` to reinstall project dependencies. Both `vendor/` and `node_modules/` remain visible to Zed and other host editors. The Makefile derives the host UID/GID automatically, so no permissions variables need to be edited manually. Queue workers and the scheduler are opt-in:
-
-```bash
-make dev-worker
-make dev-scheduler
-```
+`make dev-up` starts nginx, PHP-FPM, MariaDB, and Vite. Use `make dev-build` to rebuild images and `make dev-install` to reinstall project dependencies. Both `vendor/` and `node_modules/` remain visible to Zed and other host editors. The Makefile derives the host UID/GID automatically, so no permissions variables need to be edited manually.
 
 `make tools-clean` removes this project's containers and networks but does not delete the MariaDB volume. Do not use `docker compose down -v` unless deleting the local database is intentional.
 

@@ -100,32 +100,6 @@ services:
     networks:
       - frontend
 
-  queue-worker:
-    <<: *app-environment
-    image: *app-image
-    profiles:
-      - worker
-    command: ["php", "artisan", "queue:work", "--sleep=3", "--tries=3", "--timeout=90"]
-    working_dir: /var/www/html
-    networks:
-      - backend
-    depends_on:
-      mariadb:
-        condition: service_healthy
-
-  scheduler:
-    <<: *app-environment
-    image: *app-image
-    profiles:
-      - scheduler
-    command: ["php", "artisan", "schedule:work"]
-    working_dir: /var/www/html
-    networks:
-      - backend
-    depends_on:
-      mariadb:
-        condition: service_healthy
-
 networks:
   frontend:
   backend:

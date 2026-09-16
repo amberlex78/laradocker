@@ -46,15 +46,6 @@ make ENV_FILE=.env.prod prod-deploy
 
 It does not run `migrate:fresh`, remove volumes, or delete database data.
 
-Queue workers and the scheduler are opt-in:
-
-```bash
-make ENV_FILE=.env.prod prod-worker
-make ENV_FILE=.env.prod prod-scheduler
-```
-
-If the application dispatches jobs or defines scheduled tasks, start the relevant profiles after deployment.
-
 ## External reverse proxy
 
 The external Nginx terminates TLS and proxies the application domain to the project-local port:

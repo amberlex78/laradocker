@@ -93,7 +93,7 @@ make
 ### Розробка
 
 ```bash
-make dev-up       # зібрати образи та запустити dev-оточення
+make dev-up       # запустити dev-оточення
 make dev-down     # зупинити контейнери без видалення volumes
 make dev-status   # перевірити статус сервісів
 make dev-logs     # переглядати логи
@@ -127,19 +127,12 @@ make tools-shell-node
 make tools-shell-mariadb
 ```
 
-### Vite, queue і scheduler
+### Vite
 
 Vite запускається разом із `make dev-up`. Якщо його потрібно перезапустити:
 
 ```bash
 make dev-vite
-```
-
-Queue worker і scheduler не запускаються автоматично. Вони вмикаються окремими Compose profiles:
-
-```bash
-make dev-worker
-make dev-scheduler
 ```
 
 ## Production deployment
@@ -194,13 +187,6 @@ make ENV_FILE=.env.prod prod-deploy
 5. перевіряє `/up` через локальний production port.
 
 Міграції запускаються явно в deploy-команді та не виконуються автоматично при старті контейнера.
-
-Для production worker і scheduler:
-
-```bash
-make ENV_FILE=.env.prod prod-worker
-make ENV_FILE=.env.prod prod-scheduler
-```
 
 ### Локальний production-like запуск
 

@@ -31,9 +31,3 @@ services:
       VITE_HMR_PORT: ${VITE_HMR_PORT:-5173}
     ports:
       - "127.0.0.1:${VITE_FORWARD_PORT:-5173}:5173"
-
-  queue-worker:
-    restart: "no"
-
-  scheduler:
-    restart: "no"

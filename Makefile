@@ -24,9 +24,9 @@ PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 
 .PHONY: help ensure-env config-dev config-prod validate \
         dev-install dev-up dev-build dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
-        dev-seed dev-test dev-vite dev-worker dev-scheduler \
+        dev-seed dev-test dev-vite \
         prod-build prod-up prod-down prod-restart prod-logs prod-status \
-        prod-migrate prod-optimize prod-deploy prod-worker prod-scheduler \
+        prod-migrate prod-optimize prod-deploy \
         tools-artisan tools-composer tools-npm tools-shell-php tools-shell-node \
         tools-shell-mariadb tools-pint tools-test tools-clean docker-stats
 
@@ -62,7 +62,7 @@ dev-up: config-dev ## Start the development environment
 	$(DEV_COMPOSE) --profile dev up -d
 
 dev-down: config-dev ## Stop the development environment without deleting volumes
-	$(DEV_COMPOSE) --profile dev --profile worker --profile scheduler --profile tools down --remove-orphans
+	$(DEV_COMPOSE) --profile dev --profile tools down --remove-orphans
 
 dev-restart: config-dev ## Restart development services
 	$(DEV_COMPOSE) restart
@@ -88,12 +88,6 @@ dev-test: config-dev ## Run the Laravel test suite in the development container
 dev-vite: config-dev ## Start or restart the Vite HMR service
 	$(DEV_COMPOSE) --profile dev up -d --force-recreate node
 
-dev-worker: config-dev ## Start the development queue worker profile
-	$(DEV_COMPOSE) --profile worker up -d queue-worker
-
-dev-scheduler: config-dev ## Start the development scheduler profile
-	$(DEV_COMPOSE) --profile scheduler up -d scheduler
-
 ## -----------------------------------------------------------------------------
 ## PRODUCTION (DEPLOYMENT)
 ## -----------------------------------------------------------------------------
@@ -105,7 +99,7 @@ prod-up: config-prod ## Start the production environment
 	$(PROD_COMPOSE) up -d
 
 prod-down: config-prod ## Stop the production environment without deleting volumes
-	$(PROD_COMPOSE) --profile worker --profile scheduler down --remove-orphans
+	$(PROD_COMPOSE) down --remove-orphans
 
 prod-restart: config-prod ## Restart production services
 	$(PROD_COMPOSE) restart
@@ -129,12 +123,6 @@ prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-te
 	@published_port=$$($(PROD_COMPOSE) port nginx 8080 | sed 's/.*://'); \
 	curl --fail --silent --show-error --retry 10 --retry-delay 1 "http://127.0.0.1:$${published_port}/up" >/dev/null; \
 	echo "Production smoke check passed on 127.0.0.1:$${published_port}/up"
-
-prod-worker: config-prod ## Start the production queue worker profile
-	$(PROD_COMPOSE) --profile worker up -d queue-worker
-
-prod-scheduler: config-prod ## Start the production scheduler profile
-	$(PROD_COMPOSE) --profile scheduler up -d scheduler
 
 ## -----------------------------------------------------------------------------
 ## MONITORING
@@ -178,5 +166,5 @@ tools-test: dev-test ## Alias for the full Laravel test suite
 ## -----------------------------------------------------------------------------
 
 tools-clean: config-dev config-prod ## Stop this project's containers and networks without deleting volumes
-	$(DEV_COMPOSE) --profile dev --profile worker --profile scheduler --profile tools down --remove-orphans
-	$(PROD_COMPOSE) --profile worker --profile scheduler down --remove-orphans
+	$(DEV_COMPOSE) --profile dev --profile tools down --remove-orphans
+	$(PROD_COMPOSE) down --remove-orphans
