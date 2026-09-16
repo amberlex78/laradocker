@@ -24,7 +24,7 @@ PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 
 .PHONY: help ensure-env config-dev config-prod validate \
         dev-build dev-install dev-up dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
-        dev-seed dev-test dev-vite \
+        dev-seed dev-test dev-vite dev-env \
         prod-build prod-up prod-down prod-restart prod-logs prod-status \
         prod-migrate prod-optimize prod-deploy \
         tools-artisan tools-composer tools-npm tools-shell-php tools-shell-node \
@@ -88,6 +88,13 @@ dev-test: config-dev ## Run the Laravel test suite in the development container
 
 dev-vite: config-dev ## Start or restart the Vite HMR service
 	$(DEV_COMPOSE) up -d --force-recreate node
+
+dev-env: config-dev ## Show environment variables for dev services
+	@for service in app node mariadb; do \
+	    echo ""; \
+		echo "===== $$service ====="; \
+		$(DEV_COMPOSE) exec -T $$service env | sort; \
+	done
 
 ## -----------------------------------------------------------------------------
 ## PRODUCTION (DEPLOYMENT)
