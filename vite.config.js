@@ -22,7 +22,7 @@ export default defineConfig({
         strictPort: true,
         hmr: {
             host: process.env.VITE_HMR_HOST ?? 'localhost',
-            port: Number(process.env.VITE_HMR_PORT ?? process.env.VITE_PORT ?? 5173),
+            clientPort: Number(process.env.VITE_HMR_PORT ?? process.env.VITE_PORT ?? 5173),
         },
         watch: {
             ignored: ['**/storage/framework/views/**'],
