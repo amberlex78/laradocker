@@ -11,10 +11,14 @@ The host does not need PHP, Composer, Node, or MariaDB.
 
 ```bash
 cp .env.example .env
+make dev-build
+make tools-composer CMD="install --no-interaction --prefer-dist"
+make tools-artisan CMD="key:generate --force"
 make dev-up
-make tools-artisan CMD="key:generate"
 make dev-migrate
 ```
+
+Generate `APP_KEY` before the first `dev-up`: Docker passes `.env` values to the application container when it is created.
 
 If the project was already initialized, keep the existing `APP_KEY` and only update the Docker/MariaDB values in `.env`.
 

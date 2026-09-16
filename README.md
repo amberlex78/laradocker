@@ -31,12 +31,14 @@ PHP, Composer, Node.js і MariaDB на host-машині не потрібні.
 
 ```bash
 cp .env.example .env
+make dev-build
+make tools-composer CMD="install --no-interaction --prefer-dist"
+make tools-artisan CMD="key:generate --force"
 make dev-up
-make tools-artisan CMD="key:generate"
 make dev-migrate
 ```
 
-Якщо `APP_KEY` вже існує, повторно генерувати його не потрібно.
+Генеруй `APP_KEY` до першого запуску `app`: Docker передає змінні з `.env` під час створення контейнера. Якщо `APP_KEY` вже існує, повторно генерувати його не потрібно.
 
 Після запуску:
 
@@ -274,6 +276,8 @@ PROD_HTTP_PORT=8081
 ```
 
 `COMPOSE_PROJECT_NAME` ізолює контейнери, networks, volumes та image names. Проєкти не повинні використовувати однакові host-порти.
+
+Для другого локального clone застосуй таку саму послідовність першого запуску, але задай у його `.env` окремі `COMPOSE_PROJECT_NAME`, `DEV_HTTP_PORT`, `DB_FORWARD_PORT` і Vite-порти.
 
 ## Backup MariaDB
 
