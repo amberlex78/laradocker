@@ -38,6 +38,7 @@ RUN apt-get update \
         libicu72 \
         libonig5 \
         libzip4 \
+        unzip \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd --gid "${APP_GID}" app \
     && useradd --uid "${APP_UID}" --gid "${APP_GID}" --create-home --shell /usr/sbin/nologin app \
