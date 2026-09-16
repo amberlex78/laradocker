@@ -65,13 +65,13 @@ dev-down: config-dev ## Stop the development environment without deleting volume
 	$(DEV_COMPOSE) --profile dev --profile tools down --remove-orphans
 
 dev-restart: config-dev ## Restart development services
-	$(DEV_COMPOSE) restart
+	$(DEV_COMPOSE) --profile dev restart
 
 dev-logs: config-dev ## Follow development service logs
-	$(DEV_COMPOSE) logs -f --tail=100
+	$(DEV_COMPOSE) --profile dev logs -f --tail=100
 
 dev-status: config-dev ## Show development container status
-	$(DEV_COMPOSE) ps
+	$(DEV_COMPOSE) --profile dev ps
 
 dev-clear: config-dev ## Clear Laravel optimization caches in development
 	$(DEV_COMPOSE) run --rm --no-deps app php artisan optimize:clear
@@ -129,7 +129,7 @@ prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-te
 ## -----------------------------------------------------------------------------
 
 docker-stats: config-dev ## Show live resource usage for this Compose project
-	$(DEV_COMPOSE) stats
+	$(DEV_COMPOSE) --profile dev stats
 
 ## -----------------------------------------------------------------------------
 ## LARAVEL TOOLS
