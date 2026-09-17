@@ -29,7 +29,9 @@ PHP_EXEC := $(DOCKER_DEV) exec app
         prod-migrate prod-optimize prod-deploy
 
 help: ## Show available commands
-	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
+	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) \
+		| awk 'BEGIN {FS = ":.*?## "} {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' \
+		| sed -e 's/\[32m##/[33m/'
 
 ensure-dev-env:
 	@test -f .env || (echo "Missing .env. Copy .env.example to .env first." && exit 1)
