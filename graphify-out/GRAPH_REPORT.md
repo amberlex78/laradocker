@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-09-17)
 
 ## Corpus Check
-- 40 files · ~11,903 words
+- 40 files · ~11,137 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 26 file(s) not represented in the graph (top: (none) 15, .conf 3, .ini 3)
+- Unclassified: 27 file(s) not represented in the graph (top: (none) 16, .conf 3, .ini 3)
 
 ## Summary
-- 196 nodes · 190 edges · 29 communities (13 shown, 16 thin omitted)
+- 192 nodes · 186 edges · 29 communities (13 shown, 16 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6c9c5029`
+- Built from commit: `62c65caa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,10 +38,10 @@
 - Illuminate\Support\Facades\Route
 
 ## God Nodes (most connected - your core abstractions)
-1. `Laravel Docker Application` - 12 edges
-2. `require-dev` - 10 edges
-3. `User` - 9 edges
-4. `scripts` - 9 edges
+1. `require-dev` - 11 edges
+2. `User` - 9 edges
+3. `scripts` - 9 edges
+4. `Laravel Docker Application` - 7 edges
 5. `Основні команди` - 6 edges
 6. `Production deployment` - 6 edges
 7. `AppServiceProvider` - 5 edges
@@ -70,8 +70,8 @@ Cohesion: 0.10
 Nodes (16): Development mounts and production volumes, Docker architecture, Images, Multiple projects on one VPS, Networks and ports, Backup and restore, Deploy, External reverse proxy (+8 more)
 
 ### Community 5 - "Laravel Docker Application"
-Cohesion: 0.11
-Nodes (18): Backup MariaDB, Composer, npm і shell, Laravel Docker Application, Laravel і база даних, Production deployment, Reverse proxy та декілька проєктів на VPS, Vite, Документація (+10 more)
+Cohesion: 0.15
+Nodes (13): Composer, npm і shell, Laravel Docker Application, Laravel і база даних, Vite, Безпека та збереження даних, Документація, Основні команди, Розробка (+5 more)
 
 ### Community 6 - "User"
 Cohesion: 0.21
@@ -86,8 +86,8 @@ Cohesion: 0.23
 Nodes (3): Illuminate\Database\Migrations\Migration, Illuminate\Database\Schema\Blueprint, Illuminate\Support\Facades\Schema
 
 ### Community 9 - "require-dev"
-Cohesion: 0.20
-Nodes (10): require-dev, fakerphp/faker, laravel/boost, laravel/pail, laravel/pao, laravel/pint, mockery/mockery, nunomaduro/collision (+2 more)
+Cohesion: 0.18
+Nodes (11): require-dev, fakerphp/faker, fruitcake/laravel-debugbar, laravel/boost, laravel/pail, laravel/pao, laravel/pint, mockery/mockery (+3 more)
 
 ### Community 10 - "scripts"
 Cohesion: 0.22
@@ -110,21 +110,21 @@ Cohesion: 0.40
 Nodes (4): Monolog\Handler\NullHandler, Monolog\Handler\StreamHandler, Monolog\Handler\SyslogUdpHandler, Monolog\Processor\PsrLogMessageProcessor
 
 ## Knowledge Gaps
-- **83 isolated node(s):** `php`, `Controller`, `$schema`, `name`, `type` (+78 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 127 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **79 isolated node(s):** `php`, `Controller`, `$schema`, `name`, `type` (+74 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 123 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Laravel Docker Application` connect `Laravel Docker Application` to `Production deployment`?**
-  _High betweenness centrality (0.024) - this node is a cross-community bridge._
 - **Why does `require-dev` connect `require-dev` to `composer.json`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Why does `scripts` connect `scripts` to `composer.json`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Why does `Laravel Docker Application` connect `Laravel Docker Application` to `Production deployment`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `php`, `Controller`, `$schema` to the rest of the system?**
-  _83 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _79 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `composer.json` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
