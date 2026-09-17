@@ -17,9 +17,9 @@ PHP_EXEC := $(DOCKER_DEV) exec app
 .DEFAULT_GOAL := help
 .SILENT:
 
-## -----------------------------------------------------------------------------
+## —————————————————————————————————————————————————————————————————————————————
 ## GENERAL & CONFIGURATION
-## -----------------------------------------------------------------------------
+## —————————————————————————————————————————————————————————————————————————————
 
 .PHONY: help ensure-dev-env ensure-prod-env config-dev config-prod validate \
         build install up down restart logs status clear optimize tinker artisan migrate \
@@ -29,10 +29,7 @@ PHP_EXEC := $(DOCKER_DEV) exec app
         prod-migrate prod-optimize prod-deploy
 
 help: ## Show available commands
-	@awk 'BEGIN {FS = ":.*##"; printf "Usage: make <target>\n\nTargets:\n"} \
-		/^## [[:space:]]*[-—]+[[:space:]]*$$/ {next} \
-		/^## [A-Z0-9][A-Z0-9 &()_-]*$$/ {printf "\n%s\n", substr($$0, 4); next} \
-		/^[a-zA-Z0-9_.-]+:.*##/ {printf "  %-22s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 ensure-dev-env:
 	@test -f .env || (echo "Missing .env. Copy .env.example to .env first." && exit 1)
@@ -48,9 +45,9 @@ config-prod: ensure-prod-env ## Validate the production Compose configuration
 
 validate: config-dev config-prod ## Validate both Compose configurations
 
-## -----------------------------------------------------------------------------
-## DEVELOPMENT (LOCAL)
-## -----------------------------------------------------------------------------
+## —————————————————————————————————————————————————————————————————————————————
+## DEVELOPMENT (Local)
+## —————————————————————————————————————————————————————————————————————————————
 
 build: config-dev ## Build development images
 	$(DOCKER_DEV) build
@@ -132,9 +129,9 @@ shell-node: config-dev ## Open a shell in the development Node container
 shell-mariadb: config-dev ## Open the MariaDB client
 	$(DOCKER_DEV) exec mariadb sh -lc 'mariadb -u"$${MARIADB_USER}" -p"$${MARIADB_PASSWORD}" "$${MARIADB_DATABASE}"'
 
-## -----------------------------------------------------------------------------
-## PRODUCTION (DEPLOYMENT)
-## -----------------------------------------------------------------------------
+## —————————————————————————————————————————————————————————————————————————————
+## PRODUCTION (Deployment)
+## —————————————————————————————————————————————————————————————————————————————
 
 prod-build: config-prod ## Build production images
 	$(DOCKER_PROD) build
@@ -168,9 +165,9 @@ prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-te
 	curl --fail --silent --show-error --retry 10 --retry-delay 1 "http://127.0.0.1:$${published_port}/up" >/dev/null; \
 	echo "Production smoke check passed on 127.0.0.1:$${published_port}/up"
 
-## -----------------------------------------------------------------------------
+## —————————————————————————————————————————————————————————————————————————————
 ## MONITORING
-## -----------------------------------------------------------------------------
+## —————————————————————————————————————————————————————————————————————————————
 
 stats: config-dev ## Show live resource usage for this Compose project
 	$(DOCKER_DEV) stats
