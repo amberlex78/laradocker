@@ -1,5 +1,7 @@
 services:
   app:
+    env_file:
+      - ./.env.prod
     build:
       target: prod
     environment:

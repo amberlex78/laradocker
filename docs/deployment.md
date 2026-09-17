@@ -32,8 +32,8 @@ The `.env.prod` file is excluded from the Docker build context. `APP_KEY` and da
 
 ```bash
 git checkout <version>
-make ENV_FILE=.env.prod config-prod
-make ENV_FILE=.env.prod prod-deploy
+make config-prod
+make prod-deploy
 ```
 
 `prod-deploy` performs the following non-destructive sequence:
@@ -89,8 +89,8 @@ Use a password manager or a protected shell environment for backup credentials. 
 
 ## Troubleshooting
 
-- `make ENV_FILE=.env.prod config-prod`: checks Compose interpolation and service configuration.
-- `make ENV_FILE=.env.prod prod-status`: shows service health.
-- `make ENV_FILE=.env.prod prod-logs`: follows container logs.
+- `make config-prod`: checks Compose interpolation and service configuration.
+- `make prod-status`: shows service health.
+- `make prod-logs`: follows container logs.
 - `docker compose ... exec app php artisan about --only=environment`: confirms the active Laravel environment.
 - If `/up` fails, check MariaDB health first, then PHP-FPM logs, then nginx logs.

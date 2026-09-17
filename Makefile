@@ -1,7 +1,5 @@
 SHELL := /bin/sh
 
-ENV_FILE ?= .env
-
 # Dev containers write to bind-mounted project directories as the host user.
 APP_UID ?= $(shell id -u)
 APP_GID ?= $(shell id -g)
@@ -9,12 +7,12 @@ APP_GID ?= $(shell id -g)
 COMPOSE := \
 	APP_UID=$(APP_UID) \
 	APP_GID=$(APP_GID) \
-	RUNTIME_ENV_FILE=$(ENV_FILE) \
-	docker compose --env-file $(ENV_FILE)
+	docker compose
 
-BASE_COMPOSE := $(COMPOSE) -f docker-compose.yml
-DEV_COMPOSE := $(BASE_COMPOSE) -f docker-compose.dev.yml
-PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
+DOCKER_DEV := $(COMPOSE) --env-file ./.env -f docker-compose.yml -f docker-compose.dev.yml
+DOCKER_PROD := $(COMPOSE) --env-file ./.env.prod -f docker-compose.yml -f docker-compose.prod.yml
+
+PHP_EXEC := $(DOCKER_DEV) exec app
 
 .DEFAULT_GOAL := help
 .SILENT:
@@ -23,13 +21,12 @@ PROD_COMPOSE := $(BASE_COMPOSE) -f docker-compose.prod.yml
 ## GENERAL & CONFIGURATION
 ## -----------------------------------------------------------------------------
 
-.PHONY: help ensure-env config-dev config-prod validate \
-        dev-build dev-install dev-up dev-down dev-restart dev-logs dev-status dev-clear dev-migrate \
-        dev-seed dev-test dev-vite dev-env \
+.PHONY: help ensure-dev-env ensure-prod-env config-dev config-prod validate \
+        build install up down restart logs status clear optimize tinker artisan migrate \
+        migrate-fresh db-seed test pint vite env stats composer npm shell-php \
+        shell-node shell-mariadb \
         prod-build prod-up prod-down prod-restart prod-logs prod-status \
-        prod-migrate prod-optimize prod-deploy \
-        tools-artisan tools-composer tools-npm tools-shell-php tools-shell-node \
-        tools-shell-mariadb tools-pint tools-test tools-clean docker-stats
+        prod-migrate prod-optimize prod-deploy
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*##"; printf "Usage: make <target>\n\nTargets:\n"} \
@@ -37,14 +34,17 @@ help: ## Show available commands
 		/^## [A-Z0-9][A-Z0-9 &()_-]*$$/ {printf "\n%s\n", substr($$0, 4); next} \
 		/^[a-zA-Z0-9_.-]+:.*##/ {printf "  %-22s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-ensure-env:
-	@test -f "$(ENV_FILE)" || (echo "Missing $(ENV_FILE). Copy the appropriate example env file first." && exit 1)
+ensure-dev-env:
+	@test -f .env || (echo "Missing .env. Copy .env.example to .env first." && exit 1)
 
-config-dev: ensure-env ## Validate the development Compose configuration
-	$(DEV_COMPOSE) config --quiet
+ensure-prod-env:
+	@test -f .env.prod || (echo "Missing .env.prod. Copy .env.prod.example to .env.prod first." && exit 1)
 
-config-prod: ensure-env ## Validate the production Compose configuration
-	$(PROD_COMPOSE) config --quiet
+config-dev: ensure-dev-env ## Validate the development Compose configuration
+	$(DOCKER_DEV) config --quiet
+
+config-prod: ensure-prod-env ## Validate the production Compose configuration
+	$(DOCKER_PROD) config --quiet
 
 validate: config-dev config-prod ## Validate both Compose configurations
 
@@ -52,84 +52,119 @@ validate: config-dev config-prod ## Validate both Compose configurations
 ## DEVELOPMENT (LOCAL)
 ## -----------------------------------------------------------------------------
 
-dev-build: config-dev ## Build development images
-	$(DEV_COMPOSE) build
+build: config-dev ## Build development images
+	$(DOCKER_DEV) build
 
-dev-install: dev-build ## Install development dependencies and generate APP_KEY if missing
-	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
-	$(DEV_COMPOSE) run --rm --no-deps app sh -lc 'if [ -z "$${APP_KEY:-}" ]; then php artisan key:generate --no-interaction; fi'
-	$(DEV_COMPOSE) run --rm --no-deps node npm ci --no-audit --no-fund
+install: build ## Install development dependencies and generate APP_KEY if missing
+	$(DOCKER_DEV) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
+	$(DOCKER_DEV) run --rm --no-deps app sh -lc 'if [ -z "$${APP_KEY:-}" ]; then php artisan key:generate --no-interaction; fi'
+	$(DOCKER_DEV) run --rm --no-deps node npm ci --no-audit --no-fund
 
-dev-up: config-dev ## Start the development environment
-	$(DEV_COMPOSE) up -d
+up: config-dev ## Start the development environment
+	$(DOCKER_DEV) up -d
 
-dev-down: config-dev ## Stop the development environment without deleting volumes
-	$(DEV_COMPOSE) --profile tools down --remove-orphans
+down: config-dev ## Stop the development environment without deleting volumes
+	$(DOCKER_DEV) --profile tools down --remove-orphans
 
-dev-restart: config-dev ## Restart development services
-	$(DEV_COMPOSE) restart
+restart: config-dev ## Restart development services
+	$(DOCKER_DEV) restart
 
-dev-logs: config-dev ## Follow development service logs
-	$(DEV_COMPOSE) logs -f --tail=100
+logs: config-dev ## Follow development service logs
+	$(DOCKER_DEV) logs -f --tail=100
 
-dev-status: config-dev ## Show development container status
-	$(DEV_COMPOSE) ps
+status: config-dev ## Show development container status
+	$(DOCKER_DEV) ps
 
-dev-clear: config-dev ## Clear Laravel optimization caches in development
-	$(DEV_COMPOSE) run --rm --no-deps app php artisan optimize:clear
+clear: config-dev ## Clear Laravel optimization caches
+	$(PHP_EXEC) php artisan optimize:clear
 
-dev-migrate: config-dev ## Run pending development migrations
-	$(DEV_COMPOSE) run --rm app php artisan migrate --no-interaction
+optimize: config-dev ## Clear and rebuild Laravel optimization caches
+	$(PHP_EXEC) php artisan optimize:clear
+	$(PHP_EXEC) php artisan optimize
 
-dev-seed: config-dev ## Run development database seeders
-	$(DEV_COMPOSE) run --rm app php artisan db:seed --no-interaction
+tinker: config-dev ## Open Laravel Tinker
+	$(PHP_EXEC) php artisan tinker
 
-dev-test: config-dev ## Run the Laravel test suite in the development container
-	$(DEV_COMPOSE) run --rm --no-deps app php artisan test --compact
+artisan: config-dev ## Run an Artisan command, for example CMD="about"
+	@test -n "$(CMD)" || (echo 'Usage: make artisan CMD="about"' && exit 1)
+	$(PHP_EXEC) php artisan $(CMD)
 
-dev-vite: config-dev ## Start or restart the Vite HMR service
-	$(DEV_COMPOSE) up -d --force-recreate node
+migrate: config-dev ## Run pending migrations
+	$(PHP_EXEC) php artisan migrate --no-interaction
 
-dev-env: config-dev ## Show environment variables for dev services
+migrate-fresh: config-dev ## Recreate the database and run seeders (deletes all data)
+	$(PHP_EXEC) php artisan migrate:fresh --seed --no-interaction
+
+
+db-seed: config-dev ## Run database seeders
+	$(PHP_EXEC) php artisan db:seed --no-interaction
+
+test: config-dev ## Run the Laravel test suite
+	$(PHP_EXEC) php artisan test --compact
+
+pint: config-dev ## Run Laravel Pint
+	$(PHP_EXEC) ./vendor/bin/pint
+
+vite: config-dev ## Start or restart the Vite HMR service
+	$(DOCKER_DEV) up -d --force-recreate node
+
+env: config-dev ## Show environment variables for dev services
 	@for service in app node mariadb; do \
 	    echo ""; \
 		echo "===== $$service ====="; \
-		$(DEV_COMPOSE) exec -T $$service env | sort; \
+		$(DOCKER_DEV) exec -T $$service env | sort; \
 	done
+
+composer: config-dev ## Run a Composer command, for example CMD="show"
+	@test -n "$(CMD)" || (echo 'Usage: make composer CMD="show"' && exit 1)
+	$(DOCKER_DEV) --profile tools run --rm --no-deps composer $(CMD)
+
+npm: config-dev ## Run an npm command, for example CMD="run build"
+	@test -n "$(CMD)" || (echo 'Usage: make npm CMD="run build"' && exit 1)
+	$(DOCKER_DEV) run --rm --no-deps node $(CMD)
+
+shell-php: config-dev ## Open a shell in the development PHP container
+	$(PHP_EXEC) sh
+
+shell-node: config-dev ## Open a shell in the development Node container
+	$(DOCKER_DEV) exec node sh
+
+shell-mariadb: config-dev ## Open the MariaDB client
+	$(DOCKER_DEV) exec mariadb sh -lc 'mariadb -u"$${MARIADB_USER}" -p"$${MARIADB_PASSWORD}" "$${MARIADB_DATABASE}"'
 
 ## -----------------------------------------------------------------------------
 ## PRODUCTION (DEPLOYMENT)
 ## -----------------------------------------------------------------------------
 
 prod-build: config-prod ## Build production images
-	$(PROD_COMPOSE) build
+	$(DOCKER_PROD) build
 
 prod-up: config-prod ## Start the production environment
-	$(PROD_COMPOSE) up -d
+	$(DOCKER_PROD) up -d
 
 prod-down: config-prod ## Stop the production environment without deleting volumes
-	$(PROD_COMPOSE) down --remove-orphans
+	$(DOCKER_PROD) down --remove-orphans
 
 prod-restart: config-prod ## Restart production services
-	$(PROD_COMPOSE) restart
+	$(DOCKER_PROD) restart
 
 prod-logs: config-prod ## Follow production service logs
-	$(PROD_COMPOSE) logs -f --tail=100
+	$(DOCKER_PROD) logs -f --tail=100
 
 prod-status: config-prod ## Show production status and health state
-	$(PROD_COMPOSE) ps
+	$(DOCKER_PROD) ps
 
 prod-migrate: config-prod ## Run production migrations with --force
-	$(PROD_COMPOSE) exec -T app php artisan migrate --force --no-interaction
+	$(DOCKER_PROD) exec -T app php artisan migrate --force --no-interaction
 
 prod-optimize: config-prod ## Cache production configuration, routes, and views
-	$(PROD_COMPOSE) exec -T app sh -lc 'php artisan config:cache && php artisan route:cache && php artisan view:cache'
+	$(DOCKER_PROD) exec -T app sh -lc 'php artisan config:cache && php artisan route:cache && php artisan view:cache'
 
 prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-test production
 	$(MAKE) prod-migrate
 	$(MAKE) prod-optimize
-	$(PROD_COMPOSE) exec -T app php artisan about --only=environment
-	@published_port=$$($(PROD_COMPOSE) port nginx 8080 | sed 's/.*://'); \
+	$(DOCKER_PROD) exec -T app php artisan about --only=environment
+	@published_port=$$($(DOCKER_PROD) port nginx 8080 | sed 's/.*://'); \
 	curl --fail --silent --show-error --retry 10 --retry-delay 1 "http://127.0.0.1:$${published_port}/up" >/dev/null; \
 	echo "Production smoke check passed on 127.0.0.1:$${published_port}/up"
 
@@ -137,35 +172,5 @@ prod-deploy: prod-build prod-up ## Build, start, migrate, optimize, and smoke-te
 ## MONITORING
 ## -----------------------------------------------------------------------------
 
-docker-stats: config-dev ## Show live resource usage for this Compose project
-	$(DEV_COMPOSE) stats
-
-## -----------------------------------------------------------------------------
-## LARAVEL TOOLS
-## -----------------------------------------------------------------------------
-
-tools-artisan: config-dev ## Run an Artisan command, for example CMD="about"
-	@test -n "$(CMD)" || (echo 'Usage: make tools-artisan CMD="about"' && exit 1)
-	$(DEV_COMPOSE) run --rm app php artisan $(CMD)
-
-tools-composer: config-dev ## Run a Composer command, for example CMD="show"
-	@test -n "$(CMD)" || (echo 'Usage: make tools-composer CMD="show"' && exit 1)
-	$(DEV_COMPOSE) --profile tools run --rm --no-deps composer $(CMD)
-
-tools-npm: config-dev ## Run an npm command, for example CMD="run build"
-	@test -n "$(CMD)" || (echo 'Usage: make tools-npm CMD="run build"' && exit 1)
-	$(DEV_COMPOSE) run --rm --no-deps node $(CMD)
-
-tools-shell-php: config-dev ## Open a shell in the development PHP container
-	$(DEV_COMPOSE) run --rm app sh
-
-tools-shell-node: config-dev ## Open a shell in the development Node container
-	$(DEV_COMPOSE) run --rm --no-deps node sh
-
-tools-shell-mariadb: config-dev ## Open the MariaDB client
-	$(DEV_COMPOSE) exec mariadb sh -lc 'mariadb -u"$${MARIADB_USER}" -p"$${MARIADB_PASSWORD}" "$${MARIADB_DATABASE}"'
-
-tools-pint: config-dev ## Run Laravel Pint on modified PHP files
-	$(DEV_COMPOSE) run --rm --no-deps app vendor/bin/pint --dirty --format agent
-
-tools-test: dev-test ## Alias for the full Laravel test suite
+stats: config-dev ## Show live resource usage for this Compose project
+	$(DOCKER_DEV) stats

@@ -1,6 +1,8 @@
 services:
   app:
     user: "${APP_UID:-1000}:${APP_GID:-1000}"
+    env_file:
+      - ./.env
     build:
       target: dev
     environment:

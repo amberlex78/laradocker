@@ -3,11 +3,7 @@ name: ${COMPOSE_PROJECT_NAME:-laravel-app}
 x-app-image: &app-image "${COMPOSE_PROJECT_NAME:-laravel-app}-app:${IMAGE_TAG:-local}"
 x-nginx-image: &nginx-image "${COMPOSE_PROJECT_NAME:-laravel-app}-nginx:${IMAGE_TAG:-local}"
 x-mariadb-image: &mariadb-image "${COMPOSE_PROJECT_NAME:-laravel-app}-mariadb:${IMAGE_TAG:-local}"
-# Pass the selected env file into Laravel services. Compose's --env-file only
-# controls interpolation; it does not automatically populate container env.
 x-app-environment: &app-environment
-  env_file:
-    - ${RUNTIME_ENV_FILE:-.env}
   environment:
     DB_HOST: mariadb
     DB_PORT: 3306

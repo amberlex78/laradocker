@@ -26,9 +26,9 @@ git clone git@github.com:amberlex78/laradocker.git
 
 ```bash
 cp .env.example .env
-make dev-install
-make dev-up
-make dev-migrate
+make install
+make up
+make migrate
 ```
 
 Після запуску:
@@ -97,46 +97,46 @@ make
 ### Розробка
 
 ```bash
-make dev-up       # запустити dev-оточення
-make dev-down     # зупинити контейнери без видалення volumes
-make dev-status   # перевірити статус сервісів
-make dev-logs     # переглядати логи
-make dev-restart  # перезапустити сервіси
+make up           # запустити dev-оточення
+make down         # зупинити контейнери без видалення volumes
+make status       # перевірити статус сервісів
+make logs         # переглядати логи
+make restart      # перезапустити сервіси
 ```
 
 ### Laravel і база даних
 
 ```bash
-make dev-migrate
-make dev-seed
-make dev-clear
-make tools-artisan CMD="about"
-make tools-artisan CMD="route:list"
+make migrate
+make db-seed
+make optimize
+make artisan CMD="about"
+make artisan CMD="route:list"
 ```
 
 ### Тести та якість коду
 
 ```bash
-make dev-test
-make tools-pint
+make test
+make pint
 ```
 
 ### Composer, npm і shell
 
 ```bash
-make tools-composer CMD="show"
-make tools-npm CMD="run build"
-make tools-shell-php
-make tools-shell-node
-make tools-shell-mariadb
+make composer CMD="show"
+make npm CMD="run build"
+make shell-php
+make shell-node
+make shell-mariadb
 ```
 
 ### Vite
 
-Vite запускається разом із `make dev-up`. Якщо його потрібно перезапустити:
+Vite запускається разом із `make up`. Якщо його потрібно перезапустити:
 
 ```bash
-make dev-vite
+make vite
 ```
 
 ## Документація
