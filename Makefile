@@ -168,11 +168,3 @@ tools-pint: config-dev ## Run Laravel Pint on modified PHP files
 	$(DEV_COMPOSE) run --rm --no-deps app vendor/bin/pint --dirty --format agent
 
 tools-test: dev-test ## Alias for the full Laravel test suite
-
-## -----------------------------------------------------------------------------
-## CLEANUP
-## -----------------------------------------------------------------------------
-
-tools-clean: config-dev config-prod ## Stop this project's containers and networks without deleting volumes
-	$(DEV_COMPOSE) --profile tools down --remove-orphans
-	$(PROD_COMPOSE) down --remove-orphans
