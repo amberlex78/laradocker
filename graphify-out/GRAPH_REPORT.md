@@ -1,25 +1,23 @@
 # Graph Report - laradocker  (2026-09-17)
 
 ## Corpus Check
-- 42 files · ~15,142 words
+- 40 files · ~11,903 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 25 file(s) not represented in the graph (top: (none) 15, .conf 3, .ini 3)
+- Unclassified: 26 file(s) not represented in the graph (top: (none) 15, .conf 3, .ini 3)
 
 ## Summary
-- 253 nodes · 245 edges · 33 communities (17 shown, 16 thin omitted)
+- 196 nodes · 190 edges · 29 communities (13 shown, 16 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e33c1203`
+- Built from commit: `6c9c5029`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - composer.json
 - package.json
-- Laravel Boost Guidelines
-- Laravel Boost Guidelines
 - Production deployment
 - Laravel Docker Application
 - User
@@ -27,8 +25,6 @@
 - 0001_01_01_000000_create_users_table.php
 - require-dev
 - scripts
-- Laravel Boost
-- Laravel Boost
 - config
 - AppServiceProvider
 - bootstrap/app.php
@@ -46,12 +42,12 @@
 2. `require-dev` - 10 edges
 3. `User` - 9 edges
 4. `scripts` - 9 edges
-5. `Laravel Boost Guidelines` - 9 edges
-6. `Laravel Boost Guidelines` - 9 edges
-7. `Laravel Boost` - 6 edges
-8. `Do Things the Laravel Way` - 6 edges
-9. `Laravel Boost` - 6 edges
-10. `Do Things the Laravel Way` - 6 edges
+5. `Основні команди` - 6 edges
+6. `Production deployment` - 6 edges
+7. `AppServiceProvider` - 5 edges
+8. `config` - 5 edges
+9. `UserFactory` - 5 edges
+10. `Docker architecture` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -59,7 +55,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 16 thin omitted)
+## Communities (29 total, 16 thin omitted)
 
 ### Community 0 - "composer.json"
 Cohesion: 0.08
@@ -68,14 +64,6 @@ Nodes (23): autoload, autoload-dev, psr-4, psr-4, description, extra, laravel, k
 ### Community 1 - "package.json"
 Cohesion: 0.09
 Nodes (21): devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite, optionalDependencies, @laravel/multiplex (+13 more)
-
-### Community 2 - "Laravel Boost Guidelines"
-Cohesion: 0.09
-Nodes (21): APIs & Eloquent Resources, Application Structure & Architecture, Conventions, Deployment, Do Things the Laravel Way, Documentation Files, Foundational Context, Frontend Bundling (+13 more)
-
-### Community 3 - "Laravel Boost Guidelines"
-Cohesion: 0.10
-Nodes (20): APIs & Eloquent Resources, Application Structure & Architecture, Conventions, Deployment, Do Things the Laravel Way, Documentation Files, Foundational Context, Frontend Bundling (+12 more)
 
 ### Community 4 - "Production deployment"
 Cohesion: 0.10
@@ -105,14 +93,6 @@ Nodes (10): require-dev, fakerphp/faker, laravel/boost, laravel/pail, laravel/pa
 Cohesion: 0.22
 Nodes (9): scripts, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall, setup (+1 more)
 
-### Community 11 - "Laravel Boost"
-Cohesion: 0.29
-Nodes (7): Artisan, Laravel Boost, Project Rules, Search Syntax, Searching Documentation (IMPORTANT), Tinker, Tools
-
-### Community 12 - "Laravel Boost"
-Cohesion: 0.29
-Nodes (7): Artisan, Laravel Boost, Project Rules, Search Syntax, Searching Documentation (IMPORTANT), Tinker, Tools
-
 ### Community 13 - "config"
 Cohesion: 0.29
 Nodes (7): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, preferred-install, sort-packages
@@ -130,24 +110,24 @@ Cohesion: 0.40
 Nodes (4): Monolog\Handler\NullHandler, Monolog\Handler\StreamHandler, Monolog\Handler\SyslogUdpHandler, Monolog\Processor\PsrLogMessageProcessor
 
 ## Knowledge Gaps
-- **128 isolated node(s):** `php`, `Controller`, `$schema`, `name`, `type` (+123 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 172 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **83 isolated node(s):** `php`, `Controller`, `$schema`, `name`, `type` (+78 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 127 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Laravel Docker Application` connect `Laravel Docker Application` to `Production deployment`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
 - **Why does `require-dev` connect `require-dev` to `composer.json`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `scripts` connect `scripts` to `composer.json`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `php`, `Controller`, `$schema` to the rest of the system?**
-  _128 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _83 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `composer.json` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.09486166007905138 - nodes in this community are weakly interconnected._
-- **Should `Laravel Boost Guidelines` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+- **Should `Production deployment` be split into smaller, more focused modules?**
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._

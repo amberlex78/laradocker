@@ -3,6 +3,9 @@
 # Version control and assistant state
 .git/
 .gitignore
+# Agent instructions are not application architecture.
+AGENTS.md
+CLAUDE.md
 .agents/
 .codex/
 .claude/
@@ -26,6 +29,7 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
+!.env.prod.example
 auth.json
 .phpactor.json
 

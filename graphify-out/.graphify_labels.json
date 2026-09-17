@@ -1,8 +1,6 @@
 {
   "0": "composer.json",
   "1": "package.json",
-  "2": "Laravel Boost Guidelines",
-  "3": "Laravel Boost Guidelines",
   "4": "Production deployment",
   "5": "Laravel Docker Application",
   "6": "User",
@@ -10,8 +8,6 @@
   "8": "0001_01_01_000000_create_users_table.php",
   "9": "require-dev",
   "10": "scripts",
-  "11": "Laravel Boost",
-  "12": "Laravel Boost",
   "13": "config",
   "14": "AppServiceProvider",
   "15": "bootstrap/app.php",
