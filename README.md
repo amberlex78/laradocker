@@ -86,84 +86,27 @@ DB_FORWARD_PORT=3307
 - Vite HMR: `http://localhost:5174`;
 - MariaDB: `127.0.0.1:3307`.
 
-## Встановлюємо проект на VPS
+## Встановлення проєкту на VPS
+
+Production-інструкція складається з двох частин:
+
+1. Docker збирає PHP, Composer-залежності, frontend і MariaDB та запускає production-контейнери.
+2. Системний Nginx на VPS приймає HTTPS-запити від Cloudflare і проксіює їх у Docker на `127.0.0.1:8080`.
+
+Короткий маршрут:
 
 ```bash
 git clone git@github.com:amberlex78/laradocker.git
 cd laradocker
 cp .env.prod.example .env.prod
-openssl rand -base64 32
-```
-
-Копіюємо сгенерований ключ і вставляємо його в `.env.prod`.
-
-```bash
 nano .env.prod
-```
-
-```dotenv
-APP_KEY=base64:скопійований-ключ
-```
-
-```bash
 make config-prod
 make prod-deploy
-make prod-status
 ```
 
-### Перевір frontend у Nginx-контейнері:
+Повна інструкція, включно з перевірками, системним Nginx, Cloudflare Origin Certificate і налаштуванням домену:
 
-```bash
-docker compose --env-file .env.prod \
-  -f docker-compose.yml \
-  -f docker-compose.prod.yml \
-  exec -T nginx \
-  sh -lc 'find /var/www/html/public -maxdepth 2 -type f | sort | head -30'
-```
-
-Очікуваний результат:
-
-```text
-/var/www/html/public/.htaccess
-/var/www/html/public/build/fonts-manifest.json
-/var/www/html/public/build/manifest.json
-/var/www/html/public/favicon.ico
-/var/www/html/public/index.php
-/var/www/html/public/robots.txt
-```
-
-### Перевір Composer-залежності:
-
-```bash
-docker compose --env-file .env.prod \
-  -f docker-compose.yml \
-  -f docker-compose.prod.yml \
-  exec -T app \
-  sh -lc 'test -f vendor/autoload.php && echo vendor-ok'
-```
-
-Очікуваний результат:
-
-```text
-vendor-ok
-```
-
-### Перевір статус Laravel:
-
-```bash
-curl -I -s http://127.0.0.1:8080/up
-```
-
-Очікуваний результат:
-
-```text
-HTTP/1.1 200 OK
-Server: nginx
-Content-Type: text/html; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache, private
-Date: Fri, 18 Sep 2026 16:56:32 GMT
-```
+- [Розгортання на VPS](docs/deployment.md)
 
 ## Основні команди
 
@@ -222,4 +165,3 @@ make vite
 
 - [Docker architecture](docs/architecture.md)
 - [Local development](docs/development.md)
-- [Production deployment](docs/deployment.md)
