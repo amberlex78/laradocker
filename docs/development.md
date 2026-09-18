@@ -22,6 +22,8 @@ If the project was already initialized, keep the existing `APP_KEY` and only upd
 
 The application is available at [http://localhost:8000](http://localhost:8000), Vite HMR at `http://localhost:5173`, and MariaDB at `127.0.0.1:3306`.
 
+An optional system Nginx reverse proxy template is available at `docker/nginx/host/dev.conf.example`. It proxies requests to the development Docker port `127.0.0.1:8000`; the host does not serve the project checkout directly.
+
 ## Common commands
 
 ```bash

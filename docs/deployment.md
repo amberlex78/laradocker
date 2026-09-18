@@ -232,45 +232,28 @@ rm ~/origin.crt ~/origin.key
 
 ## 6. Налаштування системного Nginx як reverse proxy
 
-Створи конфігурацію сайту на сервері:
+У репозиторії є готовий production-шаблон системного Nginx:
+
+```text
+docker/nginx/host/prod.conf.example
+```
+
+Скопіюй його в конфігурацію Nginx на сервері:
 
 ```bash
-sudo nano /etc/nginx/sites-available/esp32.xyz
+sudo cp docker/nginx/host/prod.conf.example \
+  /etc/nginx/sites-available/esp32.xyz
 ```
 
-Встав цю конфігурацію:
+Якщо розгортаєш інший домен, відредагуй скопійований файл і заміни:
 
-```nginx
-server {
-    listen 80;
-    listen [::]:80;
+- `esp32.xyz` і `www.esp32.xyz` на свої домени;
+- шлях до `ssl_certificate`, якщо сертифікат має іншу назву або розташування;
+- шлях до `ssl_certificate_key`, якщо ключ має іншу назву або розташування.
 
-    server_name esp32.xyz www.esp32.xyz;
+Конфігурація використовує `proxy_pass http://127.0.0.1:8080`. Вона не використовує `root /var/www/html/public` і не підключається напряму до `app:9000`, оскільки це адреси та шляхи Docker-контейнерів, а не системного Nginx на VPS.
 
-    return 301 https://$host$request_uri;
-}
-
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-
-    server_name esp32.xyz www.esp32.xyz;
-
-    ssl_certificate /etc/nginx/ssl/cloudflare/esp32.xyz.origin.crt;
-    ssl_certificate_key /etc/nginx/ssl/cloudflare/esp32.xyz.origin.key;
-
-    location / {
-        proxy_pass http://127.0.0.1:8080;
-        proxy_http_version 1.1;
-
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Forwarded-Proto https;
-    }
-}
-```
+Шаблон також містить security headers, заборону доступу до прихованих файлів, вимкнення зайвого логування для `favicon.ico` і `robots.txt`, а також кешування frontend-ресурсів на 7 днів. Для статичних файлів використовується `proxy_pass`, а не `try_files`, оскільки системний Nginx не має доступу до `/var/www/html/public` усередині Docker-образу.
 
 Активуй сайт і перезавантаж Nginx:
 
@@ -283,6 +266,14 @@ sudo systemctl reload nginx
 ```
 
 Системний Nginx має проксіювати запити на `127.0.0.1:8080`. Не використовуй checkout-каталог Git як `root`, оскільки production frontend і Composer-залежності зберігаються в Docker-образах.
+
+Для локального development-оточення є окремий шаблон:
+
+```text
+docker/nginx/host/dev.conf.example
+```
+
+Він проксіює системний Nginx на dev-порт Docker `127.0.0.1:8000` і не потребує SSL.
 
 ## 7. Налаштування Cloudflare та фінального Laravel URL
 
