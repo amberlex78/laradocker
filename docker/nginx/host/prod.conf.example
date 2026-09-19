@@ -7,6 +7,7 @@
 #
 # Example installation:
 #   sudo cp prod.conf.example /etc/nginx/sites-available/esp32.xyz
+#   sudo unlink /etc/nginx/sites-enabled/default
 #   sudo ln -s /etc/nginx/sites-available/esp32.xyz /etc/nginx/sites-enabled/esp32.xyz
 #   sudo nginx -t && sudo systemctl reload nginx
 

@@ -245,6 +245,14 @@ sudo cp docker/nginx/host/prod.conf.example \
   /etc/nginx/sites-available/esp32.xyz
 ```
 
+Ubuntu після встановлення Nginx зазвичай має увімкнений стандартний сайт. Він також використовує `default_server` на порту `80`, тому його потрібно вимкнути перед активацією production-конфігурації:
+
+```bash
+sudo unlink /etc/nginx/sites-enabled/default
+```
+
+Це видаляє лише symlink із `sites-enabled`; стандартний файл у `sites-available` не видаляється.
+
 Якщо розгортаєш інший домен, відредагуй скопійований файл і заміни:
 
 - `esp32.xyz` і `www.esp32.xyz` на свої домени;
