@@ -9,7 +9,7 @@ Laravel-застосунок, підготовлений для роботи п�
 | Laravel | 13.x | Application framework |
 | PHP-FPM | `php:8.5-fpm-bookworm` | Виконання PHP-коду |
 | Nginx | `nginx:1.30.4-alpine` | Web server і віддача frontend assets |
-| MariaDB | `mariadb:11.8.9` | Основна база даних |
+| MariaDB | `mariadb:12.3` | Основна база даних |
 | Composer | `composer:2.9.8` | PHP-залежності |
 | Node.js | `node:24-bookworm-slim` | Vite та frontend dependencies |
 
