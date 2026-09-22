@@ -1,0 +1,94 @@
+name: ${COMPOSE_PROJECT_NAME:-laravel-app}
+
+x-app-image: &app-image "${COMPOSE_PROJECT_NAME:-laravel-app}-app:${IMAGE_TAG:-local}"
+x-nginx-image: &nginx-image "${COMPOSE_PROJECT_NAME:-laravel-app}-nginx:${IMAGE_TAG:-local}"
+x-mariadb-image: &mariadb-image "${COMPOSE_PROJECT_NAME:-laravel-app}-mariadb:${IMAGE_TAG:-local}"
+x-app-environment: &app-environment
+  environment:
+    DB_HOST: mariadb
+    DB_PORT: 3306
+
+services:
+  app:
+    <<: *app-environment
+    image: *app-image
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      target: dev
+      args:
+        APP_UID: ${APP_UID:-1000}
+        APP_GID: ${APP_GID:-1000}
+    working_dir: /var/www/html
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "php-fpm", "-t"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 5
+
+  nginx:
+    image: *nginx-image
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+      args:
+        NODE_IMAGE: node:24-bookworm-slim
+    networks:
+      - frontend
+    depends_on:
+      app:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:8080/up >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 5
+
+  mariadb:
+    image: *mariadb-image
+    build:
+      context: docker/mariadb
+      dockerfile: Dockerfile
+    environment:
+      MARIADB_DATABASE: ${DB_DATABASE:-laravel}
+      MARIADB_USER: ${DB_USERNAME:-laravel}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-laravel}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh --connect --innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 10
+
+  composer:
+    image: *app-image
+    profiles:
+      - tools
+    entrypoint: ["composer"]
+    command: ["--version"]
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    networks:
+      - frontend
+
+networks:
+  frontend:
+  backend:
+    internal: true
+
+volumes:
+  mariadb-data:

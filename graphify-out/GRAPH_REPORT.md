@@ -1,0 +1,143 @@
+# Graph Report - laradocker  (2026-09-22)
+
+## Corpus Check
+- 42 files · ~14,510 words
+- Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 29 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
+
+## Summary
+- 234 nodes · 226 edges · 31 communities (15 shown, 16 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `df84de93`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
+## Community Hubs (Navigation)
+- composer.json
+- package.json
+- Laravel-проєкти без домену
+- UserFactory.php
+- Розгортання на VPS
+- Laravel Docker Application
+- User
+- 0001_01_01_000000_create_users_table.php
+- require-dev
+- scripts
+- Laravel-проєкти з доменами
+- config
+- AppServiceProvider
+- bootstrap/app.php
+- Pest.php
+- logging.php
+- artisan
+- console.php
+- laravel-boost
+- Controller.php
+- entrypoint.sh
+- Illuminate\Support\Facades\Route
+
+## God Nodes (most connected - your core abstractions)
+1. `Розгортання на VPS` - 13 edges
+2. `require-dev` - 11 edges
+3. `Laravel-проєкти з доменами` - 10 edges
+4. `User` - 9 edges
+5. `scripts` - 9 edges
+6. `Laravel Docker Application` - 8 edges
+7. `Laravel-проєкти без домену` - 8 edges
+8. `Основні команди` - 6 edges
+9. `AppServiceProvider` - 5 edges
+10. `config` - 5 edges
+
+## Surprising Connections (you probably didn't know these)
+- None detected - all connections are within the same source files.
+
+## Import Cycles
+- None detected.
+
+## Communities (31 total, 16 thin omitted)
+
+### Community 0 - "composer.json"
+Cohesion: 0.08
+Nodes (23): autoload, autoload-dev, psr-4, psr-4, description, extra, laravel, keywords (+15 more)
+
+### Community 1 - "package.json"
+Cohesion: 0.09
+Nodes (21): devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite, optionalDependencies, @laravel/multiplex (+13 more)
+
+### Community 2 - "Laravel-проєкти без домену"
+Cohesion: 0.12
+Nodes (16): 1. Схема портів, 2. Локальний запуск, 3. Production-запуск на VPS, 4.1. Конфігурація laradockervps1, 4.2. Конфігурація laradockervps2, 4.3. Активація sites-enabled, 4. Мінімальний reverse proxy Nginx, 5. Видалення непотрібного проєкту (+8 more)
+
+### Community 3 - "UserFactory.php"
+Cohesion: 0.20
+Nodes (6): UserFactory, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Support\Facades\Hash, Illuminate\Support\Str, Pdo\Mysql, static
+
+### Community 4 - "Розгортання на VPS"
+Cohesion: 0.07
+Nodes (23): Development mounts and production volumes, Docker architecture, Images, Multiple projects on one VPS, Networks and ports, 1. Підготовка сервера, 2. Клонування проєкту та production-конфігурація, 3. Побудова та запуск production-стека (+15 more)
+
+### Community 5 - "Laravel Docker Application"
+Cohesion: 0.14
+Nodes (14): Composer, npm і shell, Laravel Docker Application, Laravel і база даних, Vite, Безпека та збереження даних, Встановлення проєкту на VPS, Документація, Основні команди (+6 more)
+
+### Community 6 - "User"
+Cohesion: 0.21
+Nodes (9): User, DatabaseSeeder, Illuminate\Database\Console\Seeds\WithoutModelEvents, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Attributes\Hidden, Illuminate\Database\Eloquent\Factories\HasFactory, Illuminate\Database\Seeder, Illuminate\Foundation\Auth\User (+1 more)
+
+### Community 8 - "0001_01_01_000000_create_users_table.php"
+Cohesion: 0.23
+Nodes (3): Illuminate\Database\Migrations\Migration, Illuminate\Database\Schema\Blueprint, Illuminate\Support\Facades\Schema
+
+### Community 9 - "require-dev"
+Cohesion: 0.18
+Nodes (11): require-dev, fakerphp/faker, fruitcake/laravel-debugbar, laravel/boost, laravel/pail, laravel/pao, laravel/pint, mockery/mockery (+3 more)
+
+### Community 10 - "scripts"
+Cohesion: 0.22
+Nodes (9): scripts, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall, setup (+1 more)
+
+### Community 11 - "Laravel-проєкти з доменами"
+Cohesion: 0.12
+Nodes (16): 1. Схема доменів і портів, 2. Локальний запуск, 3. Підготовка доменів, Cloudflare і сертифікатів, 4. Production-запуск на VPS, 5.1. Конфігурація example1.com, 5.2. Конфігурація example2.com, 5. Системний Nginx як reverse proxy, 6. Активація Nginx і firewall (+8 more)
+
+### Community 13 - "config"
+Cohesion: 0.29
+Nodes (7): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, preferred-install, sort-packages
+
+### Community 15 - "bootstrap/app.php"
+Cohesion: 0.40
+Nodes (4): Illuminate\Foundation\Application, Illuminate\Foundation\Configuration\Exceptions, Illuminate\Foundation\Configuration\Middleware, Illuminate\Http\Request
+
+### Community 16 - "Pest.php"
+Cohesion: 0.40
+Nodes (3): Illuminate\Foundation\Testing\RefreshDatabase, Illuminate\Foundation\Testing\TestCase, TestCase
+
+### Community 17 - "logging.php"
+Cohesion: 0.40
+Nodes (4): Monolog\Handler\NullHandler, Monolog\Handler\StreamHandler, Monolog\Handler\SyslogUdpHandler, Monolog\Processor\PsrLogMessageProcessor
+
+## Knowledge Gaps
+- **111 isolated node(s):** `php`, `Controller`, `$schema`, `name`, `type` (+106 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 157 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+
+## Suggested Questions
+_Questions this graph is uniquely positioned to answer:_
+
+- **Why does `require-dev` connect `require-dev` to `composer.json`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `Laravel Docker Application` connect `Laravel Docker Application` to `Розгортання на VPS`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **What connects `php`, `Controller`, `$schema` to the rest of the system?**
+  _111 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `composer.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
+- **Should `package.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.09486166007905138 - nodes in this community are weakly interconnected._
+- **Should `Laravel-проєкти без домену` be split into smaller, more focused modules?**
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `Розгортання на VPS` be split into smaller, more focused modules?**
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

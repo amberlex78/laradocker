@@ -1,0 +1,42 @@
+services:
+  app:
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
+    env_file:
+      - ./.env
+    build:
+      target: dev
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:${DEV_HTTP_PORT:-8000}
+    volumes:
+      - .:/var/www/html
+
+  composer:
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
+
+  nginx:
+    ports:
+      - "127.0.0.1:${DEV_HTTP_PORT:-8000}:8080"
+    volumes:
+      - .:/var/www/html:ro
+
+  node:
+    image: node:24-bookworm-slim
+    working_dir: /var/www/html
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    volumes:
+      - .:/var/www/html
+    networks:
+      - frontend
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
+    environment:
+      VITE_PORT: ${VITE_PORT:-5173}
+      VITE_HMR_HOST: ${VITE_HMR_HOST:-localhost}
+      VITE_HMR_PORT: ${VITE_HMR_PORT:-5173}
+    ports:
+      - "127.0.0.1:${VITE_FORWARD_PORT:-5173}:5173"
+
+  mariadb:
+    ports:
+      - "127.0.0.1:${DB_FORWARD_PORT:-3306}:3306"
