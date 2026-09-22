@@ -2,34 +2,35 @@
 
 namespace App\Actions\Fortify;
 
+use App\Actions\Auth\SetUserPassword;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
+use App\Validation\AuthValidationRules;
+use Illuminate\Contracts\Validation\Factory;
 use Laravel\Fortify\Contracts\UpdatesUserPasswords;
 
 class UpdateUserPassword implements UpdatesUserPasswords
 {
-    use PasswordValidationRules;
+    public function __construct(
+        private readonly Factory $validator,
+        private readonly AuthValidationRules $rules,
+        private readonly SetUserPassword $setUserPassword,
+    ) {}
 
     /**
      * Validate and update the user's password.
      *
-     * @param  array<string, string>  $input
-     *
-     * @throws ValidationException
+     * @param  array<string, mixed>  $input
      */
     public function update(User $user, array $input): void
     {
-        Validator::make($input, [
-            'current_password' => ['required', 'string', 'current_password:web'],
-            'password' => $this->passwordRules(),
-        ], [
-            'current_password.current_password' => __('The provided password does not match your current password.'),
-        ])->validateWithBag('updatePassword');
+        $validated = $this->validator
+            ->make(
+                $input,
+                $this->rules->passwordUpdate(),
+                $this->rules->passwordUpdateMessages(),
+            )
+            ->validateWithBag('updatePassword');
 
-        $user->forceFill([
-            'password' => Hash::make($input['password']),
-        ])->save();
+        $this->setUserPassword->handle($user, $validated['password']);
     }
 }

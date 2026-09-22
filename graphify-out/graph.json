@@ -4,17 +4,69 @@
   "graph": {},
   "nodes": [
     {
+      "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "label": "ResolveUserLandingRoute",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "resolveuserlandingroute",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "app_http_responses_loginresponse_loginresponse",
+      "label": "LoginResponse",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "loginresponse",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L9"
+    },
+    {
       "id": "app_providers_appserviceprovider_appserviceprovider",
       "label": "AppServiceProvider",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "AppServiceProvider",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "appserviceprovider",
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L7"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
+      "label": "FortifyServiceProvider",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "fortifyserviceprovider",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L19"
+    },
+    {
+      "id": "app_http_middleware_ensureuserhasrole_ensureuserhasrole",
+      "label": "EnsureUserHasRole",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "EnsureUserHasRole.php",
+      "file_type": "code",
+      "norm_label": "ensureuserhasrole",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L11"
     },
     {
       "id": "tests_testcase_testcase",
@@ -43,17 +95,147 @@
       "source_location": "L5"
     },
     {
+      "id": "app_enums_userrole_userrole",
+      "label": "UserRole",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "userrole",
+      "source_file": "app/Enums/UserRole.php",
+      "source_location": "L5"
+    },
+    {
       "id": "database_factories_userfactory_userfactory",
       "label": "UserFactory",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": "userfactory",
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L13"
+      "source_location": "L14"
+    },
+    {
+      "id": "database_seeders_databaseseeder_databaseseeder",
+      "label": "DatabaseSeeder",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "databaseseeder",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "database_seeders_userseeder_userseeder",
+      "label": "UserSeeder",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "userseeder",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_actions_auth_registeruser_registeruser",
+      "label": "RegisterUser",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "registeruser",
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "app_actions_auth_setuserpassword_setuserpassword",
+      "label": "SetUserPassword",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "setuserpassword",
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L7"
+    },
+    {
+      "id": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "label": "UpdateUserProfile",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "updateuserprofile",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "app_actions_fortify_createnewuser_createnewuser",
+      "label": "CreateNewUser",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "createnewuser",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "label": "ResetUserPassword",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "resetuserpassword",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "label": "UpdateUserPassword",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "updateuserpassword",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "label": "UpdateUserProfileInformation",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "updateuserprofileinformation",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L11"
     },
     {
       "id": "app_models_user_user",
@@ -66,20 +248,56 @@
       "file_type": "code",
       "norm_label": "user",
       "source_file": "app/Models/User.php",
-      "source_location": "L13"
+      "source_location": "L15"
     },
     {
-      "id": "database_seeders_databaseseeder_databaseseeder",
-      "label": "DatabaseSeeder",
+      "id": "app_validation_authvalidationrules_authvalidationrules",
+      "label": "AuthValidationRules",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "User",
       "file_type": "code",
-      "norm_label": "databaseseeder",
-      "source_file": "database/seeders/DatabaseSeeder.php",
+      "norm_label": "authvalidationrules",
+      "source_file": "app/Validation/AuthValidationRules.php",
       "source_location": "L9"
+    },
+    {
+      "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "app_http_responses_loginresponse_loginresponse_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_http_responses_loginresponse_loginresponse_toresponse",
+      "label": ".toResponse()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".toresponse()",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L18"
     },
     {
       "id": "app_providers_appserviceprovider_appserviceprovider_boot",
@@ -87,7 +305,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "AppServiceProvider",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".boot()",
       "source_file": "app/Providers/AppServiceProvider.php",
@@ -99,11 +317,47 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "AppServiceProvider",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".register()",
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L12"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_fortifyserviceprovider_boot",
+      "label": ".boot()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".boot()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_fortifyserviceprovider_register",
+      "label": ".register()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".register()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L24"
+    },
+    {
+      "id": "app_http_middleware_ensureuserhasrole_ensureuserhasrole_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "EnsureUserHasRole.php",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L18"
     },
     {
       "id": "tests_pest_something",
@@ -123,11 +377,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": ".definition()",
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "database_factories_userfactory_userfactory_unverified",
@@ -135,11 +389,179 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": ".unverified()",
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L39"
+      "source_location": "L41"
+    },
+    {
+      "id": "database_seeders_databaseseeder_databaseseeder_run",
+      "label": ".run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": ".run()",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L15"
+    },
+    {
+      "id": "database_seeders_userseeder_userseeder_run",
+      "label": ".run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": ".run()",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_actions_auth_registeruser_registeruser_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L15"
+    },
+    {
+      "id": "app_actions_auth_setuserpassword_setuserpassword_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L9"
+    },
+    {
+      "id": "app_actions_auth_updateuserprofile_updateuserprofile_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L15"
+    },
+    {
+      "id": "app_actions_auth_updateuserprofile_updateuserprofile_updateverifieduser",
+      "label": ".updateVerifiedUser()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".updateverifieduser()",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L31"
+    },
+    {
+      "id": "app_actions_fortify_createnewuser_createnewuser_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_actions_fortify_createnewuser_createnewuser_create",
+      "label": ".create()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".create()",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L24"
+    },
+    {
+      "id": "app_actions_fortify_resetuserpassword_resetuserpassword_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_actions_fortify_resetuserpassword_resetuserpassword_reset",
+      "label": ".reset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".reset()",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L24"
+    },
+    {
+      "id": "app_actions_fortify_updateuserpassword_updateuserpassword_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_actions_fortify_updateuserpassword_updateuserpassword_update",
+      "label": ".update()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".update()",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L24"
+    },
+    {
+      "id": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_update",
+      "label": ".update()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".update()",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L24"
     },
     {
       "id": "app_models_user_user_casts",
@@ -151,19 +573,79 @@
       "file_type": "code",
       "norm_label": ".casts()",
       "source_file": "app/Models/User.php",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
-      "id": "database_seeders_databaseseeder_databaseseeder_run",
-      "label": ".run()",
+      "id": "app_validation_authvalidationrules_authvalidationrules_password",
+      "label": ".password()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "User",
       "file_type": "code",
-      "norm_label": ".run()",
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L16"
+      "norm_label": ".password()",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L80"
+    },
+    {
+      "id": "app_validation_authvalidationrules_authvalidationrules_passwordreset",
+      "label": ".passwordReset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".passwordreset()",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L60"
+    },
+    {
+      "id": "app_validation_authvalidationrules_authvalidationrules_passwordupdate",
+      "label": ".passwordUpdate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".passwordupdate()",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L49"
+    },
+    {
+      "id": "app_validation_authvalidationrules_authvalidationrules_passwordupdatemessages",
+      "label": ".passwordUpdateMessages()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".passwordupdatemessages()",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L70"
+    },
+    {
+      "id": "app_validation_authvalidationrules_authvalidationrules_profile",
+      "label": ".profile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".profile()",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "app_validation_authvalidationrules_authvalidationrules_registration",
+      "label": ".registration()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": ".registration()",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L14"
     },
     {
       "id": "database_migrations_0001_01_01_000000_create_users_table_down",
@@ -238,6 +720,30 @@
       "source_location": "L12"
     },
     {
+      "id": "database_migrations_2026_09_22_000003_add_role_to_users_table_down",
+      "label": "down()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "0001_01_01_000000_create_users_table.php",
+      "file_type": "code",
+      "norm_label": "down()",
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L22"
+    },
+    {
+      "id": "database_migrations_2026_09_22_000003_add_role_to_users_table_up",
+      "label": "up()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "0001_01_01_000000_create_users_table.php",
+      "file_type": "code",
+      "norm_label": "up()",
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L12"
+    },
+    {
       "id": "composer",
       "label": "composer.json",
       "_origin": "ast",
@@ -249,6 +755,28 @@
       "source_location": "L1"
     },
     {
+      "id": "composer_allow_plugins_pestphp_pest_plugin",
+      "label": "pestphp/pest-plugin",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "pestphp/pest-plugin",
+      "source_file": "composer.json",
+      "source_location": "L88"
+    },
+    {
+      "id": "composer_allow_plugins_php_http_discovery",
+      "label": "php-http/discovery",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "php-http/discovery",
+      "source_file": "composer.json",
+      "source_location": "L89"
+    },
+    {
       "id": "composer_autoload",
       "label": "autoload",
       "_origin": "ast",
@@ -257,7 +785,7 @@
       "file_type": "code",
       "norm_label": "autoload",
       "source_file": "composer.json",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "composer_autoload_dev",
@@ -268,7 +796,7 @@
       "file_type": "code",
       "norm_label": "autoload-dev",
       "source_file": "composer.json",
-      "source_location": "L35"
+      "source_location": "L36"
     },
     {
       "id": "composer_autoload_dev_psr_4",
@@ -279,7 +807,7 @@
       "file_type": "code",
       "norm_label": "psr-4",
       "source_file": "composer.json",
-      "source_location": "L36"
+      "source_location": "L37"
     },
     {
       "id": "composer_autoload_psr_4",
@@ -290,7 +818,62 @@
       "file_type": "code",
       "norm_label": "psr-4",
       "source_file": "composer.json",
-      "source_location": "L29"
+      "source_location": "L30"
+    },
+    {
+      "id": "composer_config",
+      "label": "config",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "config",
+      "source_file": "composer.json",
+      "source_location": "L83"
+    },
+    {
+      "id": "composer_config_allow_plugins",
+      "label": "allow-plugins",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "allow-plugins",
+      "source_file": "composer.json",
+      "source_location": "L87"
+    },
+    {
+      "id": "composer_config_optimize_autoloader",
+      "label": "optimize-autoloader",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "optimize-autoloader",
+      "source_file": "composer.json",
+      "source_location": "L84"
+    },
+    {
+      "id": "composer_config_preferred_install",
+      "label": "preferred-install",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "preferred-install",
+      "source_file": "composer.json",
+      "source_location": "L85"
+    },
+    {
+      "id": "composer_config_sort_packages",
+      "label": "sort-packages",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "sort-packages",
+      "source_file": "composer.json",
+      "source_location": "L86"
     },
     {
       "id": "composer_description",
@@ -312,7 +895,7 @@
       "file_type": "code",
       "norm_label": "extra",
       "source_file": "composer.json",
-      "source_location": "L77"
+      "source_location": "L78"
     },
     {
       "id": "composer_extra_laravel",
@@ -323,7 +906,7 @@
       "file_type": "code",
       "norm_label": "laravel",
       "source_file": "composer.json",
-      "source_location": "L78"
+      "source_location": "L79"
     },
     {
       "id": "composer_keywords",
@@ -345,7 +928,7 @@
       "file_type": "code",
       "norm_label": "dont-discover",
       "source_file": "composer.json",
-      "source_location": "L79"
+      "source_location": "L80"
     },
     {
       "id": "composer_license",
@@ -367,7 +950,7 @@
       "file_type": "code",
       "norm_label": "minimum-stability",
       "source_file": "composer.json",
-      "source_location": "L91"
+      "source_location": "L92"
     },
     {
       "id": "composer_name",
@@ -389,7 +972,7 @@
       "file_type": "code",
       "norm_label": "prefer-stable",
       "source_file": "composer.json",
-      "source_location": "L92"
+      "source_location": "L93"
     },
     {
       "id": "composer_psr_4_app",
@@ -400,7 +983,7 @@
       "file_type": "code",
       "norm_label": "app\\\\",
       "source_file": "composer.json",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "composer_psr_4_database_factories",
@@ -411,7 +994,7 @@
       "file_type": "code",
       "norm_label": "database\\\\factories\\\\",
       "source_file": "composer.json",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "composer_psr_4_database_seeders",
@@ -422,7 +1005,7 @@
       "file_type": "code",
       "norm_label": "database\\\\seeders\\\\",
       "source_file": "composer.json",
-      "source_location": "L32"
+      "source_location": "L33"
     },
     {
       "id": "composer_psr_4_tests",
@@ -433,7 +1016,7 @@
       "file_type": "code",
       "norm_label": "tests\\\\",
       "source_file": "composer.json",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "composer_require",
@@ -447,6 +1030,17 @@
       "source_location": "L11"
     },
     {
+      "id": "composer_require_laravel_fortify",
+      "label": "laravel/fortify",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "laravel/fortify",
+      "source_file": "composer.json",
+      "source_location": "L13"
+    },
+    {
       "id": "composer_require_laravel_framework",
       "label": "laravel/framework",
       "_origin": "ast",
@@ -455,7 +1049,7 @@
       "file_type": "code",
       "norm_label": "laravel/framework",
       "source_file": "composer.json",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "composer_require_laravel_tinker",
@@ -466,7 +1060,7 @@
       "file_type": "code",
       "norm_label": "laravel/tinker",
       "source_file": "composer.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "composer_require_php",
@@ -489,6 +1083,105 @@
       "norm_label": "$schema",
       "source_file": "composer.json",
       "source_location": "L2"
+    },
+    {
+      "id": "composer_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "composer.json",
+      "source_location": "L41"
+    },
+    {
+      "id": "composer_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "composer.json",
+      "source_location": "L50"
+    },
+    {
+      "id": "composer_scripts_post_autoload_dump",
+      "label": "post-autoload-dump",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "post-autoload-dump",
+      "source_file": "composer.json",
+      "source_location": "L58"
+    },
+    {
+      "id": "composer_scripts_post_create_project_cmd",
+      "label": "post-create-project-cmd",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "post-create-project-cmd",
+      "source_file": "composer.json",
+      "source_location": "L69"
+    },
+    {
+      "id": "composer_scripts_post_root_package_install",
+      "label": "post-root-package-install",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "post-root-package-install",
+      "source_file": "composer.json",
+      "source_location": "L66"
+    },
+    {
+      "id": "composer_scripts_post_update_cmd",
+      "label": "post-update-cmd",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "post-update-cmd",
+      "source_file": "composer.json",
+      "source_location": "L62"
+    },
+    {
+      "id": "composer_scripts_pre_package_uninstall",
+      "label": "pre-package-uninstall",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "pre-package-uninstall",
+      "source_file": "composer.json",
+      "source_location": "L74"
+    },
+    {
+      "id": "composer_scripts_setup",
+      "label": "setup",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "setup",
+      "source_file": "composer.json",
+      "source_location": "L42"
+    },
+    {
+      "id": "composer_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "composer.json",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "composer.json",
+      "source_location": "L54"
     },
     {
       "id": "composer_type",
@@ -744,103 +1437,26 @@
       "source_location": "L14"
     },
     {
-      "id": "composer_scripts",
-      "label": "scripts",
+      "id": "config_fortify",
+      "label": "fortify.php",
       "_origin": "ast",
       "community": 10,
-      "community_name": "scripts",
+      "community_name": "fortify.php",
       "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "composer.json",
-      "source_location": "L40"
+      "norm_label": "fortify.php",
+      "source_file": "config/fortify.php",
+      "source_location": "L1"
     },
     {
-      "id": "composer_scripts_dev",
-      "label": "dev",
+      "id": "laravel_fortify_features",
+      "label": "Laravel\\Fortify\\Features",
       "_origin": "ast",
       "community": 10,
-      "community_name": "scripts",
+      "community_name": "fortify.php",
       "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "composer.json",
-      "source_location": "L49"
-    },
-    {
-      "id": "composer_scripts_post_autoload_dump",
-      "label": "post-autoload-dump",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "post-autoload-dump",
-      "source_file": "composer.json",
-      "source_location": "L57"
-    },
-    {
-      "id": "composer_scripts_post_create_project_cmd",
-      "label": "post-create-project-cmd",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "post-create-project-cmd",
-      "source_file": "composer.json",
-      "source_location": "L68"
-    },
-    {
-      "id": "composer_scripts_post_root_package_install",
-      "label": "post-root-package-install",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "post-root-package-install",
-      "source_file": "composer.json",
-      "source_location": "L65"
-    },
-    {
-      "id": "composer_scripts_post_update_cmd",
-      "label": "post-update-cmd",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "post-update-cmd",
-      "source_file": "composer.json",
-      "source_location": "L61"
-    },
-    {
-      "id": "composer_scripts_pre_package_uninstall",
-      "label": "pre-package-uninstall",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "pre-package-uninstall",
-      "source_file": "composer.json",
-      "source_location": "L73"
-    },
-    {
-      "id": "composer_scripts_setup",
-      "label": "setup",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "setup",
-      "source_file": "composer.json",
-      "source_location": "L41"
-    },
-    {
-      "id": "composer_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "composer.json",
-      "source_location": "L53"
+      "norm_label": "laravel\\fortify\\features",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "docs_projects_with_domains",
@@ -1047,91 +1663,69 @@
       "source_location": "L82"
     },
     {
-      "id": "composer_allow_plugins_pestphp_pest_plugin",
-      "label": "pestphp/pest-plugin",
+      "id": "config_seeders",
+      "label": "seeders.php",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "config",
+      "community": 12,
+      "community_name": "seeders.php",
       "file_type": "code",
-      "norm_label": "pestphp/pest-plugin",
-      "source_file": "composer.json",
-      "source_location": "L87"
+      "norm_label": "seeders.php",
+      "source_file": "config/seeders.php",
+      "source_location": "L1"
     },
     {
-      "id": "composer_allow_plugins_php_http_discovery",
-      "label": "php-http/discovery",
+      "id": "resources_views_account_index_blade",
+      "label": "index.blade.php",
       "_origin": "ast",
       "community": 13,
-      "community_name": "config",
+      "community_name": "index.blade.php",
       "file_type": "code",
-      "norm_label": "php-http/discovery",
-      "source_file": "composer.json",
-      "source_location": "L88"
+      "norm_label": "index.blade.php",
+      "source_file": "resources/views/account/index.blade.php",
+      "source_location": null
     },
     {
-      "id": "composer_config",
-      "label": "config",
+      "id": "app_actions_auth_resolveuserlandingroute",
+      "label": "ResolveUserLandingRoute.php",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "config",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
-      "norm_label": "config",
-      "source_file": "composer.json",
-      "source_location": "L82"
+      "norm_label": "resolveuserlandingroute.php",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L1"
     },
     {
-      "id": "composer_config_allow_plugins",
-      "label": "allow-plugins",
+      "id": "app_http_responses_loginresponse",
+      "label": "LoginResponse.php",
       "_origin": "ast",
-      "community": 13,
-      "community_name": "config",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
-      "norm_label": "allow-plugins",
-      "source_file": "composer.json",
-      "source_location": "L86"
-    },
-    {
-      "id": "composer_config_optimize_autoloader",
-      "label": "optimize-autoloader",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "config",
-      "file_type": "code",
-      "norm_label": "optimize-autoloader",
-      "source_file": "composer.json",
-      "source_location": "L83"
-    },
-    {
-      "id": "composer_config_preferred_install",
-      "label": "preferred-install",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "config",
-      "file_type": "code",
-      "norm_label": "preferred-install",
-      "source_file": "composer.json",
-      "source_location": "L84"
-    },
-    {
-      "id": "composer_config_sort_packages",
-      "label": "sort-packages",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "config",
-      "file_type": "code",
-      "norm_label": "sort-packages",
-      "source_file": "composer.json",
-      "source_location": "L85"
+      "norm_label": "loginresponse.php",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L1"
     },
     {
       "id": "app_providers_appserviceprovider",
       "label": "AppServiceProvider.php",
       "_origin": "ast",
       "community": 14,
-      "community_name": "AppServiceProvider",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "appserviceprovider.php",
       "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider",
+      "label": "FortifyServiceProvider.php",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "fortifyserviceprovider.php",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L1"
     },
     {
@@ -1139,40 +1733,183 @@
       "label": "providers.php",
       "_origin": "ast",
       "community": 14,
-      "community_name": "AppServiceProvider",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "providers.php",
       "source_file": "bootstrap/providers.php",
       "source_location": "L1"
     },
     {
+      "id": "config_cache",
+      "label": "cache.php",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "cache.php",
+      "source_file": "config/cache.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "config_database",
+      "label": "database.php",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "database.php",
+      "source_file": "config/database.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "config_session",
+      "label": "session.php",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "session.php",
+      "source_file": "config/session.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "illuminate_cache_ratelimiting_limit",
+      "label": "Illuminate\\Cache\\RateLimiting\\Limit",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\cache\\ratelimiting\\limit",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_support_facades_ratelimiter",
+      "label": "Illuminate\\Support\\Facades\\RateLimiter",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\ratelimiter",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_support_serviceprovider",
       "label": "Illuminate\\Support\\ServiceProvider",
       "_origin": "ast",
       "community": 14,
-      "community_name": "AppServiceProvider",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "illuminate\\support\\serviceprovider",
       "source_file": "",
       "source_location": ""
     },
     {
+      "id": "illuminate_support_str",
+      "label": "Illuminate\\Support\\Str",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\str",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_actions_redirectiftwofactorauthenticatable",
+      "label": "Laravel\\Fortify\\Actions\\RedirectIfTwoFactorAuthenticatable",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\actions\\redirectiftwofactorauthenticatable",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_contracts_loginresponse",
+      "label": "Laravel\\Fortify\\Contracts\\LoginResponse",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\contracts\\loginresponse",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_fortify",
+      "label": "Laravel\\Fortify\\Fortify",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\fortify",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "pdo_mysql",
+      "label": "Pdo\\Mysql",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "pdo\\mysql",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "symfony_component_httpfoundation_redirectresponse",
+      "label": "Symfony\\Component\\HttpFoundation\\RedirectResponse",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "symfony\\component\\httpfoundation\\redirectresponse",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "app_http_middleware_ensureuserhasrole",
+      "label": "EnsureUserHasRole.php",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "EnsureUserHasRole.php",
+      "file_type": "code",
+      "norm_label": "ensureuserhasrole.php",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L1"
+    },
+    {
       "id": "bootstrap_app",
       "label": "bootstrap/app.php",
       "_origin": "ast",
       "community": 15,
-      "community_name": "bootstrap/app.php",
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
       "norm_label": "bootstrap/app.php",
       "source_file": "bootstrap/app.php",
       "source_location": "L1"
     },
     {
+      "id": "closure",
+      "label": "Closure",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "EnsureUserHasRole.php",
+      "file_type": "code",
+      "norm_label": "closure",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_foundation_application",
       "label": "Illuminate\\Foundation\\Application",
       "_origin": "ast",
       "community": 15,
-      "community_name": "bootstrap/app.php",
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\application",
       "source_file": "",
@@ -1183,7 +1920,7 @@
       "label": "Illuminate\\Foundation\\Configuration\\Exceptions",
       "_origin": "ast",
       "community": 15,
-      "community_name": "bootstrap/app.php",
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\configuration\\exceptions",
       "source_file": "",
@@ -1194,7 +1931,7 @@
       "label": "Illuminate\\Foundation\\Configuration\\Middleware",
       "_origin": "ast",
       "community": 15,
-      "community_name": "bootstrap/app.php",
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\configuration\\middleware",
       "source_file": "",
@@ -1205,7 +1942,7 @@
       "label": "Illuminate\\Http\\Request",
       "_origin": "ast",
       "community": 15,
-      "community_name": "bootstrap/app.php",
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
       "norm_label": "illuminate\\http\\request",
       "source_file": "",
@@ -1216,20 +1953,20 @@
       "label": "index.php",
       "_origin": "ast",
       "community": 15,
-      "community_name": "bootstrap/app.php",
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
       "norm_label": "index.php",
       "source_file": "public/index.php",
       "source_location": "L1"
     },
     {
-      "id": "illuminate_foundation_testing_refreshdatabase",
-      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "id": "symfony_component_httpfoundation_response",
+      "label": "Symfony\\Component\\HttpFoundation\\Response",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "Pest.php",
+      "community": 15,
+      "community_name": "EnsureUserHasRole.php",
       "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
+      "norm_label": "symfony\\component\\httpfoundation\\response",
       "source_file": "",
       "source_location": ""
     },
@@ -1741,36 +2478,14 @@
       "source_location": "L1"
     },
     {
-      "id": "config_cache",
-      "label": "cache.php",
+      "id": "app_enums_userrole",
+      "label": "UserRole.php",
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
-      "norm_label": "cache.php",
-      "source_file": "config/cache.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "config_database",
-      "label": "database.php",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "database.php",
-      "source_file": "config/database.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "config_session",
-      "label": "session.php",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "session.php",
-      "source_file": "config/session.php",
+      "norm_label": "userrole.php",
+      "source_file": "app/Enums/UserRole.php",
       "source_location": "L1"
     },
     {
@@ -1778,20 +2493,97 @@
       "label": "UserFactory.php",
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": "userfactory.php",
       "source_file": "database/factories/UserFactory.php",
       "source_location": "L1"
     },
     {
+      "id": "database_seeders_databaseseeder",
+      "label": "DatabaseSeeder.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "databaseseeder.php",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_userseeder",
+      "label": "UserSeeder.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "userseeder.php",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "illuminate_auth_notifications_verifyemail",
+      "label": "Illuminate\\Auth\\Notifications\\VerifyEmail",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "illuminate\\auth\\notifications\\verifyemail",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_console_seeds_withoutmodelevents",
+      "label": "Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\console\\seeds\\withoutmodelevents",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_database_eloquent_factories_factory",
       "label": "Illuminate\\Database\\Eloquent\\Factories\\Factory",
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": "illuminate\\database\\eloquent\\factories\\factory",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_seeder",
+      "label": "Illuminate\\Database\\Seeder",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\seeder",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_foundation_http_middleware_preventrequestforgery",
+      "label": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\http\\middleware\\preventrequestforgery",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_foundation_testing_refreshdatabase",
+      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
       "source_file": "",
       "source_location": ""
     },
@@ -1800,31 +2592,20 @@
       "label": "Illuminate\\Support\\Facades\\Hash",
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\hash",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "illuminate_support_str",
-      "label": "Illuminate\\Support\\Str",
+      "id": "illuminate_support_facades_notification",
+      "label": "Illuminate\\Support\\Facades\\Notification",
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
-      "norm_label": "illuminate\\support\\str",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "pdo_mysql",
-      "label": "Pdo\\Mysql",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "pdo\\mysql",
+      "norm_label": "illuminate\\support\\facades\\notification",
       "source_file": "",
       "source_location": ""
     },
@@ -1833,11 +2614,185 @@
       "label": "static",
       "_origin": "ast",
       "community": 3,
-      "community_name": "UserFactory.php",
+      "community_name": "UserRole",
       "file_type": "code",
       "norm_label": "static",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "tests_feature_authentication_applicationactionstest",
+      "label": "ApplicationActionsTest.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "applicationactionstest.php",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest",
+      "label": "AuthenticationFlowTest.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "authenticationflowtest.php",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_authentication_fortifyactionstest",
+      "label": "FortifyActionsTest.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "fortifyactionstest.php",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest",
+      "label": "RoleAccessTest.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "roleaccesstest.php",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest",
+      "label": "UserSeederTest.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "userseedertest.php",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_pages_pagerenderingtest",
+      "label": "PageRenderingTest.php",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "code",
+      "norm_label": "pagerenderingtest.php",
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas",
+      "label": "2026-09-22-auth-admin-developer-areas.md",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-22-auth-admin-developer-areas.md",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
+      "label": "Authentication, Admin, and Developer Areas Implementation Plan",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "authentication, admin, and developer areas implementation plan",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_global_constraints",
+      "label": "Global Constraints",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "global constraints",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "label": "Review Focus",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "review focus",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_1_add_the_role_domain_model_and_database_column",
+      "label": "Task 1: Add the role domain model and database column",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 1: add the role domain model and database column",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_2_install_and_configure_fortify_with_blade_authentication_views",
+      "label": "Task 2: Install and configure Fortify with Blade authentication views",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 2: install and configure fortify with blade authentication views",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L69"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_3_add_role_middleware_and_route_boundaries",
+      "label": "Task 3: Add role middleware and route boundaries",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 3: add role middleware and route boundaries",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L114"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_4_build_the_public_account_admin_and_developer_blade_shells",
+      "label": "Task 4: Build the public, account, admin, and developer Blade shells",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 4: build the public, account, admin, and developer blade shells",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L150"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_5_run_the_complete_verification_pass",
+      "label": "Task 5: Run the complete verification pass",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "UserRole",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 5: run the complete verification pass",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L189"
     },
     {
       "id": "resources_views_welcome_blade",
@@ -1871,6 +2826,83 @@
       "norm_label": "unit/exampletest.php",
       "source_file": "tests/Unit/ExampleTest.php",
       "source_location": "L1"
+    },
+    {
+      "id": "resources_views_admin_dashboard_blade",
+      "label": "admin/dashboard.blade.php",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "admin/dashboard.blade.php",
+      "file_type": "code",
+      "norm_label": "admin/dashboard.blade.php",
+      "source_file": "resources/views/admin/dashboard.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_auth_forgot_password_blade",
+      "label": "forgot-password.blade.php",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "forgot-password.blade.php",
+      "file_type": "code",
+      "norm_label": "forgot-password.blade.php",
+      "source_file": "resources/views/auth/forgot-password.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_auth_login_blade",
+      "label": "login.blade.php",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "login.blade.php",
+      "file_type": "code",
+      "norm_label": "login.blade.php",
+      "source_file": "resources/views/auth/login.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_auth_register_blade",
+      "label": "register.blade.php",
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "register.blade.php",
+      "file_type": "code",
+      "norm_label": "register.blade.php",
+      "source_file": "resources/views/auth/register.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_auth_reset_password_blade",
+      "label": "reset-password.blade.php",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "reset-password.blade.php",
+      "file_type": "code",
+      "norm_label": "reset-password.blade.php",
+      "source_file": "resources/views/auth/reset-password.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_auth_verify_email_blade",
+      "label": "verify-email.blade.php",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "verify-email.blade.php",
+      "file_type": "code",
+      "norm_label": "verify-email.blade.php",
+      "source_file": "resources/views/auth/verify-email.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_layouts_account_blade",
+      "label": "account.blade.php",
+      "_origin": "ast",
+      "community": 39,
+      "community_name": "account.blade.php",
+      "file_type": "code",
+      "norm_label": "account.blade.php",
+      "source_file": "resources/views/components/layouts/account.blade.php",
+      "source_location": null
     },
     {
       "id": "docs_architecture",
@@ -2197,6 +3229,61 @@
       "source_location": "L1"
     },
     {
+      "id": "resources_views_components_layouts_admin_blade",
+      "label": "admin.blade.php",
+      "_origin": "ast",
+      "community": 40,
+      "community_name": "admin.blade.php",
+      "file_type": "code",
+      "norm_label": "admin.blade.php",
+      "source_file": "resources/views/components/layouts/admin.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_layouts_auth_blade",
+      "label": "auth.blade.php",
+      "_origin": "ast",
+      "community": 41,
+      "community_name": "auth.blade.php",
+      "file_type": "code",
+      "norm_label": "auth.blade.php",
+      "source_file": "resources/views/components/layouts/auth.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_layouts_developer_blade",
+      "label": "developer.blade.php",
+      "_origin": "ast",
+      "community": 42,
+      "community_name": "developer.blade.php",
+      "file_type": "code",
+      "norm_label": "developer.blade.php",
+      "source_file": "resources/views/components/layouts/developer.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_layouts_public_blade",
+      "label": "public.blade.php",
+      "_origin": "ast",
+      "community": 43,
+      "community_name": "public.blade.php",
+      "file_type": "code",
+      "norm_label": "public.blade.php",
+      "source_file": "resources/views/components/layouts/public.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_developer_dashboard_blade",
+      "label": "developer/dashboard.blade.php",
+      "_origin": "ast",
+      "community": 44,
+      "community_name": "developer/dashboard.blade.php",
+      "file_type": "code",
+      "norm_label": "developer/dashboard.blade.php",
+      "source_file": "resources/views/developer/dashboard.blade.php",
+      "source_location": null
+    },
+    {
       "id": "readme_composer_npm_\u0456_shell",
       "label": "Composer, npm \u0456 shell",
       "_origin": "ast",
@@ -2365,6 +3452,83 @@
       "source_location": "L38"
     },
     {
+      "id": "app_actions_auth_registeruser",
+      "label": "RegisterUser.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "registeruser.php",
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_auth_setuserpassword",
+      "label": "SetUserPassword.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "setuserpassword.php",
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_auth_updateuserprofile",
+      "label": "UpdateUserProfile.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "updateuserprofile.php",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_fortify_createnewuser",
+      "label": "CreateNewUser.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "createnewuser.php",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_fortify_resetuserpassword",
+      "label": "ResetUserPassword.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "resetuserpassword.php",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_fortify_updateuserpassword",
+      "label": "UpdateUserPassword.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "updateuserpassword.php",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_fortify_updateuserprofileinformation",
+      "label": "UpdateUserProfileInformation.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "updateuserprofileinformation.php",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_models_user",
       "label": "User.php",
       "_origin": "ast",
@@ -2373,6 +3537,17 @@
       "file_type": "code",
       "norm_label": "user.php",
       "source_file": "app/Models/User.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_validation_authvalidationrules",
+      "label": "AuthValidationRules.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "authvalidationrules.php",
+      "source_file": "app/Validation/AuthValidationRules.php",
       "source_location": "L1"
     },
     {
@@ -2387,24 +3562,24 @@
       "source_location": "L1"
     },
     {
-      "id": "database_seeders_databaseseeder",
-      "label": "DatabaseSeeder.php",
+      "id": "illuminate_contracts_auth_mustverifyemail",
+      "label": "Illuminate\\Contracts\\Auth\\MustVerifyEmail",
       "_origin": "ast",
       "community": 6,
       "community_name": "User",
       "file_type": "code",
-      "norm_label": "databaseseeder.php",
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L1"
+      "norm_label": "illuminate\\contracts\\auth\\mustverifyemail",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "illuminate_database_console_seeds_withoutmodelevents",
-      "label": "Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents",
+      "id": "illuminate_contracts_validation_factory",
+      "label": "Illuminate\\Contracts\\Validation\\Factory",
       "_origin": "ast",
       "community": 6,
       "community_name": "User",
       "file_type": "code",
-      "norm_label": "illuminate\\database\\console\\seeds\\withoutmodelevents",
+      "norm_label": "illuminate\\contracts\\validation\\factory",
       "source_file": "",
       "source_location": ""
     },
@@ -2442,17 +3617,6 @@
       "source_location": ""
     },
     {
-      "id": "illuminate_database_seeder",
-      "label": "Illuminate\\Database\\Seeder",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\seeder",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "illuminate_foundation_auth_user",
       "label": "Illuminate\\Foundation\\Auth\\User",
       "_origin": "ast",
@@ -2473,6 +3637,190 @@
       "norm_label": "illuminate\\notifications\\notifiable",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "illuminate_support_facades_validator",
+      "label": "Illuminate\\Support\\Facades\\Validator",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\validator",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_validation_rule",
+      "label": "Illuminate\\Validation\\Rule",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "illuminate\\validation\\rule",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_validation_rules_password",
+      "label": "Illuminate\\Validation\\Rules\\Password",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "illuminate\\validation\\rules\\password",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_contracts_createsnewusers",
+      "label": "Laravel\\Fortify\\Contracts\\CreatesNewUsers",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\contracts\\createsnewusers",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_contracts_resetsuserpasswords",
+      "label": "Laravel\\Fortify\\Contracts\\ResetsUserPasswords",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\contracts\\resetsuserpasswords",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_contracts_updatesuserpasswords",
+      "label": "Laravel\\Fortify\\Contracts\\UpdatesUserPasswords",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\contracts\\updatesuserpasswords",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_contracts_updatesuserprofileinformation",
+      "label": "Laravel\\Fortify\\Contracts\\UpdatesUserProfileInformation",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\contracts\\updatesuserprofileinformation",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_feature_authentication_authvalidationrulestest",
+      "label": "AuthValidationRulesTest.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "authvalidationrulestest.php",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design",
+      "label": "2026-09-22-auth-admin-developer-design.md",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-22-auth-admin-developer-design.md",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_application_areas",
+      "label": "Application areas",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "application areas",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication",
+      "label": "Authentication",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "authentication",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "label": "Authentication, Admin, and Developer Areas",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "authentication, admin, and developer areas",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_goal",
+      "label": "Goal",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "goal",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_roles_and_access",
+      "label": "Roles and access",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "roles and access",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_ui_structure",
+      "label": "UI structure",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ui structure",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_verification",
+      "label": "Verification",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Authentication, Admin, and Developer Areas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "verification",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L37"
     },
     {
       "id": "database_migrations_0001_01_01_000000_create_users_table",
@@ -2505,6 +3853,17 @@
       "file_type": "code",
       "norm_label": "0001_01_01_000002_create_jobs_table.php",
       "source_file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_migrations_2026_09_22_000003_add_role_to_users_table",
+      "label": "2026_09_22_000003_add_role_to_users_table.php",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "0001_01_01_000000_create_users_table.php",
+      "file_type": "code",
+      "norm_label": "2026_09_22_000003_add_role_to_users_table.php",
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
       "source_location": "L1"
     },
     {
@@ -2549,7 +3908,7 @@
       "file_type": "code",
       "norm_label": "require-dev",
       "source_file": "composer.json",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "composer_require_dev_fakerphp_faker",
@@ -2560,7 +3919,7 @@
       "file_type": "code",
       "norm_label": "fakerphp/faker",
       "source_file": "composer.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "composer_require_dev_fruitcake_laravel_debugbar",
@@ -2571,7 +3930,7 @@
       "file_type": "code",
       "norm_label": "fruitcake/laravel-debugbar",
       "source_file": "composer.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "composer_require_dev_laravel_boost",
@@ -2582,7 +3941,7 @@
       "file_type": "code",
       "norm_label": "laravel/boost",
       "source_file": "composer.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "composer_require_dev_laravel_pail",
@@ -2593,7 +3952,7 @@
       "file_type": "code",
       "norm_label": "laravel/pail",
       "source_file": "composer.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "composer_require_dev_laravel_pao",
@@ -2604,7 +3963,7 @@
       "file_type": "code",
       "norm_label": "laravel/pao",
       "source_file": "composer.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "composer_require_dev_laravel_pint",
@@ -2615,7 +3974,7 @@
       "file_type": "code",
       "norm_label": "laravel/pint",
       "source_file": "composer.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "composer_require_dev_mockery_mockery",
@@ -2626,7 +3985,7 @@
       "file_type": "code",
       "norm_label": "mockery/mockery",
       "source_file": "composer.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "composer_require_dev_nunomaduro_collision",
@@ -2637,7 +3996,7 @@
       "file_type": "code",
       "norm_label": "nunomaduro/collision",
       "source_file": "composer.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "composer_require_dev_pestphp_pest",
@@ -2648,7 +4007,7 @@
       "file_type": "code",
       "norm_label": "pestphp/pest",
       "source_file": "composer.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "composer_require_dev_pestphp_pest_plugin_laravel",
@@ -2659,7 +4018,7 @@
       "file_type": "code",
       "norm_label": "pestphp/pest-plugin-laravel",
       "source_file": "composer.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "ref_laravel_vite_plugin_fonts",
@@ -2700,15 +4059,75 @@
   ],
   "links": [
     {
-      "source": "database_seeders_databaseseeder_databaseseeder_run",
+      "source": "app_actions_auth_updateuserprofile_updateuserprofile_handle",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile_updateverifieduser",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole_ensureuserhasrole_handle",
+      "target": "app_enums_userrole_userrole",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules_passwordreset",
+      "target": "app_validation_authvalidationrules_authvalidationrules_password",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules_passwordupdate",
+      "target": "app_validation_authvalidationrules_authvalidationrules_password",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules_registration",
+      "target": "app_validation_authvalidationrules_authvalidationrules_password",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder_userseeder_run",
       "target": "app_models_user_user",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L20",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -2724,50 +4143,578 @@
       "weight": 1.0
     },
     {
-      "source": "app_models_user",
-      "target": "illuminate_foundation_auth_user",
-      "relation": "imports",
+      "source": "app_actions_fortify_createnewuser_createnewuser",
+      "target": "app_actions_auth_registeruser_registeruser",
+      "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "app/Models/User.php",
-      "source_location": "L10",
+      "context": "field",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
-      "source": "app_models_user",
-      "target": "illuminate_notifications_notifiable",
-      "relation": "imports",
+      "source": "app_actions_fortify_createnewuser_createnewuser",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "app/Models/User.php",
+      "context": "field",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Http/Responses/LoginResponse.php",
       "source_location": "L11",
       "weight": 1.0
     },
     {
-      "source": "app_models_user",
-      "target": "database_factories_userfactory_userfactory",
+      "source": "app_actions_auth_registeruser",
+      "target": "app_enums_userrole_userrole",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "app/Models/User.php",
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_registeruser",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/RegisterUser.php",
       "source_location": "L6",
       "weight": 1.0
     },
     {
-      "source": "app_models_user",
-      "target": "illuminate_database_eloquent_attributes_fillable",
+      "source": "app_actions_auth_resolveuserlandingroute",
+      "target": "app_enums_userrole_userrole",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "app/Models/User.php",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_resolveuserlandingroute",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_setuserpassword",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile",
+      "target": "illuminate_contracts_auth_mustverifyemail",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser",
+      "target": "app_actions_auth_registeruser_registeruser",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser",
+      "target": "laravel_fortify_contracts_createsnewusers",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword",
+      "target": "laravel_fortify_contracts_resetsuserpasswords",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword",
+      "target": "laravel_fortify_contracts_updatesuserpasswords",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation",
+      "target": "laravel_fortify_contracts_updatesuserprofileinformation",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole",
+      "target": "closure",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole",
+      "target": "illuminate_http_request",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole",
+      "target": "symfony_component_httpfoundation_response",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse",
+      "target": "laravel_fortify_contracts_loginresponse",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse",
+      "target": "symfony_component_httpfoundation_redirectresponse",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Responses/LoginResponse.php",
       "source_location": "L7",
       "weight": 1.0
     },
@@ -2780,12 +4727,84 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "app/Models/User.php",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
       "source": "app_models_user",
       "target": "illuminate_database_eloquent_factories_hasfactory",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Models/User.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user",
+      "target": "illuminate_foundation_auth_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Models/User.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user",
+      "target": "illuminate_notifications_notifiable",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Models/User.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Models/User.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user",
+      "target": "database_factories_userfactory_userfactory",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Models/User.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user",
+      "target": "illuminate_contracts_auth_mustverifyemail",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Models/User.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user",
+      "target": "illuminate_database_eloquent_attributes_fillable",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2805,6 +4824,198 @@
       "context": "import",
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "illuminate_cache_ratelimiting_limit",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "illuminate_http_request",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "illuminate_support_facades_ratelimiter",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "illuminate_support_serviceprovider",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "illuminate_support_str",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "laravel_fortify_actions_redirectiftwofactorauthenticatable",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "laravel_fortify_contracts_loginresponse",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "laravel_fortify_fortify",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "app_actions_fortify_createnewuser_createnewuser",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "app_http_responses_loginresponse_loginresponse",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules",
+      "target": "illuminate_validation_rule",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules",
+      "target": "illuminate_validation_rules_password",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -2833,7 +5044,7 @@
     },
     {
       "source": "bootstrap_app",
-      "target": "illuminate_foundation_application",
+      "target": "app_http_middleware_ensureuserhasrole_ensureuserhasrole",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2845,7 +5056,7 @@
     },
     {
       "source": "bootstrap_app",
-      "target": "illuminate_foundation_configuration_exceptions",
+      "target": "illuminate_foundation_application",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2857,7 +5068,7 @@
     },
     {
       "source": "bootstrap_app",
-      "target": "illuminate_foundation_configuration_middleware",
+      "target": "illuminate_foundation_configuration_exceptions",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2869,7 +5080,7 @@
     },
     {
       "source": "bootstrap_app",
-      "target": "illuminate_http_request",
+      "target": "illuminate_foundation_configuration_middleware",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2877,6 +5088,18 @@
       "context": "import",
       "source_file": "bootstrap/app.php",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "bootstrap_app",
+      "target": "illuminate_http_request",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -2889,6 +5112,18 @@
       "context": "import",
       "source_file": "bootstrap/providers.php",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "bootstrap_providers",
+      "target": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "bootstrap/providers.php",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -2937,6 +5172,18 @@
       "context": "import",
       "source_file": "config/database.php",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "config_fortify",
+      "target": "laravel_fortify_features",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "config/fortify.php",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -3001,7 +5248,7 @@
     },
     {
       "source": "database_factories_userfactory",
-      "target": "app_models_user_user",
+      "target": "app_enums_userrole_userrole",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3013,7 +5260,7 @@
     },
     {
       "source": "database_factories_userfactory",
-      "target": "illuminate_database_eloquent_factories_factory",
+      "target": "app_models_user_user",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3025,7 +5272,7 @@
     },
     {
       "source": "database_factories_userfactory",
-      "target": "illuminate_support_facades_hash",
+      "target": "illuminate_database_eloquent_factories_factory",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3037,7 +5284,7 @@
     },
     {
       "source": "database_factories_userfactory",
-      "target": "illuminate_support_str",
+      "target": "illuminate_support_facades_hash",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3048,6 +5295,18 @@
       "weight": 1.0
     },
     {
+      "source": "database_factories_userfactory",
+      "target": "illuminate_support_str",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "database_migrations_0001_01_01_000000_create_users_table",
       "target": "illuminate_database_migrations_migration",
       "relation": "imports",
@@ -3156,14 +5415,38 @@
       "weight": 1.0
     },
     {
-      "source": "database_seeders_databaseseeder",
-      "target": "app_models_user_user",
+      "source": "database_migrations_2026_09_22_000003_add_role_to_users_table",
+      "target": "illuminate_database_migrations_migration",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_22_000003_add_role_to_users_table",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_22_000003_add_role_to_users_table",
+      "target": "illuminate_support_facades_schema",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -3176,7 +5459,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3188,7 +5471,67 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder",
+      "target": "illuminate_database_console_seeds_withoutmodelevents",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/seeders/UserSeeder.php",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder",
+      "target": "illuminate_database_seeder",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder",
+      "target": "illuminate_support_facades_hash",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -3324,6 +5667,438 @@
       "weight": 1.0
     },
     {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "illuminate_support_facades_hash",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "illuminate_support_facades_notification",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "app_actions_auth_registeruser_registeruser",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_applicationactionstest",
+      "target": "illuminate_auth_notifications_verifyemail",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest",
+      "target": "illuminate_foundation_http_middleware_preventrequestforgery",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authvalidationrulestest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authvalidationrulestest",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authvalidationrulestest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authvalidationrulestest",
+      "target": "illuminate_support_facades_validator",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "laravel_fortify_contracts_updatesuserprofileinformation",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "illuminate_auth_notifications_verifyemail",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "illuminate_support_facades_hash",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "illuminate_support_facades_notification",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "laravel_fortify_contracts_resetsuserpasswords",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_fortifyactionstest",
+      "target": "laravel_fortify_contracts_updatesuserpasswords",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_roleaccesstest",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_roleaccesstest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_roleaccesstest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_database_seeders_userseedertest",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_database_seeders_userseedertest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_database_seeders_userseedertest",
+      "target": "database_seeders_userseeder_userseeder",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_database_seeders_userseedertest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
+      "target": "app_enums_userrole_userrole",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
+      "target": "illuminate_foundation_testing_refreshdatabase",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "tests_pest",
       "target": "illuminate_foundation_testing_refreshdatabase",
       "relation": "imports",
@@ -3408,6 +6183,330 @@
       "weight": 1.0
     },
     {
+      "source": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_setuserpassword_setuserpassword_handle",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile_updateuserprofile_handle",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile_updateuserprofile_updateverifieduser",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser_construct",
+      "target": "app_actions_auth_registeruser_registeruser",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser_construct",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser_construct",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword_construct",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword_construct",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword_construct",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword_reset",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword_construct",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword_construct",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword_construct",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword_update",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_construct",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_construct",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_construct",
+      "target": "illuminate_contracts_validation_factory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_update",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole_ensureuserhasrole_handle",
+      "target": "closure",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole_ensureuserhasrole_handle",
+      "target": "illuminate_http_request",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse_construct",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules_profile",
+      "target": "app_models_user_user",
+      "relation": "references_constant",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_registeruser_registeruser_handle",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser_create",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole_ensureuserhasrole_handle",
+      "target": "symfony_component_httpfoundation_response",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse_toresponse",
+      "target": "symfony_component_httpfoundation_redirectresponse",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
       "source": "database_factories_userfactory_userfactory_unverified",
       "target": "static",
       "relation": "references",
@@ -3416,7 +6515,106 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L39",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_registeruser",
+      "target": "app_actions_auth_registeruser_registeruser",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_resolveuserlandingroute",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_setuserpassword",
+      "target": "app_actions_auth_setuserpassword_setuserpassword",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser",
+      "target": "app_actions_fortify_createnewuser_createnewuser",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword",
+      "target": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword",
+      "target": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation",
+      "target": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_enums_userrole",
+      "target": "app_enums_userrole_userrole",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Enums/UserRole.php",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3431,6 +6629,28 @@
       "weight": 1.0
     },
     {
+      "source": "app_http_middleware_ensureuserhasrole",
+      "target": "app_http_middleware_ensureuserhasrole_ensureuserhasrole",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse",
+      "target": "app_http_responses_loginresponse_loginresponse",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "app_models_user",
       "target": "app_models_user_user",
       "relation": "contains",
@@ -3438,7 +6658,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3450,6 +6670,28 @@
       "confidence_score": 1.0,
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider",
+      "target": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -3482,7 +6724,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3504,7 +6746,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -3526,7 +6768,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -3548,7 +6790,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -3581,7 +6823,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L77",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -3592,7 +6834,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -3603,7 +6845,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L91",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -3614,7 +6856,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L92",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -3625,7 +6867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -3636,7 +6878,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -3647,7 +6889,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -3658,7 +6900,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -3669,7 +6911,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3680,7 +6922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -3691,7 +6933,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -3702,7 +6944,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -3713,7 +6955,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L85",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -3724,7 +6966,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L86",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -3735,7 +6977,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -3746,7 +6988,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L88",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -3757,7 +6999,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -3768,7 +7010,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L79",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -3784,7 +7026,7 @@
     },
     {
       "source": "composer_require",
-      "target": "composer_require_laravel_framework",
+      "target": "composer_require_laravel_fortify",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3795,13 +7037,24 @@
     },
     {
       "source": "composer_require",
-      "target": "composer_require_laravel_tinker",
+      "target": "composer_require_laravel_framework",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
       "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "composer_require",
+      "target": "composer_require_laravel_tinker",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "composer.json",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3812,7 +7065,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -3823,7 +7076,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3834,7 +7087,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3845,7 +7098,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3856,7 +7109,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -3867,7 +7120,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -3878,7 +7131,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -3889,7 +7142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3900,7 +7153,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -3911,7 +7164,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -3922,7 +7175,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -3933,7 +7186,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -3944,7 +7197,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -3955,7 +7208,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -3966,7 +7219,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -3977,7 +7230,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -3988,7 +7241,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -3999,7 +7252,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L73",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -4010,7 +7263,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -4080,6 +7333,28 @@
       "weight": 1.0
     },
     {
+      "source": "database_migrations_2026_09_22_000003_add_role_to_users_table",
+      "target": "database_migrations_2026_09_22_000003_add_role_to_users_table_up",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_22_000003_add_role_to_users_table",
+      "target": "database_migrations_2026_09_22_000003_add_role_to_users_table_down",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "database_seeders_databaseseeder",
       "target": "database_seeders_databaseseeder_databaseseeder",
       "relation": "contains",
@@ -4087,7 +7362,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L9",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder",
+      "target": "database_seeders_userseeder_userseeder",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -4707,6 +7993,171 @@
       "weight": 1.0
     },
     {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_global_constraints",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_3_add_role_middleware_and_route_boundaries",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_4_build_the_public_account_admin_and_developer_blade_shells",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_5_run_the_complete_verification_pass",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_1_add_the_role_domain_model_and_database_column",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "target": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_2_install_and_configure_fortify_with_blade_authentication_views",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_application_areas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_goal",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_ui_structure",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_verification",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_authentication_admin_and_developer_areas",
+      "target": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_roles_and_access",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "mcp",
       "target": "mcp_mcp_server_laravel_boost",
       "relation": "contains",
@@ -5048,6 +8499,72 @@
       "weight": 1.0
     },
     {
+      "source": "app_actions_fortify_createnewuser_createnewuser",
+      "target": "laravel_fortify_contracts_createsnewusers",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "target": "laravel_fortify_contracts_resetsuserpasswords",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "target": "laravel_fortify_contracts_updatesuserpasswords",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "target": "laravel_fortify_contracts_updatesuserprofileinformation",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse",
+      "target": "laravel_fortify_contracts_loginresponse",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_models_user_user",
+      "target": "illuminate_contracts_auth_mustverifyemail",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Models/User.php",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
       "source": "app_models_user_user",
       "target": "illuminate_foundation_auth_user",
       "relation": "inherits",
@@ -5055,7 +8572,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -5070,6 +8587,17 @@
       "weight": 1.0
     },
     {
+      "source": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
+      "target": "illuminate_support_serviceprovider",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
       "source": "database_factories_userfactory_userfactory",
       "target": "illuminate_database_eloquent_factories_factory",
       "relation": "inherits",
@@ -5077,7 +8605,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -5088,7 +8616,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L9",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder_userseeder",
+      "target": "illuminate_database_seeder",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -5103,6 +8642,182 @@
       "weight": 1.0
     },
     {
+      "source": "app_actions_auth_registeruser_registeruser",
+      "target": "app_actions_auth_registeruser_registeruser_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/RegisterUser.php",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_setuserpassword_setuserpassword",
+      "target": "app_actions_auth_setuserpassword_setuserpassword_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/SetUserPassword.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_updateuserprofile_updateuserprofile",
+      "target": "app_actions_auth_updateuserprofile_updateuserprofile_updateverifieduser",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser",
+      "target": "app_actions_fortify_createnewuser_createnewuser_construct",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_createnewuser_createnewuser",
+      "target": "app_actions_fortify_createnewuser_createnewuser_create",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/CreateNewUser.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "target": "app_actions_fortify_resetuserpassword_resetuserpassword_construct",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_resetuserpassword_resetuserpassword",
+      "target": "app_actions_fortify_resetuserpassword_resetuserpassword_reset",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/ResetUserPassword.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "target": "app_actions_fortify_updateuserpassword_updateuserpassword_construct",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserpassword_updateuserpassword",
+      "target": "app_actions_fortify_updateuserpassword_updateuserpassword_update",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserPassword.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "target": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_construct",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation",
+      "target": "app_actions_fortify_updateuserprofileinformation_updateuserprofileinformation_update",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Fortify/UpdateUserProfileInformation.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_middleware_ensureuserhasrole_ensureuserhasrole",
+      "target": "app_http_middleware_ensureuserhasrole_ensureuserhasrole_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse",
+      "target": "app_http_responses_loginresponse_loginresponse_construct",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse",
+      "target": "app_http_responses_loginresponse_loginresponse_toresponse",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
       "source": "app_models_user_user",
       "target": "app_models_user_user_casts",
       "relation": "method",
@@ -5110,7 +8825,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -5136,6 +8851,94 @@
       "weight": 1.0
     },
     {
+      "source": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
+      "target": "app_providers_fortifyserviceprovider_fortifyserviceprovider_register",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
+      "target": "app_providers_fortifyserviceprovider_fortifyserviceprovider_boot",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules_registration",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules_profile",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules_passwordupdate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules_passwordreset",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules_passwordupdatemessages",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "app_validation_authvalidationrules_authvalidationrules",
+      "target": "app_validation_authvalidationrules_authvalidationrules_password",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
       "source": "database_factories_userfactory_userfactory",
       "target": "database_factories_userfactory_userfactory_definition",
       "relation": "method",
@@ -5143,7 +8946,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -5154,7 +8957,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L39",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -5165,7 +8968,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L16",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder_userseeder",
+      "target": "database_seeders_userseeder_userseeder_run",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -5176,7 +8990,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -5187,7 +9001,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -5198,7 +9012,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L11",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "database_seeders_userseeder_userseeder",
+      "target": "illuminate_database_console_seeds_withoutmodelevents",
+      "relation": "mixes_in",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -5235,6 +9060,17 @@
       "weight": 1.0
     },
     {
+      "source": "app_validation_authvalidationrules_authvalidationrules_registration",
+      "target": "app_models_user_user",
+      "relation": "references_constant",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
       "source": "database_factories_userfactory_userfactory_definition",
       "target": "static",
       "relation": "uses_static_prop",
@@ -5242,10 +9078,94 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "database/factories/UserFactory.php",
-      "source_location": "L31",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_1_add_the_role_domain_model_and_database_column",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "User",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_2_install_and_configure_fortify_with_blade_authentication_views",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "User",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_2_install_and_configure_fortify_with_blade_authentication_views",
+      "target": "database_factories_userfactory_userfactory",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "UserFactory",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
+      "target": "app_enums_userrole_userrole",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "UserRole",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_global_constraints",
+      "target": "app_enums_userrole_userrole",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "UserRole",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_1_add_the_role_domain_model_and_database_column",
+      "target": "app_enums_userrole_userrole",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "UserRole",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_superpowers_specs_2026_09_22_auth_admin_developer_design_roles_and_access",
+      "target": "app_enums_userrole_userrole",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "UserRole",
+      "source_file": "docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md",
+      "source_location": "L9",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "88db2500806fd98b81e3bbb481d1a1b6424617c3"
+  "built_at_commit": "619612c87588a6746a30dce718d40897f98446ba"
 }
