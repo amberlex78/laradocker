@@ -1,17 +1,17 @@
 # Graph Report - ladocker  (2026-09-24)
 
 ## Corpus Check
-- 101 files · ~68,681 words
+- 103 files · ~68,968 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 19, .example 4, .conf 3)
 
 ## Summary
-- 537 nodes · 665 edges · 64 communities (27 shown, 37 thin omitted)
+- 539 nodes · 665 edges · 66 communities (27 shown, 39 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cddfd725`
+- Built from commit: `06dd68c2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -78,7 +78,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (64 total, 37 thin omitted)
+## Communities (66 total, 39 thin omitted)
 
 ### Community 0 - "composer.json"
 Cohesion: 0.22
@@ -190,8 +190,8 @@ Nodes (3): extra, laravel, dont-discover
 
 ## Knowledge Gaps
 - **211 isolated node(s):** `php`, `name`, `version`, `description`, `main` (+206 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 318 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **37 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 320 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **39 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

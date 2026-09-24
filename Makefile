@@ -14,6 +14,24 @@ DOCKER_PROD := $(COMPOSE) --env-file ./.env.prod -f docker-compose.yml -f docker
 
 PHP_EXEC := $(DOCKER_DEV) exec app
 
+TEST_ENV := \
+	-e APP_ENV=testing \
+	-e APP_MAINTENANCE_DRIVER=file \
+	-e BCRYPT_ROUNDS=4 \
+	-e BROADCAST_CONNECTION=null \
+	-e CACHE_STORE=array \
+	-e DB_CONNECTION=sqlite \
+	-e DB_DATABASE=:memory: \
+	-e DB_URL= \
+	-e MAIL_MAILER=array \
+	-e QUEUE_CONNECTION=sync \
+	-e SESSION_DRIVER=array \
+	-e PULSE_ENABLED=false \
+	-e TELESCOPE_ENABLED=false \
+	-e NIGHTWATCH_ENABLED=false
+
+TEST_PHP_EXEC := $(DOCKER_DEV) exec $(TEST_ENV) app
+
 .DEFAULT_GOAL := help
 .SILENT:
 
@@ -105,8 +123,9 @@ db-seed: ## Run database seeders
 
 ## QUALITY
 
-test: ## Run the Laravel test suite
-	$(PHP_EXEC) php artisan test --compact
+test: ## Run the Laravel test suite, optionally narrowed with CMD="tests/Feature/ExampleTest.php"
+	$(TEST_PHP_EXEC) php artisan config:clear --ansi
+	$(TEST_PHP_EXEC) php artisan test --compact $(CMD)
 
 pint: ## Run Laravel Pint
 	$(PHP_EXEC) ./vendor/bin/pint

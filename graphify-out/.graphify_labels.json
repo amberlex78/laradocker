@@ -62,5 +62,7 @@
   "60": "panel.blade.php",
   "61": "sidebar.blade.php",
   "62": "stat-card.blade.php",
-  "63": "backoffice.blade.php"
+  "63": "backoffice.blade.php",
+  "64": "bootstrap.php",
+  "65": "TestingEnvironmentTest.php"
 }
