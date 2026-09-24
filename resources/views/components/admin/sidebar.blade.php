@@ -20,7 +20,7 @@
 >
     <div class="flex h-20 items-center justify-between border-b border-slate-200 px-6 dark:border-slate-800">
         <a class="flex min-w-0 items-center gap-3" href="{{ route($isDeveloper ? 'developer.dashboard' : 'admin.dashboard') }}">
-            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-sm font-bold text-white">{{ $isDeveloper ? 'D' : 'A' }}</span>
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-sm font-bold text-white">{{ $isDeveloper ? 'D' : 'A' }}</span>
             <span class="min-w-0">
                 <span class="block truncate text-sm font-semibold">{{ config('app.name', 'Laravel') }}</span>
                 <span class="block truncate text-xs {{ $mutedTextClasses }}">{{ $brandLabel }}</span>
@@ -49,12 +49,12 @@
                 @endphp
 
                 <a
-                    class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition {{ $isActive ? $activeLinkClasses : $inactiveLinkClasses }}"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition {{ $isActive ? $activeLinkClasses : $inactiveLinkClasses }}"
                     href="{{ route($item['route']) }}"
                     @if ($isActive) aria-current="page" @endif
                 >
-                    <span class="flex h-8 w-8 items-center justify-center rounded-lg {{ $isActive ? 'bg-current/10' : 'bg-black/5' }}">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <span class="flex h-6 w-6 shrink-0 items-center justify-center">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
                         </svg>
                     </span>

@@ -104,3 +104,15 @@ test('admin and developer workspaces expose the shared theme toggle', function (
             ->assertSee("localStorage.setItem('theme'", false);
     }
 });
+
+test('workspace navigation uses compact direct icons', function () {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get('/admin')
+        ->assertOk()
+        ->assertDontSee('flex h-8 w-8 items-center justify-center rounded-lg')
+        ->assertSee('flex h-6 w-6 shrink-0 items-center justify-center');
+});
