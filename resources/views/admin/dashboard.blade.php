@@ -1,7 +1,24 @@
 <x-layouts.admin :title="'Admin dashboard'">
-    <section class="flex flex-col gap-3">
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Administration</p>
-        <h1 class="text-3xl font-semibold tracking-tight">Admin dashboard</h1>
-        <p class="text-slate-600">The business administration area is ready for the next feature.</p>
+    <x-admin.page-header
+        eyebrow="Business workspace"
+        title="Overview"
+        description="A clear starting point for the business administration area. Feature-specific modules can be added here as the product grows."
+    />
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-label="Workspace summary">
+        <x-admin.stat-card label="Workspace status" value="Ready" description="The administration shell is ready for its first module." tone="emerald" />
+        <x-admin.stat-card label="Configured modules" value="0" description="No business modules have been connected yet." />
+        <x-admin.stat-card label="Open actions" value="0" description="There are no actions waiting for attention." tone="amber" />
+        <x-admin.stat-card label="Activity events" value="0" description="Activity history will appear when modules are introduced." tone="slate" />
+    </section>
+
+    <section class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+        <x-admin.panel title="Quick actions" description="Common actions will appear here as workflows are added.">
+            <x-admin.empty-state title="No actions available" description="There are no business workflows configured yet." />
+        </x-admin.panel>
+
+        <x-admin.panel title="Recent activity" description="A concise history of changes and events across the workspace.">
+            <x-admin.empty-state title="No recent activity yet" description="Activity will be collected once the first application module is connected." />
+        </x-admin.panel>
     </section>
 </x-layouts.admin>

@@ -35,9 +35,24 @@ test('an admin sees the admin shell without developer navigation', function () {
     $this->actingAs($admin)
         ->get('/admin')
         ->assertOk()
-        ->assertSee('Admin navigation')
-        ->assertSee('Admin dashboard')
-        ->assertDontSee('Developer navigation');
+        ->assertSee('Admin workspace navigation')
+        ->assertSee('Overview')
+        ->assertDontSee('Developer workspace navigation');
+});
+
+test('an admin sees the responsive business dashboard shell', function () {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get('/admin')
+        ->assertOk()
+        ->assertSee('Overview')
+        ->assertSee('Quick actions')
+        ->assertSee('No recent activity yet')
+        ->assertSee('sidebarOpen')
+        ->assertSee('x-show="sidebarOpen"', false);
 });
 
 test('a developer sees the developer shell and can open the admin shell', function () {
@@ -48,11 +63,26 @@ test('a developer sees the developer shell and can open the admin shell', functi
     $this->actingAs($developer)
         ->get('/developer')
         ->assertOk()
-        ->assertSee('Developer navigation')
-        ->assertSee('Developer dashboard');
+        ->assertSee('Developer workspace navigation')
+        ->assertSee('Technical workspace');
 
     $this->actingAs($developer)
         ->get('/admin')
         ->assertOk()
-        ->assertSee('Admin navigation');
+        ->assertSee('Admin workspace navigation');
+});
+
+test('a developer sees the technical dashboard shell', function () {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    $this->actingAs($developer)
+        ->get('/developer')
+        ->assertOk()
+        ->assertSee('Application status')
+        ->assertSee('Technical workspace')
+        ->assertSee('No technical events yet')
+        ->assertSee('sidebarOpen')
+        ->assertSee('x-show="sidebarOpen"', false);
 });
