@@ -172,3 +172,11 @@ Rules:
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+
+## TailAdmin UI reference
+
+- The local TailAdmin reference is at `.reference/tailadmin/`.
+- Use `.reference/tailadmin/src/partials/`—especially `sidebar.html`, `header.html`, buttons, badges, alerts, tables, and charts—for layout, markup, spacing, icon, and UI composition examples.
+- Treat `.reference/tailadmin/**` as read-only. Do not run this project's Pint, Composer, npm, Vite, tests, or build tooling against it, and do not modify its dependency or configuration files.
+- Implement adapted UI in this application's Laravel + Blade + Tailwind + Alpine + Vite stack. Do not merge the reference app's build system or dependencies unless explicitly approved.
+- When a new admin UI task starts, inspect the relevant TailAdmin partial first, then adapt it into this application's Blade components while preserving our role authorization and application structure.
