@@ -86,3 +86,21 @@ test('a developer sees the technical dashboard shell', function () {
         ->assertSee('sidebarOpen')
         ->assertSee('x-show="sidebarOpen"', false);
 });
+
+test('admin and developer workspaces expose the shared theme toggle', function () {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    foreach ([[$admin, '/admin'], [$developer, '/developer']] as [$user, $path]) {
+        $this->actingAs($user)
+            ->get($path)
+            ->assertOk()
+            ->assertSee('Toggle theme')
+            ->assertSee('darkMode')
+            ->assertSee("localStorage.setItem('theme'", false);
+    }
+});

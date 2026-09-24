@@ -6,16 +6,10 @@
 @php
     $isDeveloper = $area === 'developer';
     $brandLabel = $isDeveloper ? 'Developer workspace' : 'Admin workspace';
-    $sidebarClasses = $isDeveloper
-        ? 'border-slate-800 bg-slate-950 text-slate-100'
-        : 'border-slate-200 bg-white text-slate-900';
-    $mutedTextClasses = $isDeveloper ? 'text-slate-500' : 'text-slate-400';
-    $inactiveLinkClasses = $isDeveloper
-        ? 'text-slate-300 hover:bg-white/10 hover:text-white'
-        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950';
-    $activeLinkClasses = $isDeveloper
-        ? 'bg-indigo-500/20 text-indigo-200'
-        : 'bg-indigo-50 text-indigo-700';
+    $sidebarClasses = 'border-slate-200 bg-white text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100';
+    $mutedTextClasses = 'text-slate-400 dark:text-slate-500';
+    $inactiveLinkClasses = 'text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white';
+    $activeLinkClasses = 'bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200';
 @endphp
 
 <aside
@@ -24,9 +18,9 @@
     :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
     aria-label="{{ $brandLabel }}"
 >
-    <div class="flex h-20 items-center justify-between border-b px-6 {{ $isDeveloper ? 'border-slate-800' : 'border-slate-200' }}">
+    <div class="flex h-20 items-center justify-between border-b border-slate-200 px-6 dark:border-slate-800">
         <a class="flex min-w-0 items-center gap-3" href="{{ route($isDeveloper ? 'developer.dashboard' : 'admin.dashboard') }}">
-            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-sm font-bold text-white">A</span>
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-sm font-bold text-white">{{ $isDeveloper ? 'D' : 'A' }}</span>
             <span class="min-w-0">
                 <span class="block truncate text-sm font-semibold">{{ config('app.name', 'Laravel') }}</span>
                 <span class="block truncate text-xs {{ $mutedTextClasses }}">{{ $brandLabel }}</span>
@@ -35,7 +29,7 @@
 
         <button
             type="button"
-            class="rounded-lg p-2 {{ $mutedTextClasses }} hover:bg-black/5 hover:text-current lg:hidden"
+            class="rounded-lg p-2 {{ $mutedTextClasses }} hover:bg-black/5 hover:text-current dark:hover:bg-white/10 lg:hidden"
             aria-label="Close navigation"
             @click="sidebarOpen = false"
         >
@@ -70,9 +64,9 @@
         </div>
     </nav>
 
-    <div class="border-t p-4 {{ $isDeveloper ? 'border-slate-800' : 'border-slate-200' }}">
+    <div class="border-t border-slate-200 p-4 dark:border-slate-800">
         <a class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium {{ $inactiveLinkClasses }}" href="{{ route('account') }}">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-semibold text-indigo-700">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-semibold text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200">
                 {{ str($user = auth()->user()->name)->substr(0, 1)->upper() }}
             </span>
             <span class="min-w-0 truncate">Account settings</span>

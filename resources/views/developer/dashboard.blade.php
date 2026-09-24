@@ -19,10 +19,10 @@
 
         <x-admin.panel title="Next modules" description="Potential areas for the technical workspace.">
             <ul class="grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">Application health</li>
-                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">Logs and events</li>
-                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">Background jobs</li>
-                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">System configuration</li>
+                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300">Application health</li>
+                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300">Logs and events</li>
+                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300">Background jobs</li>
+                <li class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300">System configuration</li>
             </ul>
         </x-admin.panel>
     </section>
