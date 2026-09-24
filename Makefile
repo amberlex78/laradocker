@@ -138,7 +138,7 @@ composer: ## Run a Composer command, for example CMD="show"
 
 npm: ## Run an npm command, for example CMD="run build"
 	@test -n "$(CMD)" || (echo 'Usage: make npm CMD="run build"' && exit 1)
-	$(DOCKER_DEV) run --rm --no-deps node $(CMD)
+	$(DOCKER_DEV) run --rm --no-deps --entrypoint npm node $(CMD)
 
 vite: config-dev ## Start or restart the Vite HMR service
 	$(DOCKER_DEV) up -d --force-recreate node
