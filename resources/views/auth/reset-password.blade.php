@@ -1,32 +1,34 @@
 <x-layouts.auth :title="'Reset password'">
-    <div class="flex flex-col gap-2">
-        <h1 class="text-2xl font-semibold tracking-tight">Reset your password</h1>
-        <p class="text-sm text-slate-500">Choose a new password for your account.</p>
+    <div class="flex flex-col gap-3">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-400">Account recovery</p>
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Reset your password</h1>
+        <p class="text-sm leading-6 text-slate-500 dark:text-slate-400">Choose a new password for your {{ config('app.name', 'Laravel') }} account.</p>
     </div>
 
     @if ($errors->any())
-        <div class="mt-6 rounded-lg bg-red-50 p-4 text-sm text-red-700" role="alert">{{ $errors->first() }}</div>
+        <x-auth.alert class="mt-6" title="We could not reset your password">
+            <ul class="flex flex-col gap-1">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </x-auth.alert>
     @endif
 
     <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('password.update') }}">
         @csrf
         <input name="token" type="hidden" value="{{ $request->route('token') }}">
 
-        <label class="flex flex-col gap-2 text-sm font-medium" for="email">
-            Email
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="email" name="email" type="email" value="{{ old('email', $request->email) }}" required autofocus autocomplete="email">
-        </label>
+        <x-auth.field name="email" label="Email" type="email" :value="$request->email" autocomplete="email" placeholder="you@example.com" required autofocus />
+        <x-auth.password-field name="password" label="New password" autocomplete="new-password" placeholder="Create a new password" required />
+        <x-auth.password-field name="password_confirmation" label="Confirm password" autocomplete="new-password" placeholder="Repeat your new password" required />
 
-        <label class="flex flex-col gap-2 text-sm font-medium" for="password">
-            New password
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="password" name="password" type="password" required autocomplete="new-password">
-        </label>
-
-        <label class="flex flex-col gap-2 text-sm font-medium" for="password_confirmation">
-            Confirm password
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password">
-        </label>
-
-        <button class="rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit">Reset password</button>
+        <button class="inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
+            Reset password
+        </button>
     </form>
+
+    <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
+        <a class="font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('login') }}">Back to login</a>
+    </p>
 </x-layouts.auth>

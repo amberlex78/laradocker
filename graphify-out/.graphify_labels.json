@@ -64,5 +64,8 @@
   "62": "stat-card.blade.php",
   "63": "backoffice.blade.php",
   "64": "bootstrap.php",
-  "65": "TestingEnvironmentTest.php"
+  "65": "TestingEnvironmentTest.php",
+  "66": "alert.blade.php",
+  "67": "field.blade.php",
+  "68": "password-field.blade.php"
 }

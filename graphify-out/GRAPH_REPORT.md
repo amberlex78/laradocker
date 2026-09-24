@@ -1,17 +1,17 @@
 # Graph Report - ladocker  (2026-09-24)
 
 ## Corpus Check
-- 103 files · ~68,968 words
+- 106 files · ~70,006 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 19, .example 4, .conf 3)
 
 ## Summary
-- 539 nodes · 665 edges · 66 communities (27 shown, 39 thin omitted)
+- 542 nodes · 665 edges · 69 communities (27 shown, 42 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `06dd68c2`
+- Built from commit: `d8c62085`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -78,7 +78,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (66 total, 39 thin omitted)
+## Communities (69 total, 42 thin omitted)
 
 ### Community 0 - "composer.json"
 Cohesion: 0.22
@@ -190,8 +190,8 @@ Nodes (3): extra, laravel, dont-discover
 
 ## Knowledge Gaps
 - **211 isolated node(s):** `php`, `name`, `version`, `description`, `main` (+206 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 320 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **39 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 323 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -201,7 +201,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `devDependencies` connect `devDependencies` to `tailadmin/package.json`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `UserFactory.php`, `EnsureUserHasRole.php`, `User`, `FortifyServiceProvider.php`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `User` (e.g. with `Task 1: Add the role domain model and database column` and `Task 2: Install and configure Fortify with Blade authentication views`) actually correct?**
   _`User` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 4 inferred relationships involving `UserRole` (e.g. with `Authentication, Admin, and Developer Areas Implementation Plan` and `Global Constraints`) actually correct?**

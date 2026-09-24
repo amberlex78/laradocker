@@ -1,50 +1,35 @@
 <x-layouts.auth :title="'Register'">
-    <div class="flex flex-col gap-2">
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">{{ config('app.name', 'Laravel') }}</p>
-        <h1 class="text-2xl font-semibold tracking-tight">Create your account</h1>
-        <p class="text-sm text-slate-500">Start with a regular user account.</p>
+    <div class="flex flex-col gap-3">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-400">Get started</p>
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Create your account</h1>
+        <p class="text-sm leading-6 text-slate-500 dark:text-slate-400">Create a regular {{ config('app.name', 'Laravel') }} account to get started.</p>
     </div>
 
     @if ($errors->any())
-        <div class="mt-6 rounded-lg bg-red-50 p-4 text-sm text-red-700" role="alert">
+        <x-auth.alert class="mt-6" title="Please check the form">
             <ul class="flex flex-col gap-1">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        </div>
+        </x-auth.alert>
     @endif
 
     <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('register') }}">
         @csrf
 
-        <label class="flex flex-col gap-2 text-sm font-medium" for="name">
-            Name
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="name" name="name" type="text" value="{{ old('name') }}" required autofocus autocomplete="name">
-        </label>
+        <x-auth.field name="name" label="Name" autocomplete="name" placeholder="Your name" required autofocus />
+        <x-auth.field name="email" label="Email" type="email" autocomplete="email" placeholder="you@example.com" required />
+        <x-auth.password-field name="password" label="Password" autocomplete="new-password" placeholder="Create a password" required />
+        <x-auth.password-field name="password_confirmation" label="Confirm password" autocomplete="new-password" placeholder="Repeat your password" required />
 
-        <label class="flex flex-col gap-2 text-sm font-medium" for="email">
-            Email
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email">
-        </label>
-
-        <label class="flex flex-col gap-2 text-sm font-medium" for="password">
-            Password
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="password" name="password" type="password" required autocomplete="new-password">
-        </label>
-
-        <label class="flex flex-col gap-2 text-sm font-medium" for="password_confirmation">
-            Confirm password
-            <input class="rounded-lg border-slate-300 px-3 py-2.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password">
-        </label>
-
-        <button class="rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit">
-            Register
+        <button class="mt-1 inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
+            Create account
         </button>
     </form>
 
-    <p class="mt-6 text-center text-sm text-slate-600">
+    <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
         Already have an account?
-        <a class="font-medium text-indigo-600 hover:text-indigo-500" href="{{ route('login') }}">Log in</a>
+        <a class="font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('login') }}">Log in</a>
     </p>
 </x-layouts.auth>

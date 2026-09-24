@@ -16,6 +16,65 @@ test('the login page renders the Blade authentication screen', function () {
         ->assertSee('Log in to your account');
 });
 
+test('authentication pages render the branded responsive shell', function () {
+    $this->get('/login')
+        ->assertOk()
+        ->assertSee('Back to LaDocker')
+        ->assertSee('One workspace for your applications.')
+        ->assertSee('Toggle theme');
+});
+
+test('authentication forms only expose supported application fields', function () {
+    $this->get('/login')
+        ->assertOk()
+        ->assertDontSee('Sign in with Google')
+        ->assertDontSee('Sign in with X');
+
+    $this->get('/register')
+        ->assertOk()
+        ->assertSee('Name')
+        ->assertDontSee('First Name')
+        ->assertDontSee('Terms and Conditions');
+});
+
+test('authentication views preserve the Fortify form contracts', function () {
+    $this->get('/login')
+        ->assertOk()
+        ->assertSee('action="'.route('login').'"', false)
+        ->assertSee('name="email"', false)
+        ->assertSee('name="password"', false)
+        ->assertSee('name="remember"', false)
+        ->assertSee('class="sr-only"', false)
+        ->assertSee('checkboxToggle', false);
+
+    $this->get('/register')
+        ->assertOk()
+        ->assertSee('action="'.route('register').'"', false)
+        ->assertSee('name="name"', false)
+        ->assertSee('name="email"', false)
+        ->assertSee('name="password_confirmation"', false);
+
+    $this->get('/forgot-password')
+        ->assertOk()
+        ->assertSee('action="'.route('password.email').'"', false)
+        ->assertSee('name="email"', false);
+
+    $this->get('/reset-password/test-token?email=user%40example.com')
+        ->assertOk()
+        ->assertSee('action="'.route('password.update').'"', false)
+        ->assertSee('name="token"', false)
+        ->assertSee('name="password_confirmation"', false);
+
+    $user = User::factory()->unverified()->create();
+
+    $this->actingAs($user)
+        ->get('/email/verify')
+        ->assertOk()
+        ->assertSee('action="'.route('verification.send').'"', false)
+        ->assertSee('action="'.route('logout').'"', false)
+        ->assertSee($user->email);
+});
+
 test('a user sees the account page', function () {
     $user = User::factory()->create([
         'role' => UserRole::User,

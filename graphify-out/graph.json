@@ -5269,6 +5269,39 @@
       "source_location": "L1"
     },
     {
+      "id": "resources_views_components_auth_alert_blade",
+      "label": "alert.blade.php",
+      "_origin": "ast",
+      "community": 66,
+      "community_name": "alert.blade.php",
+      "file_type": "code",
+      "norm_label": "alert.blade.php",
+      "source_file": "resources/views/components/auth/alert.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_auth_field_blade",
+      "label": "field.blade.php",
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "field.blade.php",
+      "file_type": "code",
+      "norm_label": "field.blade.php",
+      "source_file": "resources/views/components/auth/field.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_auth_password_field_blade",
+      "label": "password-field.blade.php",
+      "_origin": "ast",
+      "community": 68,
+      "community_name": "password-field.blade.php",
+      "file_type": "code",
+      "norm_label": "password-field.blade.php",
+      "source_file": "resources/views/components/auth/password-field.blade.php",
+      "source_location": null
+    },
+    {
       "id": "reference_tailadmin_package",
       "label": "tailadmin/package.json",
       "_origin": "ast",
@@ -13849,5 +13882,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "06dd68c238d3b18c331ed4a9be5908ae15e336a7"
+  "built_at_commit": "d8c6208545799300a8bf7f79cc28701ce206442b"
 }
