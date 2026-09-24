@@ -25,6 +25,21 @@ RUN apt-get update \
 FROM composer:2.9.8 AS composer-bin
 
 # ──────────────────────────────────────────────────────────────────────────────
+# FRONTEND BUILD
+# ──────────────────────────────────────────────────────────────────────────────
+# Laravel renders the Vite tags in the PHP container, so the production PHP
+# image must contain the manifest as well as the Nginx image serving the files.
+FROM node:24-bookworm-slim AS frontend-builder
+
+WORKDIR /var/www/html
+
+COPY package.json package-lock.json ./
+RUN npm ci --no-audit --no-fund
+
+COPY . .
+RUN npm run build
+
+# ──────────────────────────────────────────────────────────────────────────────
 # SHARED PHP-FPM RUNTIME
 # ──────────────────────────────────────────────────────────────────────────────
 # Shared PHP-FPM runtime: system libraries, non-root user and Laravel runtime files.
@@ -125,6 +140,7 @@ ENV APP_ENV=production \
 
 COPY --from=vendor-prod --chown=app:app /var/www/html/vendor /var/www/html/vendor
 COPY --chown=app:app . .
+COPY --from=frontend-builder --chown=app:app /var/www/html/public/build /var/www/html/public/build
 
 RUN composer dump-autoload --no-dev --no-interaction --no-scripts --classmap-authoritative \
     && php artisan package:discover --ansi
