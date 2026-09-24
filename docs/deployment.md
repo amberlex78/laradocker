@@ -60,8 +60,8 @@ Docker `18080` і `28080` мають залишатися прив'язаним�
 ## 2. Клонування проєкту та production-конфігурація
 
 ```bash
-git clone git@github.com:amberlex78/laradocker.git
-cd laradocker
+git clone git@github.com:amberlex78/ladocker.git
+cd ladocker
 cp .env.prod.example .env.prod
 ```
 
@@ -80,7 +80,7 @@ nano .env.prod
 Мінімально потрібно замінити всі placeholder-значення на реальні:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradockervps
+COMPOSE_PROJECT_NAME=ladockervps
 APP_ENV=production
 APP_DEBUG=false
 APP_KEY=base64:скопійований-ключ

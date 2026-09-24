@@ -1,7 +1,7 @@
 # Laravel-проєкти без домену
 
 Коротка інструкція для запуску копій репозиторію
-https://github.com/amberlex78/laradocker:
+https://github.com/amberlex78/ladocker:
 
 - локально: /home/lex/Projects/;
 - на VPS: /home/esp32/sites/;
@@ -15,10 +15,10 @@ https://github.com/amberlex78/laradocker:
 
 | Проєкт | Каталог | Адреса | Docker/VPS host port |
 | --- | --- | --- | --- |
-| laradocker1 | /home/lex/Projects/laradocker1 | http://localhost:8081 | DEV_HTTP_PORT=8081 |
-| laradocker2 | /home/lex/Projects/laradocker2 | http://localhost:8082 | DEV_HTTP_PORT=8082 |
-| laradockervps1 | /home/esp32/sites/laradockervps1 | http://IP_VPS:8081 | PROD_HTTP_PORT=18080 |
-| laradockervps2 | /home/esp32/sites/laradockervps2 | http://IP_VPS:8082 | PROD_HTTP_PORT=28080 |
+| ladocker1 | /home/lex/Projects/ladocker1 | http://localhost:8081 | DEV_HTTP_PORT=8081 |
+| ladocker2 | /home/lex/Projects/ladocker2 | http://localhost:8082 | DEV_HTTP_PORT=8082 |
+| ladockervps1 | /home/esp32/sites/ladockervps1 | http://IP_VPS:8081 | PROD_HTTP_PORT=18080 |
+| ladockervps2 | /home/esp32/sites/ladockervps2 | http://IP_VPS:8082 | PROD_HTTP_PORT=28080 |
 
 На VPS трафік проходить так:
 
@@ -32,20 +32,20 @@ IP_VPS:8082 -> VPS Nginx:8082 -> 127.0.0.1:28080 -> Docker Nginx
 
 ## 2. Локальний запуск
 
-### Проєкт laradocker1
+### Проєкт ladocker1
 
 ```bash
 cd /home/lex/Projects
-git clone https://github.com/amberlex78/laradocker.git laradocker1
-cd /home/lex/Projects/laradocker1
+git clone https://github.com/amberlex78/ladocker.git ladocker1
+cd /home/lex/Projects/ladocker1
 cp .env.example .env
 ```
 
 У .env змініть:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradocker1
-APP_NAME=LaraDocker1
+COMPOSE_PROJECT_NAME=ladocker1
+APP_NAME=LaDocker1
 APP_URL=http://localhost:8081
 
 DEV_HTTP_PORT=8081
@@ -65,20 +65,20 @@ make migrate
 curl -I http://127.0.0.1:8081/up
 ```
 
-### Проєкт laradocker2
+### Проєкт ladocker2
 
 ```bash
 cd /home/lex/Projects
-git clone https://github.com/amberlex78/laradocker.git laradocker2
-cd /home/lex/Projects/laradocker2
+git clone https://github.com/amberlex78/ladocker.git ladocker2
+cd /home/lex/Projects/ladocker2
 cp .env.example .env
 ```
 
 У .env змініть:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradocker2
-APP_NAME=LaraDocker2
+COMPOSE_PROJECT_NAME=ladocker2
+APP_NAME=LaDocker2
 APP_URL=http://localhost:8082
 
 DEV_HTTP_PORT=8082
@@ -106,29 +106,29 @@ VITE_PORT=5173 і DB_PORT=3306 не змінюються: це внутрішн�
 Для кожної копії використовуйте окремий каталог, Compose project name,
 APP_KEY, базу даних і PROD_HTTP_PORT.
 
-### laradockervps1
+### ladockervps1
 
 ```bash
 cd /home/esp32/sites
-git clone https://github.com/amberlex78/laradocker.git laradockervps1
-cd /home/esp32/sites/laradockervps1
+git clone https://github.com/amberlex78/ladocker.git ladockervps1
+cd /home/esp32/sites/ladockervps1
 cp .env.prod.example .env.prod
 ```
 
 У .env.prod:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradockervps1
+COMPOSE_PROJECT_NAME=ladockervps1
 IMAGE_TAG=prod1
-APP_NAME=LaraDockerVPS1
+APP_NAME=LaDockerVPS1
 APP_ENV=production
 APP_KEY=base64:УНІКАЛЬНИЙ_КЛЮЧ
 APP_DEBUG=false
 APP_URL=http://IP_VPS:8081
 PROD_HTTP_PORT=18080
 
-DB_DATABASE=laradockervps1
-DB_USERNAME=laradockervps1
+DB_DATABASE=ladockervps1
+DB_USERNAME=ladockervps1
 DB_PASSWORD=СИЛЬНИЙ_ПАРОЛЬ
 DB_ROOT_PASSWORD=ІНШИЙ_СИЛЬНИЙ_ПАРОЛЬ
 ```
@@ -136,29 +136,29 @@ DB_ROOT_PASSWORD=ІНШИЙ_СИЛЬНИЙ_ПАРОЛЬ
 Значення DB_HOST=mariadb і DB_PORT=3306 залишаються без змін.
 APP_URL — це адреса для браузера, а не внутрішній порт 18080.
 
-### laradockervps2
+### ladockervps2
 
 ```bash
 cd /home/esp32/sites
-git clone https://github.com/amberlex78/laradocker.git laradockervps2
-cd /home/esp32/sites/laradockervps2
+git clone https://github.com/amberlex78/ladocker.git ladockervps2
+cd /home/esp32/sites/ladockervps2
 cp .env.prod.example .env.prod
 ```
 
 У .env.prod:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradockervps2
+COMPOSE_PROJECT_NAME=ladockervps2
 IMAGE_TAG=prod2
-APP_NAME=LaraDockerVPS2
+APP_NAME=LaDockerVPS2
 APP_ENV=production
 APP_KEY=base64:ІНШИЙ_УНІКАЛЬНИЙ_КЛЮЧ
 APP_DEBUG=false
 APP_URL=http://IP_VPS:8082
 PROD_HTTP_PORT=28080
 
-DB_DATABASE=laradockervps2
-DB_USERNAME=laradockervps2
+DB_DATABASE=ladockervps2
+DB_USERNAME=ladockervps2
 DB_PASSWORD=СИЛЬНИЙ_ПАРОЛЬ
 DB_ROOT_PASSWORD=ІНШИЙ_СИЛЬНИЙ_ПАРОЛЬ
 ```
@@ -202,12 +202,12 @@ Laravel також рекомендує не віддавати застосун
 обслуговування відрізняється від цієї proxy-схеми:
 https://laravel.com/framework/docs/13.x/deployment#server-configuration
 
-### 4.1. Конфігурація laradockervps1
+### 4.1. Конфігурація ladockervps1
 
 Створіть файл, не каталог:
 
 ```bash
-sudo nano /etc/nginx/sites-available/laradockervps1
+sudo nano /etc/nginx/sites-available/ladockervps1
 ```
 
 Вставте:
@@ -248,12 +248,12 @@ server {
 }
 ```
 
-### 4.2. Конфігурація laradockervps2
+### 4.2. Конфігурація ladockervps2
 
 Створіть файл:
 
 ```bash
-sudo nano /etc/nginx/sites-available/laradockervps2
+sudo nano /etc/nginx/sites-available/ladockervps2
 ```
 
 Скопіюйте попередній конфіг і замініть у ньому:
@@ -269,11 +269,11 @@ proxy_pass http://127.0.0.1:28080;
 ### 4.3. Активація sites-enabled
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/laradockervps1 \
-    /etc/nginx/sites-enabled/laradockervps1
+sudo ln -s /etc/nginx/sites-available/ladockervps1 \
+    /etc/nginx/sites-enabled/ladockervps1
 
-sudo ln -s /etc/nginx/sites-available/laradockervps2 \
-    /etc/nginx/sites-enabled/laradockervps2
+sudo ln -s /etc/nginx/sites-available/ladockervps2 \
+    /etc/nginx/sites-enabled/ladockervps2
 
 sudo nginx -t
 sudo systemctl reload nginx
@@ -281,8 +281,8 @@ sudo systemctl reload nginx
 
 У браузері:
 
-- http://IP_VPS:8081 — laradockervps1;
-- http://IP_VPS:8082 — laradockervps2.
+- http://IP_VPS:8081 — ladockervps1;
+- http://IP_VPS:8082 — ladockervps2.
 
 Відкрийте порти у firewall:
 
@@ -306,8 +306,8 @@ make prod-down
 Після цього можна видалити каталог проєкту, наприклад:
 
 ```bash
-sudo rm -rf /home/esp32/sites/laradockervps1
-sudo rm -rf /home/esp32/sites/laradockervps2
+sudo rm -rf /home/esp32/sites/ladockervps1
+sudo rm -rf /home/esp32/sites/ladockervps2
 ```
 
 `make prod-down` зупиняє тільки Docker Compose-проєкт. Він не видаляє системний
@@ -317,18 +317,18 @@ Nginx і не змінює файли в `/etc/nginx`.
 належать саме проєктам, які видаляються, і не використовуються іншими сервісами:
 
 ```bash
-sudo nginx -T | grep -E '8081|8082|18080|28080|laradockervps1|laradockervps2'
+sudo nginx -T | grep -E '8081|8082|18080|28080|ladockervps1|ladockervps2'
 ```
 
 Якщо перевірка підтвердила, що порти більше не потрібні, видаліть symlink-и та
 конфігурації:
 
 ```bash
-sudo rm /etc/nginx/sites-enabled/laradockervps1
-sudo rm /etc/nginx/sites-enabled/laradockervps2
+sudo rm /etc/nginx/sites-enabled/ladockervps1
+sudo rm /etc/nginx/sites-enabled/ladockervps2
 
-sudo rm /etc/nginx/sites-available/laradockervps1
-sudo rm /etc/nginx/sites-available/laradockervps2
+sudo rm /etc/nginx/sites-available/ladockervps1
+sudo rm /etc/nginx/sites-available/ladockervps2
 
 sudo nginx -t
 sudo systemctl reload nginx
@@ -373,9 +373,9 @@ make deploy
 
 | Значення | Проєкт 3 |
 | --- | --- |
-| Локальний каталог | /home/lex/Projects/laradocker3 |
-| VPS каталог | /home/esp32/sites/laradockervps3 |
-| Compose names | laradocker3 / laradockervps3 |
+| Локальний каталог | /home/lex/Projects/ladocker3 |
+| VPS каталог | /home/esp32/sites/ladockervps3 |
+| Compose names | ladocker3 / ladockervps3 |
 | Локальна адреса | http://localhost:8083 |
 | VPS адреса | http://IP_VPS:8083 |
 | DEV_HTTP_PORT | 8083 |

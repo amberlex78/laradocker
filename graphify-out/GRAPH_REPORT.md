@@ -1,7 +1,7 @@
 # Graph Report - ladocker  (2026-09-24)
 
 ## Corpus Check
-- 106 files · ~70,006 words
+- 106 files · ~70,117 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 19, .example 4, .conf 3)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d8c62085`
+- Built from commit: `c1536f22`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -90,7 +90,7 @@ Nodes (24): dependencies, alpinejs, devDependencies, concurrently, laravel-vite-
 
 ### Community 2 - "Laravel-проєкти без домену"
 Cohesion: 0.12
-Nodes (16): 1. Схема портів, 2. Локальний запуск, 3. Production-запуск на VPS, 4.1. Конфігурація laradockervps1, 4.2. Конфігурація laradockervps2, 4.3. Активація sites-enabled, 4. Мінімальний reverse proxy Nginx, 5. Видалення непотрібного проєкту (+8 more)
+Nodes (16): 1. Схема портів, 2. Локальний запуск, 3. Production-запуск на VPS, 4.1. Конфігурація ladockervps1, 4.2. Конфігурація ladockervps2, 4.3. Активація sites-enabled, 4. Мінімальний reverse proxy Nginx, 5. Видалення непотрібного проєкту (+8 more)
 
 ### Community 3 - "UserRole"
 Cohesion: 0.07

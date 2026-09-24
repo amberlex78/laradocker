@@ -16,7 +16,7 @@ Laravel-застосунок, підготовлений для роботи п�
 ## Швидкий старт
 
 ```bash
-git clone git@github.com:amberlex78/laradocker.git
+git clone git@github.com:amberlex78/ladocker.git
 ```
 
 ```bash
@@ -91,8 +91,8 @@ Production-інструкція складається з двох частин:
 Короткий маршрут:
 
 ```bash
-git clone git@github.com:amberlex78/laradocker.git
-cd laradocker
+git clone git@github.com:amberlex78/ladocker.git
+cd ladocker
 cp .env.prod.example .env.prod
 nano .env.prod
 make config-prod

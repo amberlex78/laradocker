@@ -1,7 +1,7 @@
 # Laravel-проєкти з доменами
 
 Коротка інструкція для запуску копій репозиторію
-https://github.com/amberlex78/laradocker:
+https://github.com/amberlex78/ladocker:
 
 - локально: `/home/{user}/projects/`;
 - на VPS: `/home/{user}/projects/`;
@@ -19,8 +19,8 @@ https://github.com/amberlex78/laradocker:
 
 | Домен | Папка | Локальний порт | Production host port |
 | --- | --- | --- | --- |
-| `example1.com` | `laradocker1` | `DEV_HTTP_PORT=8081` | `PROD_HTTP_PORT=18080` |
-| `example2.com` | `laradocker2` | `DEV_HTTP_PORT=8082` | `PROD_HTTP_PORT=28080` |
+| `example1.com` | `ladocker1` | `DEV_HTTP_PORT=8081` | `PROD_HTTP_PORT=18080` |
+| `example2.com` | `ladocker2` | `DEV_HTTP_PORT=8082` | `PROD_HTTP_PORT=28080` |
 
 На VPS трафік проходить так:
 
@@ -46,20 +46,20 @@ Docker Nginx:8080 -> project app:9000
 
 ## 2. Локальний запуск
 
-### Проєкт laradocker1
+### Проєкт ladocker1
 
 ```bash
 cd /home/{user}/projects
-git clone https://github.com/amberlex78/laradocker.git laradocker1
-cd /home/{user}/projects/laradocker1
+git clone https://github.com/amberlex78/ladocker.git ladocker1
+cd /home/{user}/projects/ladocker1
 cp .env.example .env
 ```
 
 У `.env` змініть:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradocker1
-APP_NAME=LaraDocker1
+COMPOSE_PROJECT_NAME=ladocker1
+APP_NAME=LaDocker1
 APP_URL=http://localhost:8081
 
 DEV_HTTP_PORT=8081
@@ -79,20 +79,20 @@ make migrate
 curl -I http://127.0.0.1:8081/up
 ```
 
-### Проєкт laradocker2
+### Проєкт ladocker2
 
 ```bash
 cd /home/{user}/projects
-git clone https://github.com/amberlex78/laradocker.git laradocker2
-cd /home/{user}/projects/laradocker2
+git clone https://github.com/amberlex78/ladocker.git ladocker2
+cd /home/{user}/projects/ladocker2
 cp .env.example .env
 ```
 
 У `.env` змініть:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradocker2
-APP_NAME=LaraDocker2
+COMPOSE_PROJECT_NAME=ladocker2
+APP_NAME=LaDocker2
 APP_URL=http://localhost:8082
 
 DEV_HTTP_PORT=8082
@@ -164,56 +164,56 @@ sudo ls -l /etc/nginx/certs/cloudflare
 Для кожної копії використовуй окремий каталог, Compose project name, APP_KEY,
 базу даних і `PROD_HTTP_PORT`.
 
-### laradocker1 — example1.com
+### ladocker1 — example1.com
 
 ```bash
 cd /home/{user}/projects
-git clone https://github.com/amberlex78/laradocker.git laradocker1
-cd /home/{user}/projects/laradocker1
+git clone https://github.com/amberlex78/ladocker.git ladocker1
+cd /home/{user}/projects/ladocker1
 cp .env.prod.example .env.prod
 ```
 
 У `.env.prod`:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradocker1
+COMPOSE_PROJECT_NAME=ladocker1
 IMAGE_TAG=prod1
-APP_NAME=LaraDocker1
+APP_NAME=LaDocker1
 APP_ENV=production
 APP_KEY=base64:УНІКАЛЬНИЙ_КЛЮЧ_ПЕРШОГО_ПРОЄКТУ
 APP_DEBUG=false
 APP_URL=https://example1.com
 PROD_HTTP_PORT=18080
 
-DB_DATABASE=laradocker1
-DB_USERNAME=laradocker1
+DB_DATABASE=ladocker1
+DB_USERNAME=ladocker1
 DB_PASSWORD=СИЛЬНИЙ_ПАРОЛЬ
 DB_ROOT_PASSWORD=ІНШИЙ_СИЛЬНИЙ_ПАРОЛЬ
 ```
 
-### laradocker2 — example2.com
+### ladocker2 — example2.com
 
 ```bash
 cd /home/{user}/projects
-git clone https://github.com/amberlex78/laradocker.git laradocker2
-cd /home/{user}/projects/laradocker2
+git clone https://github.com/amberlex78/ladocker.git ladocker2
+cd /home/{user}/projects/ladocker2
 cp .env.prod.example .env.prod
 ```
 
 У `.env.prod`:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradocker2
+COMPOSE_PROJECT_NAME=ladocker2
 IMAGE_TAG=prod2
-APP_NAME=LaraDocker2
+APP_NAME=LaDocker2
 APP_ENV=production
 APP_KEY=base64:УНІКАЛЬНИЙ_КЛЮЧ_ДРУГОГО_ПРОЄКТУ
 APP_DEBUG=false
 APP_URL=https://example2.com
 PROD_HTTP_PORT=28080
 
-DB_DATABASE=laradocker2
-DB_USERNAME=laradocker2
+DB_DATABASE=ladocker2
+DB_USERNAME=ladocker2
 DB_PASSWORD=ІНШИЙ_СИЛЬНИЙ_ПАРОЛЬ
 DB_ROOT_PASSWORD=ЩЕ_ІНШИЙ_СИЛЬНИЙ_ПАРОЛЬ
 ```
@@ -493,14 +493,14 @@ sudo nginx -T | grep -E 'example1.com|example2.com|18080|28080'
 його каталозі:
 
 ```bash
-cd /home/{user}/projects/laradocker1
+cd /home/{user}/projects/ladocker1
 make prod-down
 ```
 
 Для другого проєкту використовуй відповідно:
 
 ```bash
-cd /home/{user}/projects/laradocker2
+cd /home/{user}/projects/ladocker2
 make prod-down
 ```
 
@@ -508,13 +508,13 @@ make prod-down
 іншим сервісам:
 
 ```bash
-sudo nginx -T | grep -E 'example1.com|18080|laradocker1'
+sudo nginx -T | grep -E 'example1.com|18080|ladocker1'
 ```
 
 Для `example2.com` перевір відповідно:
 
 ```bash
-sudo nginx -T | grep -E 'example2.com|28080|laradocker2'
+sudo nginx -T | grep -E 'example2.com|28080|ladocker2'
 ```
 
 Якщо перевірка підтвердила, що проєкт більше не використовується, видали тільки
@@ -527,7 +527,7 @@ sudo rm /etc/nginx/sites-available/example1.com
 sudo nginx -t
 sudo systemctl reload nginx
 
-sudo rm -rf /home/{user}/projects/laradocker1
+sudo rm -rf /home/{user}/projects/ladocker1
 ```
 
 Для `example2.com`:
@@ -539,7 +539,7 @@ sudo rm /etc/nginx/sites-available/example2.com
 sudo nginx -t
 sudo systemctl reload nginx
 
-sudo rm -rf /home/{user}/projects/laradocker2
+sudo rm -rf /home/{user}/projects/ladocker2
 ```
 
 Перед видаленням каталогу зроби backup бази даних, якщо дані ще потрібні.

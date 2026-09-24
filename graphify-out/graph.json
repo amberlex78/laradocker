@@ -1680,26 +1680,26 @@
       "source_location": "L549"
     },
     {
-      "id": "docs_projects_with_domains_laradocker1_example1_com",
-      "label": "laradocker1 \u2014 example1.com",
+      "id": "docs_projects_with_domains_ladocker1_example1_com",
+      "label": "ladocker1 \u2014 example1.com",
       "_origin": "ast",
       "community": 11,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "laradocker1 \u2014 example1.com",
+      "norm_label": "ladocker1 \u2014 example1.com",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L167"
     },
     {
-      "id": "docs_projects_with_domains_laradocker2_example2_com",
-      "label": "laradocker2 \u2014 example2.com",
+      "id": "docs_projects_with_domains_ladocker2_example2_com",
+      "label": "ladocker2 \u2014 example2.com",
       "_origin": "ast",
       "community": 11,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "laradocker2 \u2014 example2.com",
+      "norm_label": "ladocker2 \u2014 example2.com",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L194"
     },
@@ -1716,26 +1716,26 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker1",
+      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker1",
       "_origin": "ast",
       "community": 11,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker1",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker1",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L49"
     },
     {
-      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker2",
+      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker2",
       "_origin": "ast",
       "community": 11,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker2",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker2",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L82"
     },
@@ -2464,26 +2464,26 @@
       "source_location": "L104"
     },
     {
-      "id": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps1",
-      "label": "4.1. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps1",
+      "id": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps1",
+      "label": "4.1. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps1",
       "_origin": "ast",
       "community": 2,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "4.1. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps1",
+      "norm_label": "4.1. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps1",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L205"
     },
     {
-      "id": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps2",
-      "label": "4.2. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps2",
+      "id": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps2",
+      "label": "4.2. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps2",
       "_origin": "ast",
       "community": 2,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "4.2. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps2",
+      "norm_label": "4.2. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps2",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L251"
     },
@@ -2548,26 +2548,26 @@
       "source_location": "L370"
     },
     {
-      "id": "docs_projects_no_domains_laradockervps1",
-      "label": "laradockervps1",
+      "id": "docs_projects_no_domains_ladockervps1",
+      "label": "ladockervps1",
       "_origin": "ast",
       "community": 2,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "laradockervps1",
+      "norm_label": "ladockervps1",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L109"
     },
     {
-      "id": "docs_projects_no_domains_laradockervps2",
-      "label": "laradockervps2",
+      "id": "docs_projects_no_domains_ladockervps2",
+      "label": "ladockervps2",
       "_origin": "ast",
       "community": 2,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "laradockervps2",
+      "norm_label": "ladockervps2",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L139"
     },
@@ -2596,26 +2596,26 @@
       "source_location": "L175"
     },
     {
-      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker1",
+      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker1",
       "_origin": "ast",
       "community": 2,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker1",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker1",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L35"
     },
     {
-      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker2",
+      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker2",
       "_origin": "ast",
       "community": 2,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker2",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker2",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L68"
     },
@@ -11139,7 +11139,7 @@
     },
     {
       "source": "docs_projects_no_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
+      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11150,7 +11150,7 @@
     },
     {
       "source": "docs_projects_no_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
+      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11161,7 +11161,7 @@
     },
     {
       "source": "docs_projects_no_domains_3_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_no_domains_laradockervps1",
+      "target": "docs_projects_no_domains_ladockervps1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11172,7 +11172,7 @@
     },
     {
       "source": "docs_projects_no_domains_3_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_no_domains_laradockervps2",
+      "target": "docs_projects_no_domains_ladockervps2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11194,7 +11194,7 @@
     },
     {
       "source": "docs_projects_no_domains_4_\u043c\u0456\u043d\u0456\u043c\u0430\u043b\u044c\u043d\u0438\u0439_reverse_proxy_nginx",
-      "target": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps1",
+      "target": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11205,7 +11205,7 @@
     },
     {
       "source": "docs_projects_no_domains_4_\u043c\u0456\u043d\u0456\u043c\u0430\u043b\u044c\u043d\u0438\u0439_reverse_proxy_nginx",
-      "target": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps2",
+      "target": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11315,7 +11315,7 @@
     },
     {
       "source": "docs_projects_with_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
+      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11326,7 +11326,7 @@
     },
     {
       "source": "docs_projects_with_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
+      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11337,7 +11337,7 @@
     },
     {
       "source": "docs_projects_with_domains_4_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_with_domains_laradocker1_example1_com",
+      "target": "docs_projects_with_domains_ladocker1_example1_com",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11348,7 +11348,7 @@
     },
     {
       "source": "docs_projects_with_domains_4_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_with_domains_laradocker2_example2_com",
+      "target": "docs_projects_with_domains_ladocker2_example2_com",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -13882,5 +13882,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d8c6208545799300a8bf7f79cc28701ce206442b"
+  "built_at_commit": "c1536f22deb233c852462e2e4cea92227c8a3b24"
 }
