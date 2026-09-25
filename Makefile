@@ -45,7 +45,7 @@ TEST_PHP_EXEC := $(DOCKER_DEV) exec $(TEST_ENV) app
         test pint composer npm vite shell-php shell-node shell-mariadb \
         prod-build prod-up prod-down \
         prod-ps prod-logs prod-laravel-logs prod-stats \
-        prod-migrate prod-optimize deploy
+        prod-migrate prod-seed prod-optimize deploy
 
 help: ## Show available commands
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) \
@@ -187,6 +187,9 @@ prod-stats: ## Show live resource usage for the production Compose project
 
 prod-migrate: ## Run production migrations with --force
 	$(DOCKER_PROD) exec -T app php artisan migrate --force --no-interaction
+
+prod-seed: ## Run production seeders explicitly
+	$(DOCKER_PROD) exec -T app php artisan db:seed --force --no-interaction
 
 prod-optimize: ## Cache production configuration, routes, and views
 	$(DOCKER_PROD) exec -T app php artisan optimize
