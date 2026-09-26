@@ -99,3 +99,34 @@ test('developer forms expose every role including developer', function (): void 
         ->assertSee('value="operator"', false)
         ->assertSee('value="user"', false);
 });
+
+test('edit pages place the danger zone in the second column without empty create placeholders', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $adminTarget = User::factory()->create(['role' => UserRole::User]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.create'))
+        ->assertSee('lg:w-1/2', false)
+        ->assertDontSee('min-h-[420px]', false)
+        ->assertDontSee('Danger zone');
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.edit', $adminTarget))
+        ->assertSee('lg:grid-cols-2', false)
+        ->assertSee('Danger zone')
+        ->assertSee('Delete user');
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.create'))
+        ->assertSee('lg:w-1/2', false)
+        ->assertDontSee('min-h-[420px]', false)
+        ->assertDontSee('Danger zone');
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.edit', $developerTarget))
+        ->assertSee('lg:grid-cols-2', false)
+        ->assertSee('Danger zone')
+        ->assertSee('Delete user');
+});

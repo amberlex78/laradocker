@@ -4,7 +4,7 @@
   "2": "Laravel-проєкти без домену",
   "3": "Authentication, Admin, and Developer Areas",
   "4": "Розгортання на VPS",
-  "5": "PageRenderingTest.php",
+  "5": "image-resize.js",
   "6": "AuthValidationRules",
   "7": "tailadmin/package.json",
   "8": "Illuminate\\Database\\Schema\\Blueprint",
@@ -74,7 +74,7 @@
   "72": "User",
   "73": "User.php",
   "74": "admin/users/create.blade.php",
-  "75": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+  "75": "ApplicationActionsTest.php",
   "76": "admin/users/edit.blade.php",
   "77": "admin/users/index.blade.php",
   "78": "admin/users/show.blade.php",
@@ -99,5 +99,7 @@
   "97": "developer/users/create.blade.php",
   "98": "developer/users/edit.blade.php",
   "99": "developer/users/index.blade.php",
-  "100": "developer/users/show.blade.php"
+  "100": "developer/users/show.blade.php",
+  "101": "i18n.js",
+  "102": "AuthenticationFlowTest.php"
 }
