@@ -1,4 +1,4 @@
-# Graph Report - ladocker  (2026-09-24)
+# Graph Report - laradocker  (2026-09-26)
 
 ## Corpus Check
 - 106 files · ~70,117 words
@@ -6,12 +6,12 @@
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 19, .example 4, .conf 3)
 
 ## Summary
-- 542 nodes · 665 edges · 69 communities (27 shown, 42 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.89)
+- 612 nodes · 772 edges · 95 communities (39 shown, 56 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c1536f22`
+- Built from commit: `00f1c2f8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,17 +19,17 @@
 - composer.json
 - package.json
 - Laravel-проєкти без домену
-- UserRole
+- Authentication, Admin, and Developer Areas
 - Розгортання на VPS
-- Laravel Docker Application
 - User
+- AuthValidationRules
 - tailadmin/package.json
-- 0001_01_01_000000_create_users_table.php
+- Illuminate\Database\Schema\Blueprint
 - require-dev
 - fortify.php
 - Laravel-проєкти з доменами
 - FortifyServiceProvider.php
-- EnsureUserHasRole.php
+- webpack.config.js
 - TailAdmin - Free Tailwind Admin Dashboard Template
 - logging.php
 - artisan
@@ -37,7 +37,7 @@
 - laravel-boost
 - Controller.php
 - entrypoint.sh
-- Illuminate\Support\Facades\Route
+- web.php
 - index.js
 - devDependencies
 - calendar-init.js
@@ -50,11 +50,37 @@
 - require
 - autoload-dev
 - extra
+- i18n.js
+- UserRole
+- ResolveUserLandingRoute
+- AuthenticationFlowTest.php
+- User.php
+- RoleAccessTest.php
+- Illuminate\Foundation\Testing\RefreshDatabase
+- Review Focus
+- FortifyActionsTest.php
+- AuthValidationRulesTest.php
+- author
+- scripts
+- TestCase
+- ref_dropzone_dist_dropzone_css
+- ref_flatpickr_dist_flatpickr_min_css
+- ref_fullcalendar_daygrid
+- ref_fullcalendar_interaction
+- ref_fullcalendar_multimonth
+- ref_fullcalendar_skeleton_css
+- ref_fullcalendar_themes_classic
+- ref_fullcalendar_themes_classic_palette_css
+- ref_fullcalendar_themes_classic_theme_css
+- ref_fullcalendar_timegrid
+- ref_jsvectormap_dist_jsvectormap_min_css
+- ref_jsvectormap_dist_maps_world
+- ref_laravel_vite_plugin_fonts
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 40 edges
+1. `User` - 70 edges
 2. `AuthValidationRules` - 20 edges
-3. `UserRole` - 17 edges
+3. `UserRole` - 19 edges
 4. `Розгортання на VPS` - 13 edges
 5. `require-dev` - 11 edges
 6. `Laravel-проєкти з доменами` - 10 edges
@@ -64,57 +90,57 @@
 10. `ResetUserPassword` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Global Constraints` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
 - `Roles and access` --references--> `UserRole`  [INFERRED]
   docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md → app/Enums/UserRole.php
+- `Global Constraints` --references--> `UserRole`  [INFERRED]
+  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
+- `Task 1: Add the role domain model and database column` --references--> `UserRole`  [INFERRED]
+  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
 - `Task 1: Add the role domain model and database column` --references--> `User`  [INFERRED]
   docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Models/User.php
 - `Task 2: Install and configure Fortify with Blade authentication views` --references--> `User`  [INFERRED]
   docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Models/User.php
-- `Task 2: Install and configure Fortify with Blade authentication views` --references--> `UserFactory`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → database/factories/UserFactory.php
 
 ## Import Cycles
 - None detected.
 
-## Communities (69 total, 42 thin omitted)
+## Communities (95 total, 56 thin omitted)
 
 ### Community 0 - "composer.json"
 Cohesion: 0.22
 Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
 
 ### Community 1 - "package.json"
-Cohesion: 0.08
-Nodes (24): dependencies, alpinejs, devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite (+16 more)
+Cohesion: 0.09
+Nodes (23): dependencies, alpinejs, devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite (+15 more)
 
 ### Community 2 - "Laravel-проєкти без домену"
 Cohesion: 0.12
 Nodes (16): 1. Схема портів, 2. Локальний запуск, 3. Production-запуск на VPS, 4.1. Конфігурація ladockervps1, 4.2. Конфігурація ladockervps2, 4.3. Активація sites-enabled, 4. Мінімальний reverse proxy Nginx, 5. Видалення непотрібного проєкту (+8 more)
 
-### Community 3 - "UserRole"
-Cohesion: 0.07
-Nodes (24): UserRole, DatabaseSeeder, UserSeeder, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, Review Focus, Task 1: Add the role domain model and database column, Task 2: Install and configure Fortify with Blade authentication views (+16 more)
+### Community 3 - "Authentication, Admin, and Developer Areas"
+Cohesion: 0.25
+Nodes (7): Application areas, Authentication, Authentication, Admin, and Developer Areas, Goal, Roles and access, UI structure, Verification
 
 ### Community 4 - "Розгортання на VPS"
-Cohesion: 0.07
-Nodes (23): Development mounts and production volumes, Docker architecture, Images, Multiple projects on one VPS, Networks and ports, 1. Підготовка сервера, 2. Клонування проєкту та production-конфігурація, 3. Побудова та запуск production-стека (+15 more)
+Cohesion: 0.05
+Nodes (37): Development mounts and production volumes, Docker architecture, Images, Multiple projects on one VPS, Networks and ports, 1. Підготовка сервера, 2. Клонування проєкту та production-конфігурація, 3. Побудова та запуск production-стека (+29 more)
 
-### Community 5 - "Laravel Docker Application"
-Cohesion: 0.14
-Nodes (14): Composer, npm і shell, Laravel Docker Application, Laravel і база даних, Vite, Безпека та збереження даних, Встановлення проєкту на VPS, Документація, Основні команди (+6 more)
+### Community 5 - "User"
+Cohesion: 0.19
+Nodes (9): User, {closure#10}(), {closure#11}(), {closure#12}(), {closure#5}(), {closure#6}(), {closure#7}(), {closure#8}() (+1 more)
 
-### Community 6 - "User"
-Cohesion: 0.08
-Nodes (26): RegisterUser, SetUserPassword, UpdateUserProfile, CreateNewUser, ResetUserPassword, UpdateUserPassword, UpdateUserProfileInformation, User (+18 more)
+### Community 6 - "AuthValidationRules"
+Cohesion: 0.10
+Nodes (15): RegisterUser, SetUserPassword, UpdateUserProfile, CreateNewUser, ResetUserPassword, UpdateUserPassword, UpdateUserProfileInformation, AuthValidationRules (+7 more)
 
 ### Community 7 - "tailadmin/package.json"
-Cohesion: 0.05
-Nodes (46): @babel/core, babel-loader, @babel/preset-env, copy-webpack-plugin, css-loader, file-loader, glob, html-loader (+38 more)
+Cohesion: 0.08
+Nodes (25): @babel/core, babel-loader, @babel/preset-env, css-loader, file-loader, html-loader, postcss, postcss-loader (+17 more)
 
-### Community 8 - "0001_01_01_000000_create_users_table.php"
-Cohesion: 0.19
-Nodes (3): Illuminate\Database\Migrations\Migration, Illuminate\Database\Schema\Blueprint, Illuminate\Support\Facades\Schema
+### Community 8 - "Illuminate\Database\Schema\Blueprint"
+Cohesion: 0.13
+Nodes (13): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+5 more)
 
 ### Community 9 - "require-dev"
 Cohesion: 0.18
@@ -125,12 +151,12 @@ Cohesion: 0.12
 Nodes (16): 1. Схема доменів і портів, 2. Локальний запуск, 3. Підготовка доменів, Cloudflare і сертифікатів, 4. Production-запуск на VPS, 5.1. Конфігурація example1.com, 5.2. Конфігурація example2.com, 5. Системний Nginx як reverse proxy, 6. Активація Nginx і firewall (+8 more)
 
 ### Community 14 - "FortifyServiceProvider.php"
-Cohesion: 0.12
-Nodes (11): ResolveUserLandingRoute, LoginResponse, AppServiceProvider, FortifyServiceProvider, Illuminate\Cache\RateLimiting\Limit, Illuminate\Support\Facades\RateLimiter, Illuminate\Support\ServiceProvider, Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable (+3 more)
+Cohesion: 0.08
+Nodes (22): {closure#1}(), EnsureUserHasRole, AppServiceProvider, {closure#4}(), {closure#6}(), {closure#7}(), {closure#8}(), FortifyServiceProvider (+14 more)
 
-### Community 15 - "EnsureUserHasRole.php"
-Cohesion: 0.27
-Nodes (7): EnsureUserHasRole, Closure, Illuminate\Foundation\Application, Illuminate\Foundation\Configuration\Exceptions, Illuminate\Foundation\Configuration\Middleware, Illuminate\Http\Request, Symfony\Component\HttpFoundation\Response
+### Community 15 - "webpack.config.js"
+Cohesion: 0.15
+Nodes (13): copy-webpack-plugin, glob, html-webpack-plugin, mini-css-extract-plugin, ref_path, CopyWebpackPlugin, generateHTMLPlugins(), { globSync } (+5 more)
 
 ### Community 16 - "TailAdmin - Free Tailwind Admin Dashboard Template"
 Cohesion: 0.07
@@ -141,24 +167,24 @@ Cohesion: 0.40
 Nodes (4): Monolog\Handler\NullHandler, Monolog\Handler\StreamHandler, Monolog\Handler\SyslogUdpHandler, Monolog\Processor\PsrLogMessageProcessor
 
 ### Community 29 - "index.js"
-Cohesion: 0.07
-Nodes (25): ref_alpinejs, @alpinejs/persist, apexcharts, dropzone, ref_dropzone_dist_dropzone_css, flatpickr, ref_flatpickr_dist_flatpickr_min_css, i18next (+17 more)
+Cohesion: 0.14
+Nodes (13): ref_alpinejs, @alpinejs/persist, apexcharts, dropzone, flatpickr, jsvectormap, reference_tailadmin_src_css_style, chart01() (+5 more)
 
 ### Community 45 - "devDependencies"
 Cohesion: 0.09
 Nodes (22): devDependencies, @babel/core, babel-loader, @babel/preset-env, copy-webpack-plugin, css-loader, file-loader, glob (+14 more)
 
 ### Community 46 - "calendar-init.js"
-Cohesion: 0.13
-Nodes (16): fullcalendar, ref_fullcalendar_daygrid, ref_fullcalendar_interaction, ref_fullcalendar_multimonth, ref_fullcalendar_skeleton_css, ref_fullcalendar_themes_classic, ref_fullcalendar_themes_classic_palette_css, ref_fullcalendar_themes_classic_theme_css (+8 more)
+Cohesion: 0.26
+Nodes (8): fullcalendar, closeModal(), handleAddOrUpdateEvent(), handleDateSelect(), handleEventClick(), handleOpenAddModal(), openModal(), resetModalFields()
 
 ### Community 47 - "image-resize.js"
 Cohesion: 0.33
 Nodes (12): animate(), calc(), canMove(), hintHide(), onDown(), onMouseDown(), onMove(), onTouchDown() (+4 more)
 
 ### Community 48 - "UserFactory.php"
-Cohesion: 0.22
-Nodes (5): UserFactory, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Support\Str, Pdo\Mysql, static
+Cohesion: 0.13
+Nodes (10): UserFactory, DatabaseSeeder, UserSeeder, Illuminate\Database\Console\Seeds\WithoutModelEvents, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Database\Seeder, Illuminate\Support\Facades\Hash, Illuminate\Support\Str (+2 more)
 
 ### Community 49 - "dependencies"
 Cohesion: 0.18
@@ -188,20 +214,68 @@ Nodes (3): autoload-dev, psr-4, Tests\\
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
+### Community 69 - "i18n.js"
+Cohesion: 0.24
+Nodes (8): i18next, i18next-browser-languagedetector, reference_tailadmin_src_images_flag_flag_us, applyHtmlLanguageAttributes(), isRTL(), setupI18n(), supportedLocales, reference_tailadmin_src_locales_en_common
+
+### Community 70 - "UserRole"
+Cohesion: 0.27
+Nodes (7): UserRole, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, {closure#1}(), {closure#2}(), {closure#3}(), {closure#4}()
+
+### Community 71 - "ResolveUserLandingRoute"
+Cohesion: 0.33
+Nodes (4): ResolveUserLandingRoute, LoginResponse, Laravel\Fortify\Contracts\LoginResponse, Symfony\Component\HttpFoundation\RedirectResponse
+
+### Community 72 - "AuthenticationFlowTest.php"
+Cohesion: 0.22
+Nodes (7): Illuminate\Foundation\Http\Middleware\PreventRequestForgery, {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
+
+### Community 73 - "User.php"
+Cohesion: 0.25
+Nodes (6): Illuminate\Contracts\Auth\MustVerifyEmail, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Attributes\Hidden, Illuminate\Database\Eloquent\Factories\HasFactory, Illuminate\Foundation\Auth\User, Illuminate\Notifications\Notifiable
+
+### Community 74 - "RoleAccessTest.php"
+Cohesion: 0.25
+Nodes (5): {closure#2}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
+
+### Community 75 - "Illuminate\Foundation\Testing\RefreshDatabase"
+Cohesion: 0.29
+Nodes (3): Illuminate\Foundation\Testing\RefreshDatabase, {closure#1}(), {closure#2}()
+
+### Community 76 - "Review Focus"
+Cohesion: 0.33
+Nodes (6): Review Focus, Task 1: Add the role domain model and database column, Task 2: Install and configure Fortify with Blade authentication views, Task 3: Add role middleware and route boundaries, Task 4: Build the public, account, admin, and developer Blade shells, Task 5: Run the complete verification pass
+
+### Community 77 - "FortifyActionsTest.php"
+Cohesion: 0.33
+Nodes (5): Illuminate\Auth\Notifications\VerifyEmail, Illuminate\Support\Facades\Notification, {closure#1}(), {closure#2}(), {closure#3}()
+
+### Community 78 - "AuthValidationRulesTest.php"
+Cohesion: 0.40
+Nodes (4): Illuminate\Support\Facades\Validator, {closure#1}(), {closure#2}(), {closure#3}()
+
+### Community 79 - "author"
+Cohesion: 0.50
+Nodes (4): author, email, name, url
+
+### Community 80 - "scripts"
+Cohesion: 0.50
+Nodes (4): scripts, build, sort, start
+
 ## Knowledge Gaps
 - **211 isolated node(s):** `php`, `name`, `version`, `description`, `main` (+206 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 323 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 341 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **56 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserFactory.php`, `UserRole`, `FortifyServiceProvider.php`, `EnsureUserHasRole.php`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `AuthValidationRules`, `ResolveUserLandingRoute`, `UserRole`, `User.php`, `AuthenticationFlowTest.php`, `RoleAccessTest.php`, `Review Focus`, `FortifyActionsTest.php`, `FortifyServiceProvider.php`, `AuthValidationRulesTest.php`, `UserFactory.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+  _High betweenness centrality (0.054) - this node is a cross-community bridge._
+- **Why does `UserRole` connect `UserRole` to `Authentication, Admin, and Developer Areas`, `User`, `AuthValidationRules`, `ResolveUserLandingRoute`, `AuthenticationFlowTest.php`, `User.php`, `RoleAccessTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `Review Focus`, `FortifyServiceProvider.php`, `UserFactory.php`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `tailadmin/package.json`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Why does `UserRole` connect `UserRole` to `UserFactory.php`, `EnsureUserHasRole.php`, `User`, `FortifyServiceProvider.php`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `User` (e.g. with `Task 1: Add the role domain model and database column` and `Task 2: Install and configure Fortify with Blade authentication views`) actually correct?**
   _`User` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 4 inferred relationships involving `UserRole` (e.g. with `Authentication, Admin, and Developer Areas Implementation Plan` and `Global Constraints`) actually correct?**
@@ -209,4 +283,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `php`, `name`, `version` to the rest of the system?**
   _211 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.08307692307692308 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08666666666666667 - nodes in this community are weakly interconnected._
