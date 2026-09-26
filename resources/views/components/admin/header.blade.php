@@ -15,7 +15,7 @@
         </button>
 
         <div>
-            <p class="text-sm font-semibold text-slate-950 dark:text-white">{{ $area === 'developer' ? 'Technical workspace' : 'Business workspace' }}</p>
+            <p class="text-sm font-semibold text-slate-950 dark:text-white">{{ $area === 'developer' ? 'Developer workspace' : 'Admin workspace' }}</p>
             <p class="hidden text-xs text-slate-500 dark:text-slate-400 sm:block">{{ now()->format('l, F j, Y') }}</p>
         </div>
     </div>

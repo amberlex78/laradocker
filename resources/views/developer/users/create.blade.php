@@ -1,6 +1,5 @@
 <x-layouts.developer :title="'Create user'">
     <x-admin.page-header
-        eyebrow="Technical workspace"
         title="Create user"
         description="Add an application account with any available role."
     />

@@ -1,6 +1,5 @@
 <x-layouts.developer :title="'Edit user'">
     <x-admin.page-header
-        eyebrow="Technical workspace"
         title="Edit user"
         description="Update application details and role assignments."
     />

@@ -1,6 +1,5 @@
 <x-layouts.developer :title="'Developer dashboard'">
     <x-admin.page-header
-        eyebrow="Technical workspace"
         title="Developer dashboard"
         description="A separate technical area for application health, diagnostics and engineering tools that we will add over time."
     />

@@ -1,7 +1,6 @@
 <x-layouts.admin :title="'Users'">
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <x-admin.page-header
-            eyebrow="Business workspace"
             title="Users"
             description="Manage the people and business roles in this workspace."
         />

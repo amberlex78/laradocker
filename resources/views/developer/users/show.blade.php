@@ -1,6 +1,6 @@
 <x-layouts.developer :title="'User details'">
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <x-admin.page-header eyebrow="Technical workspace" title="User details" description="Review this account's application access." />
+        <x-admin.page-header title="User details" description="Review this account's application access." />
         <a href="{{ route('developer.users.edit', $user) }}" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700">Edit user</a>
     </div>
 

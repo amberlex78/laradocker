@@ -107,6 +107,11 @@ test('an admin sees the responsive business dashboard shell', function () {
     $this->actingAs($admin)
         ->get('/admin')
         ->assertOk()
+        ->assertSee('Admin workspace')
+        ->assertDontSee('Business workspace')
+        ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false)
+        ->assertSee('>Admin dashboard</h1>', false)
+        ->assertDontSee('>Overview</h1>', false)
         ->assertSee('Overview')
         ->assertSee('Quick actions')
         ->assertSee('No recent activity yet')
@@ -123,7 +128,8 @@ test('a developer sees the developer shell and can open the admin shell', functi
         ->get('/developer')
         ->assertOk()
         ->assertSee('Developer workspace navigation')
-        ->assertSee('Technical workspace');
+        ->assertSee('Developer workspace')
+        ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false);
 
     $this->actingAs($developer)
         ->get('/admin')
@@ -141,6 +147,7 @@ test('a developer sees the technical dashboard shell', function () {
         ->assertOk()
         ->assertSee('Application status')
         ->assertSee('Technical workspace')
+        ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false)
         ->assertSee('No technical events yet')
         ->assertSee('sidebarOpen')
         ->assertSee('x-show="sidebarOpen"', false);

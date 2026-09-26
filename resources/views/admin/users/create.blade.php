@@ -1,6 +1,5 @@
 <x-layouts.admin :title="'Create user'">
     <x-admin.page-header
-        eyebrow="Business workspace"
         title="Create user"
         description="Add a person to the business workspace."
     />

@@ -1,6 +1,5 @@
 <x-layouts.admin :title="'Edit user'">
     <x-admin.page-header
-        eyebrow="Business workspace"
         title="Edit user"
         description="Update account details without changing protected access boundaries."
     />

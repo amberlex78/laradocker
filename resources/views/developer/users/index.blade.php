@@ -1,7 +1,6 @@
 <x-layouts.developer :title="'Users'">
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <x-admin.page-header
-            eyebrow="Technical workspace"
             title="Users"
             description="Manage all application accounts and role assignments."
         />
