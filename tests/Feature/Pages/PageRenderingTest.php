@@ -95,6 +95,42 @@ test('a user sees the account page', function () {
         ->assertSee('Your account');
 });
 
+test('authorized account users can return to their workspace from the shared menu', function (): void {
+    $workspaces = [
+        UserRole::Admin->value => 'admin.dashboard',
+        UserRole::Operator->value => 'admin.dashboard',
+        UserRole::Developer->value => 'developer.dashboard',
+    ];
+
+    foreach ($workspaces as $role => $workspaceRoute) {
+        $user = User::factory()->create([
+            'role' => UserRole::from($role),
+        ]);
+
+        $this->actingAs($user)
+            ->get(route('account'))
+            ->assertOk()
+            ->assertSee('Profile')
+            ->assertSee('Back to workspace')
+            ->assertSee('href="'.route($workspaceRoute).'"', false)
+            ->assertSee('x-data="{ profileMenuOpen: false }"', false);
+    }
+});
+
+test('standard account users do not see a workspace link in the shared menu', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Profile')
+        ->assertDontSee('Back to workspace')
+        ->assertDontSee('href="'.route('admin.dashboard').'"', false)
+        ->assertDontSee('href="'.route('developer.dashboard').'"', false);
+});
+
 test('an admin sees the admin shell without developer navigation', function () {
     $admin = User::factory()->create([
         'role' => UserRole::Admin,
@@ -145,6 +181,7 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->assertSee('x-data="{ profileMenuOpen: false }"', false)
         ->assertSee('x-show="profileMenuOpen"', false)
         ->assertSee('mt-2 border-t border-slate-100 pt-2 dark:border-slate-800', false)
+        ->assertDontSee('Back to workspace')
         ->assertSee('data-icon="chevron-down"', false);
 });
 
@@ -158,6 +195,7 @@ test('a developer sees the developer shell and can open the admin shell', functi
         ->assertOk()
         ->assertSee('Developer workspace navigation')
         ->assertSee('Developer workspace')
+        ->assertDontSee('Back to workspace')
         ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false);
 
     $this->actingAs($developer)

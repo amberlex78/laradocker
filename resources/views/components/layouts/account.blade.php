@@ -12,10 +12,7 @@
         <header class="border-b border-slate-200 bg-white">
             <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Account navigation">
                 <a class="font-semibold tracking-tight" href="{{ route('home') }}">{{ config('app.name', 'Laravel') }}</a>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-950" type="submit"><x-icon name="log-out" class="h-4 w-4" />Log out</button>
-                </form>
+                <x-user-menu />
             </nav>
         </header>
 
