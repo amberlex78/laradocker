@@ -68,7 +68,7 @@
   "66": "alert.blade.php",
   "67": "field.blade.php",
   "68": "password-field.blade.php",
-  "69": "UserManagementActionsTest.php",
+  "69": "AuthValidationRulesTest.php",
   "70": "UserRole",
   "71": "DeveloperUserManagementTest.php",
   "72": "AuthenticationFlowTest.php",
@@ -80,6 +80,7 @@
   "78": "admin/users/show.blade.php",
   "79": "author",
   "80": "scripts",
+  "81": "User",
   "82": "ref_dropzone_dist_dropzone_css",
   "83": "ref_flatpickr_dist_flatpickr_min_css",
   "84": "ref_fullcalendar_daygrid",
@@ -100,9 +101,11 @@
   "99": "developer/users/index.blade.php",
   "100": "developer/users/show.blade.php",
   "101": "i18n.js",
-  "102": "User",
+  "102": "PageRenderingTest.php",
   "103": "index.md",
   "104": "icon.blade.php",
   "105": "user-menu.blade.php",
-  "106": "Illuminate\\Foundation\\Testing\\RefreshDatabase"
+  "106": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+  "107": "Illuminate\\Foundation\\Http\\FormRequest",
+  "108": "TestCase"
 }

@@ -69,11 +69,17 @@
                 <input type="hidden" name="role" value="{{ $selectedRole }}">
             @endif
 
-            <select id="role" name="role" class="{{ $inputClasses }}" @disabled(! $roleEditable) required>
-                @foreach ($availableRoles as $role)
-                    <option value="{{ $role->value }}" @selected($selectedRole === $role->value)>{{ str($role->value)->headline() }}</option>
-                @endforeach
-            </select>
+            <div class="relative z-20 bg-transparent">
+                <select id="role" name="role" class="{{ $inputClasses }} appearance-none bg-none pr-11" @disabled(! $roleEditable) required>
+                    @foreach ($availableRoles as $role)
+                        <option value="{{ $role->value }}" @selected($selectedRole === $role->value)>{{ str($role->value)->headline() }}</option>
+                    @endforeach
+                </select>
+
+                <span class="pointer-events-none absolute inset-y-0 right-3 z-30 flex items-center text-slate-500 dark:text-slate-400">
+                    <x-icon name="chevron-down" class="h-5 w-5" />
+                </span>
+            </div>
 
             @if (! $roleEditable)
                 <p class="text-xs text-slate-500 dark:text-slate-400">This role is protected in the current workspace.</p>

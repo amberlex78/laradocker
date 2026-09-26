@@ -147,6 +147,19 @@ test('developer forms expose every role including developer', function (): void 
         ->assertSee('value="user"', false);
 });
 
+test('user forms render the role select with the styled native select treatment', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.create'))
+        ->assertOk()
+        ->assertSee('class="relative z-20 bg-transparent"', false)
+        ->assertSee('appearance-none', false)
+        ->assertSee('pr-11', false)
+        ->assertSee('pointer-events-none', false)
+        ->assertSee('data-icon="chevron-down"', false);
+});
+
 test('edit pages place the danger zone in the second column without empty create placeholders', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $adminTarget = User::factory()->create(['role' => UserRole::User]);
