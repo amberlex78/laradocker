@@ -1,7 +1,7 @@
 <x-layouts.admin :title="'User details'">
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <x-admin.page-header title="User details" description="Review this account's business access." />
-        <a href="{{ route('admin.users.edit', $user) }}" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700">Edit user</a>
+        <x-admin.page-header title="User details" icon="user-round" description="Review this account's business access." />
+        <a href="{{ route('admin.users.edit', $user) }}" class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white transition hover:bg-indigo-700" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
     </div>
 
     <x-admin.panel title="{{ $user->name }}" description="{{ $user->email }}">

@@ -1,6 +1,7 @@
 <x-layouts.admin :title="'Admin dashboard'">
     <x-admin.page-header
         title="Admin dashboard"
+        icon="layout-dashboard"
         description="A clear starting point for the business administration area. Feature-specific modules can be added here as the product grows."
     />
 

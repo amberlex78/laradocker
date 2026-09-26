@@ -1,7 +1,7 @@
 <x-layouts.developer :title="'User details'">
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <x-admin.page-header title="User details" description="Review this account's application access." />
-        <a href="{{ route('developer.users.edit', $user) }}" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700">Edit user</a>
+        <x-admin.page-header title="User details" icon="user-round" description="Review this account's application access." />
+        <a href="{{ route('developer.users.edit', $user) }}" class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white transition hover:bg-indigo-700" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
     </div>
 
     <x-admin.panel title="{{ $user->name }}" description="{{ $user->email }}">
@@ -16,14 +16,14 @@
 
     @if ($user->is(auth()->user()))
         <x-admin.panel title="Account protection" description="You cannot delete your own account.">
-            <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Protected</span>
+            <span class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400"><x-icon name="shield-check" class="h-4 w-4" />Protected</span>
         </x-admin.panel>
     @else
         <x-admin.panel title="Danger zone" description="Deleting an account is permanent.">
             <form method="POST" action="{{ route('developer.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-600 transition hover:bg-rose-50 dark:border-rose-500/30 dark:text-rose-300 dark:hover:bg-rose-500/10">Delete user</button>
+                <button type="submit" class="inline-flex items-center gap-2 rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-600 transition hover:bg-rose-50 dark:border-rose-500/30 dark:text-rose-300 dark:hover:bg-rose-500/10"><x-icon name="trash" class="h-4 w-4" />Delete user</button>
             </form>
         </x-admin.panel>
     @endif

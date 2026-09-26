@@ -14,10 +14,10 @@
                 <a class="text-lg font-semibold tracking-tight" href="{{ route('home') }}">{{ config('app.name', 'Laravel') }}</a>
                 <div class="flex items-center gap-4 text-sm text-slate-300">
                     @auth
-                        <a class="hover:text-white" href="{{ route('account') }}">Account</a>
+                        <a class="inline-flex items-center gap-1.5 hover:text-white" href="{{ route('account') }}"><x-icon name="user-round" class="h-4 w-4" />Account</a>
                     @else
-                        <a class="hover:text-white" href="{{ route('login') }}">Log in</a>
-                        <a class="rounded-lg bg-white px-4 py-2 font-semibold text-slate-950 hover:bg-slate-200" href="{{ route('register') }}">Register</a>
+                        <a class="inline-flex items-center gap-1.5 hover:text-white" href="{{ route('login') }}"><x-icon name="log-in" class="h-4 w-4" />Log in</a>
+                        <a class="inline-flex items-center gap-1.5 rounded-lg bg-white px-4 py-2 font-semibold text-slate-950 hover:bg-slate-200" href="{{ route('register') }}"><x-icon name="user-plus" class="h-4 w-4" />Register</a>
                     @endauth
                 </div>
             </nav>

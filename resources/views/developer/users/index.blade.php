@@ -2,13 +2,12 @@
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <x-admin.page-header
             title="Users"
+            icon="users"
             description="Manage all application accounts and role assignments."
         />
 
         <a href="{{ route('developer.users.create') }}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/20 transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/30">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path stroke-linecap="round" d="M12 5v14M5 12h14" />
-            </svg>
+            <x-icon name="user-plus" class="h-4 w-4" />
             Add user
         </a>
     </div>
@@ -45,21 +44,21 @@
                             <td class="whitespace-nowrap px-5 py-4 sm:px-6"><x-admin.user-role-badge :role="$user->role" /></td>
                             <td class="whitespace-nowrap px-5 py-4 sm:px-6">
                                 @if ($user->email_verified_at)
-                                    <span class="text-xs font-medium text-emerald-600 dark:text-emerald-400">Verified</span>
+                                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400"><x-icon name="circle-check" class="h-3.5 w-3.5" />Verified</span>
                                 @else
-                                    <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Pending</span>
+                                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400"><x-icon name="clock" class="h-3.5 w-3.5" />Pending</span>
                                 @endif
                             </td>
                             <td class="whitespace-nowrap px-5 py-4 text-right sm:px-6">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('developer.users.edit', $user) }}" class="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-indigo-600 hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-500/10">Edit</a>
+                                    <a href="{{ route('developer.users.edit', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-indigo-600 hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-500/10" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
                                     @if ($user->is(auth()->user()))
-                                        <span class="px-2.5 py-1.5 text-xs text-slate-400 dark:text-slate-500">Protected</span>
+                                        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 dark:text-slate-500" role="img" aria-label="Protected" title="Protected"><x-icon name="shield-check" class="h-5 w-5" /></span>
                                     @else
                                         <form method="POST" action="{{ route('developer.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">Delete</button>
+                                            <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10" aria-label="Delete user" title="Delete user"><x-icon name="trash" class="h-5 w-5" /></button>
                                         </form>
                                     @endif
                                 </div>

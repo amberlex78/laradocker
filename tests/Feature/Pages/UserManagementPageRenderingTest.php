@@ -71,7 +71,9 @@ test('developer user pages protect the current developer from self-deletion', fu
 
     $this->actingAs($developer)
         ->get(route('developer.users.index'))
-        ->assertSee('Protected')
+        ->assertSee('data-icon="shield-check"', false)
+        ->assertSee('aria-label="Protected"', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('action="'.route('developer.users.destroy', $developer).'"', false)
         ->assertSee('action="'.route('developer.users.destroy', $target).'"', false);
 
@@ -84,6 +86,30 @@ test('developer user pages protect the current developer from self-deletion', fu
         ->get(route('developer.users.edit', $developer))
         ->assertSee('Protected')
         ->assertDontSee('value="DELETE"', false);
+});
+
+test('user management actions render named Lucide icons', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $target = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.index'))
+        ->assertOk()
+        ->assertSee('data-icon="user-plus"', false)
+        ->assertSee('data-icon="file-pen"', false)
+        ->assertSee('data-icon="trash"', false)
+        ->assertSee('data-icon="shield-check"', false)
+        ->assertSee('aria-label="Protected"', false)
+        ->assertDontSee('>Protected<', false);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.edit', $target))
+        ->assertOk()
+        ->assertSee('data-icon="save"', false)
+        ->assertSee('data-icon="arrow-left"', false)
+        ->assertSee('data-icon="trash"', false)
+        ->assertSee('data-icon="file-pen"', false)
+        ->assertSee('Delete user');
 });
 
 test('admin create and edit forms expose business roles and delete controls', function (): void {

@@ -24,6 +24,15 @@ test('authentication pages render the branded responsive shell', function () {
         ->assertSee('Toggle theme');
 });
 
+test('authentication pages render named Lucide icons through the shared component', function () {
+    $this->get('/login')
+        ->assertOk()
+        ->assertSee('data-icon="sun"', false)
+        ->assertSee('data-icon="moon"', false)
+        ->assertSee('data-icon="eye"', false)
+        ->assertSee('data-icon="eye-off"', false);
+});
+
 test('authentication forms only expose supported application fields', function () {
     $this->get('/login')
         ->assertOk()
@@ -110,7 +119,8 @@ test('an admin sees the responsive business dashboard shell', function () {
         ->assertSee('Admin workspace')
         ->assertDontSee('Business workspace')
         ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false)
-        ->assertSee('>Admin dashboard</h1>', false)
+        ->assertSee('Admin dashboard')
+        ->assertSee('data-icon="layout-dashboard"', false)
         ->assertDontSee('>Overview</h1>', false)
         ->assertSee('Overview')
         ->assertSee('Quick actions')

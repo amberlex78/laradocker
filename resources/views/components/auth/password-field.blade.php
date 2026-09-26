@@ -43,13 +43,8 @@
             :aria-label="visible ? 'Hide password' : 'Show password'"
             @click="visible = !visible"
         >
-            <svg x-cloak x-show="!visible" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
-                <circle cx="12" cy="12" r="2.5" />
-            </svg>
-            <svg x-cloak x-show="visible" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m3 3 18 18M10.58 10.58a2 2 0 0 0 2.83 2.83M9.88 5.09A10.6 10.6 0 0 1 12 4.88c6 0 9.5 7.12 9.5 7.12a17.6 17.6 0 0 1-3.09 3.97M6.61 6.61C4.12 8.25 2.5 12 2.5 12a17.6 17.6 0 0 0 4.01 4.71A10.5 10.5 0 0 0 12 19.12c1.02 0 1.98-.15 2.86-.42" />
-            </svg>
+            <x-icon name="eye" x-cloak x-show="!visible" class="h-5 w-5" />
+            <x-icon name="eye-off" x-cloak x-show="visible" class="h-5 w-5" />
         </button>
     </span>
 

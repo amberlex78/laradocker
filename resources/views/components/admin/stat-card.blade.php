@@ -21,7 +21,7 @@
             <p class="mt-3 text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">{{ $value }}</p>
         </div>
 
-        <span class="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold {{ $toneClasses }}" aria-hidden="true">•</span>
+        <span class="flex h-10 w-10 items-center justify-center rounded-xl {{ $toneClasses }}" aria-hidden="true"><x-icon name="activity" class="h-5 w-5" /></span>
     </div>
 
     <p class="mt-4 text-xs leading-5 text-slate-500 dark:text-slate-400">{{ $description }}</p>

@@ -1,8 +1,8 @@
 @php
     $navigation = [
-        ['label' => 'Overview', 'route' => 'developer.dashboard'],
-        ['label' => 'Users', 'route' => 'developer.users.index'],
-        ['label' => 'Admin area', 'route' => 'admin.dashboard'],
+        ['label' => 'Overview', 'route' => 'developer.dashboard', 'icon' => 'layout-dashboard'],
+        ['label' => 'Users', 'route' => 'developer.users.index', 'icon' => 'users'],
+        ['label' => 'Admin area', 'route' => 'admin.dashboard', 'icon' => 'shield-check'],
     ];
 @endphp
 

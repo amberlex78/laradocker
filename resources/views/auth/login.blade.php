@@ -30,9 +30,7 @@
                         :class="checkboxToggle ? 'border-indigo-600 bg-indigo-600' : 'border-slate-300 bg-transparent dark:border-slate-700'"
                         aria-hidden="true"
                     >
-                        <svg class="h-3.5 w-3.5 text-white transition" :class="checkboxToggle ? 'opacity-100' : 'opacity-0'" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                            <path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                        <x-icon name="check" class="h-3.5 w-3.5 text-white transition" x-bind:class="checkboxToggle ? 'opacity-100' : 'opacity-0'" />
                     </span>
                     Remember me
                 </label>
@@ -41,12 +39,13 @@
         </div>
 
         <button class="inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
+            <x-icon name="log-in" class="h-4 w-4" />
             Log in
         </button>
     </form>
 
     <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
         Don't have an account?
-        <a class="font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('register') }}">Create an account</a>
+        <a class="inline-flex items-center gap-1.5 font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('register') }}">Create an account<x-icon name="arrow-right" class="h-4 w-4" /></a>
     </p>
 </x-layouts.auth>

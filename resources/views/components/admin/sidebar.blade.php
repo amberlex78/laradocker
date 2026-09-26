@@ -33,9 +33,7 @@
             aria-label="Close navigation"
             @click="sidebarOpen = false"
         >
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m6 6 12 12M18 6 6 18" />
-            </svg>
+            <x-icon name="x" class="h-5 w-5" />
         </button>
     </div>
 
@@ -54,9 +52,7 @@
                     @if ($isActive) aria-current="page" @endif
                 >
                     <span class="flex h-6 w-6 shrink-0 items-center justify-center">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
-                        </svg>
+                        <x-icon :name="$item['icon']" class="h-5 w-5" />
                     </span>
                     {{ $item['label'] }}
                 </a>
@@ -69,6 +65,7 @@
             <span class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-semibold text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200">
                 {{ str($user = auth()->user()->name)->substr(0, 1)->upper() }}
             </span>
+            <x-icon name="user-round" class="h-4 w-4 shrink-0" />
             <span class="min-w-0 truncate">Account settings</span>
         </a>
     </div>

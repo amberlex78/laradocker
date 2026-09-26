@@ -6,10 +6,10 @@
             <p class="max-w-xl text-lg leading-8 text-slate-300">A clean starting point for the public site, account area, administration, and developer workspace.</p>
             <div class="flex flex-wrap gap-3">
                 @guest
-                    <a class="rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-400" href="{{ route('register') }}">Create an account</a>
-                    <a class="rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10" href="{{ route('login') }}">Log in</a>
+                    <a class="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-400" href="{{ route('register') }}"><x-icon name="user-plus" class="h-4 w-4" />Create an account</a>
+                    <a class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10" href="{{ route('login') }}"><x-icon name="log-in" class="h-4 w-4" />Log in</a>
                 @else
-                    <a class="rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-400" href="{{ route('account') }}">Open account</a>
+                    <a class="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-400" href="{{ route('account') }}"><x-icon name="arrow-right" class="h-4 w-4" />Open account</a>
                 @endguest
             </div>
         </div>
