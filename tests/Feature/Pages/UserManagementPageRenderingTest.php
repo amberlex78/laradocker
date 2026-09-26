@@ -139,6 +139,13 @@ test('edit pages place the danger zone in the second column without empty create
         ->assertSee('Danger zone')
         ->assertSee('Delete user');
 
+    $this->actingAs($admin)
+        ->get(route('admin.users.edit', $admin))
+        ->assertSee('lg:grid-cols-2', false)
+        ->assertSee('Account protection')
+        ->assertSee('Protected')
+        ->assertDontSee('Danger zone');
+
     $this->actingAs($developer)
         ->get(route('developer.users.create'))
         ->assertSee('lg:w-1/2', false)
