@@ -90,6 +90,16 @@ test('authentication views preserve the Fortify form contracts', function () {
         ->assertSee($user->email);
 });
 
+test('authentication forms use the shared client-side validation flow', function (): void {
+    foreach (['/login', '/register', '/forgot-password', '/reset-password/test-token?email=user%40example.com'] as $path) {
+        $this->get($path)
+            ->assertOk()
+            ->assertSee('novalidate', false)
+            ->assertSee('x-data="formValidation"', false)
+            ->assertSee('data-validation-field="true"', false);
+    }
+});
+
 test('a user sees the account profile settings page', function () {
     $user = User::factory()->create([
         'role' => UserRole::User,

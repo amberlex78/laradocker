@@ -40,6 +40,22 @@ test('an authenticated user sees profile and password forms on the account page'
         ->assertSee('value="ada@example.com"', false);
 });
 
+test('account forms use the styled client-side validation flow', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('<form', false)
+        ->assertSee('novalidate', false)
+        ->assertSee('x-data="formValidation"', false)
+        ->assertSee('data-validation-field', false)
+        ->assertSee('data-validation-confirm="password"', false)
+        ->assertSee('data-[invalid=true]:border-red-300', false)
+        ->assertDontSee('data-client-validate="true"', false)
+        ->assertDontSee('form-validation-error', false);
+});
+
 test('a user can update profile information through the account page', function (): void {
     Notification::fake();
 

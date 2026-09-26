@@ -14,7 +14,7 @@
     $labelClasses = 'text-sm font-medium text-slate-700 dark:text-slate-300';
 @endphp
 
-<form method="POST" action="{{ $action }}" class="grid gap-6">
+<form method="POST" action="{{ $action }}" class="grid gap-6" novalidate x-data="formValidation" @submit.prevent="submit">
     @csrf
 
     @if ($method !== 'POST')
@@ -28,39 +28,34 @@
     @endif
 
     <div class="grid gap-5 sm:grid-cols-2">
-        <div class="grid gap-2">
-            <label for="name" class="{{ $labelClasses }}">Full name</label>
-            <input id="name" name="name" type="text" value="{{ old('name', $user?->name) }}" class="{{ $inputClasses }}" required autofocus>
-            @error('name')
-                <p class="text-xs text-rose-600 dark:text-rose-400">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-auth.field
+            name="name"
+            label="Full name"
+            :value="$user?->name"
+            required
+            autofocus
+        />
 
-        <div class="grid gap-2">
-            <label for="email" class="{{ $labelClasses }}">Email address</label>
-            <input id="email" name="email" type="email" value="{{ old('email', $user?->email) }}" class="{{ $inputClasses }}" required>
-            @error('email')
-                <p class="text-xs text-rose-600 dark:text-rose-400">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-auth.field
+            name="email"
+            label="Email address"
+            type="email"
+            :value="$user?->email"
+            required
+        />
 
-        <div class="grid gap-2">
-            <label for="password" class="{{ $labelClasses }}">
-                Password
-                @if ($user)
-                    <span class="font-normal text-slate-400">(leave blank to keep it)</span>
-                @endif
-            </label>
-            <input id="password" name="password" type="password" class="{{ $inputClasses }}" @required(!$user)>
-            @error('password')
-                <p class="text-xs text-rose-600 dark:text-rose-400">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-auth.password-field
+            name="password"
+            label="Password"
+            :required="$user === null"
+        />
 
-        <div class="grid gap-2">
-            <label for="password_confirmation" class="{{ $labelClasses }}">Confirm password</label>
-            <input id="password_confirmation" name="password_confirmation" type="password" class="{{ $inputClasses }}" @required(!$user)>
-        </div>
+        <x-auth.password-field
+            name="password_confirmation"
+            label="Confirm password"
+            data-validation-confirm="password"
+            :required="$user === null"
+        />
 
         <div class="grid gap-2 sm:col-span-2">
             <label for="role" class="{{ $labelClasses }}">Role</label>

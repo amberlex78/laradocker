@@ -135,6 +135,29 @@ test('admin create and edit forms expose business roles and delete controls', fu
         ->assertSee('value="DELETE"', false);
 });
 
+test('user management forms use the shared client-side validation flow', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $adminTarget = User::factory()->create(['role' => UserRole::User]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    foreach ([
+        route('admin.users.create'),
+        route('admin.users.edit', $adminTarget),
+        route('developer.users.create'),
+        route('developer.users.edit', $developerTarget),
+    ] as $path) {
+        $user = str_contains($path, '/admin/') ? $admin : $developer;
+
+        $this->actingAs($user)
+            ->get($path)
+            ->assertOk()
+            ->assertSee('novalidate', false)
+            ->assertSee('x-data="formValidation"', false)
+            ->assertSee('data-validation-field="true"', false);
+    }
+});
+
 test('developer forms expose every role including developer', function (): void {
     $developer = User::factory()->create(['role' => UserRole::Developer]);
 

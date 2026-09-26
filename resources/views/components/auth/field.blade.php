@@ -1,25 +1,23 @@
 @props([
     'name',
     'label',
-    'type' => 'text',
-    'value' => null,
-    'autocomplete' => null,
-    'placeholder' => null,
-    'required' => false,
-    'autofocus' => false,
     'errorBag' => 'default',
 ])
 
 @php
     $fieldId = $attributes->get('id', $name);
+    $value = old($name, $attributes->get('value'));
+    $attributes = $attributes->except('value');
+    $isRequired = $attributes->get('required', false) !== false;
     $bag = $errors->getBag($errorBag);
     $hasError = $bag->has($name);
+    $errorMessage = $hasError ? $bag->first($name) : null;
 @endphp
 
 <label class="flex flex-col gap-2" for="{{ $fieldId }}">
     <span class="text-sm font-medium text-slate-700 dark:text-slate-300">
         {{ $label }}
-        @if ($required)
+        @if ($isRequired)
             <span class="text-red-500" aria-hidden="true">*</span>
         @endif
     </span>
@@ -28,19 +26,22 @@
         {{ $attributes->merge([
             'id' => $fieldId,
             'name' => $name,
-            'type' => $type,
-            'value' => old($name, $value),
-            'autocomplete' => $autocomplete,
-            'placeholder' => $placeholder,
-            'required' => $required,
-            'autofocus' => $autofocus,
+            'type' => 'text',
+            'value' => $value,
             'aria-invalid' => $hasError ? 'true' : 'false',
             'aria-describedby' => $hasError ? $fieldId.'-error' : null,
-            'class' => 'h-11 w-full rounded-xl border bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-600 '.($hasError ? 'border-red-300 focus:border-red-500 focus:ring-red-500/10 dark:border-red-500/50' : 'border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/10 dark:border-slate-700 dark:focus:border-indigo-500'),
+            'data-invalid' => $hasError ? 'true' : 'false',
+            'data-validation-field' => 'true',
+            'class' => 'h-11 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-600 dark:focus:border-indigo-500 data-[invalid=true]:border-red-300 data-[invalid=true]:focus:border-red-500 data-[invalid=true]:focus:ring-red-500/10 data-[invalid=true]:dark:border-red-500/50',
         ]) }}
     >
 
-    @if ($hasError)
-        <p id="{{ $fieldId }}-error" class="text-xs text-red-600 dark:text-red-400">{{ $bag->first($name) }}</p>
-    @endif
+    <p
+        id="{{ $fieldId }}-error"
+        class="text-xs text-red-600 dark:text-red-400"
+        data-validation-error
+        @if (! $hasError)
+            hidden
+        @endif
+    >{{ $errorMessage }}</p>
 </label>

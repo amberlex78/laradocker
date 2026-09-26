@@ -15,7 +15,7 @@
         </x-auth.alert>
     @endif
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('login') }}">
+    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('login') }}" novalidate x-data="formValidation" @submit.prevent="submit">
         @csrf
 
         <x-auth.field name="email" label="Email" type="email" autocomplete="email" placeholder="you@example.com" required autofocus />

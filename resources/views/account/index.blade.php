@@ -12,7 +12,7 @@
 
         <div class="grid items-start gap-6 lg:grid-cols-2">
             <x-admin.panel title="Profile information" description="Update your profile information and email address.">
-                <form method="POST" action="{{ route('user-profile-information.update') }}" class="flex flex-col gap-6">
+                <form method="POST" action="{{ route('user-profile-information.update') }}" class="flex flex-col gap-6" novalidate x-data="formValidation" @submit.prevent="submit">
                     @csrf
                     @method('PUT')
 
@@ -50,7 +50,7 @@
             </x-admin.panel>
 
             <x-admin.panel title="Update password" description="Use a strong, unique password to keep your account secure.">
-                <form method="POST" action="{{ route('user-password.update') }}" class="flex flex-col gap-6">
+                <form method="POST" action="{{ route('user-password.update') }}" class="flex flex-col gap-6" novalidate x-data="formValidation" @submit.prevent="submit">
                     @csrf
                     @method('PUT')
 
@@ -81,6 +81,7 @@
                             autocomplete="new-password"
                             placeholder="Repeat your new password"
                             error-bag="updatePassword"
+                            data-validation-confirm="password"
                             required
                         />
                     </div>
