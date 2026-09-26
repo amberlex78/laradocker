@@ -129,6 +129,25 @@ test('an admin sees the responsive business dashboard shell', function () {
         ->assertSee('x-show="sidebarOpen"', false);
 });
 
+test('workspace header exposes the authenticated user menu', function (): void {
+    $admin = User::factory()->create([
+        'name' => 'Ada Lovelace',
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get('/admin')
+        ->assertOk()
+        ->assertSee('Ada Lovelace')
+        ->assertSee('Profile')
+        ->assertSee('href="'.route('account').'"', false)
+        ->assertSee('action="'.route('logout').'"', false)
+        ->assertSee('x-data="{ profileMenuOpen: false }"', false)
+        ->assertSee('x-show="profileMenuOpen"', false)
+        ->assertSee('mt-2 border-t border-slate-100 pt-2 dark:border-slate-800', false)
+        ->assertSee('data-icon="chevron-down"', false);
+});
+
 test('a developer sees the developer shell and can open the admin shell', function () {
     $developer = User::factory()->create([
         'role' => UserRole::Developer,

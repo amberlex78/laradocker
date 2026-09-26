@@ -2,7 +2,7 @@
     <x-admin.page-header
         title="Admin dashboard"
         icon="layout-dashboard"
-        description="A clear starting point for the business administration area. Feature-specific modules can be added here as the product grows."
+        description="Admin tools will appear here as they become available."
     />
 
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-label="Workspace summary">

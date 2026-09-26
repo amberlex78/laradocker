@@ -2,7 +2,7 @@
     <x-admin.page-header
         title="Developer dashboard"
         icon="layout-dashboard"
-        description="A separate technical area for application health, diagnostics and engineering tools that we will add over time."
+        description="Developer tools will appear here as they become available."
     />
 
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-label="Application summary">
