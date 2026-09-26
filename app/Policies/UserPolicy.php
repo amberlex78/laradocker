@@ -49,6 +49,10 @@ class UserPolicy
 
     public function delete(User $actor, User $target): bool
     {
+        if ($this->isSameUser($actor, $target)) {
+            return false;
+        }
+
         return $actor->role === UserRole::Developer
             || ($actor->role === UserRole::Admin && in_array($target->role, [
                 UserRole::Operator,

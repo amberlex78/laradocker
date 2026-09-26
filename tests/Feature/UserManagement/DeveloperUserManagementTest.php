@@ -87,3 +87,13 @@ test('a developer can delete every user role', function (UserRole $role): void {
 
     $this->assertModelMissing($target);
 })->with(UserRole::cases());
+
+test('a developer cannot delete their own account', function (): void {
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+
+    $this->actingAs($developer)
+        ->delete(route('developer.users.destroy', $developer))
+        ->assertForbidden();
+
+    $this->assertModelExists($developer);
+});

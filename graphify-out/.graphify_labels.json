@@ -13,7 +13,7 @@
   "11": "Laravel-проєкти з доменами",
   "12": "seeders.php",
   "13": "index.blade.php",
-  "14": "FortifyServiceProvider.php",
+  "14": "bootstrap/app.php",
   "15": "webpack.config.js",
   "16": "TailAdmin - Free Tailwind Admin Dashboard Template",
   "17": "logging.php",
@@ -22,7 +22,7 @@
   "20": "laravel-boost",
   "21": "UserPolicy",
   "22": "entrypoint.sh",
-  "23": ".view",
+  "23": "FortifyServiceProvider.php",
   "24": "config/app.php",
   "25": "filesystems.php",
   "26": "mail.php",
@@ -101,5 +101,9 @@
   "99": "developer/users/index.blade.php",
   "100": "developer/users/show.blade.php",
   "101": "i18n.js",
-  "102": "AuthenticationFlowTest.php"
+  "102": "AuthenticationFlowTest.php",
+  "103": "Illuminate\\Foundation\\Http\\FormRequest",
+  "104": "ResolveUserLandingRoute",
+  "105": "AppServiceProvider",
+  "106": "RoleAccessTest.php"
 }

@@ -125,3 +125,12 @@ test('developers can delete every target role', function (UserRole $targetRole):
 
     expect(Gate::forUser($actor)->allows('delete', $target))->toBeTrue();
 })->with(UserRole::cases());
+
+test('users cannot delete themselves', function (UserRole $role): void {
+    $actor = User::factory()->make(['role' => $role]);
+
+    expect(Gate::forUser($actor)->allows('delete', $actor))->toBeFalse();
+})->with([
+    'developer' => UserRole::Developer,
+    'admin' => UserRole::Admin,
+]);

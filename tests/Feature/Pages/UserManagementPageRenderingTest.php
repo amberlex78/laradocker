@@ -65,6 +65,27 @@ test('developer user pages show developer records and role badges', function ():
         ->assertSee('Developer');
 });
 
+test('developer user pages protect the current developer from self-deletion', function (): void {
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $target = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.index'))
+        ->assertSee('Protected')
+        ->assertDontSee('action="'.route('developer.users.destroy', $developer).'"', false)
+        ->assertSee('action="'.route('developer.users.destroy', $target).'"', false);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.show', $developer))
+        ->assertSee('Protected')
+        ->assertDontSee('action="'.route('developer.users.destroy', $developer).'"', false);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.edit', $developer))
+        ->assertSee('Protected')
+        ->assertDontSee('value="DELETE"', false);
+});
+
 test('admin create and edit forms expose business roles and delete controls', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $target = User::factory()->create(['role' => UserRole::User]);

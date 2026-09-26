@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-09-26)
 
 ## Corpus Check
-- 133 files · ~77,877 words
+- 133 files · ~78,036 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 19, .example 4, .conf 3)
 
 ## Summary
-- 757 nodes · 1140 edges · 103 communities (39 shown, 64 thin omitted)
+- 760 nodes · 1149 edges · 107 communities (43 shown, 64 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b9b5f989`
+- Built from commit: `7b3502b1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,7 +28,7 @@
 - require-dev
 - fortify.php
 - Laravel-проєкти з доменами
-- FortifyServiceProvider.php
+- bootstrap/app.php
 - webpack.config.js
 - TailAdmin - Free Tailwind Admin Dashboard Template
 - logging.php
@@ -37,7 +37,7 @@
 - laravel-boost
 - UserPolicy
 - entrypoint.sh
-- .view
+- FortifyServiceProvider.php
 - index.js
 - devDependencies
 - calendar-init.js
@@ -74,10 +74,14 @@
 - ref_laravel_vite_plugin_fonts
 - i18n.js
 - AuthenticationFlowTest.php
+- Illuminate\Foundation\Http\FormRequest
+- ResolveUserLandingRoute
+- AppServiceProvider
+- RoleAccessTest.php
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 147 edges
-2. `UserRole` - 82 edges
+1. `User` - 150 edges
+2. `UserRole` - 84 edges
 3. `AuthValidationRules` - 20 edges
 4. `Розгортання на VPS` - 13 edges
 5. `UserController` - 11 edges
@@ -88,21 +92,21 @@
 10. `Laravel-проєкти з доменами` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Global Constraints` --references--> `UserRole`  [INFERRED]
+  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
 - `Roles and access` --references--> `UserRole`  [INFERRED]
   docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md → app/Enums/UserRole.php
 - `Global Constraints` --references--> `User`  [INFERRED]
   docs/superpowers/plans/2026-09-26-user-management.md → app/Models/User.php
-- `Global Constraints` --references--> `UserRole`  [INFERRED]
+- `Authentication, Admin, and Developer Areas Implementation Plan` --references--> `UserRole`  [INFERRED]
   docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
 - `Task 1: Add the role domain model and database column` --references--> `UserRole`  [INFERRED]
   docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
-- `Task 1: Add and test the shared user authorization policy` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-26-user-management.md → app/Enums/UserRole.php
 
 ## Import Cycles
 - None detected.
 
-## Communities (103 total, 64 thin omitted)
+## Communities (107 total, 64 thin omitted)
 
 ### Community 0 - "composer.json"
 Cohesion: 0.22
@@ -148,9 +152,9 @@ Nodes (11): require-dev, fakerphp/faker, fruitcake/laravel-debugbar, laravel/boo
 Cohesion: 0.12
 Nodes (16): 1. Схема доменів і портів, 2. Локальний запуск, 3. Підготовка доменів, Cloudflare і сертифікатів, 4. Production-запуск на VPS, 5.1. Конфігурація example1.com, 5.2. Конфігурація example2.com, 5. Системний Nginx як reverse proxy, 6. Активація Nginx і firewall (+8 more)
 
-### Community 14 - "FortifyServiceProvider.php"
-Cohesion: 0.07
-Nodes (26): ResolveUserLandingRoute, {closure#1}(), EnsureUserHasRole, LoginResponse, AppServiceProvider, {closure#4}(), {closure#6}(), {closure#7}() (+18 more)
+### Community 14 - "bootstrap/app.php"
+Cohesion: 0.19
+Nodes (10): {closure#1}(), EnsureUserHasRole, {closure#1}(), {closure#2}(), {closure#3}(), Closure, Illuminate\Foundation\Application, Illuminate\Foundation\Configuration\Exceptions (+2 more)
 
 ### Community 15 - "webpack.config.js"
 Cohesion: 0.15
@@ -165,12 +169,12 @@ Cohesion: 0.40
 Nodes (4): Monolog\Handler\NullHandler, Monolog\Handler\StreamHandler, Monolog\Handler\SyslogUdpHandler, Monolog\Processor\PsrLogMessageProcessor
 
 ### Community 21 - "UserPolicy"
-Cohesion: 0.15
+Cohesion: 0.16
 Nodes (9): UserPolicy, Global Constraints, Review Focus, Task 1: Add and test the shared user authorization policy, Task 2: Add shared user-management persistence actions and request validation, Task 3: Add the admin and developer CRUD controllers and route boundaries, Task 4: Build the separated user-management UI and navigation, Task 5: Run the complete verification pass and update the code graph (+1 more)
 
-### Community 23 - ".view"
+### Community 23 - "FortifyServiceProvider.php"
 Cohesion: 0.06
-Nodes (22): CreateUser, DeleteUser, UpdateUser, UserController, Controller, UserController, StoreUserRequest, UpdateUserRequest (+14 more)
+Nodes (25): CreateUser, DeleteUser, UpdateUser, UserController, Controller, UserController, StoreUserRequest, {closure#1}() (+17 more)
 
 ### Community 29 - "index.js"
 Cohesion: 0.14
@@ -189,8 +193,8 @@ Cohesion: 0.17
 Nodes (11): Authorization architecture, Confirmed requirements, Error handling and security, Goal, Out of scope, Role and visibility matrix, Route boundaries and namespaces, Testing strategy (+3 more)
 
 ### Community 48 - "UserFactory.php"
-Cohesion: 0.09
-Nodes (16): UserFactory, DatabaseSeeder, UserSeeder, Review Focus, Task 1: Add the role domain model and database column, Task 2: Install and configure Fortify with Blade authentication views, Task 3: Add role middleware and route boundaries, Task 4: Build the public, account, admin, and developer Blade shells (+8 more)
+Cohesion: 0.08
+Nodes (18): UserFactory, DatabaseSeeder, UserSeeder, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, Review Focus, Task 1: Add the role domain model and database column, Task 2: Install and configure Fortify with Blade authentication views (+10 more)
 
 ### Community 49 - "dependencies"
 Cohesion: 0.18
@@ -225,16 +229,16 @@ Cohesion: 0.13
 Nodes (14): Illuminate\Routing\Route, Illuminate\Support\Facades\Validator, {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#3}() (+6 more)
 
 ### Community 70 - "UserRole"
-Cohesion: 0.11
-Nodes (25): UserRole, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, {closure#1}(), {closure#10}(), {closure#12}(), {closure#13}(), {closure#2}() (+17 more)
+Cohesion: 0.12
+Nodes (24): UserRole, {closure#1}(), {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#2}(), {closure#3}() (+16 more)
 
 ### Community 71 - "DeveloperUserManagementTest.php"
-Cohesion: 0.25
-Nodes (5): {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
+Cohesion: 0.22
+Nodes (6): {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}(), {closure#8}()
 
 ### Community 72 - "User"
-Cohesion: 0.09
-Nodes (23): User, {closure#2}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}(), {closure#1}(), {closure#2}() (+15 more)
+Cohesion: 0.12
+Nodes (19): User, {closure#1}(), {closure#2}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#5}(), {closure#6}() (+11 more)
 
 ### Community 73 - "User.php"
 Cohesion: 0.25
@@ -260,6 +264,22 @@ Nodes (8): i18next, i18next-browser-languagedetector, reference_tailadmin_src_im
 Cohesion: 0.22
 Nodes (7): Illuminate\Foundation\Http\Middleware\PreventRequestForgery, {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
 
+### Community 103 - "Illuminate\Foundation\Http\FormRequest"
+Cohesion: 0.19
+Nodes (6): StoreUserRequest, UpdateUserRequest, UpdateUserRequest, Illuminate\Foundation\Http\FormRequest, Illuminate\Validation\Rule, Illuminate\Validation\Rules\Password
+
+### Community 104 - "ResolveUserLandingRoute"
+Cohesion: 0.33
+Nodes (4): ResolveUserLandingRoute, LoginResponse, Laravel\Fortify\Contracts\LoginResponse, Symfony\Component\HttpFoundation\RedirectResponse
+
+### Community 105 - "AppServiceProvider"
+Cohesion: 0.28
+Nodes (3): AppServiceProvider, FortifyServiceProvider, Illuminate\Support\ServiceProvider
+
+### Community 106 - "RoleAccessTest.php"
+Cohesion: 0.25
+Nodes (5): {closure#2}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
+
 ## Knowledge Gaps
 - **221 isolated node(s):** `php`, `name`, `version`, `description`, `main` (+216 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 365 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
@@ -268,10 +288,10 @@ Nodes (7): Illuminate\Foundation\Http\Middleware\PreventRequestForgery, {closure
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserManagementActionsTest.php`, `AuthValidationRules`, `AuthenticationFlowTest.php`, `UserRole`, `User.php`, `DeveloperUserManagementTest.php`, `ApplicationActionsTest.php`, `FortifyServiceProvider.php`, `User Management in Admin and Developer Areas`, `UserFactory.php`, `UserPolicy`, `.view`?**
-  _High betweenness centrality (0.115) - this node is a cross-community bridge._
-- **Why does `UserRole` connect `UserRole` to `Authentication, Admin, and Developer Areas`, `UserManagementActionsTest.php`, `AuthValidationRules`, `AuthenticationFlowTest.php`, `User`, `User.php`, `DeveloperUserManagementTest.php`, `ApplicationActionsTest.php`, `FortifyServiceProvider.php`, `User Management in Admin and Developer Areas`, `UserFactory.php`, `UserPolicy`, `.view`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `UserManagementActionsTest.php`, `AuthValidationRules`, `Illuminate\Foundation\Http\FormRequest`, `ResolveUserLandingRoute`, `User.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `RoleAccessTest.php`, `UserRole`, `bootstrap/app.php`, `User Management in Admin and Developer Areas`, `UserFactory.php`, `UserPolicy`, `FortifyServiceProvider.php`, `DeveloperUserManagementTest.php`?**
+  _High betweenness centrality (0.116) - this node is a cross-community bridge._
+- **Why does `UserRole` connect `UserRole` to `Authentication, Admin, and Developer Areas`, `UserManagementActionsTest.php`, `AuthValidationRules`, `Illuminate\Foundation\Http\FormRequest`, `ResolveUserLandingRoute`, `User.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `RoleAccessTest.php`, `User`, `bootstrap/app.php`, `User Management in Admin and Developer Areas`, `UserFactory.php`, `UserPolicy`, `FortifyServiceProvider.php`, `DeveloperUserManagementTest.php`?**
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `User`, `UserRole`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Are the 7 inferred relationships involving `User` (e.g. with `Task 1: Add the role domain model and database column` and `Task 2: Install and configure Fortify with Blade authentication views`) actually correct?**

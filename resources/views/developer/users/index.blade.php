@@ -54,11 +54,15 @@
                             <td class="whitespace-nowrap px-5 py-4 text-right sm:px-6">
                                 <div class="flex justify-end gap-2">
                                     <a href="{{ route('developer.users.edit', $user) }}" class="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-indigo-600 hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-500/10">Edit</a>
-                                    <form method="POST" action="{{ route('developer.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">Delete</button>
-                                    </form>
+                                    @if ($user->is(auth()->user()))
+                                        <span class="px-2.5 py-1.5 text-xs text-slate-400 dark:text-slate-500">Protected</span>
+                                    @else
+                                        <form method="POST" action="{{ route('developer.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">Delete</button>
+                                        </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
