@@ -40,3 +40,19 @@ services:
   mariadb:
     ports:
       - "127.0.0.1:${DB_FORWARD_PORT:-3306}:3306"
+
+  adminer:
+    image: adminer:latest
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+    networks:
+      - backend
+      - adminer
+    ports:
+      - "127.0.0.1:${ADMINER_FORWARD_PORT:-8090}:8080"
+
+networks:
+  adminer:
