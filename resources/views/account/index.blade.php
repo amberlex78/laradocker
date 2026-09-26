@@ -41,10 +41,10 @@
                     </div>
 
                     <div class="flex items-center justify-end border-t border-slate-100 pt-5 dark:border-slate-800">
-                        <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/20 transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/30">
+                        <x-ui.button type="submit">
                             <x-icon name="save" class="h-4 w-4" />
                             Save changes
-                        </button>
+                        </x-ui.button>
                     </div>
                 </form>
             </x-admin.panel>
@@ -87,10 +87,10 @@
                     </div>
 
                     <div class="flex items-center justify-end border-t border-slate-100 pt-5 dark:border-slate-800">
-                        <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/20 transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/30">
+                        <x-ui.button type="submit">
                             <x-icon name="save" class="h-4 w-4" />
                             Update password
-                        </button>
+                        </x-ui.button>
                     </div>
                 </form>
             </x-admin.panel>
