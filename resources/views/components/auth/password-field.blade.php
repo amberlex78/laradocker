@@ -5,11 +5,13 @@
     'placeholder' => 'Enter your password',
     'required' => false,
     'autofocus' => false,
+    'errorBag' => 'default',
 ])
 
 @php
     $fieldId = $attributes->get('id', $name);
-    $hasError = $errors->has($name);
+    $bag = $errors->getBag($errorBag);
+    $hasError = $bag->has($name);
 @endphp
 
 <label class="flex flex-col gap-2" for="{{ $fieldId }}" x-data="{ visible: false }">
@@ -48,7 +50,7 @@
         </button>
     </span>
 
-    @error($name)
-        <p id="{{ $fieldId }}-error" class="text-xs text-red-600 dark:text-red-400">{{ $message }}</p>
-    @enderror
+    @if ($hasError)
+        <p id="{{ $fieldId }}-error" class="text-xs text-red-600 dark:text-red-400">{{ $bag->first($name) }}</p>
+    @endif
 </label>

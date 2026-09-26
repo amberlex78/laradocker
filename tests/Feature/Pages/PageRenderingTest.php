@@ -90,7 +90,7 @@ test('authentication views preserve the Fortify form contracts', function () {
         ->assertSee($user->email);
 });
 
-test('a user sees the account page', function () {
+test('a user sees the account profile settings page', function () {
     $user = User::factory()->create([
         'role' => UserRole::User,
     ]);
@@ -98,7 +98,8 @@ test('a user sees the account page', function () {
     $this->actingAs($user)
         ->get('/account')
         ->assertOk()
-        ->assertSee('Your account')
+        ->assertSee('Profile information')
+        ->assertSee('Update password')
         ->assertSee('Toggle theme')
         ->assertSee('darkMode')
         ->assertSee("localStorage.setItem('theme'", false);
