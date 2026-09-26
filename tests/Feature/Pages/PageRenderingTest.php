@@ -7,7 +7,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 uses(RefreshDatabase::class);
 
 test('the public home page renders', function () {
-    $this->get('/')->assertOk()->assertSee('Welcome');
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('Welcome')
+        ->assertSee('Toggle theme')
+        ->assertSee('darkMode')
+        ->assertSee("localStorage.setItem('theme'", false)
+        ->assertSee('dark:bg-slate-950', false);
 });
 
 test('the login page renders the Blade authentication screen', function () {
@@ -92,7 +98,10 @@ test('a user sees the account page', function () {
     $this->actingAs($user)
         ->get('/account')
         ->assertOk()
-        ->assertSee('Your account');
+        ->assertSee('Your account')
+        ->assertSee('Toggle theme')
+        ->assertSee('darkMode')
+        ->assertSee("localStorage.setItem('theme'", false);
 });
 
 test('authorized account users can return to their workspace from the shared menu', function (): void {
