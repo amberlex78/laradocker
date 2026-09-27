@@ -1,36 +1,67 @@
-<x-layouts.auth :title="'Register'">
-    <div class="flex flex-col gap-3">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-400">Get started</p>
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Create your account</h1>
-        <p class="text-sm leading-6 text-slate-500 dark:text-slate-400">Create a regular {{ config('app.name', 'Laravel') }} account to get started.</p>
-    </div>
+<x-layouts.auth title="Create account">
+    <x-auth.panel title="Create your account" description="Start building with the application workspace.">
+        @if ($errors->any())
+            <x-ui.alert variant="danger" title="Please check the form" class="mb-6">
+                <ul class="flex flex-col gap-1">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </x-ui.alert>
+        @endif
 
-    @if ($errors->any())
-        <x-auth.alert class="mt-6" title="Please check the form">
-            <ul class="flex flex-col gap-1">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </x-auth.alert>
-    @endif
+        <form class="space-y-6" action="{{ route('register') }}" method="POST">
+            @csrf
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('register') }}">
-        @csrf
+            <div class="space-y-5">
+                <x-ui.input
+                    id="register-name"
+                    name="name"
+                    label="Full name"
+                    :value="old('name')"
+                    placeholder="Bonnie Green"
+                    autocomplete="name"
+                    required
+                />
 
-        <x-ui.input name="name" label="Name" :value="old('name')" autocomplete="name" placeholder="Your name" required autofocus />
-        <x-ui.input name="email" label="Email" type="email" :value="old('email')" autocomplete="email" placeholder="you@example.com" required />
-        <x-ui.input name="password" label="Password" type="password" autocomplete="new-password" placeholder="Create a password" required />
-        <x-ui.input name="password_confirmation" label="Confirm password" type="password" autocomplete="new-password" placeholder="Repeat your password" required />
+                <x-ui.input
+                    id="register-email"
+                    name="email"
+                    type="email"
+                    label="Email"
+                    :value="old('email')"
+                    placeholder="name@company.com"
+                    autocomplete="email"
+                    required
+                />
 
-        <button class="mt-1 inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
-            <x-icon name="user-plus" class="h-4 w-4" />
-            Create account
-        </button>
-    </form>
+                <x-ui.input
+                    id="register-password"
+                    name="password"
+                    type="password"
+                    label="Password"
+                    placeholder="••••••••"
+                    autocomplete="new-password"
+                    required
+                />
 
-    <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
-        Already have an account?
-        <a class="inline-flex items-center gap-1.5 font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('login') }}">Log in<x-icon name="arrow-right" class="h-4 w-4" /></a>
-    </p>
+                <x-ui.input
+                    id="register-password-confirmation"
+                    name="password_confirmation"
+                    type="password"
+                    label="Confirm password"
+                    placeholder="••••••••"
+                    autocomplete="new-password"
+                    required
+                />
+            </div>
+
+            <x-ui.button type="submit" class="w-full">Create account</x-ui.button>
+
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+                Already have an account?
+                <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign in</a>
+            </p>
+        </form>
+    </x-auth.panel>
 </x-layouts.auth>

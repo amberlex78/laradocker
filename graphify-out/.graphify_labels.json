@@ -65,7 +65,7 @@
   "63": "backoffice.blade.php",
   "64": "bootstrap.php",
   "65": "TestingEnvironmentTest.php",
-  "66": "alert.blade.php",
+  "66": "resources/views/components/auth/panel.blade.php",
   "67": "AuthenticationFlowTest.php",
   "69": "UserManagementActionsTest.php",
   "70": "UserRole",

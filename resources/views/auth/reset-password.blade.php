@@ -1,35 +1,57 @@
-<x-layouts.auth :title="'Reset password'">
-    <div class="flex flex-col gap-3">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-400">Account recovery</p>
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Reset your password</h1>
-        <p class="text-sm leading-6 text-slate-500 dark:text-slate-400">Choose a new password for your {{ config('app.name', 'Laravel') }} account.</p>
-    </div>
+<x-layouts.auth title="Reset password">
+    <x-auth.panel title="Reset your password" description="Choose a new password for your account.">
+        @if ($errors->any())
+            <x-ui.alert variant="danger" title="We could not reset your password" class="mb-6">
+                <ul class="flex flex-col gap-1">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </x-ui.alert>
+        @endif
 
-    @if ($errors->any())
-        <x-auth.alert class="mt-6" title="We could not reset your password">
-            <ul class="flex flex-col gap-1">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </x-auth.alert>
-    @endif
+        <form class="space-y-6" action="{{ route('password.update') }}" method="POST">
+            @csrf
+            <input name="token" type="hidden" value="{{ $request->route('token') }}">
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('password.update') }}">
-        @csrf
-        <input name="token" type="hidden" value="{{ $request->route('token') }}">
+            <div class="space-y-5">
+                <x-ui.input
+                    id="reset-email"
+                    name="email"
+                    type="email"
+                    label="Your email"
+                    :value="old('email', $request->email)"
+                    placeholder="name@company.com"
+                    autocomplete="email"
+                    required
+                />
 
-        <x-ui.input name="email" label="Email" type="email" :value="$request->email" autocomplete="email" placeholder="you@example.com" required autofocus />
-        <x-ui.input name="password" label="New password" type="password" autocomplete="new-password" placeholder="Create a new password" required />
-        <x-ui.input name="password_confirmation" label="Confirm password" type="password" autocomplete="new-password" placeholder="Repeat your new password" required />
+                <x-ui.input
+                    id="reset-password"
+                    name="password"
+                    type="password"
+                    label="New password"
+                    placeholder="••••••••"
+                    autocomplete="new-password"
+                    required
+                />
 
-        <button class="inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
-            <x-icon name="save" class="h-4 w-4" />
-            Reset password
-        </button>
-    </form>
+                <x-ui.input
+                    id="reset-password-confirmation"
+                    name="password_confirmation"
+                    type="password"
+                    label="Confirm new password"
+                    placeholder="••••••••"
+                    autocomplete="new-password"
+                    required
+                />
+            </div>
 
-    <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
-        <a class="inline-flex items-center gap-1.5 font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('login') }}"><x-icon name="arrow-left" class="h-4 w-4" />Back to login</a>
-    </p>
+            <x-ui.button type="submit" class="w-full">Reset password</x-ui.button>
+
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+                <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Back to sign in</a>
+            </p>
+        </form>
+    </x-auth.panel>
 </x-layouts.auth>

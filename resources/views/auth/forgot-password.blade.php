@@ -1,33 +1,35 @@
-<x-layouts.auth :title="'Forgot password'">
-    <div class="flex flex-col gap-3">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-400">Account recovery</p>
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Forgot your password?</h1>
-        <p class="text-sm leading-6 text-slate-500 dark:text-slate-400">Enter your email and we will send you a secure reset link.</p>
-    </div>
+<x-layouts.auth title="Forgot password">
+    <x-auth.panel title="Forgot your password?" description="Enter your email and we will send you a password reset link.">
+        @if (session('status'))
+            <x-ui.alert variant="success" title="Check your inbox" class="mb-6">{{ session('status') }}</x-ui.alert>
+        @endif
 
-    @if (session('status'))
-        <x-auth.alert class="mt-6" title="Check your inbox" type="success">{{ session('status') }}</x-auth.alert>
-    @endif
+        @if ($errors->any())
+            <x-ui.alert variant="danger" title="We could not send the reset link" class="mb-6">
+                {{ $errors->first() }}
+            </x-ui.alert>
+        @endif
 
-    @if ($errors->any())
-        <x-auth.alert class="mt-6" title="We could not send the reset link">
-            {{ $errors->first() }}
-        </x-auth.alert>
-    @endif
+        <form class="space-y-6" action="{{ route('password.email') }}" method="POST">
+            @csrf
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('password.email') }}">
-        @csrf
+            <x-ui.input
+                id="forgot-email"
+                name="email"
+                type="email"
+                label="Your email"
+                :value="old('email')"
+                placeholder="name@company.com"
+                autocomplete="email"
+                required
+            />
 
-        <x-ui.input name="email" label="Email" type="email" :value="old('email')" autocomplete="email" placeholder="you@example.com" required autofocus />
+            <x-ui.button type="submit" class="w-full">Send reset link</x-ui.button>
 
-        <button class="inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
-            <x-icon name="send" class="h-4 w-4" />
-            Send reset link
-        </button>
-    </form>
-
-    <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
-        Remembered your password?
-        <a class="inline-flex items-center gap-1.5 font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('login') }}"><x-icon name="arrow-left" class="h-4 w-4" />Back to login</a>
-    </p>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+                Remember your password?
+                <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Back to sign in</a>
+            </p>
+        </form>
+    </x-auth.panel>
 </x-layouts.auth>

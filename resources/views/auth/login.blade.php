@@ -1,51 +1,55 @@
-<x-layouts.auth :title="'Log in'">
-    <div class="flex flex-col gap-3">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-400">Welcome back</p>
-        <h1 class="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Log in to your account</h1>
-        <p class="text-sm leading-6 text-slate-500 dark:text-slate-400">Use your {{ config('app.name', 'Laravel') }} credentials to continue.</p>
-    </div>
+<x-layouts.auth title="Sign in">
+    <x-auth.panel title="Log in to your account" description="Use your {{ config('app.name', 'Laravel') }} credentials to continue.">
+        @if ($errors->any())
+            <x-ui.alert variant="danger" title="Unable to log in" class="mb-6">
+                <ul class="flex flex-col gap-1">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </x-ui.alert>
+        @endif
 
-    @if ($errors->any())
-        <x-auth.alert class="mt-6" title="Unable to sign in">
-            <ul class="flex flex-col gap-1">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </x-auth.alert>
-    @endif
+        <form class="space-y-6" action="{{ route('login') }}" method="POST">
+            @csrf
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('login') }}">
-        @csrf
+            <div class="space-y-5">
+                <x-ui.input
+                    id="login-email"
+                    name="email"
+                    type="email"
+                    label="Your email"
+                    :value="old('email')"
+                    placeholder="name@company.com"
+                    autocomplete="email"
+                    required
+                />
 
-        <x-ui.input name="email" label="Email" type="email" :value="old('email')" autocomplete="email" placeholder="you@example.com" required autofocus />
-        <x-ui.input name="password" label="Password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+                <x-ui.input
+                    id="login-password"
+                    name="password"
+                    type="password"
+                    label="Your password"
+                    placeholder="••••••••"
+                    autocomplete="current-password"
+                    required
+                />
+            </div>
 
-        <div class="flex items-center justify-between gap-4">
-            <div x-data="{ checkboxToggle: false }">
-                <label class="inline-flex cursor-pointer items-center gap-2 text-sm text-slate-600 select-none dark:text-slate-400" for="remember">
-                    <input class="sr-only" id="remember" name="remember" type="checkbox" x-model="checkboxToggle">
-                    <span
-                        class="flex h-5 w-5 items-center justify-center rounded-md border-[1.25px] transition"
-                        :class="checkboxToggle ? 'border-indigo-600 bg-indigo-600' : 'border-slate-300 bg-transparent dark:border-slate-700'"
-                        aria-hidden="true"
-                    >
-                        <x-icon name="check" class="h-3.5 w-3.5 text-white transition" x-bind:class="checkboxToggle ? 'opacity-100' : 'opacity-0'" />
-                    </span>
+            <div class="flex items-center justify-between gap-4">
+                <label class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <input type="checkbox" name="remember" class="h-4 w-4 rounded border-gray-300 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600">
                     Remember me
                 </label>
+                <a href="{{ route('password.request') }}" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Forgot password?</a>
             </div>
-            <a class="text-sm font-medium text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('password.request') }}">Forgot password?</a>
-        </div>
 
-        <button class="inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
-            <x-icon name="log-in" class="h-4 w-4" />
-            Log in
-        </button>
-    </form>
+            <x-ui.button type="submit" class="w-full">Sign in to account</x-ui.button>
 
-    <p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
-        Don't have an account?
-        <a class="inline-flex items-center gap-1.5 font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300" href="{{ route('register') }}">Create an account<x-icon name="arrow-right" class="h-4 w-4" /></a>
-    </p>
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+                Not registered?
+                <a href="{{ route('register') }}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Create an account</a>
+            </p>
+        </form>
+    </x-auth.panel>
 </x-layouts.auth>

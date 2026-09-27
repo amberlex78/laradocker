@@ -21,23 +21,24 @@ test('the public home page renders', function () {
 test('the login page renders the Blade authentication screen', function () {
     $this->get('/login')
         ->assertOk()
-        ->assertSee('Log in to your account');
+        ->assertSee('Sign in to your account');
 });
 
-test('authentication pages render the branded responsive shell', function () {
+test('authentication pages render the Flowbite auth shell', function () {
     $this->get('/login')
         ->assertOk()
-        ->assertSee('Back to LaDocker')
-        ->assertSee('One workspace for your applications.')
-        ->assertSee('Toggle theme');
+        ->assertSee('data-default-theme="light"', false)
+        ->assertSee('Sign in to your account')
+        ->assertSee(config('app.name', 'Laravel'))
+        ->assertSee('Toggle theme')
+        ->assertDontSee('One workspace for your applications.');
 });
 
 test('authentication pages render named Lucide icons through the shared component', function () {
     $this->get('/login')
         ->assertOk()
         ->assertSee('data-icon="sun"', false)
-        ->assertSee('data-icon="moon"', false)
-        ->assertSee('data-icon="log-in"', false);
+        ->assertSee('data-icon="moon"', false);
 });
 
 test('authentication forms only expose supported application fields', function () {
@@ -48,7 +49,7 @@ test('authentication forms only expose supported application fields', function (
 
     $this->get('/register')
         ->assertOk()
-        ->assertSee('Name')
+        ->assertSee('Full name')
         ->assertDontSee('First Name')
         ->assertDontSee('Terms and Conditions');
 });
@@ -60,8 +61,8 @@ test('authentication views preserve the Fortify form contracts', function () {
         ->assertSee('name="email"', false)
         ->assertSee('name="password"', false)
         ->assertSee('name="remember"', false)
-        ->assertSee('class="sr-only"', false)
-        ->assertSee('checkboxToggle', false);
+        ->assertSee('type="checkbox"', false)
+        ->assertDontSee('checkboxToggle', false);
 
     $this->get('/register')
         ->assertOk()
