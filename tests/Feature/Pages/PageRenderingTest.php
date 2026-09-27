@@ -268,7 +268,7 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->assertSee('x-show="profileMenuOpen"', false)
         ->assertSee('divide-y divide-gray-100', false)
         ->assertDontSee('Back to workspace')
-        ->assertSee('Open user menu');
+        ->assertSee('Open user menu for Ada Lovelace');
 });
 
 test('a developer sees the developer shell and can open the admin shell', function () {

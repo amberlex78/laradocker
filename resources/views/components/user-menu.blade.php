@@ -7,11 +7,10 @@
 @endphp
 
 <div class="relative" x-data="{ profileMenuOpen: false }" @click.outside="profileMenuOpen = false" @keydown.escape.window="profileMenuOpen = false">
-    <button id="admin-user-menu-trigger" type="button" @click="profileMenuOpen = ! profileMenuOpen" :aria-expanded="profileMenuOpen" aria-haspopup="menu" class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
-        <span class="sr-only">Open user menu</span>
-        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 font-semibold text-white">
-            {{ str(auth()->user()->name)->substr(0, 1)->upper() }}
-        </span>
+    <button id="admin-user-menu-trigger" type="button" @click="profileMenuOpen = ! profileMenuOpen" :aria-expanded="profileMenuOpen" aria-haspopup="menu" class="inline-flex max-w-56 items-center gap-2 rounded-base px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+        <span class="sr-only">Open user menu for {{ auth()->user()->name }}</span>
+        <span class="truncate">{{ auth()->user()->name }}</span>
+        <x-icon name="chevron-down" class="h-4 w-4 shrink-0 text-gray-500 dark:text-gray-400" />
     </button>
 
     <div x-cloak x-show="profileMenuOpen" x-transition.origin.top.right class="absolute end-0 top-full z-50 my-4 w-56 list-none divide-y divide-gray-100 rounded-base bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700" role="menu">
