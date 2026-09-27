@@ -44,6 +44,34 @@ test('admin and developer user indexes use the shared Flowbite table structure',
     }
 });
 
+test('admin and developer user indexes use the reference Flowbite table pagination', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    User::factory()->count(16)->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.index'))
+        ->assertOk()
+        ->assertSee('<thead', false)
+        ->assertSee('Table pagination', false)
+        ->assertSee('Showing', false)
+        ->assertSee('font-semibold text-gray-900 dark:text-white">17</span>', false)
+        ->assertSee('aria-current="page"', false)
+        ->assertSee('Next', false);
+
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    User::factory()->count(16)->create(['role' => UserRole::User]);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.index'))
+        ->assertOk()
+        ->assertSee('<thead', false)
+        ->assertSee('Table pagination', false)
+        ->assertSee('Showing', false)
+        ->assertSee('font-semibold text-gray-900 dark:text-white">34</span>', false)
+        ->assertSee('aria-current="page"', false)
+        ->assertSee('Next', false);
+});
+
 test('admin user pages show business roles and exclude developer records', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $businessUser = User::factory()->create([

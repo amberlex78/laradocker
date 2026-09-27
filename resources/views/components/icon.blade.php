@@ -36,6 +36,12 @@
         @case('chevron-down')
             <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
             @break
+        @case('chevron-left')
+            <path stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6" />
+            @break
+        @case('chevron-right')
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6" />
+            @break
         @case('circle-alert')
             <circle cx="12" cy="12" r="10" />
             <path stroke-linecap="round" d="M12 8v4M12 16h.01" />
