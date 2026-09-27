@@ -1,7 +1,7 @@
 <x-layouts.auth title="Sign in">
-    <x-auth.panel title="Log in to your account" description="Use your {{ config('app.name', 'Laravel') }} credentials to continue.">
+    <x-auth.panel title="Sign in to your account" description="Use your {{ config('app.name', 'Laravel') }} credentials to continue.">
         @if ($errors->any())
-            <x-ui.alert variant="danger" title="Unable to log in" class="mb-6">
+            <x-ui.alert variant="danger" title="Unable to sign in" class="mb-6">
                 <ul class="flex flex-col gap-1">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

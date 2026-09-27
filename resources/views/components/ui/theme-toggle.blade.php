@@ -2,7 +2,7 @@
     x-data
     @click="$store.theme.toggle()"
     {{ $attributes->class([
-        'inline-flex h-10 w-10 items-center justify-center rounded-base p-2.5 text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700',
+        'rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700',
     ])->merge([
         'type' => 'button',
         'aria-label' => 'Toggle theme',
