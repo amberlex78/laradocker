@@ -1,6 +1,5 @@
 @props([
     'area' => 'admin',
-    'title' => 'Dashboard',
 ])
 
 <nav class="sticky top-0 z-30 border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -11,8 +10,8 @@
             </button>
 
             <div>
-                <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ ucfirst($area) }} area</p>
-                <h1 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $title }}</h1>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ ucfirst($area) }} workspace</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">{{ now()->format('l, F j, Y') }}</p>
             </div>
         </div>
 

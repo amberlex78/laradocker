@@ -25,12 +25,12 @@
         </x-ui.card>
     </section>
 
-    <section class="mt-6 grid gap-6 xl:grid-cols-3" aria-label="Workspace activity">
+    <section class="mt-6 grid gap-6 xl:grid-cols-2" aria-label="Workspace activity">
         <x-ui.card title="Quick actions" description="Common actions will appear here as workflows are added.">
             <x-admin.empty-state title="No actions available" description="There are no business workflows configured yet." />
         </x-ui.card>
 
-        <x-ui.card title="Recent activity" description="A concise history of changes and events across the workspace." class="xl:col-span-2">
+        <x-ui.card title="Recent activity" description="A concise history of changes and events across the workspace.">
             <x-admin.empty-state title="No recent activity yet" description="Activity will be collected once the first application module is connected." />
         </x-ui.card>
     </section>

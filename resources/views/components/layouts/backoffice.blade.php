@@ -32,7 +32,7 @@
             <x-admin.sidebar :area="$area" :navigation="$navigation" />
 
             <div class="md:ms-64">
-                <x-admin.header :area="$area" :title="$title" />
+                <x-admin.header :area="$area" />
 
                 <main class="w-full p-4 sm:p-6 lg:p-8">
                     {{ $slot }}
