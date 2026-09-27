@@ -10,11 +10,12 @@
         </x-ui.link-button>
     </x-admin.page-header>
 
-    @if (session('status'))
-        <x-ui.alert variant="success">{{ session('status') }}</x-ui.alert>
-    @endif
+    <div class="space-y-4">
+        @if (session('status'))
+            <x-ui.alert variant="success">{{ session('status') }}</x-ui.alert>
+        @endif
 
-    <x-ui.card title="All application users" description="Every account and role is visible in this technical workspace.">
+        <x-ui.card title="All application users" description="Every account and role is visible in this technical workspace.">
         <x-ui.table>
             <x-ui.table.head>
                 <x-ui.table.cell as="th" variant="header" scope="col">User</x-ui.table.cell>
@@ -48,11 +49,14 @@
                                 @if ($user->is(auth()->user()))
                                     <span class="inline-flex h-9 w-9 items-center justify-center rounded-base text-gray-400 dark:text-gray-500" role="img" aria-label="Protected" title="Protected"><x-icon name="shield-check" class="h-5 w-5" /></span>
                                 @else
-                                    <form method="POST" action="{{ route('developer.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-red-600 hover:bg-red-50 focus:ring-4 focus:ring-red-300 dark:text-red-400 dark:hover:bg-gray-700 dark:focus:ring-red-900" aria-label="Delete user" title="Delete user"><x-icon name="trash" class="h-5 w-5" /></button>
-                                    </form>
+                                    <button type="button" @click="$dispatch('open-modal', 'delete-user-{{ $user->id }}')" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-red-600 hover:bg-red-50 focus:ring-4 focus:ring-red-300 dark:text-red-400 dark:hover:bg-gray-700 dark:focus:ring-red-900" aria-label="Delete user" title="Delete user"><x-icon name="trash" class="h-5 w-5" /></button>
+                                    <x-ui.confirmation-modal
+                                        id="delete-user-{{ $user->id }}"
+                                        :title="'Are you sure you want to delete ' . $user->name . '?'"
+                                        :action="route('developer.users.destroy', $user)"
+                                    >
+                                        This action cannot be undone.
+                                    </x-ui.confirmation-modal>
                                 @endif
                             </div>
                         </x-ui.table.cell>
@@ -70,5 +74,6 @@
                 </x-slot:footer>
             @endif
         </x-ui.table>
-    </x-ui.card>
+        </x-ui.card>
+    </div>
 </x-layouts.developer>

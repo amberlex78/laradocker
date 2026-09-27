@@ -152,8 +152,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community": 142,
+      "community_name": "TestCase",
       "file_type": "code",
       "norm_label": "testcase",
       "source_file": "tests/TestCase.php",
@@ -1323,7 +1323,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1335,7 +1335,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1347,7 +1347,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1359,7 +1359,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1371,7 +1371,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1383,7 +1383,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1395,35 +1395,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
       "source_location": "L56"
-    },
-    {
-      "id": "tests_pest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L32"
-    },
-    {
-      "id": "tests_pest_something",
-      "label": "something()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "something()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L47"
     },
     {
       "id": "tests_feature_authentication_applicationactionstest_closure_1",
@@ -2007,7 +1983,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
@@ -2019,7 +1995,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
@@ -2031,11 +2007,59 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
       "source_location": "L36"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L30"
+    },
+    {
+      "id": "tests_pest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "tests_pest_something",
+      "label": "something()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "something()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47"
     },
     {
       "id": "routes_console_closure_1",
@@ -2710,30 +2734,6 @@
       "source_location": "L27"
     },
     {
-      "id": "tests_feature_database_seeders_userseedertest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L30"
-    },
-    {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -2755,7 +2755,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L187"
+      "source_location": "L173"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_11",
@@ -2767,7 +2767,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L224"
+      "source_location": "L201"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_12",
@@ -2779,7 +2779,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L248"
+      "source_location": "L228"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_13",
@@ -2791,7 +2791,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L271"
+      "source_location": "L265"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_14",
@@ -2803,7 +2803,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L297"
+      "source_location": "L289"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_15",
@@ -2815,7 +2815,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L309"
+      "source_location": "L312"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_16",
@@ -2827,7 +2827,31 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L320"
+      "source_location": "L338"
+    },
+    {
+      "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_17",
+      "label": "{closure#17}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#17}()",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L350"
+    },
+    {
+      "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_18",
+      "label": "{closure#18}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#18}()",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L361"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_2",
@@ -2875,7 +2899,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L72"
+      "source_location": "L69"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
@@ -2887,7 +2911,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L100"
+      "source_location": "L85"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_7",
@@ -2899,7 +2923,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L124"
+      "source_location": "L113"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_8",
@@ -2923,7 +2947,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L160"
+      "source_location": "L150"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_1",
@@ -4576,58 +4600,14 @@
       "source_location": null
     },
     {
-      "id": "illuminate_foundation_testing_refreshdatabase",
-      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_foundation_testing_testcase",
-      "label": "Illuminate\\Foundation\\Testing\\TestCase",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\testcase",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "tests_feature_authentication_roleaccesstest",
       "label": "RoleAccessTest.php",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "RoleAccessTest.php",
       "file_type": "code",
       "norm_label": "roleaccesstest.php",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_pest",
-      "label": "Pest.php",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "pest.php",
-      "source_file": "tests/Pest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_testcase",
-      "label": "TestCase.php",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "testcase.php",
-      "source_file": "tests/TestCase.php",
       "source_location": "L1"
     },
     {
@@ -4640,6 +4620,50 @@
       "norm_label": "bootstrap.php",
       "source_file": "tests/bootstrap.php",
       "source_location": "L1"
+    },
+    {
+      "id": "resources_views_components_ui_modal_blade",
+      "label": "resources/views/components/ui/modal.blade.php",
+      "_origin": "ast",
+      "community": 141,
+      "community_name": "resources/views/components/ui/modal.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/modal.blade.php",
+      "source_file": "resources/views/components/ui/modal.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "illuminate_foundation_testing_testcase",
+      "label": "Illuminate\\Foundation\\Testing\\TestCase",
+      "_origin": "ast",
+      "community": 142,
+      "community_name": "TestCase",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\testing\\testcase",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_testcase",
+      "label": "TestCase.php",
+      "_origin": "ast",
+      "community": 142,
+      "community_name": "TestCase",
+      "file_type": "code",
+      "norm_label": "testcase.php",
+      "source_file": "tests/TestCase.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "resources_views_components_ui_confirmation_modal_blade",
+      "label": "confirmation-modal.blade.php",
+      "_origin": "ast",
+      "community": 143,
+      "community_name": "confirmation-modal.blade.php",
+      "file_type": "code",
+      "norm_label": "confirmation-modal.blade.php",
+      "source_file": "resources/views/components/ui/confirmation-modal.blade.php",
+      "source_location": null
     },
     {
       "id": "docs_superpowers_specs_2026_09_26_user_management_design",
@@ -5707,11 +5731,22 @@
       "source_location": ""
     },
     {
+      "id": "illuminate_foundation_testing_refreshdatabase",
+      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_support_facades_validator",
       "label": "Illuminate\\Support\\Facades\\Validator",
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\validator",
       "source_file": "",
@@ -5722,10 +5757,32 @@
       "label": "AuthValidationRulesTest.php",
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "authvalidationrulestest.php",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest",
+      "label": "UserSeederTest.php",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "userseedertest.php",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_pest",
+      "label": "Pest.php",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "pest.php",
+      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -7605,12 +7662,12 @@
     },
     {
       "id": "reference_flowbite_views_components_ui_modal_blade",
-      "label": "modal.blade.php",
+      "label": "flowbite/views/components/ui/modal.blade.php",
       "_origin": "ast",
       "community": 71,
       "community_name": "modal.blade.php",
       "file_type": "code",
-      "norm_label": "modal.blade.php",
+      "norm_label": "flowbite/views/components/ui/modal.blade.php",
       "source_file": ".reference/flowbite/views/components/ui/modal.blade.php",
       "source_location": null
     },
@@ -7711,17 +7768,6 @@
       "file_type": "code",
       "norm_label": "auth.php",
       "source_file": "config/auth.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest",
-      "label": "UserSeederTest.php",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "userseedertest.php",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
       "source_location": "L1"
     },
     {
@@ -7969,6 +8015,7 @@
     {
       "id": "application",
       "label": "application",
+      "_origin": "semantic",
       "community": 32,
       "community_name": "artisan",
       "external": true,
@@ -7980,6 +8027,7 @@
     {
       "id": "argvinput",
       "label": "argvinput",
+      "_origin": "semantic",
       "community": 32,
       "community_name": "artisan",
       "external": true,
@@ -8959,7 +9007,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L188",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -8971,7 +9019,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L225",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -8983,7 +9031,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L249",
+      "source_location": "L229",
       "weight": 1.0
     },
     {
@@ -8995,7 +9043,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L272",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -9007,7 +9055,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L298",
+      "source_location": "L290",
       "weight": 1.0
     },
     {
@@ -9019,7 +9067,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L310",
+      "source_location": "L313",
       "weight": 1.0
     },
     {
@@ -9031,7 +9079,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L321",
+      "source_location": "L339",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest_closure_17",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L351",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest_closure_18",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L362",
       "weight": 1.0
     },
     {
@@ -9079,7 +9151,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L73",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -9091,7 +9163,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L101",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -9103,7 +9175,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L125",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -9127,7 +9199,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L161",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -17250,24 +17322,13 @@
     },
     {
       "source": "tests_feature_pages_usermanagementpagerenderingtest",
-      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L100",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_usermanagementpagerenderingtest",
       "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_7",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L124",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -17289,7 +17350,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L160",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -17300,7 +17361,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L187",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -17322,7 +17383,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L224",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -17333,7 +17394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L248",
+      "source_location": "L228",
       "weight": 1.0
     },
     {
@@ -17344,7 +17405,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L271",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -17355,18 +17416,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L297",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_usermanagementpagerenderingtest",
-      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_15",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L309",
+      "source_location": "L289",
       "weight": 1.0
     },
     {
@@ -17382,13 +17432,46 @@
     },
     {
       "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_15",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L312",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
       "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_16",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L320",
+      "source_location": "L338",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_17",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L350",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_18",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L361",
       "weight": 1.0
     },
     {
@@ -17410,7 +17493,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L72",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -19676,5 +19770,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ed563b84db4c17d3430a13f416c3dfbcfd71d224"
+  "built_at_commit": "02eda239d24a71571453be93e02a46d9af197256"
 }

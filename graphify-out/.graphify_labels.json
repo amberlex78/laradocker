@@ -13,7 +13,7 @@
   "11": "UserPolicy",
   "12": "Laravel-проєкти без домену",
   "13": "Laravel-проєкти з доменами",
-  "14": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+  "14": "RoleAccessTest.php",
   "15": "User Management in Admin and Developer Areas",
   "16": "require-dev",
   "17": "ApplicationActionsTest.php",
@@ -27,7 +27,7 @@
   "25": "psr-4",
   "26": "require",
   "27": "logging.php",
-  "28": "AuthValidationRulesTest.php",
+  "28": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
   "29": "console.php",
   "30": "UiButtonComponentTest.php",
   "31": "Views",
@@ -139,5 +139,8 @@
   "137": "developer/users/index.blade.php",
   "138": "developer/users/show.blade.php",
   "139": "resources/views/welcome.blade.php",
-  "140": "bootstrap.php"
+  "140": "bootstrap.php",
+  "141": "resources/views/components/ui/modal.blade.php",
+  "142": "TestCase",
+  "143": "confirmation-modal.blade.php"
 }

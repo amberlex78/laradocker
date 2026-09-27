@@ -22,12 +22,16 @@
             </x-ui.card>
         @else
             <x-ui.card title="Danger zone" description="Deleting an account is permanent.">
-                <form method="POST" action="{{ route('developer.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
-                    @csrf
-                    @method('DELETE')
-                    <x-ui.button type="submit" variant="danger"><x-icon name="trash" class="h-4 w-4" />Delete user</x-ui.button>
-                </form>
+                <x-ui.button variant="danger" @click="$dispatch('open-modal', 'delete-user-{{ $user->id }}')"><x-icon name="trash" class="h-4 w-4" />Delete user</x-ui.button>
             </x-ui.card>
+
+            <x-ui.confirmation-modal
+                id="delete-user-{{ $user->id }}"
+                :title="'Are you sure you want to delete ' . $user->name . '?'"
+                :action="route('developer.users.destroy', $user)"
+            >
+                This action cannot be undone.
+            </x-ui.confirmation-modal>
         @endif
     </div>
 </x-layouts.developer>

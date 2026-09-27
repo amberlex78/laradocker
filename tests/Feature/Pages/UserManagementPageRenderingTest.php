@@ -53,6 +53,19 @@ test('user index actions use the page header action slot', function (): void {
         ->assertSee('px-4 py-2.5 text-sm', false);
 });
 
+test('user index status alerts have spacing before the users table', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+
+    foreach ([[$admin, 'admin.users.index', 'Workspace users'], [$developer, 'developer.users.index', 'All application users']] as [$actor, $route, $cardTitle]) {
+        $this->actingAs($actor)
+            ->withSession(['status' => 'User deleted successfully.'])
+            ->get(route($route))
+            ->assertSee('<div class="space-y-4">', false)
+            ->assertSeeInOrder(['role="status"', $cardTitle], false);
+    }
+});
+
 test('admin and developer user indexes use the shared Flowbite table structure', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $developer = User::factory()->create(['role' => UserRole::Developer]);
@@ -155,6 +168,34 @@ test('developer user pages protect the current developer from self-deletion', fu
         ->get(route('developer.users.edit', $developer))
         ->assertSee('Protected')
         ->assertDontSee('value="DELETE"', false);
+});
+
+test('user deletion controls render confirmation modals instead of native confirms', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $adminTarget = User::factory()->create(['role' => UserRole::User]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    foreach ([
+        [$admin, 'admin.users.index', 'admin.users.destroy', $adminTarget],
+        [$admin, 'admin.users.show', 'admin.users.destroy', $adminTarget],
+        [$admin, 'admin.users.edit', 'admin.users.destroy', $adminTarget],
+        [$developer, 'developer.users.index', 'developer.users.destroy', $developerTarget],
+        [$developer, 'developer.users.show', 'developer.users.destroy', $developerTarget],
+        [$developer, 'developer.users.edit', 'developer.users.destroy', $developerTarget],
+    ] as [$actor, $route, $destroyRoute, $target]) {
+        $this->actingAs($actor)
+            ->get(route($route, str_ends_with($route, '.index') ? [] : $target))
+            ->assertSee('role="dialog"', false)
+            ->assertSee('aria-modal="true"', false)
+            ->assertSee('data-icon="circle-alert"', false)
+            ->assertSee('Are you sure you want to delete '.$target->name.'?', false)
+            ->assertSee('This action cannot be undone.')
+            ->assertSee("Yes, I'm sure")
+            ->assertSee('No, cancel')
+            ->assertSee('action="'.route($destroyRoute, $target).'"', false)
+            ->assertDontSee("onsubmit=\"return confirm('Delete this user?')\"", false);
+    }
 });
 
 test('user details pages use a text edit action in the page header', function (): void {
