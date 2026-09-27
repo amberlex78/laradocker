@@ -1,3 +1,8 @@
-# Project rules index
+# Project Rules Index
 
-- `resources/views/**`, `resources/js/**`, `resources/css/**`: read [ui-icons.md](ui-icons.md)
+Before planning or editing, find the row whose globs match the file's path and read that rule file.
+
+| Applies to | Rule file |
+| --- | --- |
+| resources/views/** | .ai/rules/views.md |
+| resources/views/**, resources/js/**, resources/css/** | .ai/rules/ui-icons.md |
