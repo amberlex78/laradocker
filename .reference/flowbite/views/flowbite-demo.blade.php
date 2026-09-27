@@ -1,44 +1,21 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-default-theme="light" class="bg-gray-50 dark:bg-gray-900">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="color-scheme" content="light dark">
+<x-layouts.site title="Flowbite component demo — Laravel + Flowbite">
+    <x-site.component-page-header
+        eyebrow="Laravel + Flowbite · Live demo"
+        title="Flowbite component demo"
+        description="Один екран із reusable Blade-компонентами Flowbite та інтерактивними Alpine.js-елементами."
+        back-route="components.index"
+        back-label="Back to component library"
+    />
 
-        <title>Flowbite component demo</title>
-
-        <x-ui.theme-init />
-
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @endif
-    </head>
-    <body x-data class="bg-gray-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
-        <header class="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-            <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-                <div>
-                    <div class="mb-2 flex items-center gap-2">
-                        <span class="rounded bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800 dark:bg-blue-900 dark:text-blue-300">Laravel + Flowbite</span>
-                        <x-ui.badge variant="green">Live demo</x-ui.badge>
-                    </div>
-                    <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Flowbite component demo</h1>
-                    <p class="mt-2 max-w-3xl text-gray-500 dark:text-gray-400">
-                        Один екран із reusable Blade-компонентами Flowbite та інтерактивними Alpine.js-елементами.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap gap-3">
-                    <x-ui.button variant="secondary" size="sm" @click="$refs.table.scrollIntoView({ behavior: 'smooth' })">
-                        До таблиці
-                    </x-ui.button>
-                    <x-ui.button size="sm" @click="$dispatch('open-modal', 'demo-modal')">
-                        Відкрити modal
-                    </x-ui.button>
-                </div>
-            </div>
-        </header>
-
-        <main class="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
+    <main x-data class="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center justify-end gap-3">
+            <x-ui.button variant="secondary" size="sm" @click="$refs.table.scrollIntoView({ behavior: 'smooth' })">
+                До таблиці
+            </x-ui.button>
+            <x-ui.button size="sm" @click="$dispatch('open-modal', 'demo-modal')">
+                Відкрити modal
+            </x-ui.button>
+        </div>
             <x-ui.alert variant="success" title="Success alert" data-component="alert">
                 Flowbite підключено через Vite, а цей alert — reusable Blade-компонент із підтримкою атрибутів.
             </x-ui.alert>
@@ -140,6 +117,15 @@
                             Open demo modal
                         </x-ui.button>
                         <p class="text-sm text-gray-500 dark:text-gray-400">Працює без окремого page-specific JavaScript.</p>
+                    </div>
+                </x-ui.card>
+
+                <x-ui.card title="Popup modal" description="Підтвердження потенційно небезпечної дії з окремим footer для кнопок." data-component="popup-modal">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <x-ui.button variant="danger" @click="$dispatch('open-modal', 'popup-modal')">
+                            Open popup modal
+                        </x-ui.button>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Демонстраційне підтвердження без реального видалення.</p>
                     </div>
                 </x-ui.card>
             </section>
@@ -335,8 +321,6 @@
                     </div>
                 </x-ui.card>
             </section>
-        </main>
-
         <x-ui.modal id="demo-modal" title="Flowbite modal">
             <p class="leading-relaxed text-gray-500 dark:text-gray-400">
                 Це reusable modal-компонент. Його можна наповнити будь-яким Blade-контентом, а відкриття та закриття обробляє Alpine.js.
@@ -346,5 +330,16 @@
                 <x-ui.button variant="secondary" @click="$dispatch('close-modal', 'demo-modal')">Close</x-ui.button>
             </div>
         </x-ui.modal>
-    </body>
-</html>
+
+        <x-ui.modal id="popup-modal" title="Delete item" size="sm">
+            <p class="leading-relaxed text-gray-500 dark:text-gray-400">
+                Are you sure you want to delete this item? This action cannot be undone.
+            </p>
+
+            <x-slot name="footer">
+                <x-ui.button variant="danger" @click="$dispatch('close-modal', 'popup-modal')">Delete</x-ui.button>
+                <x-ui.button variant="secondary" @click="$dispatch('close-modal', 'popup-modal')">Cancel</x-ui.button>
+            </x-slot>
+        </x-ui.modal>
+    </main>
+</x-layouts.site>

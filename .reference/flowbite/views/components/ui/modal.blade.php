@@ -41,6 +41,12 @@
             <div class="space-y-4 p-4 md:p-5">
                 {{ $slot }}
             </div>
+
+            @if (isset($footer))
+                <div class="flex items-center gap-3 rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
+                    {{ $footer }}
+                </div>
+            @endif
         </div>
     </div>
 </div>
