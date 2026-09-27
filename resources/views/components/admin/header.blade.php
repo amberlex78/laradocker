@@ -1,40 +1,29 @@
-@props(['area' => 'admin'])
+@props([
+    'area' => 'admin',
+    'title' => 'Dashboard',
+])
 
-<header class="sticky top-0 z-20 flex min-h-20 items-center justify-between border-b border-slate-200 bg-white/95 px-4 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95 sm:px-6 lg:px-8">
-    <div class="flex items-center gap-3">
-        <button
-            type="button"
-            class="rounded-xl border border-slate-200 p-2.5 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 dark:border-slate-800 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-white lg:hidden"
-            aria-label="Open navigation"
-            aria-controls="{{ $area }}-sidebar"
-            @click="sidebarOpen = true"
-        >
-            <x-icon name="menu" class="h-5 w-5" />
-        </button>
+<nav class="sticky top-0 z-30 border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+    <div class="flex items-center justify-between px-4 py-3 lg:px-6">
+        <div class="flex items-center gap-3">
+            <button type="button" @click="sidebarOpen = true" aria-controls="{{ $area }}-sidebar" class="rounded-base p-2 text-gray-500 hover:bg-gray-100 focus:ring-1 focus:ring-gray-200 focus:outline-none md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-label="Open sidebar">
+                <x-icon name="menu" class="h-6 w-6" />
+            </button>
 
-        <div>
-            <p class="text-sm font-semibold text-slate-950 dark:text-white">{{ $area === 'developer' ? 'Developer workspace' : 'Admin workspace' }}</p>
-            <p class="hidden text-xs text-slate-500 dark:text-slate-400 sm:block">{{ now()->format('l, F j, Y') }}</p>
+            <div>
+                <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ ucfirst($area) }} area</p>
+                <h1 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $title }}</h1>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <x-ui.theme-toggle />
+
+            <span class="hidden rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 dark:bg-gray-700 dark:text-gray-300 sm:inline-flex">
+                {{ auth()->user()->role->value }}
+            </span>
+
+            <x-user-menu />
         </div>
     </div>
-
-    <div class="flex items-center gap-3">
-        <button
-            type="button"
-            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-            :aria-pressed="darkMode"
-            @click="darkMode = !darkMode"
-        >
-            <x-icon name="sun" x-cloak x-show="!darkMode" class="h-5 w-5" />
-            <x-icon name="moon" x-cloak x-show="darkMode" class="h-5 w-5" />
-        </button>
-
-        <span class="hidden rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300 sm:inline-flex">
-            {{ auth()->user()->role->value }}
-        </span>
-
-        <x-user-menu />
-    </div>
-</header>
+</nav>

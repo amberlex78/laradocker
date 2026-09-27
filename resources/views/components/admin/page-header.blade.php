@@ -5,21 +5,29 @@
     'icon' => null,
 ])
 
-<div class="flex flex-col gap-2">
-    @if ($eyebrow)
-        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">{{ $eyebrow }}</p>
-    @endif
-
-    <h1 class="inline-flex items-center gap-3 text-2xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
-        @if ($icon)
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300" aria-hidden="true">
-                <x-icon :name="$icon" class="h-5 w-5" />
-            </span>
+<div class="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+    <div>
+        @if ($eyebrow)
+            <p class="text-sm font-medium text-blue-600 dark:text-blue-400">{{ $eyebrow }}</p>
         @endif
-        {{ $title }}
-    </h1>
 
-    @if ($description)
-        <p class="max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400">{{ $description }}</p>
+        <h1 class="inline-flex items-center gap-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+            @if ($icon)
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-base bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300" aria-hidden="true">
+                    <x-icon :name="$icon" class="h-5 w-5" />
+                </span>
+            @endif
+            {{ $title }}
+        </h1>
+
+        @if ($description)
+            <p class="mt-2 max-w-2xl text-gray-500 dark:text-gray-400">{{ $description }}</p>
+        @endif
+    </div>
+
+    @if ($slot->isNotEmpty())
+        <div class="shrink-0">
+            {{ $slot }}
+        </div>
     @endif
 </div>

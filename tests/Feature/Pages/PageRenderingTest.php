@@ -167,9 +167,9 @@ test('an admin sees the admin shell without developer navigation', function () {
     $this->actingAs($admin)
         ->get('/admin')
         ->assertOk()
-        ->assertSee('Admin workspace navigation')
+        ->assertSee('Admin navigation')
         ->assertSee('Overview')
-        ->assertDontSee('Developer workspace navigation');
+        ->assertDontSee('Developer navigation');
 });
 
 test('an admin sees the responsive business dashboard shell', function () {
@@ -180,17 +180,72 @@ test('an admin sees the responsive business dashboard shell', function () {
     $this->actingAs($admin)
         ->get('/admin')
         ->assertOk()
-        ->assertSee('Admin workspace')
-        ->assertDontSee('Business workspace')
-        ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false)
+        ->assertSee('Admin area')
+        ->assertDontSee('Business area')
+        ->assertSee('data-default-theme="dark"', false)
+        ->assertSee('md:ms-64', false)
+        ->assertSee('bg-gray-50', false)
+        ->assertSee('grid gap-6 sm:grid-cols-2 xl:grid-cols-4', false)
+        ->assertSee('rounded-base border border-gray-200 bg-white p-6 shadow-sm', false)
         ->assertSee('Admin dashboard')
         ->assertSee('data-icon="layout-dashboard"', false)
         ->assertDontSee('>Overview</h1>', false)
         ->assertSee('Overview')
         ->assertSee('Quick actions')
         ->assertSee('No recent activity yet')
+        ->assertDontSee('rounded-2xl border border-slate-200', false)
+        ->assertDontSee('text-indigo-600', false)
+        ->assertDontSee('data-icon="shield-check"', false)
+        ->assertDontSee('data-icon="activity"', false)
+        ->assertDontSee('flex items-start justify-between gap-4', false)
         ->assertSee('sidebarOpen')
         ->assertSee('x-show="sidebarOpen"', false);
+});
+
+test('an admin shell renders the Flowbite sidebar and navbar structure', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.dashboard'))
+        ->assertSee('data-default-theme="dark"', false)
+        ->assertSee('aria-label="Admin sidebar"', false)
+        ->assertSee('Admin area')
+        ->assertSee('Open sidebar')
+        ->assertSee('Close sidebar')
+        ->assertSee('View public site')
+        ->assertSee('md:ms-64', false)
+        ->assertSee('bg-gray-800', false)
+        ->assertDontSee('Admin workspace')
+        ->assertDontSee('min-h-screen bg-slate-50', false);
+});
+
+test('an admin dashboard exposes a users action beside its overview header', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.dashboard'))
+        ->assertSee('Manage users')
+        ->assertSee('href="'.route('admin.users.index').'"', false)
+        ->assertSee('Workspace status')
+        ->assertSee('Configured modules')
+        ->assertSee('Open actions')
+        ->assertSee('Activity events');
+});
+
+test('an operator dashboard does not expose the admin-only users action', function (): void {
+    $operator = User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+
+    $this->actingAs($operator)
+        ->get(route('admin.dashboard'))
+        ->assertSee('Admin dashboard')
+        ->assertDontSee('Manage users')
+        ->assertDontSee('href="'.route('admin.users.index').'"', false);
 });
 
 test('workspace header exposes the authenticated user menu', function (): void {
@@ -208,9 +263,9 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->assertSee('action="'.route('logout').'"', false)
         ->assertSee('x-data="{ profileMenuOpen: false }"', false)
         ->assertSee('x-show="profileMenuOpen"', false)
-        ->assertSee('mt-2 border-t border-slate-100 pt-2 dark:border-slate-800', false)
+        ->assertSee('divide-y divide-gray-100', false)
         ->assertDontSee('Back to workspace')
-        ->assertSee('data-icon="chevron-down"', false);
+        ->assertSee('Open user menu');
 });
 
 test('a developer sees the developer shell and can open the admin shell', function () {
@@ -221,15 +276,15 @@ test('a developer sees the developer shell and can open the admin shell', functi
     $this->actingAs($developer)
         ->get('/developer')
         ->assertOk()
-        ->assertSee('Developer workspace navigation')
-        ->assertSee('Developer workspace')
+        ->assertSee('Developer navigation')
+        ->assertSee('Developer area')
         ->assertDontSee('Back to workspace')
-        ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false);
+        ->assertSee('bg-gray-800', false);
 
     $this->actingAs($developer)
         ->get('/admin')
         ->assertOk()
-        ->assertSee('Admin workspace navigation');
+        ->assertSee('Admin navigation');
 });
 
 test('a developer sees the technical dashboard shell', function () {
@@ -242,7 +297,12 @@ test('a developer sees the technical dashboard shell', function () {
         ->assertOk()
         ->assertSee('Application status')
         ->assertSee('Technical workspace')
-        ->assertDontSee('text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600', false)
+        ->assertSee('data-default-theme="dark"', false)
+        ->assertSee('grid gap-6 sm:grid-cols-2 xl:grid-cols-4', false)
+        ->assertSee('rounded-base border border-gray-200 bg-white p-6 shadow-sm', false)
+        ->assertDontSee('flex items-start justify-between gap-4', false)
+        ->assertDontSee('text-slate-600', false)
+        ->assertDontSee('rounded-xl border border-slate-200', false)
         ->assertSee('No technical events yet')
         ->assertSee('sidebarOpen')
         ->assertSee('x-show="sidebarOpen"', false);
@@ -261,8 +321,8 @@ test('admin and developer workspaces expose the shared theme toggle', function (
             ->get($path)
             ->assertOk()
             ->assertSee('Toggle theme')
-            ->assertSee('darkMode')
-            ->assertSee("localStorage.setItem('theme'", false);
+            ->assertSee('data-theme-init', false)
+            ->assertSee('$store.theme.toggle()', false);
     }
 });
 
@@ -275,5 +335,6 @@ test('workspace navigation uses compact direct icons', function () {
         ->get('/admin')
         ->assertOk()
         ->assertDontSee('flex h-8 w-8 items-center justify-center rounded-lg')
-        ->assertSee('flex h-6 w-6 shrink-0 items-center justify-center');
+        ->assertSee('rounded-base p-2', false)
+        ->assertSee('ms-3', false);
 });

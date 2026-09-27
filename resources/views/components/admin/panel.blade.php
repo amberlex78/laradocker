@@ -3,14 +3,14 @@
     'description' => null,
 ])
 
-<section class="rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-200/40 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
-    <header class="border-b border-slate-100 px-5 py-4 dark:border-slate-800 sm:px-6">
-        <h2 class="text-base font-semibold text-slate-950 dark:text-white">{{ $title }}</h2>
+<section {{ $attributes->class(['rounded-base border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800']) }}>
+    <header>
+        <h2 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $title }}</h2>
 
         @if ($description)
-            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ $description }}</p>
+            <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">{{ $description }}</p>
         @endif
     </header>
 
-    <div class="p-5 sm:p-6">{{ $slot }}</div>
+    {{ $slot }}
 </section>
