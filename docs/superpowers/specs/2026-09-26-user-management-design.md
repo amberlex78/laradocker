@@ -99,7 +99,7 @@ Role transitions are validated at the request boundary and enforced again by the
 
 ## UI design
 
-The new pages use the existing `backoffice` layout and current slate/indigo dark-mode conventions, adapted from the local TailAdmin reference:
+The new pages use the existing `backoffice` layout and current Flowbite dark-mode conventions, adapted from the local `.reference/flowbite` views:
 
 - a `Users` navigation item in the admin workspace;
 - a separate `Users` navigation item in the developer workspace;
@@ -110,7 +110,7 @@ The new pages use the existing `backoffice` layout and current slate/indigo dark
 - role badges that distinguish business roles and developer role;
 - no developer label, row, link, or role option in the admin UI.
 
-The admin list is paginated and filtered to non-developer users. The developer list is paginated across all users. Existing layout components and TailAdmin-inspired markup are reused rather than importing the reference application's build system or dependencies.
+The admin list is paginated and filtered to non-developer users. The developer list is paginated across all users. Existing layout components and Flowbite markup are reused rather than importing a separate reference application's build system or dependencies.
 
 ## Error handling and security
 

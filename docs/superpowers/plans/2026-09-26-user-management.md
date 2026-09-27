@@ -19,7 +19,7 @@
 - Enforce permissions server-side through `App\Policies\UserPolicy`; UI visibility is not authorization.
 - Create passwords are required and confirmed; edit passwords are optional and unchanged when omitted.
 - Use the existing `User` model `hashed` cast and escaped Blade output.
-- Follow current backoffice slate/indigo dark-mode conventions and adapt, rather than import, the local TailAdmin reference.
+- Follow the current Flowbite backoffice dark-mode conventions and adapt the local `.reference/flowbite` views without importing a separate build system.
 - Use Pest feature tests and policy tests; run Pint for modified PHP files and Vite build for modified frontend assets.
 
 ## Review Focus
@@ -247,9 +247,9 @@
 - The role badge renders role-specific accessible text and styling without exposing developer roles in admin views.
 - Admin and developer views use their own named route namespace and supplied paginated users.
 
-- [ ] **Step 1: Inspect the local TailAdmin table, buttons, badges, alerts, header, and sidebar partials**
+- [ ] **Step 1: Inspect the local Flowbite table, buttons, badges, alerts, header, and sidebar views**
 
-  Reuse only markup and utility-class ideas from `.reference/tailadmin/src/partials/`; do not copy its build configuration, dependencies, or assets into the application.
+  Reuse only the relevant markup and utility-class ideas from `.reference/flowbite/views/`; do not copy a separate build configuration, dependencies, or assets into the application.
 
 - [ ] **Step 2: Write failing page-rendering tests**
 
@@ -275,7 +275,7 @@
 
 - [ ] **Step 5: Implement admin and developer index/create/edit/show views**
 
-  Use responsive Tailwind table markup adapted from the TailAdmin reference. Include paginated `links`, empty states, success/error alerts from the session, edit/show actions, and a confirmation step for deletion. Keep the admin view copy entirely business-oriented; do not mention developer or technical roles there.
+  Use responsive Flowbite table markup adapted from the local reference. Include paginated links, empty states, success/error alerts from the session, edit/show actions, and a confirmation step for deletion. Keep the admin view copy entirely business-oriented; do not mention developer or technical roles there.
 
 - [ ] **Step 6: Add namespace-specific navigation items**
 
