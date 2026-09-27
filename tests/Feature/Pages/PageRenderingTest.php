@@ -13,7 +13,6 @@ test('the public home page renders', function () {
         ->assertSee('View repository')
         ->assertSee('data-icon="github"', false)
         ->assertSee('href="https://github.com/amberlex78/laradocker"', false)
-        ->assertDontSee('https://github.com/amberlex78/ladocker', false)
         ->assertSee('target="_blank"', false)
         ->assertSee('Create an account')
         ->assertDontSee('Try the demo')

@@ -2983,7 +2983,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L155"
+      "source_location": "L154"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_11",
@@ -2995,7 +2995,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L168"
+      "source_location": "L167"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_12",
@@ -3007,7 +3007,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L186"
+      "source_location": "L185"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_13",
@@ -3019,7 +3019,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L208"
+      "source_location": "L207"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_14",
@@ -3031,7 +3031,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L222"
+      "source_location": "L221"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_15",
@@ -3043,7 +3043,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L235"
+      "source_location": "L234"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_16",
@@ -3055,7 +3055,7 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L268"
+      "source_location": "L267"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_17",
@@ -3067,7 +3067,7 @@
       "file_type": "code",
       "norm_label": "{closure#17}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L287"
+      "source_location": "L286"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_18",
@@ -3079,7 +3079,7 @@
       "file_type": "code",
       "norm_label": "{closure#18}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L303"
+      "source_location": "L302"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_19",
@@ -3091,7 +3091,7 @@
       "file_type": "code",
       "norm_label": "{closure#19}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L315"
+      "source_location": "L314"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_2",
@@ -3103,7 +3103,7 @@
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L38"
+      "source_location": "L37"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_20",
@@ -3115,7 +3115,7 @@
       "file_type": "code",
       "norm_label": "{closure#20}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L335"
+      "source_location": "L334"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_21",
@@ -3127,7 +3127,7 @@
       "file_type": "code",
       "norm_label": "{closure#21}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L354"
+      "source_location": "L353"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_22",
@@ -3139,7 +3139,7 @@
       "file_type": "code",
       "norm_label": "{closure#22}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L373"
+      "source_location": "L372"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_23",
@@ -3151,7 +3151,7 @@
       "file_type": "code",
       "norm_label": "{closure#23}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L398"
+      "source_location": "L397"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_24",
@@ -3163,7 +3163,7 @@
       "file_type": "code",
       "norm_label": "{closure#24}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L416"
+      "source_location": "L415"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_3",
@@ -3175,7 +3175,7 @@
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L52"
+      "source_location": "L51"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_4",
@@ -3187,7 +3187,7 @@
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L65"
+      "source_location": "L64"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_5",
@@ -3199,7 +3199,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L81"
+      "source_location": "L80"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_6",
@@ -3211,7 +3211,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L87"
+      "source_location": "L86"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_7",
@@ -3223,7 +3223,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L97"
+      "source_location": "L96"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_8",
@@ -3235,7 +3235,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L104"
+      "source_location": "L103"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_9",
@@ -3247,7 +3247,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L117"
+      "source_location": "L116"
     },
     {
       "id": "app_enums_userrole",
@@ -4058,26 +4058,26 @@
       "source_location": "L104"
     },
     {
-      "id": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps1",
-      "label": "4.1. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps1",
+      "id": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps1",
+      "label": "4.1. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps1",
       "_origin": "ast",
       "community": 12,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "4.1. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps1",
+      "norm_label": "4.1. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps1",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L205"
     },
     {
-      "id": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps2",
-      "label": "4.2. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps2",
+      "id": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps2",
+      "label": "4.2. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps2",
       "_origin": "ast",
       "community": 12,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "4.2. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f ladockervps2",
+      "norm_label": "4.2. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f laradockervps2",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L251"
     },
@@ -4142,26 +4142,26 @@
       "source_location": "L370"
     },
     {
-      "id": "docs_projects_no_domains_ladockervps1",
-      "label": "ladockervps1",
+      "id": "docs_projects_no_domains_laradockervps1",
+      "label": "laradockervps1",
       "_origin": "ast",
       "community": 12,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ladockervps1",
+      "norm_label": "laradockervps1",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L109"
     },
     {
-      "id": "docs_projects_no_domains_ladockervps2",
-      "label": "ladockervps2",
+      "id": "docs_projects_no_domains_laradockervps2",
+      "label": "laradockervps2",
       "_origin": "ast",
       "community": 12,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ladockervps2",
+      "norm_label": "laradockervps2",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L139"
     },
@@ -4190,26 +4190,26 @@
       "source_location": "L175"
     },
     {
-      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker1",
+      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker1",
       "_origin": "ast",
       "community": 12,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker1",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker1",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L35"
     },
     {
-      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker2",
+      "id": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker2",
       "_origin": "ast",
       "community": 12,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker2",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker2",
       "source_file": "docs/projects-no-domains.md",
       "source_location": "L68"
     },
@@ -4468,26 +4468,26 @@
       "source_location": "L549"
     },
     {
-      "id": "docs_projects_with_domains_ladocker1_example1_com",
-      "label": "ladocker1 \u2014 example1.com",
+      "id": "docs_projects_with_domains_laradocker1_example1_com",
+      "label": "laradocker1 \u2014 example1.com",
       "_origin": "ast",
       "community": 13,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ladocker1 \u2014 example1.com",
+      "norm_label": "laradocker1 \u2014 example1.com",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L167"
     },
     {
-      "id": "docs_projects_with_domains_ladocker2_example2_com",
-      "label": "ladocker2 \u2014 example2.com",
+      "id": "docs_projects_with_domains_laradocker2_example2_com",
+      "label": "laradocker2 \u2014 example2.com",
       "_origin": "ast",
       "community": 13,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ladocker2 \u2014 example2.com",
+      "norm_label": "laradocker2 \u2014 example2.com",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L194"
     },
@@ -4504,26 +4504,26 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker1",
+      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker1",
       "_origin": "ast",
       "community": 13,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker1",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker1",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L49"
     },
     {
-      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
-      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 ladocker2",
+      "id": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
+      "label": "\u041f\u0440\u043e\u0454\u043a\u0442 laradocker2",
       "_origin": "ast",
       "community": 13,
       "community_name": "Laravel-\u043f\u0440\u043e\u0454\u043a\u0442\u0438 \u0437 \u0434\u043e\u043c\u0435\u043d\u0430\u043c\u0438",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 ladocker2",
+      "norm_label": "\u043f\u0440\u043e\u0454\u043a\u0442 laradocker2",
       "source_file": "docs/projects-with-domains.md",
       "source_location": "L82"
     },
@@ -8875,7 +8875,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L169",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -8887,7 +8887,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L194",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -8899,7 +8899,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L195",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -8911,7 +8911,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L209",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -8923,7 +8923,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L223",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -8935,7 +8935,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L236",
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -8947,7 +8947,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L269",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -8959,7 +8959,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L288",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
@@ -8971,7 +8971,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L304",
+      "source_location": "L303",
       "weight": 1.0
     },
     {
@@ -8983,7 +8983,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L316",
+      "source_location": "L315",
       "weight": 1.0
     },
     {
@@ -8995,7 +8995,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L39",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -9007,7 +9007,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L342",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -9019,7 +9019,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L355",
+      "source_location": "L354",
       "weight": 1.0
     },
     {
@@ -9031,7 +9031,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L374",
+      "source_location": "L373",
       "weight": 1.0
     },
     {
@@ -9043,7 +9043,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L399",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -9055,7 +9055,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L417",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -9067,7 +9067,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L53",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -9079,7 +9079,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L66",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -9091,7 +9091,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L145",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -15472,7 +15472,7 @@
     },
     {
       "source": "docs_projects_no_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
+      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15483,7 +15483,7 @@
     },
     {
       "source": "docs_projects_no_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
+      "target": "docs_projects_no_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15494,7 +15494,7 @@
     },
     {
       "source": "docs_projects_no_domains_3_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_no_domains_ladockervps1",
+      "target": "docs_projects_no_domains_laradockervps1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15505,7 +15505,7 @@
     },
     {
       "source": "docs_projects_no_domains_3_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_no_domains_ladockervps2",
+      "target": "docs_projects_no_domains_laradockervps2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15527,7 +15527,7 @@
     },
     {
       "source": "docs_projects_no_domains_4_\u043c\u0456\u043d\u0456\u043c\u0430\u043b\u044c\u043d\u0438\u0439_reverse_proxy_nginx",
-      "target": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps1",
+      "target": "docs_projects_no_domains_4_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15538,7 +15538,7 @@
     },
     {
       "source": "docs_projects_no_domains_4_\u043c\u0456\u043d\u0456\u043c\u0430\u043b\u044c\u043d\u0438\u0439_reverse_proxy_nginx",
-      "target": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_ladockervps2",
+      "target": "docs_projects_no_domains_4_2_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_laradockervps2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15648,7 +15648,7 @@
     },
     {
       "source": "docs_projects_with_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker1",
+      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15659,7 +15659,7 @@
     },
     {
       "source": "docs_projects_with_domains_2_\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u0438\u0439_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_ladocker2",
+      "target": "docs_projects_with_domains_\u043f\u0440\u043e\u0454\u043a\u0442_laradocker2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15670,7 +15670,7 @@
     },
     {
       "source": "docs_projects_with_domains_4_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_with_domains_ladocker1_example1_com",
+      "target": "docs_projects_with_domains_laradocker1_example1_com",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15681,7 +15681,7 @@
     },
     {
       "source": "docs_projects_with_domains_4_production_\u0437\u0430\u043f\u0443\u0441\u043a_\u043d\u0430_vps",
-      "target": "docs_projects_with_domains_ladocker2_example2_com",
+      "target": "docs_projects_with_domains_laradocker2_example2_com",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -17216,7 +17216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L104",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -17227,7 +17227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L117",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -17238,7 +17238,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L155",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -17249,7 +17249,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L168",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -17260,7 +17260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L186",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -17271,7 +17271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L208",
+      "source_location": "L207",
       "weight": 1.0
     },
     {
@@ -17282,7 +17282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L222",
+      "source_location": "L221",
       "weight": 1.0
     },
     {
@@ -17293,7 +17293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L235",
+      "source_location": "L234",
       "weight": 1.0
     },
     {
@@ -17304,7 +17304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L268",
+      "source_location": "L267",
       "weight": 1.0
     },
     {
@@ -17315,7 +17315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L287",
+      "source_location": "L286",
       "weight": 1.0
     },
     {
@@ -17326,7 +17326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L303",
+      "source_location": "L302",
       "weight": 1.0
     },
     {
@@ -17337,7 +17337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L315",
+      "source_location": "L314",
       "weight": 1.0
     },
     {
@@ -17348,7 +17348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L335",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -17359,18 +17359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L354",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_pagerenderingtest",
-      "target": "tests_feature_pages_pagerenderingtest_closure_22",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L373",
+      "source_location": "L353",
       "weight": 1.0
     },
     {
@@ -17381,7 +17370,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L38",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
+      "target": "tests_feature_pages_pagerenderingtest_closure_22",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L372",
       "weight": 1.0
     },
     {
@@ -17392,7 +17392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L398",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -17403,7 +17403,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L416",
+      "source_location": "L415",
       "weight": 1.0
     },
     {
@@ -17414,7 +17414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L52",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -17425,7 +17425,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L65",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -17436,7 +17436,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L81",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -17447,7 +17447,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L87",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -17469,7 +17469,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L97",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -19933,5 +19933,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c48ed48b1d0996cb05f45923c57a9304eb897c5a"
+  "built_at_commit": "faec76758958568bc2e10e3531202e7a82ee8ba1"
 }
