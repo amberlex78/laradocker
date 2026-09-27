@@ -1,12 +1,12 @@
-<x-layouts.admin :title="'Users'">
+<x-layouts.admin :title="'Users Management'">
     <x-admin.page-header
-        title="Users"
+        title="Users Management"
         icon="users"
         description="Manage the people and business roles in this workspace."
     >
-        <x-ui.link-button href="{{ route('admin.users.create') }}">
+        <x-ui.link-button href="{{ route('admin.users.create') }}" size="md">
             <x-icon name="user-plus" class="h-4 w-4" />
-            Add user
+            Add User
         </x-ui.link-button>
     </x-admin.page-header>
 

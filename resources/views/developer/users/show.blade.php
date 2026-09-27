@@ -1,8 +1,10 @@
 <x-layouts.developer :title="'User details'">
-    <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <x-admin.page-header title="User details" icon="user-round" description="Review this account's application access." />
-        <a href="{{ route('developer.users.edit', $user) }}" class="inline-flex h-10 w-10 items-center justify-center rounded-base bg-blue-700 text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
-    </div>
+    <x-admin.page-header title="User details" icon="user-round" description="Review this account's application access.">
+        <x-ui.link-button href="{{ route('developer.users.edit', $user) }}" size="md">
+            <x-icon name="file-pen" class="h-4 w-4" />
+            Edit User
+        </x-ui.link-button>
+    </x-admin.page-header>
 
     <div class="mt-6 grid gap-6 xl:grid-cols-2">
         <x-ui.card title="{{ $user->name }}" description="{{ $user->email }}">

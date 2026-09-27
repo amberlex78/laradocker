@@ -1,6 +1,7 @@
 <x-layouts.developer :title="'Developer dashboard'">
     <x-admin.page-header
         title="Developer dashboard"
+        icon="layout-dashboard"
         description="Developer tools will appear here as they become available."
     />
 

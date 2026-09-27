@@ -308,6 +308,7 @@ test('a developer sees the technical dashboard shell', function () {
         ->assertDontSee('flex items-start justify-between gap-4', false)
         ->assertDontSee('text-slate-600', false)
         ->assertDontSee('rounded-xl border border-slate-200', false)
+        ->assertSee('data-icon="layout-dashboard"', false)
         ->assertDontSee('text-lg font-semibold text-gray-900 dark:text-white">Developer dashboard', false)
         ->assertSee('No technical events yet')
         ->assertSee('sidebarOpen')

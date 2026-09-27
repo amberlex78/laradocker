@@ -36,15 +36,21 @@ test('user index actions use the page header action slot', function (): void {
         ->get(route('admin.users.index'))
         ->assertOk()
         ->assertSee('<div class="shrink-0">', false)
+        ->assertSee('Users Management')
         ->assertSee('href="'.route('admin.users.create').'"', false)
-        ->assertSee('Add user');
+        ->assertSee('Add User')
+        ->assertSee('data-icon="user-plus"', false)
+        ->assertSee('px-4 py-2.5 text-sm', false);
 
     $this->actingAs($developer)
         ->get(route('developer.users.index'))
         ->assertOk()
         ->assertSee('<div class="shrink-0">', false)
+        ->assertSee('Users Management')
         ->assertSee('href="'.route('developer.users.create').'"', false)
-        ->assertSee('Add user');
+        ->assertSee('Add User')
+        ->assertSee('data-icon="user-plus"', false)
+        ->assertSee('px-4 py-2.5 text-sm', false);
 });
 
 test('admin and developer user indexes use the shared Flowbite table structure', function (): void {
@@ -149,6 +155,33 @@ test('developer user pages protect the current developer from self-deletion', fu
         ->get(route('developer.users.edit', $developer))
         ->assertSee('Protected')
         ->assertDontSee('value="DELETE"', false);
+});
+
+test('user details pages use a text edit action in the page header', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $adminTarget = User::factory()->create(['role' => UserRole::User]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.show', $adminTarget))
+        ->assertOk()
+        ->assertSee('<div class="shrink-0">', false)
+        ->assertSee('href="'.route('admin.users.edit', $adminTarget).'"', false)
+        ->assertSee('Edit User')
+        ->assertSee('data-icon="file-pen"', false)
+        ->assertSee('px-4 py-2.5 text-sm', false)
+        ->assertDontSee('aria-label="Edit user"', false);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.show', $developerTarget))
+        ->assertOk()
+        ->assertSee('<div class="shrink-0">', false)
+        ->assertSee('href="'.route('developer.users.edit', $developerTarget).'"', false)
+        ->assertSee('Edit User')
+        ->assertSee('data-icon="file-pen"', false)
+        ->assertSee('px-4 py-2.5 text-sm', false)
+        ->assertDontSee('aria-label="Edit user"', false);
 });
 
 test('user details pages share the overview two-column card grid', function (): void {
