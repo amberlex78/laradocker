@@ -2983,7 +2983,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L154"
+      "source_location": "L158"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_11",
@@ -2995,7 +2995,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L167"
+      "source_location": "L171"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_12",
@@ -3007,7 +3007,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L185"
+      "source_location": "L189"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_13",
@@ -3019,7 +3019,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L207"
+      "source_location": "L211"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_14",
@@ -3031,7 +3031,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L221"
+      "source_location": "L225"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_15",
@@ -3043,7 +3043,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L234"
+      "source_location": "L238"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_16",
@@ -3055,7 +3055,7 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L267"
+      "source_location": "L271"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_17",
@@ -3067,7 +3067,7 @@
       "file_type": "code",
       "norm_label": "{closure#17}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L286"
+      "source_location": "L290"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_18",
@@ -3079,7 +3079,7 @@
       "file_type": "code",
       "norm_label": "{closure#18}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L302"
+      "source_location": "L306"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_19",
@@ -3091,7 +3091,7 @@
       "file_type": "code",
       "norm_label": "{closure#19}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L314"
+      "source_location": "L318"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_2",
@@ -3103,7 +3103,7 @@
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L37"
+      "source_location": "L41"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_20",
@@ -3115,7 +3115,7 @@
       "file_type": "code",
       "norm_label": "{closure#20}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L334"
+      "source_location": "L338"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_21",
@@ -3127,7 +3127,7 @@
       "file_type": "code",
       "norm_label": "{closure#21}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L353"
+      "source_location": "L357"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_22",
@@ -3139,7 +3139,7 @@
       "file_type": "code",
       "norm_label": "{closure#22}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L372"
+      "source_location": "L376"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_23",
@@ -3151,7 +3151,7 @@
       "file_type": "code",
       "norm_label": "{closure#23}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L397"
+      "source_location": "L401"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_24",
@@ -3163,7 +3163,7 @@
       "file_type": "code",
       "norm_label": "{closure#24}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L415"
+      "source_location": "L419"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_3",
@@ -3175,7 +3175,7 @@
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L51"
+      "source_location": "L55"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_4",
@@ -3187,7 +3187,7 @@
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L64"
+      "source_location": "L68"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_5",
@@ -3199,7 +3199,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L80"
+      "source_location": "L84"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_6",
@@ -3211,7 +3211,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L86"
+      "source_location": "L90"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_7",
@@ -3223,7 +3223,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L96"
+      "source_location": "L100"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_8",
@@ -3235,7 +3235,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L103"
+      "source_location": "L107"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_9",
@@ -3247,7 +3247,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L116"
+      "source_location": "L120"
     },
     {
       "id": "app_enums_userrole",
@@ -8875,7 +8875,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L168",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -8887,7 +8887,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L193",
+      "source_location": "L197",
       "weight": 1.0
     },
     {
@@ -8899,7 +8899,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L194",
+      "source_location": "L198",
       "weight": 1.0
     },
     {
@@ -8911,7 +8911,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L208",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -8923,7 +8923,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L222",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
@@ -8935,7 +8935,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L235",
+      "source_location": "L239",
       "weight": 1.0
     },
     {
@@ -8947,7 +8947,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L268",
+      "source_location": "L272",
       "weight": 1.0
     },
     {
@@ -8959,7 +8959,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L287",
+      "source_location": "L291",
       "weight": 1.0
     },
     {
@@ -8971,7 +8971,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L303",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -8983,7 +8983,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L315",
+      "source_location": "L319",
       "weight": 1.0
     },
     {
@@ -8995,7 +8995,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L38",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -9007,7 +9007,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L341",
+      "source_location": "L345",
       "weight": 1.0
     },
     {
@@ -9019,7 +9019,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L354",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -9031,7 +9031,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L373",
+      "source_location": "L377",
       "weight": 1.0
     },
     {
@@ -9043,7 +9043,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L398",
+      "source_location": "L402",
       "weight": 1.0
     },
     {
@@ -9055,7 +9055,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L416",
+      "source_location": "L420",
       "weight": 1.0
     },
     {
@@ -9067,7 +9067,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L52",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -9079,7 +9079,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L65",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -9091,7 +9091,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L144",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -17210,13 +17210,24 @@
     },
     {
       "source": "tests_feature_pages_pagerenderingtest",
+      "target": "tests_feature_pages_pagerenderingtest_closure_7",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
       "target": "tests_feature_pages_pagerenderingtest_closure_8",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L103",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -17227,7 +17238,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L116",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -17238,7 +17249,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L154",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -17249,7 +17260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L167",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -17260,7 +17271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L185",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -17271,7 +17282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L207",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -17282,7 +17293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L221",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -17293,7 +17304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L234",
+      "source_location": "L238",
       "weight": 1.0
     },
     {
@@ -17304,7 +17315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L267",
+      "source_location": "L271",
       "weight": 1.0
     },
     {
@@ -17315,7 +17326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L286",
+      "source_location": "L290",
       "weight": 1.0
     },
     {
@@ -17326,7 +17337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L302",
+      "source_location": "L306",
       "weight": 1.0
     },
     {
@@ -17337,7 +17348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L314",
+      "source_location": "L318",
       "weight": 1.0
     },
     {
@@ -17348,7 +17359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L334",
+      "source_location": "L338",
       "weight": 1.0
     },
     {
@@ -17359,18 +17370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L353",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_pagerenderingtest",
-      "target": "tests_feature_pages_pagerenderingtest_closure_2",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L37",
+      "source_location": "L357",
       "weight": 1.0
     },
     {
@@ -17381,7 +17381,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L372",
+      "source_location": "L376",
       "weight": 1.0
     },
     {
@@ -17392,7 +17392,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L397",
+      "source_location": "L401",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
+      "target": "tests_feature_pages_pagerenderingtest_closure_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -17403,7 +17414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L415",
+      "source_location": "L419",
       "weight": 1.0
     },
     {
@@ -17414,7 +17425,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L51",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -17425,7 +17436,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L64",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -17436,18 +17447,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L80",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_pagerenderingtest",
-      "target": "tests_feature_pages_pagerenderingtest_closure_6",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L86",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -17463,13 +17463,13 @@
     },
     {
       "source": "tests_feature_pages_pagerenderingtest",
-      "target": "tests_feature_pages_pagerenderingtest_closure_7",
+      "target": "tests_feature_pages_pagerenderingtest_closure_6",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L96",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -19933,5 +19933,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "faec76758958568bc2e10e3531202e7a82ee8ba1"
+  "built_at_commit": "51b04fc8e5aeabf05425825fb2cb43fd6a9ea5d2"
 }

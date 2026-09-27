@@ -42,17 +42,17 @@
             <div class="relative">
                 <div class="absolute -inset-4 rounded-3xl bg-blue-100/70 blur-2xl dark:bg-blue-900/20"></div>
                 <x-ui.card title="Start in Docker" description="The host only needs Docker, Compose, and Make." class="relative">
-                    <div class="overflow-hidden rounded-lg bg-gray-900 shadow-inner dark:bg-gray-950">
-                        <div class="flex items-center gap-2 border-b border-gray-700 px-4 py-3 text-xs text-gray-400">
+                    <div class="overflow-hidden rounded-lg bg-gray-100 shadow-inner dark:bg-gray-950">
+                        <div class="flex items-center gap-2 border-b border-gray-200 px-4 py-3 text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400">
                             <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
                             <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
                             <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
                             <span class="ml-2">terminal</span>
                         </div>
-                        <pre class="overflow-x-auto p-5 text-sm leading-7 text-gray-200"><code><span class="text-blue-400">$</span> git clone your-project
-<span class="text-blue-400">$</span> make install
-<span class="text-blue-400">$</span> make up
-<span class="text-blue-400">$</span> make migrate</code></pre>
+                        <pre class="overflow-x-auto p-5 text-sm leading-7 text-gray-800 dark:text-gray-200"><code><span class="text-blue-600 dark:text-blue-400">$</span> git clone your-project
+<span class="text-blue-600 dark:text-blue-400">$</span> make install
+<span class="text-blue-600 dark:text-blue-400">$</span> make up
+<span class="text-blue-600 dark:text-blue-400">$</span> make migrate</code></pre>
                     </div>
 
                     <div class="mt-5 grid gap-3 sm:grid-cols-2">
