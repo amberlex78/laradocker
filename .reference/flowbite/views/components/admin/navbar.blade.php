@@ -5,7 +5,7 @@
 <nav class="sticky top-0 z-30 border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
     <div class="flex items-center justify-between px-4 py-3 lg:px-6">
         <div class="flex items-center gap-3">
-            <button type="button" @click="sidebarOpen = true" aria-controls="admin-sidebar" class="rounded-base p-2 text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 focus:outline-none md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <button type="button" @click="sidebarOpen = true" aria-controls="admin-sidebar" class="rounded-base p-2 text-gray-500 hover:bg-gray-100 focus:ring-1 focus:ring-gray-200 focus:outline-none md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                 <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5h16M2 10h16M2 15h16"/>
                 </svg>

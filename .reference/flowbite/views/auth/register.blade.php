@@ -43,7 +43,7 @@
             </div>
 
             <label class="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
-                <input type="checkbox" name="terms" class="mt-0.5 h-4 w-4 rounded border-gray-300 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600" required>
+                <input type="checkbox" name="terms" class="mt-0.5 h-4 w-4 rounded border-gray-300 bg-gray-50 text-blue-600 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600" required>
                 <span>I agree to the <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</span>
             </label>
 
