@@ -270,11 +270,24 @@ test('user management actions render named Lucide icons', function (): void {
         ->get(route('admin.users.index'))
         ->assertOk()
         ->assertSee('data-icon="user-plus"', false)
+        ->assertSee('href="'.route('admin.users.show', $target).'"', false)
+        ->assertSee('aria-label="View user"', false)
+        ->assertSee('data-icon="eye"', false)
         ->assertSee('data-icon="file-pen"', false)
         ->assertSee('data-icon="trash"', false)
         ->assertSee('data-icon="shield-check"', false)
         ->assertSee('aria-label="Protected"', false)
         ->assertDontSee('>Protected<', false);
+
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.index'))
+        ->assertOk()
+        ->assertSee('href="'.route('developer.users.show', $developerTarget).'"', false)
+        ->assertSee('aria-label="View user"', false)
+        ->assertSee('data-icon="eye"', false);
 
     $this->actingAs($admin)
         ->get(route('admin.users.edit', $target))

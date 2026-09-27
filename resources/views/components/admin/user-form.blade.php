@@ -81,7 +81,7 @@
         @if ($cancelUrl)
             <x-ui.link-button href="{{ $cancelUrl }}" variant="secondary">
                 <x-icon name="arrow-left" class="h-4 w-4" />
-                Cancel
+                Back to users
             </x-ui.link-button>
         @endif
         <x-ui.button type="submit">

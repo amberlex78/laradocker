@@ -1,9 +1,16 @@
 <x-layouts.admin :title="'User details'">
     <x-admin.page-header title="User details" icon="user-round" description="Review this account's business access.">
-        <x-ui.link-button href="{{ route('admin.users.edit', $user) }}" size="md">
-            <x-icon name="file-pen" class="h-4 w-4" />
-            Edit User
-        </x-ui.link-button>
+        <div class="flex flex-wrap items-center gap-2">
+            <x-ui.link-button href="{{ route('admin.users.index') }}" variant="secondary" size="md">
+                <x-icon name="arrow-left" class="h-4 w-4" />
+                Back to users
+            </x-ui.link-button>
+
+            <x-ui.link-button href="{{ route('admin.users.edit', $user) }}" size="md">
+                <x-icon name="file-pen" class="h-4 w-4" />
+                Edit User
+            </x-ui.link-button>
+        </div>
     </x-admin.page-header>
 
     <div class="mt-6 grid gap-6 xl:grid-cols-2">

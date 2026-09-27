@@ -45,6 +45,7 @@
                         </x-ui.table.cell>
                         <x-ui.table.cell class="text-right">
                             <div class="flex justify-end gap-2">
+                                <a href="{{ route('developer.users.show', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-gray-600 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700" aria-label="View user" title="View user"><x-icon name="eye" class="h-5 w-5" /></a>
                                 <a href="{{ route('developer.users.edit', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-blue-600 hover:bg-blue-50 focus:ring-4 focus:ring-blue-300 dark:text-blue-400 dark:hover:bg-gray-700 dark:focus:ring-blue-800" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
                                 @if ($user->is(auth()->user()))
                                     <span class="inline-flex h-9 w-9 items-center justify-center rounded-base text-gray-400 dark:text-gray-500" role="img" aria-label="Protected" title="Protected"><x-icon name="shield-check" class="h-5 w-5" /></span>

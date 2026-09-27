@@ -18,6 +18,49 @@ test('the public home page renders', function () {
         ->assertSee('data-icon="user-plus"', false);
 });
 
+test('an authenticated admin sees the admin workspace menu on the public home page', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get('/')
+        ->assertOk()
+        ->assertSee('Admin workspace')
+        ->assertSee('href="'.route('admin.dashboard').'"', false)
+        ->assertSee('action="'.route('logout').'"', false)
+        ->assertSee('x-data="{ profileMenuOpen: false }"', false);
+});
+
+test('an authenticated developer sees the developer workspace menu on the public home page', function (): void {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    $this->actingAs($developer)
+        ->get('/')
+        ->assertOk()
+        ->assertSee('Developer workspace')
+        ->assertSee('href="'.route('developer.dashboard').'"', false)
+        ->assertSee('action="'.route('logout').'"', false);
+});
+
+test('an authenticated standard user sees profile and logout without a workspace menu on the public home page', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $this->actingAs($user)
+        ->get('/')
+        ->assertOk()
+        ->assertSee('Profile')
+        ->assertSee('action="'.route('logout').'"', false)
+        ->assertDontSee('Admin workspace')
+        ->assertDontSee('Developer workspace')
+        ->assertDontSee('href="'.route('admin.dashboard').'"', false)
+        ->assertDontSee('href="'.route('developer.dashboard').'"', false);
+});
+
 test('the login page renders the Blade authentication screen', function () {
     $this->get('/login')
         ->assertOk()
@@ -125,12 +168,12 @@ test('a user sees the account profile settings page', function () {
 
 test('authorized account users can return to their workspace from the shared menu', function (): void {
     $workspaces = [
-        UserRole::Admin->value => 'admin.dashboard',
-        UserRole::Operator->value => 'admin.dashboard',
-        UserRole::Developer->value => 'developer.dashboard',
+        UserRole::Admin->value => ['admin.dashboard', 'Admin workspace'],
+        UserRole::Operator->value => ['admin.dashboard', 'Admin workspace'],
+        UserRole::Developer->value => ['developer.dashboard', 'Developer workspace'],
     ];
 
-    foreach ($workspaces as $role => $workspaceRoute) {
+    foreach ($workspaces as $role => [$workspaceRoute, $workspaceLabel]) {
         $user = User::factory()->create([
             'role' => UserRole::from($role),
         ]);
@@ -139,7 +182,7 @@ test('authorized account users can return to their workspace from the shared men
             ->get(route('account'))
             ->assertOk()
             ->assertSee('Profile')
-            ->assertSee('Back to workspace')
+            ->assertSee($workspaceLabel)
             ->assertSee('href="'.route($workspaceRoute).'"', false)
             ->assertSee('x-data="{ profileMenuOpen: false }"', false);
     }
@@ -270,6 +313,25 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->assertSee('divide-y divide-gray-100', false)
         ->assertDontSee('Back to workspace')
         ->assertSee('Open user menu for Ada Lovelace');
+});
+
+test('workspace user menus expose a public site link', function (): void {
+    $workspaces = [
+        [UserRole::Admin, 'admin.dashboard'],
+        [UserRole::Developer, 'developer.dashboard'],
+    ];
+
+    foreach ($workspaces as [$role, $workspaceRoute]) {
+        $user = User::factory()->create([
+            'role' => $role,
+        ]);
+
+        $this->actingAs($user)
+            ->get(route($workspaceRoute))
+            ->assertOk()
+            ->assertSee('Public site')
+            ->assertSee('href="'.route('home').'" role="menuitem"', false);
+    }
 });
 
 test('a developer sees the developer shell and can open the admin shell', function () {

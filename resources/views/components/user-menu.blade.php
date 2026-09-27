@@ -1,7 +1,13 @@
 @php
-    $workspaceRoute = match (auth()->user()->role) {
-        \App\Enums\UserRole::Developer => 'developer.dashboard',
-        \App\Enums\UserRole::Admin, \App\Enums\UserRole::Operator => 'admin.dashboard',
+    $workspace = match (auth()->user()->role) {
+        \App\Enums\UserRole::Developer => [
+            'route' => 'developer.dashboard',
+            'label' => 'Developer workspace',
+        ],
+        \App\Enums\UserRole::Admin, \App\Enums\UserRole::Operator => [
+            'route' => 'admin.dashboard',
+            'label' => 'Admin workspace',
+        ],
         default => null,
     };
 @endphp
@@ -20,11 +26,20 @@
         </div>
 
         <ul class="py-2" aria-labelledby="admin-user-menu-trigger">
-            @if ($workspaceRoute && ! request()->routeIs('admin.*', 'developer.*'))
+            @if (request()->routeIs('admin.*', 'developer.*'))
                 <li>
-                    <a class="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600" href="{{ route($workspaceRoute) }}" role="menuitem">
+                    <a class="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600" href="{{ route('home') }}" role="menuitem">
+                        <x-icon name="arrow-right" class="h-4 w-4" />
+                        Public site
+                    </a>
+                </li>
+            @endif
+
+            @if ($workspace && ! request()->routeIs('admin.*', 'developer.*'))
+                <li>
+                    <a class="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600" href="{{ route($workspace['route']) }}" role="menuitem">
                         <x-icon name="layout-dashboard" class="h-4 w-4" />
-                        Back to workspace
+                        {{ $workspace['label'] }}
                     </a>
                 </li>
             @endif

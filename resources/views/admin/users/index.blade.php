@@ -49,6 +49,7 @@
                         </x-ui.table.cell>
                         <x-ui.table.cell class="text-right">
                             <div class="flex justify-end gap-2">
+                                <a href="{{ route('admin.users.show', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-gray-600 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700" aria-label="View user" title="View user"><x-icon name="eye" class="h-5 w-5" /></a>
                                 <a href="{{ route('admin.users.edit', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-blue-600 hover:bg-blue-50 focus:ring-4 focus:ring-blue-300 dark:text-blue-400 dark:hover:bg-gray-700 dark:focus:ring-blue-800" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
                                 @if ($user->role !== \App\Enums\UserRole::Admin)
                                     <button type="button" @click="$dispatch('open-modal', 'delete-user-{{ $user->id }}')" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-red-600 hover:bg-red-50 focus:ring-4 focus:ring-red-300 dark:text-red-400 dark:hover:bg-gray-700 dark:focus:ring-red-900" aria-label="Delete user" title="Delete user"><x-icon name="trash" class="h-5 w-5" /></button>
