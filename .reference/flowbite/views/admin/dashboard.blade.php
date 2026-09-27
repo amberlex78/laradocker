@@ -32,24 +32,22 @@
     <div class="mt-6 grid gap-6 xl:grid-cols-3">
         <x-ui.card title="Recent activity" description="A flexible content area for future dashboard widgets" class="xl:col-span-2">
             <x-ui.table>
-                <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">Activity</th>
-                        <th scope="col" class="px-6 py-3">Status</th>
-                        <th scope="col" class="px-6 py-3">Time</th>
-                    </tr>
-                </thead>
+                <x-ui.table.head>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Activity</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Status</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Time</x-ui.table.cell>
+                </x-ui.table.head>
                 <tbody>
-                    <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">New workspace created</th>
-                        <td class="px-6 py-4"><x-ui.badge variant="green">Completed</x-ui.badge></td>
-                        <td class="px-6 py-4">5 min ago</td>
-                    </tr>
-                    <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">User invited to team</th>
-                        <td class="px-6 py-4"><x-ui.badge variant="blue">Pending</x-ui.badge></td>
-                        <td class="px-6 py-4">18 min ago</td>
-                    </tr>
+                    <x-ui.table.row>
+                        <x-ui.table.cell as="th" scope="row">New workspace created</x-ui.table.cell>
+                        <x-ui.table.cell><x-ui.badge variant="green">Completed</x-ui.badge></x-ui.table.cell>
+                        <x-ui.table.cell>5 min ago</x-ui.table.cell>
+                    </x-ui.table.row>
+                    <x-ui.table.row>
+                        <x-ui.table.cell as="th" scope="row">User invited to team</x-ui.table.cell>
+                        <x-ui.table.cell><x-ui.badge variant="blue">Pending</x-ui.badge></x-ui.table.cell>
+                        <x-ui.table.cell>18 min ago</x-ui.table.cell>
+                    </x-ui.table.row>
                 </tbody>
             </x-ui.table>
         </x-ui.card>

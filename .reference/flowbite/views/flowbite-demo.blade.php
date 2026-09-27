@@ -144,38 +144,77 @@
                 </x-ui.card>
             </section>
 
-            <section x-ref="table" aria-label="Table component">
-                <x-ui.card title="Table" description="Table-компонент відповідає за зовнішню оболонку, а рядки залишаються гнучкими." data-component="table">
-                    <x-ui.table>
-                        <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">Project</th>
-                                <th scope="col" class="px-6 py-3">Status</th>
-                                <th scope="col" class="px-6 py-3">Members</th>
-                                <th scope="col" class="px-6 py-3">Updated</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                                <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">Flowbite integration</th>
-                                <td class="px-6 py-4"><x-ui.badge variant="green">Active</x-ui.badge></td>
-                                <td class="px-6 py-4">8</td>
-                                <td class="px-6 py-4">Today</td>
-                            </tr>
-                            <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                                <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">Design system</th>
-                                <td class="px-6 py-4"><x-ui.badge variant="blue">In review</x-ui.badge></td>
-                                <td class="px-6 py-4">4</td>
-                                <td class="px-6 py-4">Yesterday</td>
-                            </tr>
-                            <tr class="bg-white dark:bg-gray-800">
-                                <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">Marketing site</th>
-                                <td class="px-6 py-4"><x-ui.badge variant="yellow">Pending</x-ui.badge></td>
-                                <td class="px-6 py-4">3</td>
-                                <td class="px-6 py-4">2 days ago</td>
-                            </tr>
-                        </tbody>
-                    </x-ui.table>
+            <section x-ref="table" aria-label="Table components">
+                <x-ui.card title="Table components" description="Варіанти Flowbite складаються з однієї reusable таблиці та дочірніх head, row і cell-компонентів." data-component="table">
+                    <div class="grid gap-6 xl:grid-cols-2">
+                        <div class="space-y-3">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Default table</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Responsive table with a caption and semantic cells.</p>
+                            </div>
+
+                            <x-ui.table caption="Projects in the current workspace">
+                                <x-ui.table.head>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Project</x-ui.table.cell>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Status</x-ui.table.cell>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Members</x-ui.table.cell>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Updated</x-ui.table.cell>
+                                </x-ui.table.head>
+                                <tbody>
+                                    <x-ui.table.row>
+                                        <x-ui.table.cell as="th" scope="row">Flowbite integration</x-ui.table.cell>
+                                        <x-ui.table.cell><x-ui.badge variant="green">Active</x-ui.badge></x-ui.table.cell>
+                                        <x-ui.table.cell>8</x-ui.table.cell>
+                                        <x-ui.table.cell>Today</x-ui.table.cell>
+                                    </x-ui.table.row>
+                                    <x-ui.table.row>
+                                        <x-ui.table.cell as="th" scope="row">Design system</x-ui.table.cell>
+                                        <x-ui.table.cell><x-ui.badge variant="blue">In review</x-ui.badge></x-ui.table.cell>
+                                        <x-ui.table.cell>4</x-ui.table.cell>
+                                        <x-ui.table.cell>Yesterday</x-ui.table.cell>
+                                    </x-ui.table.row>
+                                    <x-ui.table.row>
+                                        <x-ui.table.cell as="th" scope="row">Marketing site</x-ui.table.cell>
+                                        <x-ui.table.cell><x-ui.badge variant="yellow">Pending</x-ui.badge></x-ui.table.cell>
+                                        <x-ui.table.cell>3</x-ui.table.cell>
+                                        <x-ui.table.cell>2 days ago</x-ui.table.cell>
+                                    </x-ui.table.row>
+                                </tbody>
+                            </x-ui.table>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Striped and hoverable</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">A borderless variant for denser data presentations.</p>
+                            </div>
+
+                            <x-ui.table variant="borderless" :striped="true" :hoverable="true">
+                                <x-ui.table.head>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Team</x-ui.table.cell>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Members</x-ui.table.cell>
+                                    <x-ui.table.cell as="th" variant="header" scope="col">Status</x-ui.table.cell>
+                                </x-ui.table.head>
+                                <tbody>
+                                    <x-ui.table.row>
+                                        <x-ui.table.cell as="th" scope="row">Design</x-ui.table.cell>
+                                        <x-ui.table.cell>12</x-ui.table.cell>
+                                        <x-ui.table.cell><x-ui.badge variant="green">Active</x-ui.badge></x-ui.table.cell>
+                                    </x-ui.table.row>
+                                    <x-ui.table.row>
+                                        <x-ui.table.cell as="th" scope="row">Engineering</x-ui.table.cell>
+                                        <x-ui.table.cell>24</x-ui.table.cell>
+                                        <x-ui.table.cell><x-ui.badge variant="blue">Review</x-ui.badge></x-ui.table.cell>
+                                    </x-ui.table.row>
+                                    <x-ui.table.row>
+                                        <x-ui.table.cell as="th" scope="row">Marketing</x-ui.table.cell>
+                                        <x-ui.table.cell>7</x-ui.table.cell>
+                                        <x-ui.table.cell><x-ui.badge variant="yellow">Pending</x-ui.badge></x-ui.table.cell>
+                                    </x-ui.table.row>
+                                </tbody>
+                            </x-ui.table>
+                        </div>
+                    </div>
                 </x-ui.card>
             </section>
         </main>
