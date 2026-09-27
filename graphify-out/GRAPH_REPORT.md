@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-09-27)
 
 ## Corpus Check
-- 185 files · ~39,785 words
+- 185 files · ~39,900 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 691 nodes · 1019 edges · 144 communities (31 shown, 113 thin omitted)
+- 692 nodes · 1020 edges · 144 communities (31 shown, 113 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 39 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `40276739`
+- Built from commit: `8c0abb75`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -87,16 +87,16 @@
 ## Communities (144 total, 113 thin omitted)
 
 ### Community 0 - "UserRole"
-Cohesion: 0.06
+Cohesion: 0.07
 Nodes (42): UserRole, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, Illuminate\Routing\Route, {closure#1}(), {closure#10}(), {closure#12}(), {closure#13}() (+34 more)
 
 ### Community 1 - "FortifyServiceProvider.php"
-Cohesion: 0.06
-Nodes (30): ResolveUserLandingRoute, {closure#1}(), EnsureUserHasRole, LoginResponse, AppServiceProvider, {closure#1}(), {closure#2}(), {closure#3}() (+22 more)
+Cohesion: 0.07
+Nodes (26): ResolveUserLandingRoute, {closure#1}(), EnsureUserHasRole, LoginResponse, AppServiceProvider, {closure#4}(), {closure#6}(), {closure#7}() (+18 more)
 
 ### Community 2 - ".view"
-Cohesion: 0.10
-Nodes (11): CreateUser, DeleteUser, UpdateUser, UserController, Controller, UserController, Illuminate\Http\RedirectResponse, Illuminate\Support\Facades\Gate (+3 more)
+Cohesion: 0.08
+Nodes (16): CreateUser, DeleteUser, UpdateUser, UserController, Controller, UserController, StoreUserRequest, {closure#1}() (+8 more)
 
 ### Community 3 - "Розгортання на VPS"
 Cohesion: 0.05
@@ -127,8 +127,8 @@ Cohesion: 0.10
 Nodes (14): {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}() (+6 more)
 
 ### Community 10 - "Illuminate\Foundation\Http\FormRequest"
-Cohesion: 0.16
-Nodes (7): StoreUserRequest, UpdateUserRequest, StoreUserRequest, UpdateUserRequest, Illuminate\Foundation\Http\FormRequest, Illuminate\Validation\Rule, Illuminate\Validation\Rules\Password
+Cohesion: 0.19
+Nodes (6): UpdateUserRequest, StoreUserRequest, UpdateUserRequest, Illuminate\Foundation\Http\FormRequest, Illuminate\Validation\Rule, Illuminate\Validation\Rules\Password
 
 ### Community 11 - "UserPolicy"
 Cohesion: 0.16
@@ -219,7 +219,7 @@ Nodes (3): extra, laravel, dont-discover
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `UserRole`, `FortifyServiceProvider.php`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ApplicationActionsTest.php`, `AuthenticationFlowTest.php`, `ProfilePageTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
-  _High betweenness centrality (0.176) - this node is a cross-community bridge._
+  _High betweenness centrality (0.175) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `FortifyServiceProvider.php`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ApplicationActionsTest.php`, `AuthenticationFlowTest.php`, `User.php`, `Authentication, Admin, and Developer Areas`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `UserRole`, `User`?**
@@ -231,4 +231,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `php`, `savedTheme`, `$schema` to the rest of the system?**
   _136 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `UserRole` be split into smaller, more focused modules?**
-  _Cohesion score 0.061952861952861954 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06531204644412192 - nodes in this community are weakly interconnected._

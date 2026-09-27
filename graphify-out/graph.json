@@ -82,19 +82,6 @@
       "source_location": "L19"
     },
     {
-      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest",
-      "label": "StoreUserRequest",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "storeuserrequest",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L11"
-    },
-    {
       "id": "app_http_requests_admin_updateuserrequest_updateuserrequest",
       "label": "UpdateUserRequest",
       "_callable": true,
@@ -236,6 +223,19 @@
       "norm_label": "usercontroller",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
       "source_location": "L17"
+    },
+    {
+      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest",
+      "label": "StoreUserRequest",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "storeuserrequest",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L11"
     },
     {
       "id": "app_actions_auth_registeruser_registeruser",
@@ -994,42 +994,6 @@
       "source_location": "L12"
     },
     {
-      "id": "app_providers_fortifyserviceprovider_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L34"
-    },
-    {
-      "id": "app_providers_fortifyserviceprovider_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L35"
-    },
-    {
-      "id": "app_providers_fortifyserviceprovider_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L36"
-    },
-    {
       "id": "app_providers_fortifyserviceprovider_closure_4",
       "label": "{closure#4}()",
       "_callable": true,
@@ -1040,18 +1004,6 @@
       "norm_label": "{closure#4}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L37"
-    },
-    {
-      "id": "app_providers_fortifyserviceprovider_closure_5",
-      "label": "{closure#5}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "{closure#5}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L40"
     },
     {
       "id": "app_providers_fortifyserviceprovider_closure_6",
@@ -1148,30 +1100,6 @@
       "norm_label": "{closure#3}()",
       "source_file": "bootstrap/app.php",
       "source_location": "L23"
-    },
-    {
-      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_authorize",
-      "label": ".authorize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".authorize()",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_rules",
-      "label": ".rules()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".rules()",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L18"
     },
     {
       "id": "app_http_requests_admin_updateuserrequest_updateuserrequest_authorize",
@@ -1714,6 +1642,30 @@
       "source_location": "L75"
     },
     {
+      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_authorize",
+      "label": ".authorize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".authorize()",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_rules",
+      "label": ".rules()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".rules()",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L18"
+    },
+    {
       "id": "app_policies_userpolicy_userpolicy_view",
       "label": ".view()",
       "_callable": true,
@@ -1724,6 +1676,54 @@
       "norm_label": ".view()",
       "source_file": "app/Policies/UserPolicy.php",
       "source_location": "L15"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L34"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L35"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L36"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_5",
+      "label": "{closure#5}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "{closure#5}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L40"
     },
     {
       "id": "routes_web_closure_1",
@@ -2384,6 +2384,18 @@
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/UiInputComponentTest.php",
       "source_location": "L3"
+    },
+    {
+      "id": "tests_feature_uiinputcomponenttest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 43,
+      "community_name": "UiInputComponentTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/UiInputComponentTest.php",
+      "source_location": "L15"
     },
     {
       "id": "tests_unit_exampletest_closure_1",
@@ -3188,28 +3200,6 @@
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
       "source_location": "L126"
-    },
-    {
-      "id": "app_actions_usermanagement_createuser",
-      "label": "CreateUser.php",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "UserRole",
-      "file_type": "code",
-      "norm_label": "createuser.php",
-      "source_file": "app/Actions/UserManagement/CreateUser.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_actions_usermanagement_updateuser",
-      "label": "UpdateUser.php",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "UserRole",
-      "file_type": "code",
-      "norm_label": "updateuser.php",
-      "source_file": "app/Actions/UserManagement/UpdateUser.php",
-      "source_location": "L1"
     },
     {
       "id": "app_enums_userrole",
@@ -5173,6 +5163,17 @@
       "source_location": "L54"
     },
     {
+      "id": "app_actions_usermanagement_createuser",
+      "label": "CreateUser.php",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "createuser.php",
+      "source_file": "app/Actions/UserManagement/CreateUser.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_actions_usermanagement_deleteuser",
       "label": "DeleteUser.php",
       "_origin": "ast",
@@ -5181,6 +5182,17 @@
       "file_type": "code",
       "norm_label": "deleteuser.php",
       "source_file": "app/Actions/UserManagement/DeleteUser.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_actions_usermanagement_updateuser",
+      "label": "UpdateUser.php",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "updateuser.php",
+      "source_file": "app/Actions/UserManagement/UpdateUser.php",
       "source_location": "L1"
     },
     {
@@ -17564,6 +17576,17 @@
     },
     {
       "source": "tests_feature_uiinputcomponenttest",
+      "target": "tests_feature_uiinputcomponenttest_closure_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/UiInputComponentTest.php",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_uiinputcomponenttest",
       "target": "tests_feature_uiinputcomponenttest_closure_1",
       "relation": "contains",
       "_origin": "ast",
@@ -19770,5 +19793,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "40276739767b1e79abbb89531e739b8c70efd1e6"
+  "built_at_commit": "8c0abb753ba8df2ccb5da1f5d1b10d3b6396e116"
 }
