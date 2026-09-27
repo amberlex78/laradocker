@@ -10,11 +10,10 @@
 
 @php
     $selectedRole = old('role', $user?->role?->value ?? \App\Enums\UserRole::User->value);
-    $inputClasses = 'w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500';
     $labelClasses = 'text-sm font-medium text-slate-700 dark:text-slate-300';
 @endphp
 
-<form method="POST" action="{{ $action }}" class="grid gap-6" novalidate x-data="formValidation" @submit.prevent="submit">
+<form method="POST" action="{{ $action }}" class="grid gap-6">
     @csrf
 
     @if ($method !== 'POST')
@@ -28,32 +27,33 @@
     @endif
 
     <div class="grid gap-5 sm:grid-cols-2">
-        <x-auth.field
+        <x-ui.input
             name="name"
             label="Full name"
-            :value="$user?->name"
+            :value="old('name', $user?->name)"
             required
             autofocus
         />
 
-        <x-auth.field
+        <x-ui.input
             name="email"
             label="Email address"
             type="email"
-            :value="$user?->email"
+            :value="old('email', $user?->email)"
             required
         />
 
-        <x-auth.password-field
+        <x-ui.input
             name="password"
             label="Password"
+            type="password"
             :required="$user === null"
         />
 
-        <x-auth.password-field
+        <x-ui.input
             name="password_confirmation"
             label="Confirm password"
-            data-validation-confirm="password"
+            type="password"
             :required="$user === null"
         />
 
@@ -65,7 +65,7 @@
             @endif
 
             <div class="relative z-20 bg-transparent">
-                <select id="role" name="role" class="{{ $inputClasses }} appearance-none bg-none pr-11" @disabled(! $roleEditable) required>
+                <select id="role" name="role" class="block w-full appearance-none rounded-base border border-gray-300 bg-gray-50 p-2.5 pr-11 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400" @disabled(! $roleEditable) required>
                     @foreach ($availableRoles as $role)
                         <option value="{{ $role->value }}" @selected($selectedRole === $role->value)>{{ str($role->value)->headline() }}</option>
                     @endforeach

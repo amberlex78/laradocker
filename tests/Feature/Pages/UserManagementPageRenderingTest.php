@@ -135,7 +135,7 @@ test('admin create and edit forms expose business roles and delete controls', fu
         ->assertSee('value="DELETE"', false);
 });
 
-test('user management forms use the shared client-side validation flow', function (): void {
+test('user management forms use standard Flowbite inputs and server-side validation', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $developer = User::factory()->create(['role' => UserRole::Developer]);
     $adminTarget = User::factory()->create(['role' => UserRole::User]);
@@ -152,9 +152,12 @@ test('user management forms use the shared client-side validation flow', functio
         $this->actingAs($user)
             ->get($path)
             ->assertOk()
-            ->assertSee('novalidate', false)
-            ->assertSee('x-data="formValidation"', false)
-            ->assertSee('data-validation-field="true"', false);
+            ->assertSee('focus:ring-blue-500', false)
+            ->assertSee('focus:border-blue-500', false)
+            ->assertDontSee('novalidate', false)
+            ->assertDontSee('formValidation', false)
+            ->assertDontSee('data-validation-field', false)
+            ->assertDontSee('data-validation-confirm', false);
     }
 });
 

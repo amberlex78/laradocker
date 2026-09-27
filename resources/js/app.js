@@ -3,94 +3,26 @@ import { initFlowbite } from 'flowbite';
 
 window.Alpine = Alpine;
 
-Alpine.data('formValidation', () => ({
-    submit() {
-        const fields = [...this.$el.querySelectorAll('[data-validation-field="true"]')];
-        let firstInvalidField = null;
+const savedTheme = localStorage.getItem('color-theme') ?? localStorage.getItem('theme');
+const defaultTheme = document.documentElement.dataset.defaultTheme ?? 'light';
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = savedTheme ?? (defaultTheme === 'dark' || systemPrefersDark ? 'dark' : 'light');
 
-        fields.forEach((field) => this.setFieldError(field, ''));
+Alpine.store('theme', {
+    dark: initialTheme === 'dark',
 
-        for (const field of fields) {
-            const message = this.messageFor(field);
-
-            if (!message) {
-                continue;
-            }
-
-            this.setFieldError(field, message);
-            firstInvalidField ??= field;
-        }
-
-        if (firstInvalidField) {
-            firstInvalidField.focus();
-
-            return;
-        }
-
-        HTMLFormElement.prototype.submit.call(this.$el);
+    toggle() {
+        this.dark = ! this.dark;
+        this.apply();
     },
 
-    setFieldError(field, message) {
-        const error = document.getElementById(`${field.id}-error`);
-
-        field.dataset.invalid = message ? 'true' : 'false';
-        field.setAttribute('aria-invalid', message ? 'true' : 'false');
-
-        if (message) {
-            field.setAttribute('aria-describedby', `${field.id}-error`);
-        } else {
-            field.removeAttribute('aria-describedby');
-        }
-
-        if (error) {
-            error.hidden = !message;
-            error.textContent = message;
-        }
+    apply() {
+        document.documentElement.classList.toggle('dark', this.dark);
+        localStorage.setItem('color-theme', this.dark ? 'dark' : 'light');
+        localStorage.setItem('theme', this.dark ? 'dark' : 'light');
     },
-
-    messageFor(field) {
-        const validity = field.validity;
-        const isEmpty = field.type === 'password'
-            ? field.value === ''
-            : field.value.trim() === '';
-
-        if (field.required && isEmpty) {
-            return 'This field is required.';
-        }
-
-        if (validity.typeMismatch) {
-            return 'Please enter a valid email address.';
-        }
-
-        if (validity.tooShort) {
-            return `Please enter at least ${field.minLength} characters.`;
-        }
-
-        if (validity.tooLong) {
-            return `Please enter no more than ${field.maxLength} characters.`;
-        }
-
-        if (validity.patternMismatch) {
-            return 'Please use the requested format.';
-        }
-
-        if (validity.badInput) {
-            return 'Please enter a valid value.';
-        }
-
-        const confirmationTarget = field.dataset.validationConfirm;
-
-        if (confirmationTarget) {
-            const password = this.$el.elements.namedItem(confirmationTarget);
-
-            if (password && field.value !== password.value) {
-                return 'Passwords do not match.';
-            }
-        }
-
-        return '';
-    },
-}));
+});
 
 Alpine.start();
+Alpine.store('theme').apply();
 initFlowbite();

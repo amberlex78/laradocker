@@ -15,10 +15,10 @@
         </x-auth.alert>
     @endif
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('password.email') }}" novalidate x-data="formValidation" @submit.prevent="submit">
+    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <x-auth.field name="email" label="Email" type="email" autocomplete="email" placeholder="you@example.com" required autofocus />
+        <x-ui.input name="email" label="Email" type="email" :value="old('email')" autocomplete="email" placeholder="you@example.com" required autofocus />
 
         <button class="inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
             <x-icon name="send" class="h-4 w-4" />

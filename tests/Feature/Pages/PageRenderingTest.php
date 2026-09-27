@@ -9,11 +9,13 @@ uses(RefreshDatabase::class);
 test('the public home page renders', function () {
     $this->get('/')
         ->assertOk()
-        ->assertSee('Welcome')
+        ->assertSee('Everything your team needs to move forward.')
+        ->assertSee('A simpler way to work')
         ->assertSee('Toggle theme')
-        ->assertSee('darkMode')
-        ->assertSee("localStorage.setItem('theme'", false)
-        ->assertSee('dark:bg-slate-950', false);
+        ->assertSee('data-theme-init', false)
+        ->assertSee("localStorage.getItem('color-theme'", false)
+        ->assertSee('dark:bg-gray-900', false)
+        ->assertSee('data-icon="user-plus"', false);
 });
 
 test('the login page renders the Blade authentication screen', function () {
@@ -35,8 +37,7 @@ test('authentication pages render named Lucide icons through the shared componen
         ->assertOk()
         ->assertSee('data-icon="sun"', false)
         ->assertSee('data-icon="moon"', false)
-        ->assertSee('data-icon="eye"', false)
-        ->assertSee('data-icon="eye-off"', false);
+        ->assertSee('data-icon="log-in"', false);
 });
 
 test('authentication forms only expose supported application fields', function () {
@@ -90,13 +91,16 @@ test('authentication views preserve the Fortify form contracts', function () {
         ->assertSee($user->email);
 });
 
-test('authentication forms use the shared client-side validation flow', function (): void {
+test('authentication forms use standard Flowbite inputs and server-side validation', function (): void {
     foreach (['/login', '/register', '/forgot-password', '/reset-password/test-token?email=user%40example.com'] as $path) {
         $this->get($path)
             ->assertOk()
-            ->assertSee('novalidate', false)
-            ->assertSee('x-data="formValidation"', false)
-            ->assertSee('data-validation-field="true"', false);
+            ->assertSee('focus:ring-blue-500', false)
+            ->assertSee('focus:border-blue-500', false)
+            ->assertDontSee('novalidate', false)
+            ->assertDontSee('formValidation', false)
+            ->assertDontSee('data-validation-field', false)
+            ->assertDontSee('data-validation-confirm', false);
     }
 });
 
@@ -111,8 +115,11 @@ test('a user sees the account profile settings page', function () {
         ->assertSee('Profile information')
         ->assertSee('Update password')
         ->assertSee('Toggle theme')
-        ->assertSee('darkMode')
-        ->assertSee("localStorage.setItem('theme'", false);
+        ->assertSee('data-theme-init', false)
+        ->assertSee("localStorage.getItem('color-theme'", false)
+        ->assertSee('flex flex-col gap-6', false)
+        ->assertSee('id="profile-information"', false)
+        ->assertSee('id="update-password"', false);
 });
 
 test('authorized account users can return to their workspace from the shared menu', function (): void {

@@ -15,13 +15,13 @@
         </x-auth.alert>
     @endif
 
-    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('register') }}" novalidate x-data="formValidation" @submit.prevent="submit">
+    <form class="mt-8 flex flex-col gap-5" method="POST" action="{{ route('register') }}">
         @csrf
 
-        <x-auth.field name="name" label="Name" autocomplete="name" placeholder="Your name" required autofocus />
-        <x-auth.field name="email" label="Email" type="email" autocomplete="email" placeholder="you@example.com" required />
-        <x-auth.password-field name="password" label="Password" autocomplete="new-password" placeholder="Create a password" required />
-        <x-auth.password-field name="password_confirmation" label="Confirm password" autocomplete="new-password" placeholder="Repeat your password" data-validation-confirm="password" required />
+        <x-ui.input name="name" label="Name" :value="old('name')" autocomplete="name" placeholder="Your name" required autofocus />
+        <x-ui.input name="email" label="Email" type="email" :value="old('email')" autocomplete="email" placeholder="you@example.com" required />
+        <x-ui.input name="password" label="Password" type="password" autocomplete="new-password" placeholder="Create a password" required />
+        <x-ui.input name="password_confirmation" label="Confirm password" type="password" autocomplete="new-password" placeholder="Repeat your password" required />
 
         <button class="mt-1 inline-flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20" type="submit">
             <x-icon name="user-plus" class="h-4 w-4" />

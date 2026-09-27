@@ -33,6 +33,8 @@ test('an authenticated user sees profile and password forms on the account page'
         ->assertOk()
         ->assertSee('Profile information')
         ->assertSee('Update your profile information and email address.')
+        ->assertSee('id="profile-information"', false)
+        ->assertSee('id="update-password"', false)
         ->assertSee('action="'.route('user-profile-information.update').'"', false)
         ->assertSee('action="'.route('user-password.update').'"', false)
         ->assertSee('name="current_password"', false)
@@ -40,20 +42,41 @@ test('an authenticated user sees profile and password forms on the account page'
         ->assertSee('value="ada@example.com"', false);
 });
 
-test('account forms use the styled client-side validation flow', function (): void {
+test('account forms use standard Flowbite fields and server-side submission', function (): void {
     $user = User::factory()->create();
 
     $this->actingAs($user)
         ->get(route('account'))
         ->assertOk()
         ->assertSee('<form', false)
-        ->assertSee('novalidate', false)
-        ->assertSee('x-data="formValidation"', false)
-        ->assertSee('data-validation-field', false)
-        ->assertSee('data-validation-confirm="password"', false)
-        ->assertSee('data-[invalid=true]:border-red-300', false)
-        ->assertDontSee('data-client-validate="true"', false)
-        ->assertDontSee('form-validation-error', false);
+        ->assertSee('type="email"', false)
+        ->assertSee('type="password"', false)
+        ->assertSee('focus:ring-blue-500', false)
+        ->assertSee('focus:border-blue-500', false)
+        ->assertDontSee('novalidate', false)
+        ->assertDontSee('formValidation', false)
+        ->assertDontSee('data-validation-field', false)
+        ->assertDontSee('data-validation-confirm', false)
+        ->assertDontSee('x-auth.field', false)
+        ->assertDontSee('x-auth.password-field', false);
+});
+
+test('profile validation errors are shown in the account alert', function (): void {
+    $user = User::factory()->create();
+
+    $this->from(route('account'))
+        ->actingAs($user)
+        ->put('/user/profile-information', [
+            '_token' => csrf_token(),
+            'name' => '',
+            'email' => 'not-an-email',
+        ])
+        ->assertRedirect(route('account'));
+
+    $this->get(route('account'))
+        ->assertSee('We could not update your profile information.', false)
+        ->assertSee('The name field is required.', false)
+        ->assertSee('The email field must be a valid email address.', false);
 });
 
 test('a user can update profile information through the account page', function (): void {
@@ -87,6 +110,7 @@ test('a password update rejects an incorrect current password', function (): voi
 
     $response = $this->from(route('account'))
         ->actingAs($user)
+        ->followingRedirects()
         ->put('/user/password', [
             '_token' => csrf_token(),
             'current_password' => 'wrong-password',
@@ -95,8 +119,9 @@ test('a password update rejects an incorrect current password', function (): voi
         ]);
 
     $response
-        ->assertRedirect(route('account'))
-        ->assertSessionHasErrorsIn('updatePassword', ['current_password']);
+        ->assertOk()
+        ->assertSee('We could not update your password.', false)
+        ->assertSee('The provided password does not match your current password.', false);
 
     expect($user->fresh()->password)->toBe($originalPasswordHash);
 });

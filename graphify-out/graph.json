@@ -30,6 +30,45 @@
       "source_location": "L7"
     },
     {
+      "id": "database_factories_userfactory_userfactory",
+      "label": "UserFactory",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "userfactory",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "database_seeders_databaseseeder_databaseseeder",
+      "label": "DatabaseSeeder",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "databaseseeder",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "database_seeders_userseeder_userseeder",
+      "label": "UserSeeder",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "userseeder",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L11"
+    },
+    {
       "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
       "label": "ResolveUserLandingRoute",
       "_callable": true,
@@ -186,42 +225,55 @@
       "source_location": "L17"
     },
     {
-      "id": "database_factories_userfactory_userfactory",
-      "label": "UserFactory",
+      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest",
+      "label": "StoreUserRequest",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
+      "community": 23,
+      "community_name": ".view",
       "file_type": "code",
-      "norm_label": "userfactory",
-      "source_file": "database/factories/UserFactory.php",
-      "source_location": "L14"
+      "norm_label": "storeuserrequest",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L11"
     },
     {
-      "id": "database_seeders_databaseseeder_databaseseeder",
-      "label": "DatabaseSeeder",
+      "id": "app_http_requests_admin_updateuserrequest_updateuserrequest",
+      "label": "UpdateUserRequest",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
+      "community": 23,
+      "community_name": ".view",
       "file_type": "code",
-      "norm_label": "databaseseeder",
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L8"
+      "norm_label": "updateuserrequest",
+      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
+      "source_location": "L11"
     },
     {
-      "id": "database_seeders_userseeder_userseeder",
-      "label": "UserSeeder",
+      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest",
+      "label": "StoreUserRequest",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
+      "community": 23,
+      "community_name": ".view",
       "file_type": "code",
-      "norm_label": "userseeder",
-      "source_file": "database/seeders/UserSeeder.php",
+      "norm_label": "storeuserrequest",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_http_requests_developer_updateuserrequest_updateuserrequest",
+      "label": "UpdateUserRequest",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "updateuserrequest",
+      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
       "source_location": "L11"
     },
     {
@@ -342,92 +394,52 @@
       "source_location": "L5"
     },
     {
-      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest",
-      "label": "StoreUserRequest",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "storeuserrequest",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_http_requests_admin_updateuserrequest_updateuserrequest",
-      "label": "UpdateUserRequest",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "updateuserrequest",
-      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest",
-      "label": "StoreUserRequest",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "storeuserrequest",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_http_requests_developer_updateuserrequest_updateuserrequest",
-      "label": "UpdateUserRequest",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "updateuserrequest",
-      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "resources_js_app_messagefor",
-      "label": "messageFor()",
+      "id": "reference_flowbite_js_app_apply",
+      "label": "apply()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "messagefor()",
-      "source_file": "resources/js/app.js",
-      "source_location": "L51"
+      "norm_label": "apply()",
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L18"
     },
     {
-      "id": "resources_js_app_setfielderror",
-      "label": "setFieldError()",
+      "id": "reference_flowbite_js_app_toggle",
+      "label": "toggle()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "setfielderror()",
-      "source_file": "resources/js/app.js",
-      "source_location": "L33"
+      "norm_label": "toggle()",
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L13"
     },
     {
-      "id": "resources_js_app_submit",
-      "label": "submit()",
+      "id": "resources_js_app_apply",
+      "label": "apply()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "submit()",
+      "norm_label": "apply()",
       "source_file": "resources/js/app.js",
-      "source_location": "L7"
+      "source_location": "L19"
+    },
+    {
+      "id": "resources_js_app_toggle",
+      "label": "toggle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "toggle()",
+      "source_file": "resources/js/app.js",
+      "source_location": "L14"
     },
     {
       "id": "reference_tailadmin_src_js_i18n_applyhtmllanguageattributes",
@@ -478,6 +490,90 @@
       "source_location": "L27"
     },
     {
+      "id": "tests_feature_authentication_roleaccesstest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L9"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L16"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L22"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest_closure_4",
+      "label": "{closure#4}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#4}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L28"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest_closure_5",
+      "label": "{closure#5}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#5}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L38"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest_closure_6",
+      "label": "{closure#6}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#6}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L47"
+    },
+    {
+      "id": "tests_feature_authentication_roleaccesstest_closure_7",
+      "label": "{closure#7}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#7}()",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L56"
+    },
+    {
       "id": "tests_feature_database_seeders_userseedertest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -523,7 +619,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L173"
+      "source_location": "L176"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_11",
@@ -535,7 +631,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L186"
+      "source_location": "L189"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_2",
@@ -631,199 +727,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L161"
-    },
-    {
-      "id": "tests_feature_authentication_applicationactionstest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
-      "source_location": "L16"
-    },
-    {
-      "id": "tests_feature_authentication_applicationactionstest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
-      "source_location": "L28"
-    },
-    {
-      "id": "tests_feature_authentication_applicationactionstest_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
-      "source_location": "L48"
-    },
-    {
-      "id": "tests_feature_authentication_applicationactionstest_closure_4",
-      "label": "{closure#4}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#4}()",
-      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
-      "source_location": "L57"
-    },
-    {
-      "id": "tests_feature_authentication_fortifyactionstest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
-      "source_location": "L14"
-    },
-    {
-      "id": "tests_feature_authentication_fortifyactionstest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
-      "source_location": "L34"
-    },
-    {
-      "id": "tests_feature_authentication_fortifyactionstest_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
-      "source_location": "L47"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L16"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L24"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_4",
-      "label": "{closure#4}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#4}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L43"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_5",
-      "label": "{closure#5}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#5}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L59"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_6",
-      "label": "{closure#6}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#6}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L84"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest_closure_7",
-      "label": "{closure#7}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#7}()",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L104"
-    },
-    {
-      "id": "tests_pest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L32"
-    },
-    {
-      "id": "tests_pest_something",
-      "label": "something()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "something()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L47"
+      "source_location": "L164"
     },
     {
       "id": "tests_feature_uibuttoncomponenttest_closure_1",
@@ -862,88 +766,64 @@
       "source_location": "L25"
     },
     {
-      "id": "tests_feature_authentication_roleaccesstest_closure_1",
+      "id": "database_factories_userfactory_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
       "community": 110,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "User.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L9"
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L43"
     },
     {
-      "id": "tests_feature_authentication_roleaccesstest_closure_2",
-      "label": "{closure#2}()",
+      "id": "database_factories_userfactory_userfactory_definition",
+      "label": ".definition()",
       "_callable": true,
       "_origin": "ast",
       "community": 110,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "User.php",
       "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L16"
+      "norm_label": ".definition()",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L26"
     },
     {
-      "id": "tests_feature_authentication_roleaccesstest_closure_3",
-      "label": "{closure#3}()",
+      "id": "database_factories_userfactory_userfactory_unverified",
+      "label": ".unverified()",
       "_callable": true,
       "_origin": "ast",
       "community": 110,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "User.php",
       "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L22"
+      "norm_label": ".unverified()",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L41"
     },
     {
-      "id": "tests_feature_authentication_roleaccesstest_closure_4",
-      "label": "{closure#4}()",
+      "id": "database_seeders_databaseseeder_databaseseeder_run",
+      "label": ".run()",
       "_callable": true,
       "_origin": "ast",
       "community": 110,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "User.php",
       "file_type": "code",
-      "norm_label": "{closure#4}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L28"
+      "norm_label": ".run()",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L15"
     },
     {
-      "id": "tests_feature_authentication_roleaccesstest_closure_5",
-      "label": "{closure#5}()",
+      "id": "database_seeders_userseeder_userseeder_run",
+      "label": ".run()",
       "_callable": true,
       "_origin": "ast",
       "community": 110,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "User.php",
       "file_type": "code",
-      "norm_label": "{closure#5}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L38"
-    },
-    {
-      "id": "tests_feature_authentication_roleaccesstest_closure_6",
-      "label": "{closure#6}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 110,
-      "community_name": "RoleAccessTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#6}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L47"
-    },
-    {
-      "id": "tests_feature_authentication_roleaccesstest_closure_7",
-      "label": "{closure#7}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 110,
-      "community_name": "RoleAccessTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#7}()",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
-      "source_location": "L56"
+      "norm_label": ".run()",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L18"
     },
     {
       "id": "tests_feature_uilinkbuttoncomponenttest_closure_1",
@@ -956,6 +836,18 @@
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/UiLinkButtonComponentTest.php",
       "source_location": "L3"
+    },
+    {
+      "id": "tests_feature_uilinkbuttoncomponenttest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 111,
+      "community_name": "UiLinkButtonComponentTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/UiLinkButtonComponentTest.php",
+      "source_location": "L15"
     },
     {
       "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
@@ -1486,6 +1378,102 @@
       "source_location": "L75"
     },
     {
+      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_authorize",
+      "label": ".authorize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".authorize()",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_rules",
+      "label": ".rules()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".rules()",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_http_requests_admin_updateuserrequest_updateuserrequest_authorize",
+      "label": ".authorize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".authorize()",
+      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_requests_admin_updateuserrequest_updateuserrequest_rules",
+      "label": ".rules()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".rules()",
+      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_authorize",
+      "label": ".authorize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".authorize()",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_rules",
+      "label": ".rules()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".rules()",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_http_requests_developer_updateuserrequest_updateuserrequest_authorize",
+      "label": ".authorize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".authorize()",
+      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_requests_developer_updateuserrequest_updateuserrequest_rules",
+      "label": ".rules()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": ".rules()",
+      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
+      "source_location": "L18"
+    },
+    {
       "id": "app_policies_userpolicy_userpolicy_view",
       "label": ".view()",
       "_callable": true,
@@ -1834,64 +1822,208 @@
       "source_location": "L20"
     },
     {
-      "id": "database_factories_userfactory_closure_1",
+      "id": "tests_feature_authentication_applicationactionstest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#1}()",
-      "source_file": "database/factories/UserFactory.php",
-      "source_location": "L43"
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L16"
     },
     {
-      "id": "database_factories_userfactory_userfactory_definition",
-      "label": ".definition()",
+      "id": "tests_feature_authentication_applicationactionstest_closure_2",
+      "label": "{closure#2}()",
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": ".definition()",
-      "source_file": "database/factories/UserFactory.php",
-      "source_location": "L26"
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L28"
     },
     {
-      "id": "database_factories_userfactory_userfactory_unverified",
-      "label": ".unverified()",
+      "id": "tests_feature_authentication_applicationactionstest_closure_3",
+      "label": "{closure#3}()",
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": ".unverified()",
-      "source_file": "database/factories/UserFactory.php",
-      "source_location": "L41"
+      "norm_label": "{closure#3}()",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L48"
     },
     {
-      "id": "database_seeders_databaseseeder_databaseseeder_run",
-      "label": ".run()",
+      "id": "tests_feature_authentication_applicationactionstest_closure_4",
+      "label": "{closure#4}()",
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": ".run()",
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L15"
+      "norm_label": "{closure#4}()",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
+      "source_location": "L57"
     },
     {
-      "id": "database_seeders_userseeder_userseeder_run",
-      "label": ".run()",
+      "id": "tests_feature_authentication_fortifyactionstest_closure_1",
+      "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": ".run()",
-      "source_file": "database/seeders/UserSeeder.php",
-      "source_location": "L18"
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "tests_feature_authentication_fortifyactionstest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L34"
+    },
+    {
+      "id": "tests_feature_authentication_fortifyactionstest_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
+      "source_location": "L47"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L16"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L24"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_4",
+      "label": "{closure#4}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#4}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L45"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_5",
+      "label": "{closure#5}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#5}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L64"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_6",
+      "label": "{closure#6}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#6}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L82"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_7",
+      "label": "{closure#7}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#7}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L107"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_8",
+      "label": "{closure#8}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#8}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L129"
+    },
+    {
+      "id": "tests_pest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "tests_pest_something",
+      "label": "something()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "something()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47"
     },
     {
       "id": "reference_tailadmin_src_js_components_image_resize_animate",
@@ -2264,6 +2396,90 @@
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Testing/TestingEnvironmentTest.php",
       "source_location": "L3"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L29"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_4",
+      "label": "{closure#4}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#4}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L43"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_5",
+      "label": "{closure#5}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#5}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L57"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_6",
+      "label": "{closure#6}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#6}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L71"
+    },
+    {
+      "id": "tests_feature_authentication_authenticationflowtest_closure_7",
+      "label": "{closure#7}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#7}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L85"
     },
     {
       "id": "tests_feature_authentication_authvalidationrulestest_closure_1",
@@ -2722,88 +2938,16 @@
       "source_location": "L123"
     },
     {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_1",
+      "id": "tests_feature_uiinputcomponenttest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
       "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
+      "community_name": "UiInputComponentTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L14"
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L29"
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_4",
-      "label": "{closure#4}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#4}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L43"
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_5",
-      "label": "{closure#5}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#5}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L57"
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_6",
-      "label": "{closure#6}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#6}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L71"
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest_closure_7",
-      "label": "{closure#7}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#7}()",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L85"
+      "source_file": "tests/Feature/UiInputComponentTest.php",
+      "source_location": "L3"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_1",
@@ -2827,7 +2971,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L140"
+      "source_location": "L147"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_11",
@@ -2839,7 +2983,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L154"
+      "source_location": "L161"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_12",
@@ -2851,7 +2995,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L167"
+      "source_location": "L174"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_13",
@@ -2863,7 +3007,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L188"
+      "source_location": "L195"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_14",
@@ -2875,7 +3019,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L208"
+      "source_location": "L215"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_15",
@@ -2887,7 +3031,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L227"
+      "source_location": "L234"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_16",
@@ -2899,7 +3043,7 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L243"
+      "source_location": "L250"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_17",
@@ -2911,7 +3055,7 @@
       "file_type": "code",
       "norm_label": "{closure#17}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L261"
+      "source_location": "L268"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_2",
@@ -2923,7 +3067,7 @@
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_3",
@@ -2935,7 +3079,7 @@
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_4",
@@ -2947,7 +3091,7 @@
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_5",
@@ -2959,7 +3103,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L42"
+      "source_location": "L43"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_6",
@@ -2971,7 +3115,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L55"
+      "source_location": "L56"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_7",
@@ -2983,7 +3127,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L93"
+      "source_location": "L94"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_8",
@@ -2995,7 +3139,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L103"
+      "source_location": "L107"
     },
     {
       "id": "tests_feature_pages_pagerenderingtest_closure_9",
@@ -3007,103 +3151,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L118"
-    },
-    {
-      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_authorize",
-      "label": ".authorize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".authorize()",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_requests_admin_storeuserrequest_storeuserrequest_rules",
-      "label": ".rules()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".rules()",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L18"
-    },
-    {
-      "id": "app_http_requests_admin_updateuserrequest_updateuserrequest_authorize",
-      "label": ".authorize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".authorize()",
-      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_requests_admin_updateuserrequest_updateuserrequest_rules",
-      "label": ".rules()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".rules()",
-      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
-      "source_location": "L18"
-    },
-    {
-      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_authorize",
-      "label": ".authorize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".authorize()",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_rules",
-      "label": ".rules()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".rules()",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L18"
-    },
-    {
-      "id": "app_http_requests_developer_updateuserrequest_updateuserrequest_authorize",
-      "label": ".authorize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".authorize()",
-      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_requests_developer_updateuserrequest_updateuserrequest_rules",
-      "label": ".rules()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": ".rules()",
-      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
-      "source_location": "L18"
+      "source_location": "L125"
     },
     {
       "id": "database_migrations_0001_01_01_000000_create_users_table_closure_1",
@@ -3715,13 +3763,35 @@
       "source_location": "L4"
     },
     {
-      "id": "resources_js_app",
-      "label": "app.js",
+      "id": "reference_flowbite_js_app",
+      "label": "flowbite/js/app.js",
       "_origin": "ast",
       "community": 1,
       "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "app.js",
+      "norm_label": "flowbite/js/app.js",
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "reference_flowbite_js_app_savedtheme",
+      "label": "savedTheme",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "savedtheme",
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "resources_js_app",
+      "label": "resources/js/app.js",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "resources/js/app.js",
       "source_file": "resources/js/app.js",
       "source_location": "L1"
     },
@@ -3913,28 +3983,6 @@
       "source_location": "L49"
     },
     {
-      "id": "app_actions_auth_updateuserprofile",
-      "label": "UpdateUserProfile.php",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "updateuserprofile.php",
-      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_models_user",
-      "label": "User.php",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "user.php",
-      "source_file": "app/Models/User.php",
-      "source_location": "L1"
-    },
-    {
       "id": "config_auth",
       "label": "auth.php",
       "_origin": "ast",
@@ -3946,70 +3994,15 @@
       "source_location": "L1"
     },
     {
-      "id": "illuminate_contracts_auth_mustverifyemail",
-      "label": "Illuminate\\Contracts\\Auth\\MustVerifyEmail",
+      "id": "tests_feature_authentication_roleaccesstest",
+      "label": "RoleAccessTest.php",
       "_origin": "ast",
       "community": 102,
       "community_name": "User",
       "file_type": "code",
-      "norm_label": "illuminate\\contracts\\auth\\mustverifyemail",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_eloquent_attributes_fillable",
-      "label": "Illuminate\\Database\\Eloquent\\Attributes\\Fillable",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\attributes\\fillable",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_eloquent_attributes_hidden",
-      "label": "Illuminate\\Database\\Eloquent\\Attributes\\Hidden",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\attributes\\hidden",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_eloquent_factories_hasfactory",
-      "label": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\factories\\hasfactory",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_foundation_auth_user",
-      "label": "Illuminate\\Foundation\\Auth\\User",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\auth\\user",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_notifications_notifiable",
-      "label": "Illuminate\\Notifications\\Notifiable",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "illuminate\\notifications\\notifiable",
-      "source_file": "",
-      "source_location": ""
+      "norm_label": "roleaccesstest.php",
+      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L1"
     },
     {
       "id": "tests_feature_database_seeders_userseedertest",
@@ -4104,83 +4097,6 @@
       "source_location": null
     },
     {
-      "id": "illuminate_auth_notifications_verifyemail",
-      "label": "Illuminate\\Auth\\Notifications\\VerifyEmail",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\auth\\notifications\\verifyemail",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_foundation_testing_refreshdatabase",
-      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_support_facades_notification",
-      "label": "Illuminate\\Support\\Facades\\Notification",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\support\\facades\\notification",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "tests_feature_authentication_applicationactionstest",
-      "label": "ApplicationActionsTest.php",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "applicationactionstest.php",
-      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_authentication_fortifyactionstest",
-      "label": "FortifyActionsTest.php",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "fortifyactionstest.php",
-      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_authentication_profilepagetest",
-      "label": "ProfilePageTest.php",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "profilepagetest.php",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_pest",
-      "label": "Pest.php",
-      "_origin": "ast",
-      "community": 106,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "pest.php",
-      "source_file": "tests/Pest.php",
-      "source_location": "L1"
-    },
-    {
       "id": "tests_feature_uibuttoncomponenttest",
       "label": "UiButtonComponentTest.php",
       "_origin": "ast",
@@ -4215,12 +4131,12 @@
     },
     {
       "id": "resources_views_components_ui_button_blade",
-      "label": "button.blade.php",
+      "label": "resources/views/components/ui/button.blade.php",
       "_origin": "ast",
       "community": 109,
       "community_name": "button.blade.php",
       "file_type": "code",
-      "norm_label": "button.blade.php",
+      "norm_label": "resources/views/components/ui/button.blade.php",
       "source_file": "resources/views/components/ui/button.blade.php",
       "source_location": null
     },
@@ -4429,15 +4345,332 @@
       "source_location": "L82"
     },
     {
-      "id": "tests_feature_authentication_roleaccesstest",
-      "label": "RoleAccessTest.php",
+      "id": "app_models_user",
+      "label": "User.php",
       "_origin": "ast",
       "community": 110,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "User.php",
       "file_type": "code",
-      "norm_label": "roleaccesstest.php",
-      "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "norm_label": "user.php",
+      "source_file": "app/Models/User.php",
       "source_location": "L1"
+    },
+    {
+      "id": "config_cache",
+      "label": "cache.php",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "cache.php",
+      "source_file": "config/cache.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "config_database",
+      "label": "database.php",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "database.php",
+      "source_file": "config/database.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "config_session",
+      "label": "session.php",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "session.php",
+      "source_file": "config/session.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_factories_userfactory",
+      "label": "UserFactory.php",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "userfactory.php",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_databaseseeder",
+      "label": "DatabaseSeeder.php",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "databaseseeder.php",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_userseeder",
+      "label": "UserSeeder.php",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "userseeder.php",
+      "source_file": "database/seeders/UserSeeder.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "illuminate_contracts_auth_mustverifyemail",
+      "label": "Illuminate\\Contracts\\Auth\\MustVerifyEmail",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\contracts\\auth\\mustverifyemail",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_console_seeds_withoutmodelevents",
+      "label": "Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\console\\seeds\\withoutmodelevents",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_eloquent_attributes_fillable",
+      "label": "Illuminate\\Database\\Eloquent\\Attributes\\Fillable",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\attributes\\fillable",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_eloquent_attributes_hidden",
+      "label": "Illuminate\\Database\\Eloquent\\Attributes\\Hidden",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\attributes\\hidden",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_eloquent_factories_factory",
+      "label": "Illuminate\\Database\\Eloquent\\Factories\\Factory",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\factories\\factory",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_eloquent_factories_hasfactory",
+      "label": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\factories\\hasfactory",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_seeder",
+      "label": "Illuminate\\Database\\Seeder",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\seeder",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_foundation_auth_user",
+      "label": "Illuminate\\Foundation\\Auth\\User",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\auth\\user",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_notifications_notifiable",
+      "label": "Illuminate\\Notifications\\Notifiable",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\notifications\\notifiable",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_support_facades_hash",
+      "label": "Illuminate\\Support\\Facades\\Hash",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\hash",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_support_str",
+      "label": "Illuminate\\Support\\Str",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\str",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "pdo_mysql",
+      "label": "Pdo\\Mysql",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "pdo\\mysql",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "static",
+      "label": "static",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "static",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas",
+      "label": "2026-09-22-auth-admin-developer-areas.md",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-09-22-auth-admin-developer-areas.md",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
+      "label": "Authentication, Admin, and Developer Areas Implementation Plan",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "authentication, admin, and developer areas implementation plan",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_global_constraints",
+      "label": "Global Constraints",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "global constraints",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
+      "label": "Review Focus",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "review focus",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_1_add_the_role_domain_model_and_database_column",
+      "label": "Task 1: Add the role domain model and database column",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 1: add the role domain model and database column",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L32"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_2_install_and_configure_fortify_with_blade_authentication_views",
+      "label": "Task 2: Install and configure Fortify with Blade authentication views",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 2: install and configure fortify with blade authentication views",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L69"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_3_add_role_middleware_and_route_boundaries",
+      "label": "Task 3: Add role middleware and route boundaries",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 3: add role middleware and route boundaries",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L114"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_4_build_the_public_account_admin_and_developer_blade_shells",
+      "label": "Task 4: Build the public, account, admin, and developer Blade shells",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 4: build the public, account, admin, and developer blade shells",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L150"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_5_run_the_complete_verification_pass",
+      "label": "Task 5: Run the complete verification pass",
+      "_origin": "ast",
+      "community": 110,
+      "community_name": "User.php",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 5: run the complete verification pass",
+      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
+      "source_location": "L189"
     },
     {
       "id": "tests_feature_uilinkbuttoncomponenttest",
@@ -4462,6 +4695,83 @@
       "source_location": null
     },
     {
+      "id": "reference_flowbite_views_auth_login_blade",
+      "label": "flowbite/views/auth/login.blade.php",
+      "_origin": "ast",
+      "community": 113,
+      "community_name": "flowbite/views/auth/login.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/auth/login.blade.php",
+      "source_file": ".reference/flowbite/views/auth/login.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_auth_register_blade",
+      "label": "flowbite/views/auth/register.blade.php",
+      "_origin": "ast",
+      "community": 114,
+      "community_name": "flowbite/views/auth/register.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/auth/register.blade.php",
+      "source_file": ".reference/flowbite/views/auth/register.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_auth_reset_password_blade",
+      "label": "flowbite/views/auth/reset-password.blade.php",
+      "_origin": "ast",
+      "community": 115,
+      "community_name": "flowbite/views/auth/reset-password.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/auth/reset-password.blade.php",
+      "source_file": ".reference/flowbite/views/auth/reset-password.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_admin_nav_item_blade",
+      "label": "nav-item.blade.php",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "nav-item.blade.php",
+      "file_type": "code",
+      "norm_label": "nav-item.blade.php",
+      "source_file": ".reference/flowbite/views/components/admin/nav-item.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_admin_navbar_blade",
+      "label": "admin/navbar.blade.php",
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "admin/navbar.blade.php",
+      "file_type": "code",
+      "norm_label": "admin/navbar.blade.php",
+      "source_file": ".reference/flowbite/views/components/admin/navbar.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_admin_sidebar_blade",
+      "label": "flowbite/views/components/admin/sidebar.blade.php",
+      "_origin": "ast",
+      "community": 118,
+      "community_name": "flowbite/views/components/admin/sidebar.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/admin/sidebar.blade.php",
+      "source_file": ".reference/flowbite/views/components/admin/sidebar.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_auth_panel_blade",
+      "label": "auth/panel.blade.php",
+      "_origin": "ast",
+      "community": 119,
+      "community_name": "auth/panel.blade.php",
+      "file_type": "code",
+      "norm_label": "auth/panel.blade.php",
+      "source_file": ".reference/flowbite/views/components/auth/panel.blade.php",
+      "source_location": null
+    },
+    {
       "id": "config_seeders",
       "label": "seeders.php",
       "_origin": "ast",
@@ -4473,6 +4783,116 @@
       "source_location": "L1"
     },
     {
+      "id": "reference_flowbite_views_components_layouts_admin_blade",
+      "label": "flowbite/views/components/layouts/admin.blade.php",
+      "_origin": "ast",
+      "community": 120,
+      "community_name": "flowbite/views/components/layouts/admin.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/layouts/admin.blade.php",
+      "source_file": ".reference/flowbite/views/components/layouts/admin.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_layouts_auth_blade",
+      "label": "flowbite/views/components/layouts/auth.blade.php",
+      "_origin": "ast",
+      "community": 121,
+      "community_name": "flowbite/views/components/layouts/auth.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/layouts/auth.blade.php",
+      "source_file": ".reference/flowbite/views/components/layouts/auth.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_layouts_site_blade",
+      "label": "site.blade.php",
+      "_origin": "ast",
+      "community": 122,
+      "community_name": "site.blade.php",
+      "file_type": "code",
+      "norm_label": "site.blade.php",
+      "source_file": ".reference/flowbite/views/components/layouts/site.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_site_footer_blade",
+      "label": "flowbite/views/components/site/footer.blade.php",
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "flowbite/views/components/site/footer.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/site/footer.blade.php",
+      "source_file": ".reference/flowbite/views/components/site/footer.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_site_navbar_blade",
+      "label": "flowbite/views/components/site/navbar.blade.php",
+      "_origin": "ast",
+      "community": 124,
+      "community_name": "flowbite/views/components/site/navbar.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/site/navbar.blade.php",
+      "source_file": ".reference/flowbite/views/components/site/navbar.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_alert_blade",
+      "label": "flowbite/views/components/ui/alert.blade.php",
+      "_origin": "ast",
+      "community": 125,
+      "community_name": "flowbite/views/components/ui/alert.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/alert.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/alert.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_badge_blade",
+      "label": "flowbite/views/components/ui/badge.blade.php",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "flowbite/views/components/ui/badge.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/badge.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/badge.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_button_blade",
+      "label": "flowbite/views/components/ui/button.blade.php",
+      "_origin": "ast",
+      "community": 127,
+      "community_name": "flowbite/views/components/ui/button.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/button.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/button.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_card_blade",
+      "label": "flowbite/views/components/ui/card.blade.php",
+      "_origin": "ast",
+      "community": 128,
+      "community_name": "flowbite/views/components/ui/card.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/card.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/card.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_dropdown_blade",
+      "label": "dropdown.blade.php",
+      "_origin": "ast",
+      "community": 129,
+      "community_name": "dropdown.blade.php",
+      "file_type": "code",
+      "norm_label": "dropdown.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/dropdown.blade.php",
+      "source_location": null
+    },
+    {
       "id": "resources_views_account_index_blade",
       "label": "account/index.blade.php",
       "_origin": "ast",
@@ -4481,6 +4901,116 @@
       "file_type": "code",
       "norm_label": "account/index.blade.php",
       "source_file": "resources/views/account/index.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_input_blade",
+      "label": "flowbite/views/components/ui/input.blade.php",
+      "_origin": "ast",
+      "community": 130,
+      "community_name": "input.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/input.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/input.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_modal_blade",
+      "label": "modal.blade.php",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "modal.blade.php",
+      "file_type": "code",
+      "norm_label": "modal.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/modal.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_select_blade",
+      "label": "select.blade.php",
+      "_origin": "ast",
+      "community": 132,
+      "community_name": "select.blade.php",
+      "file_type": "code",
+      "norm_label": "select.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/select.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_table_blade",
+      "label": "table.blade.php",
+      "_origin": "ast",
+      "community": 133,
+      "community_name": "table.blade.php",
+      "file_type": "code",
+      "norm_label": "table.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/table.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_textarea_blade",
+      "label": "textarea.blade.php",
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "textarea.blade.php",
+      "file_type": "code",
+      "norm_label": "textarea.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/textarea.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_theme_init_blade",
+      "label": "flowbite/views/components/ui/theme-init.blade.php",
+      "_origin": "ast",
+      "community": 135,
+      "community_name": "flowbite/views/components/ui/theme-init.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/theme-init.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/theme-init.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_components_ui_theme_toggle_blade",
+      "label": "flowbite/views/components/ui/theme-toggle.blade.php",
+      "_origin": "ast",
+      "community": 136,
+      "community_name": "flowbite/views/components/ui/theme-toggle.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/components/ui/theme-toggle.blade.php",
+      "source_file": ".reference/flowbite/views/components/ui/theme-toggle.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_flowbite_demo_blade",
+      "label": "flowbite-demo.blade.php",
+      "_origin": "ast",
+      "community": 137,
+      "community_name": "flowbite-demo.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite-demo.blade.php",
+      "source_file": ".reference/flowbite/views/flowbite-demo.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_site_home_blade",
+      "label": "home.blade.php",
+      "_origin": "ast",
+      "community": 138,
+      "community_name": "home.blade.php",
+      "file_type": "code",
+      "norm_label": "home.blade.php",
+      "source_file": ".reference/flowbite/views/site/home.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "reference_flowbite_views_welcome_blade",
+      "label": "flowbite/views/welcome.blade.php",
+      "_origin": "ast",
+      "community": 139,
+      "community_name": "flowbite/views/welcome.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/welcome.blade.php",
+      "source_file": ".reference/flowbite/views/welcome.blade.php",
       "source_location": null
     },
     {
@@ -4713,6 +5243,94 @@
       "norm_label": "symfony\\component\\httpfoundation\\response",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "resources_views_components_site_footer_blade",
+      "label": "resources/views/components/site/footer.blade.php",
+      "_origin": "ast",
+      "community": 140,
+      "community_name": "resources/views/components/site/footer.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/site/footer.blade.php",
+      "source_file": "resources/views/components/site/footer.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_site_navbar_blade",
+      "label": "resources/views/components/site/navbar.blade.php",
+      "_origin": "ast",
+      "community": 141,
+      "community_name": "resources/views/components/site/navbar.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/site/navbar.blade.php",
+      "source_file": "resources/views/components/site/navbar.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_alert_blade",
+      "label": "resources/views/components/ui/alert.blade.php",
+      "_origin": "ast",
+      "community": 142,
+      "community_name": "resources/views/components/ui/alert.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/alert.blade.php",
+      "source_file": "resources/views/components/ui/alert.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_badge_blade",
+      "label": "resources/views/components/ui/badge.blade.php",
+      "_origin": "ast",
+      "community": 143,
+      "community_name": "resources/views/components/ui/badge.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/badge.blade.php",
+      "source_file": "resources/views/components/ui/badge.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_card_blade",
+      "label": "resources/views/components/ui/card.blade.php",
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "resources/views/components/ui/card.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/card.blade.php",
+      "source_file": "resources/views/components/ui/card.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_theme_init_blade",
+      "label": "resources/views/components/ui/theme-init.blade.php",
+      "_origin": "ast",
+      "community": 145,
+      "community_name": "resources/views/components/ui/theme-init.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/theme-init.blade.php",
+      "source_file": "resources/views/components/ui/theme-init.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_theme_toggle_blade",
+      "label": "resources/views/components/ui/theme-toggle.blade.php",
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "resources/views/components/ui/theme-toggle.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/theme-toggle.blade.php",
+      "source_file": "resources/views/components/ui/theme-toggle.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_input_blade",
+      "label": "resources/views/components/ui/input.blade.php",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "resources/views/components/ui/input.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/input.blade.php",
+      "source_file": "resources/views/components/ui/input.blade.php",
+      "source_location": null
     },
     {
       "id": "reference_tailadmin_webpack_config",
@@ -5720,6 +6338,72 @@
       "source_location": "L1"
     },
     {
+      "id": "app_http_requests_admin_storeuserrequest",
+      "label": "Admin/StoreUserRequest.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "admin/storeuserrequest.php",
+      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_http_requests_admin_updateuserrequest",
+      "label": "Admin/UpdateUserRequest.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "admin/updateuserrequest.php",
+      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_http_requests_developer_storeuserrequest",
+      "label": "Developer/StoreUserRequest.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "developer/storeuserrequest.php",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_http_requests_developer_updateuserrequest",
+      "label": "Developer/UpdateUserRequest.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "developer/updateuserrequest.php",
+      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_validation_authvalidationrules",
+      "label": "AuthValidationRules.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "authvalidationrules.php",
+      "source_file": "app/Validation/AuthValidationRules.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "illuminate_foundation_http_formrequest",
+      "label": "Illuminate\\Foundation\\Http\\FormRequest",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\http\\formrequest",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_http_redirectresponse",
       "label": "Illuminate\\Http\\RedirectResponse",
       "_origin": "ast",
@@ -5749,6 +6433,28 @@
       "community_name": ".view",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\route",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_validation_rule",
+      "label": "Illuminate\\Validation\\Rule",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "illuminate\\validation\\rule",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_validation_rules_password",
+      "label": "Illuminate\\Validation\\Rules\\Password",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": ".view",
+      "file_type": "code",
+      "norm_label": "illuminate\\validation\\rules\\password",
       "source_file": "",
       "source_location": ""
     },
@@ -6059,12 +6765,12 @@
     },
     {
       "id": "resources_views_welcome_blade",
-      "label": "welcome.blade.php",
+      "label": "resources/views/welcome.blade.php",
       "_origin": "ast",
       "community": 30,
       "community_name": "welcome.blade.php",
       "file_type": "code",
-      "norm_label": "welcome.blade.php",
+      "norm_label": "resources/views/welcome.blade.php",
       "source_file": "resources/views/welcome.blade.php",
       "source_location": null
     },
@@ -6092,56 +6798,56 @@
     },
     {
       "id": "resources_views_admin_dashboard_blade",
-      "label": "admin/dashboard.blade.php",
+      "label": "resources/views/admin/dashboard.blade.php",
       "_origin": "ast",
       "community": 33,
       "community_name": "admin/dashboard.blade.php",
       "file_type": "code",
-      "norm_label": "admin/dashboard.blade.php",
+      "norm_label": "resources/views/admin/dashboard.blade.php",
       "source_file": "resources/views/admin/dashboard.blade.php",
       "source_location": null
     },
     {
       "id": "resources_views_auth_forgot_password_blade",
-      "label": "forgot-password.blade.php",
+      "label": "resources/views/auth/forgot-password.blade.php",
       "_origin": "ast",
       "community": 34,
       "community_name": "forgot-password.blade.php",
       "file_type": "code",
-      "norm_label": "forgot-password.blade.php",
+      "norm_label": "resources/views/auth/forgot-password.blade.php",
       "source_file": "resources/views/auth/forgot-password.blade.php",
       "source_location": null
     },
     {
       "id": "resources_views_auth_login_blade",
-      "label": "login.blade.php",
+      "label": "resources/views/auth/login.blade.php",
       "_origin": "ast",
       "community": 35,
       "community_name": "login.blade.php",
       "file_type": "code",
-      "norm_label": "login.blade.php",
+      "norm_label": "resources/views/auth/login.blade.php",
       "source_file": "resources/views/auth/login.blade.php",
       "source_location": null
     },
     {
       "id": "resources_views_auth_register_blade",
-      "label": "register.blade.php",
+      "label": "resources/views/auth/register.blade.php",
       "_origin": "ast",
       "community": 36,
       "community_name": "register.blade.php",
       "file_type": "code",
-      "norm_label": "register.blade.php",
+      "norm_label": "resources/views/auth/register.blade.php",
       "source_file": "resources/views/auth/register.blade.php",
       "source_location": null
     },
     {
       "id": "resources_views_auth_reset_password_blade",
-      "label": "reset-password.blade.php",
+      "label": "resources/views/auth/reset-password.blade.php",
       "_origin": "ast",
       "community": 37,
       "community_name": "reset-password.blade.php",
       "file_type": "code",
-      "norm_label": "reset-password.blade.php",
+      "norm_label": "resources/views/auth/reset-password.blade.php",
       "source_file": "resources/views/auth/reset-password.blade.php",
       "source_location": null
     },
@@ -6661,23 +7367,23 @@
     },
     {
       "id": "resources_views_components_layouts_admin_blade",
-      "label": "admin.blade.php",
+      "label": "resources/views/components/layouts/admin.blade.php",
       "_origin": "ast",
       "community": 40,
       "community_name": "admin.blade.php",
       "file_type": "code",
-      "norm_label": "admin.blade.php",
+      "norm_label": "resources/views/components/layouts/admin.blade.php",
       "source_file": "resources/views/components/layouts/admin.blade.php",
       "source_location": null
     },
     {
       "id": "resources_views_components_layouts_auth_blade",
-      "label": "auth.blade.php",
+      "label": "resources/views/components/layouts/auth.blade.php",
       "_origin": "ast",
       "community": 41,
       "community_name": "auth.blade.php",
       "file_type": "code",
-      "norm_label": "auth.blade.php",
+      "norm_label": "resources/views/components/layouts/auth.blade.php",
       "source_file": "resources/views/components/layouts/auth.blade.php",
       "source_location": null
     },
@@ -7123,219 +7829,81 @@
       "source_location": "L87"
     },
     {
-      "id": "config_cache",
-      "label": "cache.php",
+      "id": "illuminate_auth_notifications_verifyemail",
+      "label": "Illuminate\\Auth\\Notifications\\VerifyEmail",
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": "cache.php",
-      "source_file": "config/cache.php",
+      "norm_label": "illuminate\\auth\\notifications\\verifyemail",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_foundation_testing_refreshdatabase",
+      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_support_facades_notification",
+      "label": "Illuminate\\Support\\Facades\\Notification",
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\notification",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_feature_authentication_applicationactionstest",
+      "label": "ApplicationActionsTest.php",
+      "_origin": "ast",
+      "community": 48,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "applicationactionstest.php",
+      "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
       "source_location": "L1"
     },
     {
-      "id": "config_database",
-      "label": "database.php",
+      "id": "tests_feature_authentication_fortifyactionstest",
+      "label": "FortifyActionsTest.php",
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": "database.php",
-      "source_file": "config/database.php",
+      "norm_label": "fortifyactionstest.php",
+      "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
       "source_location": "L1"
     },
     {
-      "id": "config_session",
-      "label": "session.php",
+      "id": "tests_feature_authentication_profilepagetest",
+      "label": "ProfilePageTest.php",
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": "session.php",
-      "source_file": "config/session.php",
+      "norm_label": "profilepagetest.php",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L1"
     },
     {
-      "id": "database_factories_userfactory",
-      "label": "UserFactory.php",
+      "id": "tests_pest",
+      "label": "Pest.php",
       "_origin": "ast",
       "community": 48,
-      "community_name": "UserFactory.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": "userfactory.php",
-      "source_file": "database/factories/UserFactory.php",
+      "norm_label": "pest.php",
+      "source_file": "tests/Pest.php",
       "source_location": "L1"
-    },
-    {
-      "id": "database_seeders_databaseseeder",
-      "label": "DatabaseSeeder.php",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "databaseseeder.php",
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "database_seeders_userseeder",
-      "label": "UserSeeder.php",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "userseeder.php",
-      "source_file": "database/seeders/UserSeeder.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "illuminate_database_console_seeds_withoutmodelevents",
-      "label": "Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\console\\seeds\\withoutmodelevents",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_eloquent_factories_factory",
-      "label": "Illuminate\\Database\\Eloquent\\Factories\\Factory",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\factories\\factory",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_seeder",
-      "label": "Illuminate\\Database\\Seeder",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\seeder",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_support_facades_hash",
-      "label": "Illuminate\\Support\\Facades\\Hash",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\support\\facades\\hash",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_support_str",
-      "label": "Illuminate\\Support\\Str",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\support\\str",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "pdo_mysql",
-      "label": "Pdo\\Mysql",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "pdo\\mysql",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "static",
-      "label": "static",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "code",
-      "norm_label": "static",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_review_focus",
-      "label": "Review Focus",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "review focus",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L22"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_1_add_the_role_domain_model_and_database_column",
-      "label": "Task 1: Add the role domain model and database column",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 1: add the role domain model and database column",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L32"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_2_install_and_configure_fortify_with_blade_authentication_views",
-      "label": "Task 2: Install and configure Fortify with Blade authentication views",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 2: install and configure fortify with blade authentication views",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L69"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_3_add_role_middleware_and_route_boundaries",
-      "label": "Task 3: Add role middleware and route boundaries",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 3: add role middleware and route boundaries",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L114"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_4_build_the_public_account_admin_and_developer_blade_shells",
-      "label": "Task 4: Build the public, account, admin, and developer Blade shells",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 4: build the public, account, admin, and developer blade shells",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L150"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_task_5_run_the_complete_verification_pass",
-      "label": "Task 5: Run the complete verification pass",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "UserFactory.php",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 5: run the complete verification pass",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L189"
     },
     {
       "id": "reference_tailadmin_package_dependencies",
@@ -7888,6 +8456,17 @@
       "source_location": "L1"
     },
     {
+      "id": "app_actions_auth_updateuserprofile",
+      "label": "UpdateUserProfile.php",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "AuthValidationRules",
+      "file_type": "code",
+      "norm_label": "updateuserprofile.php",
+      "source_file": "app/Actions/Auth/UpdateUserProfile.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_actions_fortify_createnewuser",
       "label": "CreateNewUser.php",
       "_origin": "ast",
@@ -7988,23 +8567,23 @@
     },
     {
       "id": "resources_views_components_admin_panel_blade",
-      "label": "panel.blade.php",
+      "label": "admin/panel.blade.php",
       "_origin": "ast",
       "community": 60,
       "community_name": "panel.blade.php",
       "file_type": "code",
-      "norm_label": "panel.blade.php",
+      "norm_label": "admin/panel.blade.php",
       "source_file": "resources/views/components/admin/panel.blade.php",
       "source_location": null
     },
     {
       "id": "resources_views_components_admin_sidebar_blade",
-      "label": "sidebar.blade.php",
+      "label": "resources/views/components/admin/sidebar.blade.php",
       "_origin": "ast",
       "community": 61,
       "community_name": "sidebar.blade.php",
       "file_type": "code",
-      "norm_label": "sidebar.blade.php",
+      "norm_label": "resources/views/components/admin/sidebar.blade.php",
       "source_file": "resources/views/components/admin/sidebar.blade.php",
       "source_location": null
     },
@@ -8054,36 +8633,36 @@
     },
     {
       "id": "resources_views_components_auth_alert_blade",
-      "label": "alert.blade.php",
+      "label": "auth/alert.blade.php",
       "_origin": "ast",
       "community": 66,
       "community_name": "alert.blade.php",
       "file_type": "code",
-      "norm_label": "alert.blade.php",
+      "norm_label": "auth/alert.blade.php",
       "source_file": "resources/views/components/auth/alert.blade.php",
       "source_location": null
     },
     {
-      "id": "resources_views_components_auth_field_blade",
-      "label": "field.blade.php",
+      "id": "illuminate_foundation_http_middleware_preventrequestforgery",
+      "label": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery",
       "_origin": "ast",
       "community": 67,
-      "community_name": "field.blade.php",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
-      "norm_label": "field.blade.php",
-      "source_file": "resources/views/components/auth/field.blade.php",
-      "source_location": null
+      "norm_label": "illuminate\\foundation\\http\\middleware\\preventrequestforgery",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "resources_views_components_auth_password_field_blade",
-      "label": "password-field.blade.php",
+      "id": "tests_feature_authentication_authenticationflowtest",
+      "label": "AuthenticationFlowTest.php",
       "_origin": "ast",
-      "community": 68,
-      "community_name": "password-field.blade.php",
+      "community": 67,
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
-      "norm_label": "password-field.blade.php",
-      "source_file": "resources/views/components/auth/password-field.blade.php",
-      "source_location": null
+      "norm_label": "authenticationflowtest.php",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L1"
     },
     {
       "id": "illuminate_routing_route",
@@ -8449,61 +9028,25 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas",
-      "label": "2026-09-22-auth-admin-developer-areas.md",
+      "id": "reference_flowbite_views_admin_dashboard_blade",
+      "label": "flowbite/views/admin/dashboard.blade.php",
       "_origin": "ast",
-      "community": 70,
-      "community_name": "UserRole",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "2026-09-22-auth-admin-developer-areas.md",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L1"
+      "community": 71,
+      "community_name": "flowbite/views/admin/dashboard.blade.php",
+      "file_type": "code",
+      "norm_label": "flowbite/views/admin/dashboard.blade.php",
+      "source_file": ".reference/flowbite/views/admin/dashboard.blade.php",
+      "source_location": null
     },
     {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_authentication_admin_and_developer_areas_implementation_plan",
-      "label": "Authentication, Admin, and Developer Areas Implementation Plan",
-      "_origin": "ast",
-      "community": 70,
-      "community_name": "UserRole",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "authentication, admin, and developer areas implementation plan",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas_global_constraints",
-      "label": "Global Constraints",
-      "_origin": "ast",
-      "community": 70,
-      "community_name": "UserRole",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "global constraints",
-      "source_file": "docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md",
-      "source_location": "L13"
-    },
-    {
-      "id": "illuminate_foundation_http_middleware_preventrequestforgery",
-      "label": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery",
+      "id": "tests_feature_uiinputcomponenttest",
+      "label": "UiInputComponentTest.php",
       "_origin": "ast",
       "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
+      "community_name": "UiInputComponentTest.php",
       "file_type": "code",
-      "norm_label": "illuminate\\foundation\\http\\middleware\\preventrequestforgery",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "tests_feature_authentication_authenticationflowtest",
-      "label": "AuthenticationFlowTest.php",
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "AuthenticationFlowTest.php",
-      "file_type": "code",
-      "norm_label": "authenticationflowtest.php",
-      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "norm_label": "uiinputcomponenttest.php",
+      "source_file": "tests/Feature/UiInputComponentTest.php",
       "source_location": "L1"
     },
     {
@@ -8529,92 +9072,15 @@
       "source_location": null
     },
     {
-      "id": "app_http_requests_admin_storeuserrequest",
-      "label": "Admin/StoreUserRequest.php",
+      "id": "reference_flowbite_views_auth_forgot_password_blade",
+      "label": "flowbite/views/auth/forgot-password.blade.php",
       "_origin": "ast",
       "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
+      "community_name": "flowbite/views/auth/forgot-password.blade.php",
       "file_type": "code",
-      "norm_label": "admin/storeuserrequest.php",
-      "source_file": "app/Http/Requests/Admin/StoreUserRequest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_http_requests_admin_updateuserrequest",
-      "label": "Admin/UpdateUserRequest.php",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "admin/updateuserrequest.php",
-      "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_http_requests_developer_storeuserrequest",
-      "label": "Developer/StoreUserRequest.php",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "developer/storeuserrequest.php",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_http_requests_developer_updateuserrequest",
-      "label": "Developer/UpdateUserRequest.php",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "developer/updateuserrequest.php",
-      "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_validation_authvalidationrules",
-      "label": "AuthValidationRules.php",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "authvalidationrules.php",
-      "source_file": "app/Validation/AuthValidationRules.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "illuminate_foundation_http_formrequest",
-      "label": "Illuminate\\Foundation\\Http\\FormRequest",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\http\\formrequest",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_validation_rule",
-      "label": "Illuminate\\Validation\\Rule",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "illuminate\\validation\\rule",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_validation_rules_password",
-      "label": "Illuminate\\Validation\\Rules\\Password",
-      "_origin": "ast",
-      "community": 75,
-      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
-      "file_type": "code",
-      "norm_label": "illuminate\\validation\\rules\\password",
-      "source_file": "",
-      "source_location": ""
+      "norm_label": "flowbite/views/auth/forgot-password.blade.php",
+      "source_file": ".reference/flowbite/views/auth/forgot-password.blade.php",
+      "source_location": null
     },
     {
       "id": "resources_views_admin_users_edit_blade",
@@ -9496,6 +9962,18 @@
       "weight": 1.0
     },
     {
+      "source": "reference_flowbite_js_app_apply",
+      "target": "reference_flowbite_js_app_toggle",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
       "source": "reference_tailadmin_src_js_components_calendar_init_closemodal",
       "target": "reference_tailadmin_src_js_components_calendar_init_resetmodalfields",
       "relation": "calls",
@@ -9808,27 +10286,15 @@
       "weight": 1.0
     },
     {
-      "source": "resources_js_app_submit",
-      "target": "resources_js_app_setfielderror",
+      "source": "resources_js_app_apply",
+      "target": "resources_js_app_toggle",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "resources/js/app.js",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "resources_js_app_submit",
-      "target": "resources_js_app_messagefor",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "resources/js/app.js",
-      "source_location": "L14",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -10032,7 +10498,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -10044,7 +10510,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L62",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -10068,7 +10534,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L105",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_8",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -10320,7 +10798,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L141",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -10332,7 +10810,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L155",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -10344,7 +10822,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L168",
+      "source_location": "L175",
       "weight": 1.0
     },
     {
@@ -10356,7 +10834,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L189",
+      "source_location": "L196",
       "weight": 1.0
     },
     {
@@ -10368,7 +10846,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L209",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -10380,7 +10858,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L228",
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -10392,7 +10870,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L244",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -10404,7 +10882,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L262",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -10416,7 +10894,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -10428,7 +10906,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L104",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -10440,7 +10918,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L126",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -10452,7 +10930,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L127",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -10476,7 +10954,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L174",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -10488,7 +10966,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L187",
+      "source_location": "L190",
       "weight": 1.0
     },
     {
@@ -10584,7 +11062,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L162",
+      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -14401,6 +14879,18 @@
       "context": "import",
       "source_file": "tests/TestCase.php",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "reference_flowbite_js_app",
+      "target": "ref_alpinejs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -18621,6 +19111,39 @@
       "weight": 1.0
     },
     {
+      "source": "reference_flowbite_js_app",
+      "target": "reference_flowbite_js_app_toggle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "reference_flowbite_js_app",
+      "target": "reference_flowbite_js_app_apply",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "reference_flowbite_js_app",
+      "target": "reference_flowbite_js_app_savedtheme",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".reference/flowbite/js/app.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "reference_tailadmin_package",
       "target": "reference_tailadmin_package_keywords",
       "relation": "contains",
@@ -19700,35 +20223,24 @@
     },
     {
       "source": "resources_js_app",
-      "target": "resources_js_app_setfielderror",
+      "target": "resources_js_app_toggle",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "resources/js/app.js",
-      "source_location": "L33",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
       "source": "resources_js_app",
-      "target": "resources_js_app_messagefor",
+      "target": "resources_js_app_apply",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "resources/js/app.js",
-      "source_location": "L51",
-      "weight": 1.0
-    },
-    {
-      "source": "resources_js_app",
-      "target": "resources_js_app_submit",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/app.js",
-      "source_location": "L7",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -20003,7 +20515,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L104",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -20015,6 +20527,17 @@
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_8",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -20047,7 +20570,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -20058,7 +20581,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L59",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -20069,7 +20592,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L84",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -20344,7 +20867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L103",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -20355,7 +20878,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L118",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -20366,7 +20889,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L140",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -20377,7 +20900,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L154",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -20388,7 +20911,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L167",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -20399,7 +20922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L188",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -20410,7 +20933,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -20421,7 +20944,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L208",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -20432,7 +20955,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L227",
+      "source_location": "L234",
       "weight": 1.0
     },
     {
@@ -20443,18 +20966,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L243",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_pagerenderingtest",
-      "target": "tests_feature_pages_pagerenderingtest_closure_3",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L25",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -20465,7 +20977,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L261",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_pagerenderingtest",
+      "target": "tests_feature_pages_pagerenderingtest_closure_3",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/PageRenderingTest.php",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -20476,7 +20999,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -20487,7 +21010,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -20498,7 +21021,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -20520,7 +21043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/PageRenderingTest.php",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -20553,7 +21076,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L161",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -20564,7 +21087,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L173",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -20575,7 +21098,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L186",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -20686,6 +21209,28 @@
       "confidence_score": 1.0,
       "source_file": "tests/Feature/UiButtonComponentTest.php",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_uiinputcomponenttest",
+      "target": "tests_feature_uiinputcomponenttest_closure_1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/UiInputComponentTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_uilinkbuttoncomponenttest",
+      "target": "tests_feature_uilinkbuttoncomponenttest_closure_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/UiLinkButtonComponentTest.php",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -23014,5 +23559,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ecbb7a86062595a8d29909c0f8843d5eab006984"
+  "built_at_commit": "16da9067f4f13d5435ce03baef91f94ade6cd445"
 }
