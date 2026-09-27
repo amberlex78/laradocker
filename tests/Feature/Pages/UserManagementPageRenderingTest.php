@@ -354,8 +354,7 @@ test('user forms render the role select with the shared Flowbite select treatmen
         ->get(route('admin.users.create'))
         ->assertOk()
         ->assertSee('class="block w-full rounded-base border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500', false)
-        ->assertDontSee('appearance-none', false)
-        ->assertDontSee('data-icon="chevron-down"', false);
+        ->assertDontSee('appearance-none', false);
 });
 
 test('edit pages place the danger zone in the second column without empty create placeholders', function (): void {

@@ -2863,7 +2863,7 @@
       "file_type": "code",
       "norm_label": "{closure#18}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L361"
+      "source_location": "L360"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_2",
@@ -9115,7 +9115,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L362",
+      "source_location": "L361",
       "weight": 1.0
     },
     {
@@ -17483,7 +17483,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L361",
+      "source_location": "L360",
       "weight": 1.0
     },
     {
@@ -19793,5 +19793,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8c0abb753ba8df2ccb5da1f5d1b10d3b6396e116"
+  "built_at_commit": "bc170eb3de94e042827feca153215c972fde9a48"
 }
