@@ -28,6 +28,22 @@ test('developer navigation exposes the developer user-management namespace', fun
         ->assertDontSee(route('admin.users.index'));
 });
 
+test('admin and developer user indexes use the shared Flowbite table structure', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+
+    foreach ([[$admin, 'admin.users.index'], [$developer, 'developer.users.index']] as [$user, $route]) {
+        $this->actingAs($user)
+            ->get(route($route))
+            ->assertOk()
+            ->assertSee('relative overflow-x-auto rounded-base border border-gray-200 shadow-sm', false)
+            ->assertSee('bg-gray-50 text-xs uppercase text-gray-700', false)
+            ->assertDontSee('border-slate', false)
+            ->assertDontSee('bg-indigo', false)
+            ->assertDontSee('rounded-xl', false);
+    }
+});
+
 test('admin user pages show business roles and exclude developer records', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $businessUser = User::factory()->create([
@@ -86,6 +102,43 @@ test('developer user pages protect the current developer from self-deletion', fu
         ->get(route('developer.users.edit', $developer))
         ->assertSee('Protected')
         ->assertDontSee('value="DELETE"', false);
+});
+
+test('user details pages share the overview two-column card grid', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $adminTarget = User::factory()->create(['role' => UserRole::User]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.show', $adminTarget))
+        ->assertOk()
+        ->assertSee('class="mt-6 grid gap-6 xl:grid-cols-2"', false)
+        ->assertSee('User details')
+        ->assertSee('Danger zone')
+        ->assertSee('Delete user');
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.show', $admin))
+        ->assertOk()
+        ->assertSee('class="mt-6 grid gap-6 xl:grid-cols-2"', false)
+        ->assertSee('Account protection')
+        ->assertDontSee('Danger zone');
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.show', $developerTarget))
+        ->assertOk()
+        ->assertSee('class="mt-6 grid gap-6 xl:grid-cols-2"', false)
+        ->assertSee('User details')
+        ->assertSee('Danger zone')
+        ->assertSee('Delete user');
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.show', $developer))
+        ->assertOk()
+        ->assertSee('class="mt-6 grid gap-6 xl:grid-cols-2"', false)
+        ->assertSee('Account protection')
+        ->assertDontSee('Danger zone');
 });
 
 test('user management actions render named Lucide icons', function (): void {
@@ -173,17 +226,15 @@ test('developer forms expose every role including developer', function (): void 
         ->assertSee('value="user"', false);
 });
 
-test('user forms render the role select with the styled native select treatment', function (): void {
+test('user forms render the role select with the shared Flowbite select treatment', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
 
     $this->actingAs($admin)
         ->get(route('admin.users.create'))
         ->assertOk()
-        ->assertSee('class="relative z-20 bg-transparent"', false)
-        ->assertSee('appearance-none', false)
-        ->assertSee('pr-11', false)
-        ->assertSee('pointer-events-none', false)
-        ->assertSee('data-icon="chevron-down"', false);
+        ->assertSee('class="block w-full rounded-base border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500', false)
+        ->assertDontSee('appearance-none', false)
+        ->assertDontSee('data-icon="chevron-down"', false);
 });
 
 test('edit pages place the danger zone in the second column without empty create placeholders', function (): void {

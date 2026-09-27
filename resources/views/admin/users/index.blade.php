@@ -13,74 +13,70 @@
     </div>
 
     @if (session('status'))
-        <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300">
-            {{ session('status') }}
-        </div>
+        <x-ui.alert variant="success">{{ session('status') }}</x-ui.alert>
     @endif
 
-    <x-admin.panel title="Workspace users" description="A list of people with access to the business workspace.">
-        <div class="-mx-5 overflow-x-auto sm:-mx-6">
-            <table class="min-w-full text-left text-sm">
-                <thead class="border-y border-slate-100 bg-slate-50 text-xs uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400">
-                    <tr>
-                        <th class="px-5 py-3 font-semibold sm:px-6">User</th>
-                        <th class="px-5 py-3 font-semibold sm:px-6">Role</th>
-                        <th class="px-5 py-3 font-semibold sm:px-6">Verification</th>
-                        <th class="px-5 py-3 text-right font-semibold sm:px-6">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                    @forelse ($users as $user)
-                        <tr class="align-middle transition hover:bg-slate-50/70 dark:hover:bg-slate-950/60">
-                            <td class="whitespace-nowrap px-5 py-4 sm:px-6">
+    <x-ui.card title="Workspace users" description="A list of people with access to the business workspace.">
+        <x-ui.table>
+            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">User</th>
+                    <th scope="col" class="px-6 py-3">Role</th>
+                    <th scope="col" class="px-6 py-3">Verification</th>
+                    <th scope="col" class="px-6 py-3 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($users as $user)
+                    <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
+                            <td class="whitespace-nowrap px-6 py-4">
                                 <div class="flex items-center gap-3">
-                                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-sm font-semibold text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200">
+                                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700 dark:bg-blue-900 dark:text-blue-300">
                                         {{ str($user->name)->substr(0, 1)->upper() }}
                                     </span>
                                     <div class="min-w-0">
-                                        <a href="{{ route('admin.users.show', $user) }}" class="block truncate font-semibold text-slate-900 hover:text-indigo-600 dark:text-white dark:hover:text-indigo-300">{{ $user->name }}</a>
-                                        <p class="truncate text-xs text-slate-500 dark:text-slate-400">{{ $user->email }}</p>
+                                        <a href="{{ route('admin.users.show', $user) }}" class="block truncate font-semibold text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400">{{ $user->name }}</a>
+                                        <p class="truncate text-xs text-gray-500 dark:text-gray-400">{{ $user->email }}</p>
                                     </div>
                                 </div>
                             </td>
-                            <td class="whitespace-nowrap px-5 py-4 sm:px-6">
+                            <td class="whitespace-nowrap px-6 py-4">
                                 <x-admin.user-role-badge :role="$user->role" />
                             </td>
-                            <td class="whitespace-nowrap px-5 py-4 sm:px-6">
+                            <td class="whitespace-nowrap px-6 py-4">
                                 @if ($user->email_verified_at)
-                                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400"><x-icon name="circle-check" class="h-3.5 w-3.5" />Verified</span>
+                                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-green-600 dark:text-green-400"><x-icon name="circle-check" class="h-3.5 w-3.5" />Verified</span>
                                 @else
-                                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400"><x-icon name="clock" class="h-3.5 w-3.5" />Pending</span>
+                                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400"><x-icon name="clock" class="h-3.5 w-3.5" />Pending</span>
                                 @endif
                             </td>
-                            <td class="whitespace-nowrap px-5 py-4 text-right sm:px-6">
+                            <td class="whitespace-nowrap px-6 py-4 text-right">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('admin.users.edit', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-indigo-600 hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-500/10" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
+                                    <a href="{{ route('admin.users.edit', $user) }}" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-blue-600 hover:bg-blue-50 focus:ring-4 focus:ring-blue-300 dark:text-blue-400 dark:hover:bg-gray-700 dark:focus:ring-blue-800" aria-label="Edit user" title="Edit user"><x-icon name="file-pen" class="h-5 w-5" /></a>
                                     @if ($user->role !== \App\Enums\UserRole::Admin)
                                         <form method="POST" action="{{ route('admin.users.destroy', $user) }}" onsubmit="return confirm('Delete this user?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10" aria-label="Delete user" title="Delete user"><x-icon name="trash" class="h-5 w-5" /></button>
+                                            <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-base text-red-600 hover:bg-red-50 focus:ring-4 focus:ring-red-300 dark:text-red-400 dark:hover:bg-gray-700 dark:focus:ring-red-900" aria-label="Delete user" title="Delete user"><x-icon name="trash" class="h-5 w-5" /></button>
                                         </form>
                                     @else
-                                        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 dark:text-slate-500" role="img" aria-label="Protected" title="Protected"><x-icon name="shield-check" class="h-5 w-5" /></span>
+                                        <span class="inline-flex h-9 w-9 items-center justify-center rounded-base text-gray-400 dark:text-gray-500" role="img" aria-label="Protected" title="Protected"><x-icon name="shield-check" class="h-5 w-5" /></span>
                                     @endif
                                 </div>
                             </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="px-6 py-8">
-                                <x-admin.empty-state title="No users yet" description="Create the first business user to get started." />
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" class="px-6 py-8">
+                            <x-admin.empty-state title="No users yet" description="Create the first business user to get started." />
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </x-ui.table>
 
         @if ($users->hasPages())
             <div class="mt-6">{{ $users->links() }}</div>
         @endif
-    </x-admin.panel>
+    </x-ui.card>
 </x-layouts.admin>

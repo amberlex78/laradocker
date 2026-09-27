@@ -6,13 +6,13 @@
     />
 
     <div class="w-full lg:w-1/2">
-        <x-admin.panel title="User details" description="Set the account details and business role.">
+        <x-ui.card title="User details" description="Set the account details and business role.">
             <x-admin.user-form
                 :action="route('admin.users.store')"
                 :available-roles="$availableRoles"
                 :cancel-url="route('admin.users.index')"
                 submit-label="Create user"
             />
-        </x-admin.panel>
+        </x-ui.card>
     </div>
 </x-layouts.admin>

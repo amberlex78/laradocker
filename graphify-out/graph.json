@@ -442,42 +442,6 @@
       "source_location": "L14"
     },
     {
-      "id": "reference_tailadmin_src_js_i18n_applyhtmllanguageattributes",
-      "label": "applyHtmlLanguageAttributes()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "code",
-      "norm_label": "applyhtmllanguageattributes()",
-      "source_file": ".reference/tailadmin/src/js/i18n.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "reference_tailadmin_src_js_i18n_isrtl",
-      "label": "isRTL()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "code",
-      "norm_label": "isrtl()",
-      "source_file": ".reference/tailadmin/src/js/i18n.js",
-      "source_location": "L19"
-    },
-    {
-      "id": "reference_tailadmin_src_js_i18n_setupi18n",
-      "label": "setupI18n()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "code",
-      "norm_label": "setupi18n()",
-      "source_file": ".reference/tailadmin/src/js/i18n.js",
-      "source_location": "L65"
-    },
-    {
       "id": "tests_feature_authentication_roleaccesstest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -1378,6 +1342,150 @@
       "source_location": "L4"
     },
     {
+      "id": "reference_tailadmin_src_js_components_image_resize_animate",
+      "label": "animate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "animate()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L127"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_calc",
+      "label": "calc()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "calc()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L103"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_canmove",
+      "label": "canMove()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "canmove()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L99"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_hinthide",
+      "label": "hintHide()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "hinthide()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_ondown",
+      "label": "onDown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "ondown()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L78"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_onmousedown",
+      "label": "onMouseDown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "onmousedown()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L73"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_onmove",
+      "label": "onMove()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "onmove()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L119"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_ontouchdown",
+      "label": "onTouchDown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "ontouchdown()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L60"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_ontouchend",
+      "label": "onTouchEnd()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "ontouchend()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L69"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_ontouchmove",
+      "label": "onTouchMove()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "ontouchmove()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L65"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_onup",
+      "label": "onUp()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "onup()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L246"
+    },
+    {
+      "id": "reference_tailadmin_src_js_components_image_resize_setbounds",
+      "label": "setBounds()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "setbounds()",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L32"
+    },
+    {
       "id": "reference_tailadmin_src_js_components_map_01_map01",
       "label": "map01()",
       "_callable": true,
@@ -1388,6 +1496,42 @@
       "norm_label": "map01()",
       "source_file": ".reference/tailadmin/src/js/components/map-01.js",
       "source_location": "L4"
+    },
+    {
+      "id": "reference_tailadmin_src_js_i18n_applyhtmllanguageattributes",
+      "label": "applyHtmlLanguageAttributes()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "applyhtmllanguageattributes()",
+      "source_file": ".reference/tailadmin/src/js/i18n.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "reference_tailadmin_src_js_i18n_isrtl",
+      "label": "isRTL()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "isrtl()",
+      "source_file": ".reference/tailadmin/src/js/i18n.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "reference_tailadmin_src_js_i18n_setupi18n",
+      "label": "setupI18n()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "setupi18n()",
+      "source_file": ".reference/tailadmin/src/js/i18n.js",
+      "source_location": "L65"
     },
     {
       "id": "reference_tailadmin_src_js_index_focussearchinput",
@@ -1563,7 +1707,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
@@ -1575,7 +1719,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
@@ -1587,7 +1731,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
@@ -1599,7 +1743,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
@@ -1611,7 +1755,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
@@ -1623,7 +1767,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
@@ -1635,7 +1779,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
@@ -1647,7 +1791,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1659,7 +1803,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1671,7 +1815,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1683,7 +1827,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1695,7 +1839,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1707,7 +1851,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1719,7 +1863,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
@@ -1731,179 +1875,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L129"
-    },
-    {
-      "id": "tests_pest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L32"
-    },
-    {
-      "id": "tests_pest_something",
-      "label": "something()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "something()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L47"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_animate",
-      "label": "animate()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "animate()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L127"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_calc",
-      "label": "calc()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "calc()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L103"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_canmove",
-      "label": "canMove()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "canmove()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L99"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_hinthide",
-      "label": "hintHide()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "hinthide()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L39"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_ondown",
-      "label": "onDown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "ondown()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L78"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_onmousedown",
-      "label": "onMouseDown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "onmousedown()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L73"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_onmove",
-      "label": "onMove()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "onmove()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L119"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_ontouchdown",
-      "label": "onTouchDown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "ontouchdown()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L60"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_ontouchend",
-      "label": "onTouchEnd()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "ontouchend()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L69"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_ontouchmove",
-      "label": "onTouchMove()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "ontouchmove()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L65"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_onup",
-      "label": "onUp()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "onup()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L246"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize_setbounds",
-      "label": "setBounds()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "setbounds()",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L32"
     },
     {
       "id": "app_actions_auth_registeruser_registeruser_handle",
@@ -2122,6 +2098,90 @@
       "source_location": "L14"
     },
     {
+      "id": "tests_feature_authentication_authvalidationrulestest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_feature_authentication_authvalidationrulestest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L25"
+    },
+    {
+      "id": "tests_feature_authentication_authvalidationrulestest_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L36"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L30"
+    },
+    {
+      "id": "tests_pest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "tests_pest_something",
+      "label": "something()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "something()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47"
+    },
+    {
       "id": "tests_feature_testing_testingenvironmenttest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -2312,42 +2372,6 @@
       "norm_label": ".rules()",
       "source_file": "app/Http/Requests/Developer/UpdateUserRequest.php",
       "source_location": "L18"
-    },
-    {
-      "id": "tests_feature_authentication_authvalidationrulestest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "UserManagementActionsTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_feature_authentication_authvalidationrulestest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "UserManagementActionsTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
-      "source_location": "L25"
-    },
-    {
-      "id": "tests_feature_authentication_authvalidationrulestest_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "UserManagementActionsTest.php",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
-      "source_location": "L36"
     },
     {
       "id": "tests_feature_usermanagement_usermanagementactionstest_closure_1",
@@ -2794,30 +2818,6 @@
       "source_location": "L27"
     },
     {
-      "id": "tests_feature_database_seeders_userseedertest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 73,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 73,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L30"
-    },
-    {
       "id": "tests_feature_pages_pagerenderingtest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -3079,7 +3079,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L176"
+      "source_location": "L191"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_11",
@@ -3091,7 +3091,31 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L189"
+      "source_location": "L217"
+    },
+    {
+      "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_12",
+      "label": "{closure#12}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#12}()",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L229"
+    },
+    {
+      "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_13",
+      "label": "{closure#13}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#13}()",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L240"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_2",
@@ -3127,7 +3151,7 @@
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L55"
+      "source_location": "L47"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_5",
@@ -3139,7 +3163,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L68"
+      "source_location": "L71"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
@@ -3151,7 +3175,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L91"
+      "source_location": "L84"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_7",
@@ -3163,7 +3187,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L115"
+      "source_location": "L107"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_8",
@@ -3175,7 +3199,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L138"
+      "source_location": "L144"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_9",
@@ -3187,7 +3211,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L164"
+      "source_location": "L168"
     },
     {
       "id": "database_migrations_0001_01_01_000000_create_users_table_closure_1",
@@ -3962,61 +3986,6 @@
       "norm_label": "developer/users/show.blade.php",
       "source_file": "resources/views/developer/users/show.blade.php",
       "source_location": null
-    },
-    {
-      "id": "alpinejs",
-      "label": "alpinejs",
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "alpinejs",
-      "source_file": "alpinejs"
-    },
-    {
-      "id": "reference_tailadmin_src_js_i18n",
-      "label": "i18n.js",
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "code",
-      "norm_label": "i18n.js",
-      "source_file": ".reference/tailadmin/src/js/i18n.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "reference_tailadmin_src_js_i18n_supportedlocales",
-      "label": "supportedLocales",
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "code",
-      "norm_label": "supportedlocales",
-      "source_file": ".reference/tailadmin/src/js/i18n.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "ref_i18next",
-      "label": "i18next",
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "concept",
-      "norm_label": "i18next",
-      "source_file": ".reference/tailadmin/package.json",
-      "source_location": "L48"
-    },
-    {
-      "id": "ref_i18next_browser_languagedetector",
-      "label": "i18next-browser-languagedetector",
-      "_origin": "ast",
-      "community": 101,
-      "community_name": "i18n.js",
-      "file_type": "concept",
-      "norm_label": "i18next-browser-languagedetector",
-      "source_file": ".reference/tailadmin/package.json",
-      "source_location": "L49"
     },
     {
       "id": "tests_feature_authentication_roleaccesstest",
@@ -4804,23 +4773,23 @@
     },
     {
       "id": "reference_flowbite_views_components_ui_select_blade",
-      "label": "select.blade.php",
+      "label": "flowbite/views/components/ui/select.blade.php",
       "_origin": "ast",
       "community": 132,
       "community_name": "select.blade.php",
       "file_type": "code",
-      "norm_label": "select.blade.php",
+      "norm_label": "flowbite/views/components/ui/select.blade.php",
       "source_file": ".reference/flowbite/views/components/ui/select.blade.php",
       "source_location": null
     },
     {
       "id": "reference_flowbite_views_components_ui_table_blade",
-      "label": "table.blade.php",
+      "label": "flowbite/views/components/ui/table.blade.php",
       "_origin": "ast",
       "community": 133,
       "community_name": "table.blade.php",
       "file_type": "code",
-      "norm_label": "table.blade.php",
+      "norm_label": "flowbite/views/components/ui/table.blade.php",
       "source_file": ".reference/flowbite/views/components/ui/table.blade.php",
       "source_location": null
     },
@@ -5477,6 +5446,17 @@
       "norm_label": "ui icons",
       "source_file": ".ai/rules/ui-icons.md",
       "source_location": "L1"
+    },
+    {
+      "id": "resources_views_components_ui_table_blade",
+      "label": "resources/views/components/ui/table.blade.php",
+      "_origin": "ast",
+      "community": 151,
+      "community_name": "resources/views/components/ui/table.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/table.blade.php",
+      "source_file": "resources/views/components/ui/table.blade.php",
+      "source_location": null
     },
     {
       "id": "reference_tailadmin_readme",
@@ -6473,6 +6453,17 @@
       "source_location": "L1"
     },
     {
+      "id": "alpinejs",
+      "label": "alpinejs",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "alpinejs",
+      "source_file": "alpinejs"
+    },
+    {
       "id": "reference_tailadmin_src_js_components_charts_chart_01",
       "label": "chart-01.js",
       "_origin": "ast",
@@ -6506,6 +6497,17 @@
       "source_location": "L1"
     },
     {
+      "id": "reference_tailadmin_src_js_components_image_resize",
+      "label": "image-resize.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "image-resize.js",
+      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
+      "source_location": "L1"
+    },
+    {
       "id": "reference_tailadmin_src_js_components_map_01",
       "label": "map-01.js",
       "_origin": "ast",
@@ -6515,6 +6517,28 @@
       "norm_label": "map-01.js",
       "source_file": ".reference/tailadmin/src/js/components/map-01.js",
       "source_location": "L1"
+    },
+    {
+      "id": "reference_tailadmin_src_js_i18n",
+      "label": "i18n.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "i18n.js",
+      "source_file": ".reference/tailadmin/src/js/i18n.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "reference_tailadmin_src_js_i18n_supportedlocales",
+      "label": "supportedLocales",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "supportedlocales",
+      "source_file": ".reference/tailadmin/src/js/i18n.js",
+      "source_location": "L9"
     },
     {
       "id": "reference_tailadmin_src_js_index",
@@ -6592,6 +6616,28 @@
       "norm_label": "flatpickr",
       "source_file": ".reference/tailadmin/package.json",
       "source_location": "L46"
+    },
+    {
+      "id": "ref_i18next",
+      "label": "i18next",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "concept",
+      "norm_label": "i18next",
+      "source_file": ".reference/tailadmin/package.json",
+      "source_location": "L48"
+    },
+    {
+      "id": "ref_i18next_browser_languagedetector",
+      "label": "i18next-browser-languagedetector",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "index.js",
+      "file_type": "concept",
+      "norm_label": "i18next-browser-languagedetector",
+      "source_file": ".reference/tailadmin/package.json",
+      "source_location": "L49"
     },
     {
       "id": "ref_jsvectormap",
@@ -7770,20 +7816,9 @@
       "label": "Illuminate\\Auth\\Notifications\\VerifyEmail",
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "illuminate\\auth\\notifications\\verifyemail",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_foundation_testing_refreshdatabase",
-      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
       "source_file": "",
       "source_location": ""
     },
@@ -7792,7 +7827,7 @@
       "label": "Illuminate\\Support\\Facades\\Notification",
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\notification",
       "source_file": "",
@@ -7803,7 +7838,7 @@
       "label": "ApplicationActionsTest.php",
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "applicationactionstest.php",
       "source_file": "tests/Feature/Authentication/ApplicationActionsTest.php",
@@ -7814,7 +7849,7 @@
       "label": "FortifyActionsTest.php",
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "fortifyactionstest.php",
       "source_file": "tests/Feature/Authentication/FortifyActionsTest.php",
@@ -7825,21 +7860,10 @@
       "label": "ProfilePageTest.php",
       "_origin": "ast",
       "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "ApplicationActionsTest.php",
       "file_type": "code",
       "norm_label": "profilepagetest.php",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_pest",
-      "label": "Pest.php",
-      "_origin": "ast",
-      "community": 48,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "pest.php",
-      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -7962,17 +7986,6 @@
       "norm_label": "swiper",
       "source_file": ".reference/tailadmin/package.json",
       "source_location": "L51"
-    },
-    {
-      "id": "reference_tailadmin_src_js_components_image_resize",
-      "label": "image-resize.js",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "image-resize.js",
-      "file_type": "code",
-      "norm_label": "image-resize.js",
-      "source_file": ".reference/tailadmin/src/js/components/image-resize.js",
-      "source_location": "L1"
     },
     {
       "id": "composer_scripts",
@@ -8492,15 +8505,59 @@
       "source_location": ""
     },
     {
-      "id": "resources_views_components_admin_panel_blade",
-      "label": "admin/panel.blade.php",
+      "id": "illuminate_foundation_testing_refreshdatabase",
+      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "_origin": "ast",
       "community": 60,
-      "community_name": "panel.blade.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
-      "norm_label": "admin/panel.blade.php",
-      "source_file": "resources/views/components/admin/panel.blade.php",
-      "source_location": null
+      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_support_facades_validator",
+      "label": "Illuminate\\Support\\Facades\\Validator",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\validator",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_feature_authentication_authvalidationrulestest",
+      "label": "AuthValidationRulesTest.php",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "authvalidationrulestest.php",
+      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest",
+      "label": "UserSeederTest.php",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "userseedertest.php",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_pest",
+      "label": "Pest.php",
+      "_origin": "ast",
+      "community": 60,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "pest.php",
+      "source_file": "tests/Pest.php",
+      "source_location": "L1"
     },
     {
       "id": "resources_views_components_admin_sidebar_blade",
@@ -8511,6 +8568,17 @@
       "file_type": "code",
       "norm_label": "resources/views/components/admin/sidebar.blade.php",
       "source_file": "resources/views/components/admin/sidebar.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_select_blade",
+      "label": "resources/views/components/ui/select.blade.php",
+      "_origin": "ast",
+      "community": 62,
+      "community_name": "resources/views/components/ui/select.blade.php",
+      "file_type": "code",
+      "norm_label": "resources/views/components/ui/select.blade.php",
+      "source_file": "resources/views/components/ui/select.blade.php",
       "source_location": null
     },
     {
@@ -8677,28 +8745,6 @@
       "norm_label": "illuminate\\routing\\route",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "illuminate_support_facades_validator",
-      "label": "Illuminate\\Support\\Facades\\Validator",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "UserManagementActionsTest.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\support\\facades\\validator",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "tests_feature_authentication_authvalidationrulestest",
-      "label": "AuthValidationRulesTest.php",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "UserManagementActionsTest.php",
-      "file_type": "code",
-      "norm_label": "authvalidationrulestest.php",
-      "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
-      "source_location": "L1"
     },
     {
       "id": "tests_feature_usermanagement_usermanagementactionstest",
@@ -9097,17 +9143,6 @@
       "file_type": "code",
       "norm_label": "auth.php",
       "source_file": "config/auth.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest",
-      "label": "UserSeederTest.php",
-      "_origin": "ast",
-      "community": 73,
-      "community_name": "User",
-      "file_type": "code",
-      "norm_label": "userseedertest.php",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
       "source_location": "L1"
     },
     {
@@ -9552,30 +9587,6 @@
       "type": "external"
     },
     {
-      "id": "reference_tailadmin_src_images_flag_flag_us",
-      "label": "reference_tailadmin_src_images_flag_flag_us",
-      "_origin": "semantic",
-      "community": 101,
-      "community_name": "i18n.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "reference_tailadmin_src_images_flag_flag_us",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "reference_tailadmin_src_locales_en_common",
-      "label": "reference_tailadmin_src_locales_en_common",
-      "_origin": "semantic",
-      "community": 101,
-      "community_name": "i18n.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "reference_tailadmin_src_locales_en_common",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_path",
       "label": "ref_path",
       "_origin": "semantic",
@@ -9620,6 +9631,30 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "reference_tailadmin_src_css_style",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "reference_tailadmin_src_images_flag_flag_us",
+      "label": "reference_tailadmin_src_images_flag_flag_us",
+      "_origin": "semantic",
+      "community": 29,
+      "community_name": "index.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "reference_tailadmin_src_images_flag_flag_us",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "reference_tailadmin_src_locales_en_common",
+      "label": "reference_tailadmin_src_locales_en_common",
+      "_origin": "semantic",
+      "community": 29,
+      "community_name": "index.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "reference_tailadmin_src_locales_en_common",
       "source_file": "",
       "type": "external"
     },
@@ -11062,7 +11097,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L177",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -11074,7 +11109,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L190",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest_closure_12",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest_closure_13",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -11110,7 +11169,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L56",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -11122,7 +11181,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L69",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -11134,7 +11193,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L92",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -11146,7 +11205,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L116",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -11158,7 +11217,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L139",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
@@ -11170,7 +11229,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L165",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -21217,7 +21276,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L115",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -21228,7 +21287,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L138",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -21239,7 +21298,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L164",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -21250,18 +21309,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L176",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_usermanagementpagerenderingtest",
-      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_11",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L189",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -21273,6 +21321,39 @@
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
       "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_11",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_12",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_13",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -21294,7 +21375,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L55",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -21305,7 +21386,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L68",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -21317,17 +21409,6 @@
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
       "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_pages_usermanagementpagerenderingtest",
-      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -23711,5 +23792,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6e2c411d66f163438a4e5f250036ecf2d6017388"
+  "built_at_commit": "42a8ee0eefd412a7936e57f38f23a4873324f838"
 }
