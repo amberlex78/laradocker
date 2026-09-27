@@ -68,6 +68,10 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6M16 13l-4 4-1 3 3-1 4-4a1.41 1.41 0 0 0-2-2Z" />
             @break
+        @case('github')
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-1.5 6-5.5a4.7 4.7 0 0 0-1-3.5 4.3 4.3 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.4 0C6.6 1.7 5.5 2 5.5 2a4.3 4.3 0 0 0-.1 3.5 4.7 4.7 0 0 0-1 3.5c0 4 3 5.5 6 5.5a4.8 4.8 0 0 0-1 3.5v4" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18c-4.51 2-5-2-7-2" />
+            @break
         @case('layout-dashboard')
             <rect width="7" height="9" x="3" y="3" rx="1" />
             <rect width="7" height="5" x="14" y="3" rx="1" />
