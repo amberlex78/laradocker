@@ -1,16 +1,14 @@
 <x-layouts.developer :title="'Users'">
-    <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <x-admin.page-header
-            title="Users"
-            icon="users"
-            description="Manage all application accounts and role assignments."
-        />
-
+    <x-admin.page-header
+        title="Users"
+        icon="users"
+        description="Manage all application accounts and role assignments."
+    >
         <x-ui.link-button href="{{ route('developer.users.create') }}">
             <x-icon name="user-plus" class="h-4 w-4" />
             Add user
         </x-ui.link-button>
-    </div>
+    </x-admin.page-header>
 
     @if (session('status'))
         <x-ui.alert variant="success">{{ session('status') }}</x-ui.alert>

@@ -3175,7 +3175,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L196"
+      "source_location": "L191"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_11",
@@ -3187,7 +3187,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L219"
+      "source_location": "L215"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_12",
@@ -3199,7 +3199,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L245"
+      "source_location": "L238"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_13",
@@ -3211,7 +3211,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L257"
+      "source_location": "L264"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_14",
@@ -3223,7 +3223,19 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L268"
+      "source_location": "L276"
+    },
+    {
+      "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_15",
+      "label": "{closure#15}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#15}()",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L287"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_2",
@@ -3259,7 +3271,7 @@
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L47"
+      "source_location": "L50"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_5",
@@ -3271,7 +3283,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L75"
+      "source_location": "L66"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_6",
@@ -3283,7 +3295,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L99"
+      "source_location": "L94"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_7",
@@ -3295,7 +3307,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L112"
+      "source_location": "L118"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_8",
@@ -3307,7 +3319,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L135"
+      "source_location": "L131"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_9",
@@ -3319,7 +3331,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L172"
+      "source_location": "L154"
     },
     {
       "id": "database_migrations_0001_01_01_000000_create_users_table_closure_1",
@@ -11274,7 +11286,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L197",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -11286,7 +11298,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L220",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -11298,7 +11310,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L246",
+      "source_location": "L239",
       "weight": 1.0
     },
     {
@@ -11310,7 +11322,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L258",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -11322,7 +11334,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L269",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest_closure_15",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -11358,7 +11382,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L48",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -11370,7 +11394,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L76",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -11382,7 +11406,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L100",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -11394,7 +11418,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L113",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -11406,7 +11430,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L136",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -11418,7 +11442,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L173",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -21465,7 +21489,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L112",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -21476,7 +21500,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L135",
+      "source_location": "L131",
       "weight": 1.0
     },
     {
@@ -21487,7 +21511,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L172",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -21498,7 +21522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L196",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -21520,7 +21544,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L219",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -21531,7 +21555,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L245",
+      "source_location": "L238",
       "weight": 1.0
     },
     {
@@ -21542,7 +21566,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L257",
+      "source_location": "L264",
       "weight": 1.0
     },
     {
@@ -21553,7 +21577,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L268",
+      "source_location": "L276",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_pages_usermanagementpagerenderingtest",
+      "target": "tests_feature_pages_usermanagementpagerenderingtest_closure_15",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
@@ -21575,7 +21610,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L47",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -21586,7 +21621,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L75",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -21608,7 +21643,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Pages/UserManagementPageRenderingTest.php",
-      "source_location": "L99",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -23992,5 +24027,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6301c4cc900dde226849d13072d942a918ac31a9"
+  "built_at_commit": "c058ad910330dcf7344fea215107817e3f3ac3f6"
 }

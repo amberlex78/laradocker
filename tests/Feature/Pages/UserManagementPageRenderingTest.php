@@ -28,6 +28,25 @@ test('developer navigation exposes the developer user-management namespace', fun
         ->assertDontSee(route('admin.users.index'));
 });
 
+test('user index actions use the page header action slot', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.index'))
+        ->assertOk()
+        ->assertSee('<div class="shrink-0">', false)
+        ->assertSee('href="'.route('admin.users.create').'"', false)
+        ->assertSee('Add user');
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.index'))
+        ->assertOk()
+        ->assertSee('<div class="shrink-0">', false)
+        ->assertSee('href="'.route('developer.users.create').'"', false)
+        ->assertSee('Add user');
+});
+
 test('admin and developer user indexes use the shared Flowbite table structure', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $developer = User::factory()->create(['role' => UserRole::Developer]);

@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-09-27)
 
 ## Corpus Check
-- 196 files · ~90,462 words
+- 196 files · ~90,492 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 34 file(s) not represented in the graph (top: (none) 19, .example 4, .css 3)
 
 ## Summary
-- 862 nodes · 1216 edges · 165 communities (40 shown, 125 thin omitted)
+- 863 nodes · 1218 edges · 165 communities (40 shown, 125 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6301c4cc`
+- Built from commit: `c058ad91`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,7 +80,7 @@
 - ui-icons.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 169 edges
+1. `User` - 170 edges
 2. `UserRole` - 85 edges
 3. `AuthValidationRules` - 20 edges
 4. `Розгортання на VPS` - 13 edges
@@ -246,7 +246,7 @@ Nodes (26): UserRole, Authentication, Admin, and Developer Areas Implementation 
 
 ### Community 73 - "User"
 Cohesion: 0.08
-Nodes (31): User, {closure#1}(), {closure#2}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}() (+23 more)
+Nodes (32): User, {closure#1}(), {closure#2}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}() (+24 more)
 
 ### Community 79 - "author"
 Cohesion: 0.50
@@ -277,7 +277,7 @@ Nodes (6): Illuminate\Contracts\Auth\MustVerifyEmail, Illuminate\Database\Eloque
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `DeveloperUserManagementTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserManagementActionsTest.php`, `AuthValidationRules`, `RoleAccessTest.php`, `UserRole`, `FortifyServiceProvider.php`, `UserFactory.php`, `User Management in Admin and Developer Areas`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User.php`, `UserPolicy`, `.view`?**
-  _High betweenness centrality (0.109) - this node is a cross-community bridge._
+  _High betweenness centrality (0.110) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `Authentication, Admin, and Developer Areas`, `Illuminate\Foundation\Http\FormRequest`, `DeveloperUserManagementTest.php`, `AuthValidationRules`, `RoleAccessTest.php`, `UserManagementActionsTest.php`, `User`, `FortifyServiceProvider.php`, `UserFactory.php`, `User Management in Admin and Developer Areas`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User.php`, `UserPolicy`, `.view`?**
   _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `User`, `UserRole`?**
