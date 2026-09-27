@@ -231,8 +231,9 @@ test('an admin dashboard exposes a users action beside its overview header', fun
 
     $this->actingAs($admin)
         ->get(route('admin.dashboard'))
-        ->assertSee('Manage users')
+        ->assertSee('Manage Users')
         ->assertSee('href="'.route('admin.users.index').'"', false)
+        ->assertSee('px-4 py-2.5 text-sm', false)
         ->assertSee('Workspace status')
         ->assertSee('Configured modules')
         ->assertSee('Open actions')
@@ -247,7 +248,7 @@ test('an operator dashboard does not expose the admin-only users action', functi
     $this->actingAs($operator)
         ->get(route('admin.dashboard'))
         ->assertSee('Admin dashboard')
-        ->assertDontSee('Manage users')
+        ->assertDontSee('Manage Users')
         ->assertDontSee('href="'.route('admin.users.index').'"', false);
 });
 

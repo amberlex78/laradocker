@@ -5,8 +5,8 @@
         description="A focused overview of the business administration area."
     >
         @if (auth()->user()->role === \App\Enums\UserRole::Admin)
-            <x-ui.link-button href="{{ route('admin.users.index') }}" size="sm" aria-label="Manage users">
-                Manage users
+            <x-ui.link-button href="{{ route('admin.users.index') }}" size="md" aria-label="Manage Users">
+                Manage Users
             </x-ui.link-button>
         @endif
     </x-admin.page-header>
