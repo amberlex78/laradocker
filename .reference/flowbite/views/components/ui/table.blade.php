@@ -32,4 +32,10 @@
 
         {{ $slot }}
     </table>
+
+    @if (isset($footer))
+        <div class="border-t border-gray-200 dark:border-gray-700">
+            {{ $footer }}
+        </div>
+    @endif
 </div>

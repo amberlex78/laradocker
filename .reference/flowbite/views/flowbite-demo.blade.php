@@ -215,6 +215,124 @@
                             </x-ui.table>
                         </div>
                     </div>
+
+                    <div class="mt-6 space-y-3">
+                        <div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">Products with pagination</h3>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">A complete table composition with selection, actions and an optional Flowbite-style footer.</p>
+                        </div>
+
+                        <x-ui.table variant="shadow">
+                            <x-ui.table.head>
+                                <x-ui.table.cell as="th" variant="header" scope="col" class="w-4">
+                                    <x-ui.table.checkbox id="products-select-all" label="Select all products" />
+                                </x-ui.table.cell>
+                                <x-ui.table.cell as="th" variant="header" scope="col">Product name</x-ui.table.cell>
+                                <x-ui.table.cell as="th" variant="header" scope="col">Color</x-ui.table.cell>
+                                <x-ui.table.cell as="th" variant="header" scope="col">Category</x-ui.table.cell>
+                                <x-ui.table.cell as="th" variant="header" scope="col">Price</x-ui.table.cell>
+                                <x-ui.table.cell as="th" variant="header" scope="col">Action</x-ui.table.cell>
+                            </x-ui.table.head>
+                            <tbody>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-1" label="Select Apple MacBook Pro 17 inch" value="1" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Apple MacBook Pro 17&quot;</x-ui.table.cell>
+                                    <x-ui.table.cell>Silver</x-ui.table.cell>
+                                    <x-ui.table.cell>Laptop</x-ui.table.cell>
+                                    <x-ui.table.cell>$2999</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-2" label="Select Microsoft Surface Pro" value="2" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Microsoft Surface Pro</x-ui.table.cell>
+                                    <x-ui.table.cell>White</x-ui.table.cell>
+                                    <x-ui.table.cell>Laptop PC</x-ui.table.cell>
+                                    <x-ui.table.cell>$1999</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-3" label="Select Magic Mouse 2" value="3" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Magic Mouse 2</x-ui.table.cell>
+                                    <x-ui.table.cell>Black</x-ui.table.cell>
+                                    <x-ui.table.cell>Accessories</x-ui.table.cell>
+                                    <x-ui.table.cell>$99</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-4" label="Select Apple Watch" value="4" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Apple Watch</x-ui.table.cell>
+                                    <x-ui.table.cell>Black</x-ui.table.cell>
+                                    <x-ui.table.cell>Watches</x-ui.table.cell>
+                                    <x-ui.table.cell>$199</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-5" label="Select Apple iMac" value="5" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Apple iMac</x-ui.table.cell>
+                                    <x-ui.table.cell>Silver</x-ui.table.cell>
+                                    <x-ui.table.cell>PC</x-ui.table.cell>
+                                    <x-ui.table.cell>$2999</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-6" label="Select Apple AirPods" value="6" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Apple AirPods</x-ui.table.cell>
+                                    <x-ui.table.cell>White</x-ui.table.cell>
+                                    <x-ui.table.cell>Accessories</x-ui.table.cell>
+                                    <x-ui.table.cell>$399</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-7" label="Select iPad Pro" value="7" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">iPad Pro</x-ui.table.cell>
+                                    <x-ui.table.cell>Gold</x-ui.table.cell>
+                                    <x-ui.table.cell>Tablet</x-ui.table.cell>
+                                    <x-ui.table.cell>$699</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-8" label="Select Magic Keyboard" value="8" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Magic Keyboard</x-ui.table.cell>
+                                    <x-ui.table.cell>Black</x-ui.table.cell>
+                                    <x-ui.table.cell>Accessories</x-ui.table.cell>
+                                    <x-ui.table.cell>$99</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-9" label="Select Smart Folio iPad Air" value="9" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">Smart Folio iPad Air</x-ui.table.cell>
+                                    <x-ui.table.cell>Blue</x-ui.table.cell>
+                                    <x-ui.table.cell>Accessories</x-ui.table.cell>
+                                    <x-ui.table.cell>$79</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                                <x-ui.table.row>
+                                    <x-ui.table.cell class="w-4"><x-ui.table.checkbox id="product-10" label="Select AirTag" value="10" /></x-ui.table.cell>
+                                    <x-ui.table.cell as="th" scope="row">AirTag</x-ui.table.cell>
+                                    <x-ui.table.cell>Silver</x-ui.table.cell>
+                                    <x-ui.table.cell>Accessories</x-ui.table.cell>
+                                    <x-ui.table.cell>$29</x-ui.table.cell>
+                                    <x-ui.table.cell><a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a></x-ui.table.cell>
+                                </x-ui.table.row>
+                            </tbody>
+
+                            <x-slot name="footer">
+                                <x-ui.table.footer>
+                                    <x-ui.pagination.summary :from="1" :to="10" :total="1000" />
+                                    <x-ui.pagination
+                                        variant="numbered"
+                                        :current-page="3"
+                                        :last-page="100"
+                                        :page-items="[1, 2, 3, '...', 5]"
+                                        :page-urls="[1 => '#page-1', 2 => '#page-2', 3 => '#page-3', 4 => '#page-4', 5 => '#page-5']"
+                                        previous-url="#page-2"
+                                        next-url="#page-4"
+                                        aria-label="Table pagination"
+                                    />
+                                </x-ui.table.footer>
+                            </x-slot>
+                        </x-ui.table>
+                    </div>
                 </x-ui.card>
             </section>
         </main>
