@@ -1,4 +1,5 @@
 import Alpine from 'alpinejs';
+import { initFlowbite } from 'flowbite';
 
 window.Alpine = Alpine;
 
@@ -92,3 +93,4 @@ Alpine.data('formValidation', () => ({
 }));
 
 Alpine.start();
+initFlowbite();

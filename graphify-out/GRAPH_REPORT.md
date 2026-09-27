@@ -1,17 +1,17 @@
-# Graph Report - laradocker  (2026-09-26)
+# Graph Report - laradocker  (2026-09-27)
 
 ## Corpus Check
-- 142 files · ~80,496 words
+- 142 files · ~80,505 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 19, .example 4, .conf 3)
 
 ## Summary
-- 793 nodes · 1193 edges · 113 communities (42 shown, 71 thin omitted)
+- 795 nodes · 1196 edges · 112 communities (41 shown, 71 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f3e05aaf`
+- Built from commit: `ecbb7a86`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -52,7 +52,6 @@
 - extra
 - UserManagementActionsTest.php
 - UserRole
-- app.js
 - AuthenticationFlowTest.php
 - PageRenderingTest.php
 - Illuminate\Foundation\Http\FormRequest
@@ -106,15 +105,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (113 total, 71 thin omitted)
+## Communities (112 total, 71 thin omitted)
 
 ### Community 0 - "composer.json"
 Cohesion: 0.22
 Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
 
 ### Community 1 - "package.json"
-Cohesion: 0.09
-Nodes (23): dependencies, alpinejs, devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite (+15 more)
+Cohesion: 0.07
+Nodes (29): dependencies, alpinejs, flowbite, devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite (+21 more)
 
 ### Community 2 - "Laravel-проєкти без домену"
 Cohesion: 0.12
@@ -232,10 +231,6 @@ Nodes (14): Illuminate\Routing\Route, Illuminate\Support\Facades\Validator, {clo
 Cohesion: 0.11
 Nodes (26): UserRole, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, {closure#1}(), {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}() (+18 more)
 
-### Community 71 - "app.js"
-Cohesion: 0.60
-Nodes (4): ref_alpinejs, messageFor(), setFieldError(), submit()
-
 ### Community 72 - "AuthenticationFlowTest.php"
 Cohesion: 0.22
 Nodes (7): Illuminate\Foundation\Http\Middleware\PreventRequestForgery, {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
@@ -277,15 +272,15 @@ Cohesion: 0.25
 Nodes (5): {closure#2}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
 
 ## Knowledge Gaps
-- **223 isolated node(s):** `php`, `name`, `version`, `description`, `main` (+218 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 379 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **224 isolated node(s):** `php`, `name`, `version`, `description`, `main` (+219 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 380 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **71 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `UserManagementActionsTest.php`, `AuthValidationRules`, `UserRole`, `AuthenticationFlowTest.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `Illuminate\Foundation\Http\FormRequest`, `FortifyServiceProvider.php`, `User Management in Admin and Developer Areas`, `UserFactory.php`, `RoleAccessTest.php`, `DeveloperUserManagementTest.php`, `UserPolicy`, `.view`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+  _High betweenness centrality (0.121) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `Authentication, Admin, and Developer Areas`, `UserManagementActionsTest.php`, `User`, `AuthValidationRules`, `AuthenticationFlowTest.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `Illuminate\Foundation\Http\FormRequest`, `FortifyServiceProvider.php`, `User Management in Admin and Developer Areas`, `UserFactory.php`, `RoleAccessTest.php`, `DeveloperUserManagementTest.php`, `UserPolicy`, `.view`?**
   _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `User`, `UserRole`?**
@@ -295,6 +290,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 7 inferred relationships involving `UserRole` (e.g. with `Authentication, Admin, and Developer Areas Implementation Plan` and `Global Constraints`) actually correct?**
   _`UserRole` has 7 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `php`, `name`, `version` to the rest of the system?**
-  _223 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _224 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.08666666666666667 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07056451612903226 - nodes in this community are weakly interconnected._

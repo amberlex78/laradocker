@@ -394,6 +394,42 @@
       "source_location": "L11"
     },
     {
+      "id": "resources_js_app_messagefor",
+      "label": "messageFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "messagefor()",
+      "source_file": "resources/js/app.js",
+      "source_location": "L51"
+    },
+    {
+      "id": "resources_js_app_setfielderror",
+      "label": "setFieldError()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "setfielderror()",
+      "source_file": "resources/js/app.js",
+      "source_location": "L33"
+    },
+    {
+      "id": "resources_js_app_submit",
+      "label": "submit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "submit()",
+      "source_file": "resources/js/app.js",
+      "source_location": "L7"
+    },
+    {
       "id": "reference_tailadmin_src_js_i18n_applyhtmllanguageattributes",
       "label": "applyHtmlLanguageAttributes()",
       "_callable": true,
@@ -2686,42 +2722,6 @@
       "source_location": "L123"
     },
     {
-      "id": "resources_js_app_messagefor",
-      "label": "messageFor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 71,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "messagefor()",
-      "source_file": "resources/js/app.js",
-      "source_location": "L50"
-    },
-    {
-      "id": "resources_js_app_setfielderror",
-      "label": "setFieldError()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 71,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "setfielderror()",
-      "source_file": "resources/js/app.js",
-      "source_location": "L32"
-    },
-    {
-      "id": "resources_js_app_submit",
-      "label": "submit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 71,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "submit()",
-      "source_file": "resources/js/app.js",
-      "source_location": "L6"
-    },
-    {
       "id": "tests_feature_authentication_authenticationflowtest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -3550,6 +3550,17 @@
       "source_location": "L20"
     },
     {
+      "id": "package_dependencies_flowbite",
+      "label": "flowbite",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "flowbite",
+      "source_file": "package.json",
+      "source_location": "L21"
+    },
+    {
       "id": "package_devdependencies",
       "label": "devDependencies",
       "_origin": "ast",
@@ -3704,6 +3715,17 @@
       "source_location": "L4"
     },
     {
+      "id": "resources_js_app",
+      "label": "app.js",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "app.js",
+      "source_file": "resources/js/app.js",
+      "source_location": "L1"
+    },
+    {
       "id": "vite_config",
       "label": "vite.config.js",
       "_origin": "ast",
@@ -3746,6 +3768,17 @@
       "norm_label": "concurrently",
       "source_file": "package.json",
       "source_location": "L11"
+    },
+    {
+      "id": "ref_flowbite",
+      "label": "flowbite",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "flowbite",
+      "source_file": "package.json",
+      "source_location": "L21"
     },
     {
       "id": "ref_laravel_multiplex",
@@ -8452,17 +8485,6 @@
       "source_location": "L13"
     },
     {
-      "id": "resources_js_app",
-      "label": "app.js",
-      "_origin": "ast",
-      "community": 71,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "app.js",
-      "source_file": "resources/js/app.js",
-      "source_location": "L1"
-    },
-    {
       "id": "illuminate_foundation_http_middleware_preventrequestforgery",
       "label": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery",
       "_origin": "ast",
@@ -8980,6 +9002,18 @@
       "source_location": null
     },
     {
+      "id": "ref_alpinejs",
+      "label": "ref_alpinejs",
+      "_origin": "semantic",
+      "community": 1,
+      "community_name": "package.json",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_alpinejs",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "reference_tailadmin_src_images_flag_flag_us",
       "label": "reference_tailadmin_src_images_flag_flag_us",
       "_origin": "semantic",
@@ -9048,18 +9082,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "reference_tailadmin_src_css_style",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_alpinejs",
-      "label": "ref_alpinejs",
-      "_origin": "semantic",
-      "community": 71,
-      "community_name": "app.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_alpinejs",
       "source_file": "",
       "type": "external"
     },
@@ -9794,7 +9816,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "resources/js/app.js",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -9806,7 +9828,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "resources/js/app.js",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -12978,6 +13000,18 @@
       "weight": 1.0
     },
     {
+      "source": "package",
+      "target": "ref_flowbite",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
       "source": "public_index",
       "target": "illuminate_foundation_application",
       "relation": "imports",
@@ -14703,6 +14737,18 @@
       "context": "import",
       "source_file": "resources/js/app.js",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "resources_js_app",
+      "target": "ref_flowbite",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "resources/js/app.js",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -18322,6 +18368,17 @@
       "weight": 1.0
     },
     {
+      "source": "package_dependencies",
+      "target": "package_dependencies_flowbite",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
       "source": "package_devdependencies",
       "target": "package_devdependencies_tailwindcss_vite",
       "relation": "contains",
@@ -19649,7 +19706,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "resources/js/app.js",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -19660,7 +19717,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "resources/js/app.js",
-      "source_location": "L50",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -19671,7 +19728,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "resources/js/app.js",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -22957,5 +23014,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f3e05aaf7faaec8e143fe6c67d9659f8e5e7c6b7"
+  "built_at_commit": "ecbb7a86062595a8d29909c0f8843d5eab006984"
 }
