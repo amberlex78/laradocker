@@ -87,10 +87,9 @@
 
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="w-full sm:col-span-2">
-                            <x-ui.input
+                            <x-ui.password-input
                                 id="current_password"
                                 name="current_password"
-                                type="password"
                                 label="Current password"
                                 placeholder="Enter your current password"
                                 autocomplete="current-password"
@@ -98,20 +97,18 @@
                             />
                         </div>
 
-                        <x-ui.input
+                        <x-ui.password-input
                             id="password"
                             name="password"
-                            type="password"
                             label="New password"
                             placeholder="Create a new password"
                             autocomplete="new-password"
                             required
                         />
 
-                        <x-ui.input
+                        <x-ui.password-input
                             id="password_confirmation"
                             name="password_confirmation"
-                            type="password"
                             label="Confirm password"
                             placeholder="Repeat your new password"
                             autocomplete="new-password"

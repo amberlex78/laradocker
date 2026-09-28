@@ -2395,7 +2395,7 @@
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/UiInputComponentTest.php",
-      "source_location": "L15"
+      "source_location": "L17"
     },
     {
       "id": "tests_unit_exampletest_closure_1",
@@ -4723,6 +4723,17 @@
       "file_type": "code",
       "norm_label": "resources/views/components/ui/modal.blade.php",
       "source_file": "resources/views/components/ui/modal.blade.php",
+      "source_location": null
+    },
+    {
+      "id": "resources_views_components_ui_password_input_blade",
+      "label": "password-input.blade.php",
+      "_origin": "ast",
+      "community": 142,
+      "community_name": "password-input.blade.php",
+      "file_type": "code",
+      "norm_label": "password-input.blade.php",
+      "source_file": "resources/views/components/ui/password-input.blade.php",
       "source_location": null
     },
     {
@@ -17722,7 +17733,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/UiInputComponentTest.php",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -19933,5 +19944,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0f9f271400ecd5ad29966990e9befcffc0a4e44a"
+  "built_at_commit": "386cf39602be42c93ee5cd488eff199fc4002878"
 }

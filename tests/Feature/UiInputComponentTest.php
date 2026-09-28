@@ -9,15 +9,18 @@ test('ui input renders the standard Flowbite field and forwards attributes', fun
         ->assertSeeHtml('type="email"')
         ->assertSeeHtml('value="user@example.com"')
         ->assertSeeHtml('focus:ring-blue-500')
+        ->assertDontSee('passwordVisible')
+        ->assertDontSee('data-icon="eye"')
         ->assertSeeText('Email');
 });
 
 test('ui password input renders an accessible visibility toggle', function (): void {
     $this->blade(
-        '<x-ui.input id="password" name="password" type="password" label="Password" />'
+        '<x-ui.password-input id="password" name="password" label="Password" />'
     )
         ->assertSeeHtml('x-data="{ passwordVisible: false }"')
         ->assertSeeHtml('x-bind:type="passwordVisible ? \'text\' : \'password\'"')
+        ->assertSeeHtml('pe-11')
         ->assertSeeHtml('type="button"')
         ->assertSeeHtml(':aria-label="passwordVisible ? \'Hide password\' : \'Show password\'"')
         ->assertSeeHtml(':aria-pressed="passwordVisible"')

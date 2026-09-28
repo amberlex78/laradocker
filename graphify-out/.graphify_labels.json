@@ -141,5 +141,6 @@
   "139": "resources/views/welcome.blade.php",
   "140": "bootstrap.php",
   "141": "resources/views/components/ui/modal.blade.php",
+  "142": "password-input.blade.php",
   "143": "confirmation-modal.blade.php"
 }

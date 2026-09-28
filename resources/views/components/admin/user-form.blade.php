@@ -42,18 +42,16 @@
             required
         />
 
-        <x-ui.input
+        <x-ui.password-input
             name="password"
             label="Password"
-            type="password"
             :error="$errors->first('password')"
             :required="$user === null"
         />
 
-        <x-ui.input
+        <x-ui.password-input
             name="password_confirmation"
             label="Confirm password"
-            type="password"
             :error="$errors->first('password_confirmation')"
             :required="$user === null"
         />

@@ -35,20 +35,18 @@
                     required
                 />
 
-                <x-ui.input
+                <x-ui.password-input
                     id="register-password"
                     name="password"
-                    type="password"
                     label="Password"
                     placeholder="••••••••"
                     autocomplete="new-password"
                     required
                 />
 
-                <x-ui.input
+                <x-ui.password-input
                     id="register-password-confirmation"
                     name="password_confirmation"
-                    type="password"
                     label="Confirm password"
                     placeholder="••••••••"
                     autocomplete="new-password"

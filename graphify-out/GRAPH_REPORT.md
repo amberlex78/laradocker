@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-09-28)
 
 ## Corpus Check
-- 185 files · ~40,758 words
+- 186 files · ~40,776 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 696 nodes · 1028 edges · 143 communities (31 shown, 112 thin omitted)
+- 697 nodes · 1028 edges · 144 communities (31 shown, 113 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 39 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0f9f2714`
+- Built from commit: `386cf396`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -83,7 +83,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (143 total, 112 thin omitted)
+## Communities (144 total, 113 thin omitted)
 
 ### Community 0 - "UserRole"
 Cohesion: 0.07
@@ -211,14 +211,14 @@ Nodes (3): extra, laravel, dont-discover
 
 ## Knowledge Gaps
 - **136 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+131 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 325 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **112 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 326 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **113 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `UserRole`, `FortifyServiceProvider.php`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User Management in Admin and Developer Areas`, `ApplicationActionsTest.php`, `AuthenticationFlowTest.php`, `ProfilePageTest.php`, `User.php`, `AuthValidationRulesTest.php`?**
-  _High betweenness centrality (0.179) - this node is a cross-community bridge._
+  _High betweenness centrality (0.178) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `FortifyServiceProvider.php`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User Management in Admin and Developer Areas`, `ApplicationActionsTest.php`, `AuthenticationFlowTest.php`, `User.php`, `Authentication, Admin, and Developer Areas`?**
   _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `UserRole`, `User`?**

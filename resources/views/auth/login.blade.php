@@ -25,10 +25,9 @@
                     required
                 />
 
-                <x-ui.input
+                <x-ui.password-input
                     id="login-password"
                     name="password"
-                    type="password"
                     label="Your password"
                     placeholder="••••••••"
                     autocomplete="current-password"

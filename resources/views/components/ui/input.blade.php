@@ -8,10 +8,8 @@
 
 @php
     $inputId = $attributes->get('id', $name);
-    $isPassword = $type === 'password';
     $inputAttributes = $attributes->class([
         'block w-full rounded-base border p-2.5 text-sm focus:ring-1 focus:outline-none',
-        'pe-11' => $isPassword,
         $error
             ? 'border-red-500 bg-red-50 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-900/20 dark:text-red-400 dark:placeholder-red-400'
             : 'border-gray-300 bg-gray-50 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400',
@@ -25,28 +23,10 @@
         </label>
     @endif
 
-    @if ($isPassword)
-        <div x-data="{ passwordVisible: false }" class="relative">
-            <input
-                {{ $inputAttributes }}
-                x-bind:type="passwordVisible ? 'text' : 'password'"
-            >
-
-            <button
-                type="button"
-                class="absolute inset-y-0 end-0 flex items-center pe-3 text-gray-500 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-gray-500"
-                @click="passwordVisible = ! passwordVisible"
-                @pointerup="$event.currentTarget.blur()"
-                :aria-label="passwordVisible ? 'Hide password' : 'Show password'"
-                :aria-pressed="passwordVisible"
-            >
-                <x-icon name="eye" x-cloak x-show="! passwordVisible" class="h-5 w-5" />
-                <x-icon name="eye-off" x-cloak x-show="passwordVisible" class="h-5 w-5" />
-            </button>
-        </div>
-    @else
+    <div class="relative">
         <input {{ $inputAttributes }}>
-    @endif
+        {{ $trailing ?? '' }}
+    </div>
 
     @if ($error)
         <p class="text-sm text-red-600 dark:text-red-400">{{ $error }}</p>

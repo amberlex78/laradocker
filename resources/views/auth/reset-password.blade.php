@@ -26,20 +26,18 @@
                     required
                 />
 
-                <x-ui.input
+                <x-ui.password-input
                     id="reset-password"
                     name="password"
-                    type="password"
                     label="New password"
                     placeholder="••••••••"
                     autocomplete="new-password"
                     required
                 />
 
-                <x-ui.input
+                <x-ui.password-input
                     id="reset-password-confirmation"
                     name="password_confirmation"
-                    type="password"
                     label="Confirm new password"
                     placeholder="••••••••"
                     autocomplete="new-password"
