@@ -5,7 +5,7 @@
   "3": "Розгортання на VPS",
   "4": "AuthValidationRules",
   "5": "package.json",
-  "6": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+  "6": "UserFactory.php",
   "7": "Illuminate\\Database\\Schema\\Blueprint",
   "8": "User",
   "9": "PageRenderingTest.php",
@@ -16,11 +16,10 @@
   "14": "RoleAccessTest.php",
   "15": "User Management in Admin and Developer Areas",
   "16": "require-dev",
-  "17": "UserSeeder.php",
   "18": "composer.json",
   "19": "scripts",
-  "20": "AuthenticationFlowTest.php",
-  "21": "UserSeederTest.php",
+  "20": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+  "21": "ApplicationActionsTest.php",
   "22": "User.php",
   "23": "Authentication, Admin, and Developer Areas",
   "24": "config",
@@ -143,5 +142,7 @@
   "141": "resources/views/components/ui/modal.blade.php",
   "142": "password-input.blade.php",
   "143": "confirmation-modal.blade.php",
-  "145": "UiThemeToggleComponentTest.php"
+  "145": "UiThemeToggleComponentTest.php",
+  "146": "ProfilePageTest.php",
+  "149": "TestCase"
 }

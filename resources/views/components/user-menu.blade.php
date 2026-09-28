@@ -1,17 +1,3 @@
-@php
-    $workspace = match (auth()->user()->role) {
-        \App\Enums\UserRole::Developer => [
-            'route' => 'developer.dashboard',
-            'label' => 'Developer workspace',
-        ],
-        \App\Enums\UserRole::Admin, \App\Enums\UserRole::Operator => [
-            'route' => 'admin.dashboard',
-            'label' => 'Admin workspace',
-        ],
-        default => null,
-    };
-@endphp
-
 <div class="relative" x-data="{ profileMenuOpen: false }" @click.outside="profileMenuOpen = false" @keydown.escape.window="profileMenuOpen = false">
     <button id="admin-user-menu-trigger" type="button" @click="profileMenuOpen = ! profileMenuOpen" :aria-expanded="profileMenuOpen" aria-haspopup="menu" class="inline-flex max-w-56 items-center gap-2 rounded-base px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
         <span class="sr-only">Open user menu for {{ auth()->user()->name }}</span>
@@ -30,7 +16,7 @@
                 <li>
                     <a class="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600" href="{{ route('home') }}" role="menuitem">
                         <x-icon name="arrow-right" class="h-4 w-4" />
-                        Public site
+                        View public site
                     </a>
                 </li>
             @endif

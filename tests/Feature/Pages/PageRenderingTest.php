@@ -65,6 +65,19 @@ test('an authenticated developer sees the developer workspace menu on the public
         ->assertSee('action="'.route('logout').'"', false);
 });
 
+test('an authenticated operator sees the operator workspace menu on the public home page', function (): void {
+    $operator = User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+
+    $this->actingAs($operator)
+        ->get('/')
+        ->assertOk()
+        ->assertSee('Operator workspace')
+        ->assertSee('href="'.route('admin.dashboard').'"', false)
+        ->assertSee('action="'.route('logout').'"', false);
+});
+
 test('an authenticated standard user sees profile links and logout without a workspace menu on the public home page', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,
@@ -191,7 +204,7 @@ test('a user sees the account profile settings page', function () {
 test('authorized account users can return to their workspace from the shared menu', function (): void {
     $workspaces = [
         UserRole::Admin->value => ['admin.dashboard', 'Admin workspace'],
-        UserRole::Operator->value => ['admin.dashboard', 'Admin workspace'],
+        UserRole::Operator->value => ['admin.dashboard', 'Operator workspace'],
         UserRole::Developer->value => ['developer.dashboard', 'Developer workspace'],
     ];
 
@@ -312,7 +325,11 @@ test('an operator dashboard does not expose the admin-only users action', functi
 
     $this->actingAs($operator)
         ->get(route('admin.dashboard'))
-        ->assertSee('Admin dashboard')
+        ->assertSee('Operator dashboard')
+        ->assertDontSee('>Admin dashboard</h1>', false)
+        ->assertSee('Operator workspace')
+        ->assertSee('aria-label="Operator sidebar"', false)
+        ->assertSee('>Operator</span>', false)
         ->assertDontSee('Manage Users')
         ->assertDontSee('href="'.route('admin.users.index').'"', false);
 });
@@ -352,7 +369,7 @@ test('workspace user menus expose a public site link', function (): void {
         $this->actingAs($user)
             ->get(route($workspaceRoute))
             ->assertOk()
-            ->assertSee('Public site')
+            ->assertSee('View public site')
             ->assertSee('href="'.route('home').'" role="menuitem"', false);
     }
 });

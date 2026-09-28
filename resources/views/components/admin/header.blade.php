@@ -10,7 +10,7 @@
             </button>
 
             <div>
-                <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ ucfirst($area) }} workspace</p>
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ $workspace['label'] }}</p>
                 <p class="text-xs text-gray-500 dark:text-gray-400">{{ now()->format('l, F j, Y') }}</p>
             </div>
         </div>

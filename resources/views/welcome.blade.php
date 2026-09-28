@@ -27,6 +27,12 @@
                             <x-icon name="arrow-right" class="h-4 w-4" />
                             My profile
                         </x-ui.link-button>
+                        @if ($workspace)
+                            <x-ui.link-button href="{{ route($workspace['route']) }}" variant="secondary">
+                                <x-icon name="layout-dashboard" class="h-4 w-4" />
+                                {{ $workspace['label'] }}
+                            </x-ui.link-button>
+                        @endif
                     @endguest
                 </div>
 
@@ -156,6 +162,12 @@
                             <x-icon name="arrow-right" class="h-4 w-4" />
                             My profile
                         </a>
+                        @if ($workspace)
+                            <a href="{{ route($workspace['route']) }}" class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-base border border-white/60 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:ring-4 focus:ring-white/30 focus:outline-none">
+                                <x-icon name="layout-dashboard" class="h-4 w-4" />
+                                {{ $workspace['label'] }}
+                            </a>
+                        @endif
                     @endguest
                 </div>
             </div>

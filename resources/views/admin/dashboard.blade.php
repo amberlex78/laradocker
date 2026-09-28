@@ -1,6 +1,6 @@
-<x-layouts.admin :title="'Admin dashboard'">
+<x-layouts.admin :title="$workspace['name'].' dashboard'">
     <x-admin.page-header
-        title="Admin dashboard"
+        :title="$workspace['name'].' dashboard'"
         icon="layout-dashboard"
         description="A focused overview of the business administration area."
     >

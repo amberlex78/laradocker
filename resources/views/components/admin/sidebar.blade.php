@@ -3,17 +3,12 @@
     'navigation' => [],
 ])
 
-@php
-    $isDeveloper = $area === 'developer';
-    $brandLabel = $isDeveloper ? 'Developer' : 'Admin';
-@endphp
-
-<aside id="{{ $area }}-sidebar" class="fixed start-0 top-0 z-40 h-screen w-64 -translate-x-full border-e border-gray-700 bg-gray-800 transition-transform md:translate-x-0" :class="{ 'translate-x-0': sidebarOpen }" aria-label="{{ $brandLabel }} sidebar">
+<aside id="{{ $area }}-sidebar" class="fixed start-0 top-0 z-40 h-screen w-64 -translate-x-full border-e border-gray-700 bg-gray-800 transition-transform md:translate-x-0" :class="{ 'translate-x-0': sidebarOpen }" aria-label="{{ $workspace['name'] }} sidebar">
     <div class="flex h-full flex-col overflow-y-auto px-3 py-4">
         <div class="mb-6 flex items-center justify-between px-2">
-            <a href="{{ route($isDeveloper ? 'developer.dashboard' : 'admin.dashboard') }}" class="flex items-center gap-3">
-                <span class="flex h-9 w-9 items-center justify-center rounded-base bg-blue-600 text-lg font-bold text-white">{{ $isDeveloper ? 'D' : 'A' }}</span>
-                <span class="self-center whitespace-nowrap text-xl font-semibold text-white">{{ $brandLabel }}</span>
+            <a href="{{ route($workspace['route']) }}" class="flex items-center gap-3">
+                <span class="flex h-9 w-9 items-center justify-center rounded-base bg-blue-600 text-lg font-bold text-white">{{ $workspace['initial'] }}</span>
+                <span class="self-center whitespace-nowrap text-xl font-semibold text-white">{{ $workspace['name'] }}</span>
             </a>
 
             <button type="button" @click="sidebarOpen = false" aria-controls="{{ $area }}-sidebar" class="rounded-base p-2 text-gray-400 hover:bg-gray-700 hover:text-white md:hidden" aria-label="Close sidebar">
@@ -21,7 +16,7 @@
             </button>
         </div>
 
-        <nav class="flex-1" aria-label="{{ $brandLabel }} navigation">
+        <nav class="flex-1" aria-label="{{ $workspace['name'] }} navigation">
             <ul class="space-y-2 font-medium">
                 @foreach ($navigation as $item)
                     @php
