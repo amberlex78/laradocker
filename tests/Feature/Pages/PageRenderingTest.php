@@ -65,7 +65,7 @@ test('an authenticated developer sees the developer workspace menu on the public
         ->assertSee('action="'.route('logout').'"', false);
 });
 
-test('an authenticated standard user sees profile and logout without a workspace menu on the public home page', function (): void {
+test('an authenticated standard user sees profile links and logout without a workspace menu on the public home page', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,
     ]);
@@ -73,7 +73,9 @@ test('an authenticated standard user sees profile and logout without a workspace
     $this->actingAs($user)
         ->get('/')
         ->assertOk()
-        ->assertSee('Profile')
+        ->assertSee('My profile')
+        ->assertDontSee('Open your account')
+        ->assertDontSee('>Profile</a>', false)
         ->assertSee('action="'.route('logout').'"', false)
         ->assertDontSee('Admin workspace')
         ->assertDontSee('Developer workspace')
@@ -201,7 +203,7 @@ test('authorized account users can return to their workspace from the shared men
         $this->actingAs($user)
             ->get(route('account'))
             ->assertOk()
-            ->assertSee('Profile')
+            ->assertSee('My profile')
             ->assertSee($workspaceLabel)
             ->assertSee('href="'.route($workspaceRoute).'"', false)
             ->assertSee('x-data="{ profileMenuOpen: false }"', false);
@@ -216,7 +218,7 @@ test('standard account users do not see a workspace link in the shared menu', fu
     $this->actingAs($user)
         ->get(route('account'))
         ->assertOk()
-        ->assertSee('Profile')
+        ->assertSee('My profile')
         ->assertDontSee('Back to workspace')
         ->assertDontSee('href="'.route('admin.dashboard').'"', false)
         ->assertDontSee('href="'.route('developer.dashboard').'"', false);
@@ -325,7 +327,7 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->get('/admin')
         ->assertOk()
         ->assertSee('Ada Lovelace')
-        ->assertSee('Profile')
+        ->assertSee('My profile')
         ->assertSee('href="'.route('account').'"', false)
         ->assertSee('action="'.route('logout').'"', false)
         ->assertSee('x-data="{ profileMenuOpen: false }"', false)

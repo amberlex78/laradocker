@@ -25,7 +25,7 @@
                     @else
                         <x-ui.link-button href="{{ route('account') }}">
                             <x-icon name="arrow-right" class="h-4 w-4" />
-                            Open your account
+                            My profile
                         </x-ui.link-button>
                     @endguest
                 </div>
@@ -154,7 +154,7 @@
                     @else
                         <a href="{{ route('account') }}" class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-base border border-white/60 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:ring-4 focus:ring-white/30 focus:outline-none">
                             <x-icon name="arrow-right" class="h-4 w-4" />
-                            Open your account
+                            My profile
                         </a>
                     @endguest
                 </div>

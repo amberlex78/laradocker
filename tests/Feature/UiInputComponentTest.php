@@ -21,6 +21,11 @@ test('ui password input renders an accessible visibility toggle', function (): v
         ->assertSeeHtml('type="button"')
         ->assertSeeHtml(':aria-label="passwordVisible ? \'Hide password\' : \'Show password\'"')
         ->assertSeeHtml(':aria-pressed="passwordVisible"')
+        ->assertSeeHtml('@pointerup="$event.currentTarget.blur()"')
+        ->assertSeeHtml('focus-visible:ring-2')
+        ->assertSeeHtml('focus-visible:ring-gray-400')
+        ->assertSeeHtml('dark:focus-visible:ring-gray-500')
+        ->assertDontSee('focus:ring-2 focus:ring-blue-500', false)
         ->assertSeeHtml('data-icon="eye"')
         ->assertSeeHtml('data-icon="eye-off"');
 });
