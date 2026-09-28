@@ -147,6 +147,17 @@ test('developer user pages show developer records and role badges', function ():
         ->assertSee('Developer');
 });
 
+test('user role badges keep regular users gray while admins use the accent color', function (): void {
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    User::factory()->create(['role' => UserRole::Admin]);
+    User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.index'))
+        ->assertSee('bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300', false)
+        ->assertSee('bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300', false);
+});
+
 test('developer user pages protect the current developer from self-deletion', function (): void {
     $developer = User::factory()->create(['role' => UserRole::Developer]);
     $target = User::factory()->create(['role' => UserRole::User]);

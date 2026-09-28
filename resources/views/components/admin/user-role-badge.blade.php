@@ -4,6 +4,7 @@
     $variant = match ($role->value) {
         'developer' => 'blue',
         'operator' => 'yellow',
+        'admin' => 'green',
         default => 'gray',
     };
 @endphp

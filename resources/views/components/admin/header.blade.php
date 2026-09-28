@@ -18,9 +18,7 @@
         <div class="flex items-center gap-2">
             <x-ui.theme-toggle />
 
-            <span class="hidden rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 dark:bg-gray-700 dark:text-gray-300 sm:inline-flex">
-                {{ auth()->user()->role->value }}
-            </span>
+            <x-admin.user-role-badge :role="auth()->user()->role" class="hidden sm:inline-flex" />
 
             <x-user-menu />
         </div>

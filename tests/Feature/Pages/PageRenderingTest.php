@@ -333,6 +333,7 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->assertSee('x-data="{ profileMenuOpen: false }"', false)
         ->assertSee('x-show="profileMenuOpen"', false)
         ->assertSee('divide-y divide-gray-100', false)
+        ->assertSee('bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300', false)
         ->assertDontSee('Back to workspace')
         ->assertSee('Open user menu for Ada Lovelace');
 });
