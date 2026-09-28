@@ -18,8 +18,8 @@
         <x-slot:trailing>
             <button
                 type="button"
-                class="absolute inset-y-0 end-0 flex items-center pe-3 text-gray-500 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-gray-500"
-                @click="passwordVisible = ! passwordVisible"
+                class="absolute inset-y-0 end-0 flex items-center pe-3 text-gray-500 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-blue-500"
+                @click="passwordVisible = ! passwordVisible"`
                 @pointerup="$event.currentTarget.blur()"
                 :aria-label="passwordVisible ? 'Hide password' : 'Show password'"
                 :aria-pressed="passwordVisible"
