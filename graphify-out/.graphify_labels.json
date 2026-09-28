@@ -13,13 +13,13 @@
   "11": "UserPolicy",
   "12": "Laravel-проєкти без домену",
   "13": "Laravel-проєкти з доменами",
-  "14": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+  "14": "RoleAccessTest.php",
   "15": "User Management in Admin and Developer Areas",
   "16": "require-dev",
   "17": "ApplicationActionsTest.php",
   "18": "composer.json",
   "19": "scripts",
-  "20": "AuthenticationFlowTest.php",
+  "20": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
   "21": "ProfilePageTest.php",
   "22": "User.php",
   "23": "Authentication, Admin, and Developer Areas",
@@ -142,5 +142,7 @@
   "140": "bootstrap.php",
   "141": "resources/views/components/ui/modal.blade.php",
   "142": "password-input.blade.php",
-  "143": "confirmation-modal.blade.php"
+  "143": "confirmation-modal.blade.php",
+  "144": "TestCase",
+  "145": "UiThemeToggleComponentTest.php"
 }
