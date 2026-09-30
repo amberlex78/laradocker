@@ -1,7 +1,7 @@
 # Graph Report - laradocker  (2026-09-30)
 
 ## Corpus Check
-- 192 files · ~41,783 words
+- 192 files · ~41,808 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 

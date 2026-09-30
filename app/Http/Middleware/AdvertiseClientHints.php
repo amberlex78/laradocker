@@ -9,6 +9,20 @@ use Symfony\Component\HttpFoundation\Response;
 class AdvertiseClientHints
 {
     /**
+     * Client Hints that improve device detection on subsequent requests.
+     *
+     * @var list<string>
+     */
+    private const CLIENT_HINTS = [
+        'Sec-CH-UA',
+        'Sec-CH-UA-Mobile',
+        'Sec-CH-UA-Platform',
+        'Sec-CH-UA-Platform-Version',
+        'Sec-CH-UA-Model',
+        'Sec-CH-UA-Form-Factors',
+    ];
+
+    /**
      * Handle an incoming request.
      *
      * @param  Closure(Request): (Response)  $next
@@ -19,7 +33,7 @@ class AdvertiseClientHints
 
         $response->headers->set(
             'Accept-CH',
-            'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model, Sec-CH-UA-Form-Factors',
+            implode(', ', self::CLIENT_HINTS),
         );
 
         return $response;
