@@ -27,7 +27,12 @@
                 <dl class="grid gap-4 sm:grid-cols-2">
                     <div>
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Device</dt>
-                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ str($user->last_login_device_type ?: 'unknown')->headline() }}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            {{ str($user->last_login_device_type ?: 'unknown')->headline() }}
+                            @if ($user->last_login_device_model)
+                                ({{ $user->last_login_device_model }})
+                            @endif
+                        </dd>
                     </div>
 
                     <div>
@@ -43,6 +48,11 @@
                     <div>
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Last login</dt>
                         <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_at->format('F j, Y') }}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">IP address</dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_ip_address ?: 'Unknown' }}</dd>
                     </div>
                 </dl>
             @else

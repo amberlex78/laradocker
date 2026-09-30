@@ -102,6 +102,43 @@ test('a successful login records the latest device information', function (): vo
         ->and($user->fresh()->last_login_at)->not->toBeNull();
 });
 
+test('a successful login uses client hints to detect a tablet in desktop mode', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $response = $this->withHeaders([
+        'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Sec-CH-UA' => '"Chromium";v="120", "Not.A/Brand";v="8"',
+        'Sec-CH-UA-Mobile' => '?0',
+        'Sec-CH-UA-Platform' => '"iPadOS"',
+        'Sec-CH-UA-Platform-Version' => '"17.0.0"',
+        'Sec-CH-UA-Model' => '"iPad"',
+        'Sec-CH-UA-Form-Factors' => '"Tablet"',
+    ])->withServerVariables([
+        'REMOTE_ADDR' => '10.0.0.10',
+        'HTTP_X_FORWARDED_FOR' => '203.0.113.7, 10.0.0.9',
+    ])->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $response->assertRedirect('/account');
+
+    expect($user->fresh()->last_login_device_type)->toBe('tablet')
+        ->and($user->fresh()->last_login_device_model)->toBe('iPad')
+        ->and($user->fresh()->last_login_os)->toBe('iPadOS')
+        ->and($user->fresh()->last_login_browser)->toBe('Chrome')
+        ->and($user->fresh()->last_login_ip_address)->toBe('203.0.113.7');
+});
+
+test('login pages advertise the client hints used for device detection', function (): void {
+    $this->get('/login')
+        ->assertOk()
+        ->assertHeader('Accept-CH', 'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model, Sec-CH-UA-Form-Factors');
+});
+
 test('a successful login stores unknown device information when the user agent is unavailable', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,
