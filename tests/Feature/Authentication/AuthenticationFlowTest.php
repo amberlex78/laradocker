@@ -139,6 +139,35 @@ test('login pages advertise the client hints used for device detection', functio
         ->assertHeader('Accept-CH', 'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model, Sec-CH-UA-Form-Factors');
 });
 
+test('login form includes browser device detection fallback fields', function (): void {
+    $this->get('/login')
+        ->assertOk()
+        ->assertSee('data-device-detection', false)
+        ->assertSee('name="device_type_hint"', false)
+        ->assertSee('name="device_model_hint"', false);
+});
+
+test('a successful login uses the browser fallback when a tablet masks its user agent', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $response = $this->withHeaders([
+        'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+    ])->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+        'device_type_hint' => 'tablet',
+        'device_model_hint' => 'TAB 16',
+    ]);
+
+    $response->assertRedirect('/account');
+
+    expect($user->fresh()->last_login_device_type)->toBe('tablet')
+        ->and($user->fresh()->last_login_device_model)->toBe('TAB 16');
+});
+
 test('a successful login stores unknown device information when the user agent is unavailable', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,

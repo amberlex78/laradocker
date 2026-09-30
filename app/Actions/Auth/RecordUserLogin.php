@@ -20,14 +20,37 @@ final class RecordUserLogin
         );
         $detector->parse();
 
+        $deviceType = $this->resolveDeviceType($detector->getDeviceName(), $request);
+
         $user->forceFill([
-            'last_login_device_type' => $detector->getDeviceName() ?: 'unknown',
-            'last_login_device_model' => $this->nullableDetectionValue($detector->getModel()),
+            'last_login_device_type' => $deviceType,
+            'last_login_device_model' => $this->resolveDeviceModel($detector, $request, $deviceType),
             'last_login_os' => $this->nullableDetectionValue($detector->getOs('name')),
             'last_login_browser' => $this->nullableDetectionValue($detector->getClient('name')),
             'last_login_ip_address' => $request->ip(),
             'last_login_at' => now(),
         ])->save();
+    }
+
+    private function resolveDeviceType(string $detectedDeviceType, Request $request): string
+    {
+        if ($detectedDeviceType === 'desktop'
+            && $request->string('device_type_hint')->toString() === 'tablet') {
+            return 'tablet';
+        }
+
+        return $detectedDeviceType ?: 'unknown';
+    }
+
+    private function resolveDeviceModel(DeviceDetector $detector, Request $request, string $deviceType): ?string
+    {
+        $model = $detector->getModel();
+
+        if ($model === '' && $deviceType === 'tablet') {
+            $model = $request->string('device_model_hint')->toString();
+        }
+
+        return $this->nullableDetectionValue($model);
     }
 
     /**

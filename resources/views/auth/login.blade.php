@@ -10,8 +10,11 @@
             </x-ui.alert>
         @endif
 
-        <form class="space-y-6" action="{{ route('login') }}" method="POST">
+        <form class="space-y-6" action="{{ route('login') }}" method="POST" data-device-detection>
             @csrf
+
+            <input type="hidden" name="device_type_hint" value="">
+            <input type="hidden" name="device_model_hint" value="">
 
             <div class="space-y-5">
                 <x-ui.input
