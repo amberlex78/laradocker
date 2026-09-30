@@ -17,6 +17,19 @@
       "source_location": "L5"
     },
     {
+      "id": "app_actions_auth_recorduserlogin_recorduserlogin",
+      "label": "RecordUserLogin",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "recorduserlogin",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L9"
+    },
+    {
       "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
       "label": "ResolveUserLandingRoute",
       "_callable": true,
@@ -53,7 +66,7 @@
       "file_type": "code",
       "norm_label": "loginresponse",
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L9"
+      "source_location": "L11"
     },
     {
       "id": "app_providers_appserviceprovider_appserviceprovider",
@@ -105,6 +118,19 @@
       "file_type": "code",
       "norm_label": "updateuserrequest",
       "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest",
+      "label": "StoreUserRequest",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
+      "file_type": "code",
+      "norm_label": "storeuserrequest",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
       "source_location": "L11"
     },
     {
@@ -223,19 +249,6 @@
       "norm_label": "usercontroller",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
       "source_location": "L17"
-    },
-    {
-      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest",
-      "label": "StoreUserRequest",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": "storeuserrequest",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L11"
     },
     {
       "id": "app_view_composers_workspacecomposer_workspacecomposer",
@@ -935,6 +948,30 @@
       "source_location": "L123"
     },
     {
+      "id": "app_actions_auth_recorduserlogin_recorduserlogin_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "app_actions_auth_recorduserlogin_recorduserlogin_nullabledetectionvalue",
+      "label": ".nullableDetectionValue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": ".nullabledetectionvalue()",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L27"
+    },
+    {
       "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
       "label": ".handle()",
       "_callable": true,
@@ -980,7 +1017,7 @@
       "file_type": "code",
       "norm_label": ".__construct()",
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L11"
+      "source_location": "L13"
     },
     {
       "id": "app_http_responses_loginresponse_loginresponse_toresponse",
@@ -992,7 +1029,7 @@
       "file_type": "code",
       "norm_label": ".toresponse()",
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L18"
+      "source_location": "L23"
     },
     {
       "id": "app_providers_appserviceprovider_appserviceprovider_boot",
@@ -1017,6 +1054,30 @@
       "norm_label": ".register()",
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L14"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L34"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_3",
+      "label": "{closure#3}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "{closure#3}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L36"
     },
     {
       "id": "app_providers_fortifyserviceprovider_closure_4",
@@ -1172,6 +1233,30 @@
       "file_type": "code",
       "norm_label": ".rules()",
       "source_file": "app/Http/Requests/Admin/UpdateUserRequest.php",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_authorize",
+      "label": ".authorize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
+      "file_type": "code",
+      "norm_label": ".authorize()",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_rules",
+      "label": ".rules()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Illuminate\\Foundation\\Http\\FormRequest",
+      "file_type": "code",
+      "norm_label": ".rules()",
+      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
       "source_location": "L18"
     },
     {
@@ -1424,7 +1509,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L64"
+      "source_location": "L65"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_6",
@@ -1436,7 +1521,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L82"
+      "source_location": "L84"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_7",
@@ -1448,7 +1533,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L107"
+      "source_location": "L102"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_8",
@@ -1460,7 +1545,19 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L129"
+      "source_location": "L127"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_9",
+      "label": "{closure#9}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#9}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L149"
     },
     {
       "id": "app_actions_usermanagement_createuser_createuser_handle",
@@ -1691,30 +1788,6 @@
       "source_location": "L75"
     },
     {
-      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_authorize",
-      "label": ".authorize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": ".authorize()",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_requests_developer_storeuserrequest_storeuserrequest_rules",
-      "label": ".rules()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": ".rules()",
-      "source_file": "app/Http/Requests/Developer/StoreUserRequest.php",
-      "source_location": "L18"
-    },
-    {
       "id": "app_policies_userpolicy_userpolicy_view",
       "label": ".view()",
       "_callable": true,
@@ -1727,18 +1800,6 @@
       "source_location": "L15"
     },
     {
-      "id": "app_providers_fortifyserviceprovider_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L34"
-    },
-    {
       "id": "app_providers_fortifyserviceprovider_closure_2",
       "label": "{closure#2}()",
       "_callable": true,
@@ -1749,18 +1810,6 @@
       "norm_label": "{closure#2}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L35"
-    },
-    {
-      "id": "app_providers_fortifyserviceprovider_closure_3",
-      "label": "{closure#3}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": "{closure#3}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L36"
     },
     {
       "id": "app_providers_fortifyserviceprovider_closure_5",
@@ -1864,7 +1913,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
@@ -1876,7 +1925,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
@@ -1888,7 +1937,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
@@ -1900,7 +1949,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
@@ -1912,7 +1961,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
@@ -1924,7 +1973,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
@@ -1936,59 +1985,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
       "source_location": "L85"
     },
     {
-      "id": "tests_feature_database_seeders_userseedertest_closure_1",
-      "label": "{closure#1}()",
+      "id": "tests_feature_authentication_authenticationflowtest_closure_8",
+      "label": "{closure#8}()",
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L10"
+      "norm_label": "{closure#8}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L105"
     },
     {
-      "id": "tests_feature_database_seeders_userseedertest_closure_2",
-      "label": "{closure#2}()",
+      "id": "tests_feature_authentication_authenticationflowtest_closure_9",
+      "label": "{closure#9}()",
       "_callable": true,
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L30"
-    },
-    {
-      "id": "tests_pest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L32"
-    },
-    {
-      "id": "tests_pest_something",
-      "label": "something()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "something()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L47"
+      "norm_label": "{closure#9}()",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L125"
     },
     {
       "id": "tests_feature_authentication_applicationactionstest_closure_1",
@@ -2080,7 +2105,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
@@ -2092,7 +2117,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
@@ -2104,11 +2129,59 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
       "source_location": "L36"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L30"
+    },
+    {
+      "id": "tests_pest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "tests_pest_something",
+      "label": "something()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "something()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47"
     },
     {
       "id": "routes_console_closure_1",
@@ -2783,6 +2856,54 @@
       "source_location": "L12"
     },
     {
+      "id": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L27"
+    },
+    {
+      "id": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_down",
+      "label": "down()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "down()",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L25"
+    },
+    {
+      "id": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_up",
+      "label": "up()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "up()",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L12"
+    },
+    {
       "id": "app_models_user_user_casts",
       "label": ".casts()",
       "_callable": true,
@@ -2792,7 +2913,7 @@
       "file_type": "code",
       "norm_label": ".casts()",
       "source_file": "app/Models/User.php",
-      "source_location": "L27"
+      "source_location": "L32"
     },
     {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_1",
@@ -3425,6 +3546,17 @@
       "source_location": "L13"
     },
     {
+      "id": "app_actions_auth_recorduserlogin",
+      "label": "RecordUserLogin.php",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "recorduserlogin.php",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_actions_auth_resolveuserlandingroute",
       "label": "ResolveUserLandingRoute.php",
       "_origin": "ast",
@@ -3509,6 +3641,17 @@
       "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "closure",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "devicedetector_devicedetector",
+      "label": "DeviceDetector\\DeviceDetector",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "devicedetector\\devicedetector",
       "source_file": "",
       "source_location": ""
     },
@@ -4973,7 +5116,7 @@
       "file_type": "code",
       "norm_label": "require-dev",
       "source_file": "composer.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "composer_require_dev_fakerphp_faker",
@@ -4984,7 +5127,7 @@
       "file_type": "code",
       "norm_label": "fakerphp/faker",
       "source_file": "composer.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "composer_require_dev_fruitcake_laravel_debugbar",
@@ -4995,7 +5138,7 @@
       "file_type": "code",
       "norm_label": "fruitcake/laravel-debugbar",
       "source_file": "composer.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "composer_require_dev_laravel_boost",
@@ -5006,7 +5149,7 @@
       "file_type": "code",
       "norm_label": "laravel/boost",
       "source_file": "composer.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "composer_require_dev_laravel_pail",
@@ -5017,7 +5160,7 @@
       "file_type": "code",
       "norm_label": "laravel/pail",
       "source_file": "composer.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "composer_require_dev_laravel_pao",
@@ -5028,7 +5171,7 @@
       "file_type": "code",
       "norm_label": "laravel/pao",
       "source_file": "composer.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "composer_require_dev_laravel_pint",
@@ -5039,7 +5182,7 @@
       "file_type": "code",
       "norm_label": "laravel/pint",
       "source_file": "composer.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "composer_require_dev_mockery_mockery",
@@ -5050,7 +5193,7 @@
       "file_type": "code",
       "norm_label": "mockery/mockery",
       "source_file": "composer.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "composer_require_dev_nunomaduro_collision",
@@ -5061,7 +5204,7 @@
       "file_type": "code",
       "norm_label": "nunomaduro/collision",
       "source_file": "composer.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "composer_require_dev_pestphp_pest",
@@ -5072,7 +5215,7 @@
       "file_type": "code",
       "norm_label": "pestphp/pest",
       "source_file": "composer.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "composer_require_dev_pestphp_pest_plugin_laravel",
@@ -5083,7 +5226,7 @@
       "file_type": "code",
       "norm_label": "pestphp/pest-plugin-laravel",
       "source_file": "composer.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "composer",
@@ -5138,7 +5281,7 @@
       "file_type": "code",
       "norm_label": "minimum-stability",
       "source_file": "composer.json",
-      "source_location": "L92"
+      "source_location": "L93"
     },
     {
       "id": "composer_name",
@@ -5160,7 +5303,7 @@
       "file_type": "code",
       "norm_label": "prefer-stable",
       "source_file": "composer.json",
-      "source_location": "L93"
+      "source_location": "L94"
     },
     {
       "id": "composer_schema",
@@ -5193,7 +5336,7 @@
       "file_type": "code",
       "norm_label": "scripts",
       "source_file": "composer.json",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "composer_scripts_dev",
@@ -5204,7 +5347,7 @@
       "file_type": "code",
       "norm_label": "dev",
       "source_file": "composer.json",
-      "source_location": "L50"
+      "source_location": "L51"
     },
     {
       "id": "composer_scripts_post_autoload_dump",
@@ -5215,7 +5358,7 @@
       "file_type": "code",
       "norm_label": "post-autoload-dump",
       "source_file": "composer.json",
-      "source_location": "L58"
+      "source_location": "L59"
     },
     {
       "id": "composer_scripts_post_create_project_cmd",
@@ -5226,7 +5369,7 @@
       "file_type": "code",
       "norm_label": "post-create-project-cmd",
       "source_file": "composer.json",
-      "source_location": "L69"
+      "source_location": "L70"
     },
     {
       "id": "composer_scripts_post_root_package_install",
@@ -5237,7 +5380,7 @@
       "file_type": "code",
       "norm_label": "post-root-package-install",
       "source_file": "composer.json",
-      "source_location": "L66"
+      "source_location": "L67"
     },
     {
       "id": "composer_scripts_post_update_cmd",
@@ -5248,7 +5391,7 @@
       "file_type": "code",
       "norm_label": "post-update-cmd",
       "source_file": "composer.json",
-      "source_location": "L62"
+      "source_location": "L63"
     },
     {
       "id": "composer_scripts_pre_package_uninstall",
@@ -5259,7 +5402,7 @@
       "file_type": "code",
       "norm_label": "pre-package-uninstall",
       "source_file": "composer.json",
-      "source_location": "L74"
+      "source_location": "L75"
     },
     {
       "id": "composer_scripts_setup",
@@ -5270,7 +5413,7 @@
       "file_type": "code",
       "norm_label": "setup",
       "source_file": "composer.json",
-      "source_location": "L42"
+      "source_location": "L43"
     },
     {
       "id": "composer_scripts_test",
@@ -5281,7 +5424,7 @@
       "file_type": "code",
       "norm_label": "test",
       "source_file": "composer.json",
-      "source_location": "L54"
+      "source_location": "L55"
     },
     {
       "id": "app_actions_usermanagement_createuser",
@@ -5420,20 +5563,9 @@
       "label": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestForgery",
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\http\\middleware\\preventrequestforgery",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_foundation_testing_refreshdatabase",
-      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
       "source_file": "",
       "source_location": ""
     },
@@ -5442,32 +5574,10 @@
       "label": "AuthenticationFlowTest.php",
       "_origin": "ast",
       "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthenticationFlowTest.php",
       "file_type": "code",
       "norm_label": "authenticationflowtest.php",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest",
-      "label": "UserSeederTest.php",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "userseedertest.php",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_pest",
-      "label": "Pest.php",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "pest.php",
-      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -5707,7 +5817,7 @@
       "file_type": "code",
       "norm_label": "pestphp/pest-plugin",
       "source_file": "composer.json",
-      "source_location": "L88"
+      "source_location": "L89"
     },
     {
       "id": "composer_allow_plugins_php_http_discovery",
@@ -5718,7 +5828,7 @@
       "file_type": "code",
       "norm_label": "php-http/discovery",
       "source_file": "composer.json",
-      "source_location": "L89"
+      "source_location": "L90"
     },
     {
       "id": "composer_config",
@@ -5729,7 +5839,7 @@
       "file_type": "code",
       "norm_label": "config",
       "source_file": "composer.json",
-      "source_location": "L83"
+      "source_location": "L84"
     },
     {
       "id": "composer_config_allow_plugins",
@@ -5740,7 +5850,7 @@
       "file_type": "code",
       "norm_label": "allow-plugins",
       "source_file": "composer.json",
-      "source_location": "L87"
+      "source_location": "L88"
     },
     {
       "id": "composer_config_optimize_autoloader",
@@ -5751,7 +5861,7 @@
       "file_type": "code",
       "norm_label": "optimize-autoloader",
       "source_file": "composer.json",
-      "source_location": "L84"
+      "source_location": "L85"
     },
     {
       "id": "composer_config_preferred_install",
@@ -5762,7 +5872,7 @@
       "file_type": "code",
       "norm_label": "preferred-install",
       "source_file": "composer.json",
-      "source_location": "L85"
+      "source_location": "L86"
     },
     {
       "id": "composer_config_sort_packages",
@@ -5773,7 +5883,7 @@
       "file_type": "code",
       "norm_label": "sort-packages",
       "source_file": "composer.json",
-      "source_location": "L86"
+      "source_location": "L87"
     },
     {
       "id": "composer_autoload",
@@ -5784,7 +5894,7 @@
       "file_type": "code",
       "norm_label": "autoload",
       "source_file": "composer.json",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
       "id": "composer_autoload_psr_4",
@@ -5795,7 +5905,7 @@
       "file_type": "code",
       "norm_label": "psr-4",
       "source_file": "composer.json",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "composer_psr_4_app",
@@ -5806,7 +5916,7 @@
       "file_type": "code",
       "norm_label": "app\\\\",
       "source_file": "composer.json",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "composer_psr_4_database_factories",
@@ -5817,7 +5927,7 @@
       "file_type": "code",
       "norm_label": "database\\\\factories\\\\",
       "source_file": "composer.json",
-      "source_location": "L32"
+      "source_location": "L33"
     },
     {
       "id": "composer_psr_4_database_seeders",
@@ -5828,7 +5938,7 @@
       "file_type": "code",
       "norm_label": "database\\\\seeders\\\\",
       "source_file": "composer.json",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "composer_require",
@@ -5873,6 +5983,17 @@
       "norm_label": "laravel/tinker",
       "source_file": "composer.json",
       "source_location": "L15"
+    },
+    {
+      "id": "composer_require_matomo_device_detector",
+      "label": "matomo/device-detector",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "require",
+      "file_type": "code",
+      "norm_label": "matomo/device-detector",
+      "source_file": "composer.json",
+      "source_location": "L16"
     },
     {
       "id": "composer_require_php",
@@ -5941,11 +6062,22 @@
       "source_location": ""
     },
     {
+      "id": "illuminate_foundation_testing_refreshdatabase",
+      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_support_facades_validator",
       "label": "Illuminate\\Support\\Facades\\Validator",
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\validator",
       "source_file": "",
@@ -5956,10 +6088,32 @@
       "label": "AuthValidationRulesTest.php",
       "_origin": "ast",
       "community": 28,
-      "community_name": "AuthValidationRulesTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "authvalidationrulestest.php",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest",
+      "label": "UserSeederTest.php",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "userseedertest.php",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_pest",
+      "label": "Pest.php",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "pest.php",
+      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -6554,7 +6708,7 @@
       "file_type": "code",
       "norm_label": "autoload-dev",
       "source_file": "composer.json",
-      "source_location": "L36"
+      "source_location": "L37"
     },
     {
       "id": "composer_autoload_dev_psr_4",
@@ -6565,7 +6719,7 @@
       "file_type": "code",
       "norm_label": "psr-4",
       "source_file": "composer.json",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "composer_psr_4_tests",
@@ -6576,7 +6730,7 @@
       "file_type": "code",
       "norm_label": "tests\\\\",
       "source_file": "composer.json",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "composer_extra",
@@ -6587,7 +6741,7 @@
       "file_type": "code",
       "norm_label": "extra",
       "source_file": "composer.json",
-      "source_location": "L78"
+      "source_location": "L79"
     },
     {
       "id": "composer_extra_laravel",
@@ -6598,7 +6752,7 @@
       "file_type": "code",
       "norm_label": "laravel",
       "source_file": "composer.json",
-      "source_location": "L79"
+      "source_location": "L80"
     },
     {
       "id": "composer_laravel_dont_discover",
@@ -6609,7 +6763,7 @@
       "file_type": "code",
       "norm_label": "dont-discover",
       "source_file": "composer.json",
-      "source_location": "L80"
+      "source_location": "L81"
     },
     {
       "id": "mcp",
@@ -7794,6 +7948,17 @@
       "source_location": "L1"
     },
     {
+      "id": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "label": "2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L1"
+    },
+    {
       "id": "illuminate_database_migrations_migration",
       "label": "Illuminate\\Database\\Migrations\\Migration",
       "_origin": "ast",
@@ -8216,6 +8381,18 @@
   ],
   "links": [
     {
+      "source": "app_actions_auth_recorduserlogin_recorduserlogin_handle",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin_nullabledetectionvalue",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
       "source": "app_actions_auth_updateuserprofile_updateuserprofile_handle",
       "target": "app_actions_auth_updateuserprofile_updateuserprofile_updateverifieduser",
       "relation": "calls",
@@ -8612,6 +8789,30 @@
       "weight": 1.0
     },
     {
+      "source": "tests_feature_authentication_authenticationflowtest_closure_8",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest_closure_9",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
       "source": "tests_feature_authentication_authvalidationrulestest_closure_1",
       "target": "app_models_user_user",
       "relation": "calls",
@@ -8716,7 +8917,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -8740,7 +8941,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L108",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -8752,7 +8953,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L130",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_9",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -9873,6 +10086,18 @@
     },
     {
       "source": "app_http_responses_loginresponse_loginresponse",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse",
       "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
       "relation": "references",
       "_origin": "ast",
@@ -9880,7 +10105,43 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L11",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin",
+      "target": "devicedetector_devicedetector",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin",
+      "target": "illuminate_http_request",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -10833,7 +11094,7 @@
     },
     {
       "source": "app_http_responses_loginresponse",
-      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10845,7 +11106,7 @@
     },
     {
       "source": "app_http_responses_loginresponse",
-      "target": "laravel_fortify_contracts_loginresponse",
+      "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10857,7 +11118,7 @@
     },
     {
       "source": "app_http_responses_loginresponse",
-      "target": "symfony_component_httpfoundation_redirectresponse",
+      "target": "illuminate_http_request",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10865,6 +11126,30 @@
       "context": "import",
       "source_file": "app/Http/Responses/LoginResponse.php",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse",
+      "target": "laravel_fortify_contracts_loginresponse",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse",
+      "target": "symfony_component_httpfoundation_redirectresponse",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -11656,6 +11941,42 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "illuminate_database_migrations_migration",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "illuminate_support_facades_schema",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -12872,6 +13193,30 @@
       "weight": 1.0
     },
     {
+      "source": "app_actions_auth_recorduserlogin_recorduserlogin_handle",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin_recorduserlogin_handle",
+      "target": "illuminate_http_request",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
       "target": "app_models_user_user",
       "relation": "references",
@@ -13257,6 +13602,18 @@
     },
     {
       "source": "app_http_responses_loginresponse_loginresponse_construct",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "app_http_responses_loginresponse_loginresponse_construct",
       "target": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
       "relation": "references",
       "_origin": "ast",
@@ -13264,7 +13621,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L11",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -13565,6 +13922,30 @@
       "context": "parameter_type",
       "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
       "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_closure_1",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_closure_2",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -14104,7 +14485,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L18",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -14173,6 +14554,17 @@
       "confidence_score": 1.0,
       "source_file": ".ai/rules/views.md",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -14414,7 +14806,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -14634,7 +15026,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -14650,17 +15042,6 @@
     },
     {
       "source": "composer",
-      "target": "composer_autoload",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "composer.json",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "composer",
       "target": "composer_name",
       "relation": "contains",
       "_origin": "ast",
@@ -14672,13 +15053,24 @@
     },
     {
       "source": "composer",
+      "target": "composer_autoload",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "composer.json",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "composer",
       "target": "composer_autoload_dev",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -14700,7 +15092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -14733,7 +15125,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -14744,7 +15136,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -14755,7 +15147,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L92",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -14766,7 +15158,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -14777,7 +15169,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -14788,7 +15180,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -14799,7 +15191,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -14810,7 +15202,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -14821,7 +15213,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -14832,7 +15224,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -14843,7 +15235,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -14854,7 +15246,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L85",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -14865,7 +15257,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L86",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -14876,7 +15268,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -14887,7 +15279,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L88",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -14898,7 +15290,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L89",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -14909,7 +15301,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L79",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -14920,7 +15312,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L80",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -14968,19 +15360,19 @@
       "weight": 1.0
     },
     {
-      "source": "composer_require_dev",
-      "target": "composer_require_dev_fakerphp_faker",
+      "source": "composer_require",
+      "target": "composer_require_matomo_device_detector",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L18",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_fruitcake_laravel_debugbar",
+      "target": "composer_require_dev_fakerphp_faker",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14991,7 +15383,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_laravel_boost",
+      "target": "composer_require_dev_fruitcake_laravel_debugbar",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15002,7 +15394,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_laravel_pail",
+      "target": "composer_require_dev_laravel_boost",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15013,7 +15405,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_laravel_pao",
+      "target": "composer_require_dev_laravel_pail",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15024,7 +15416,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_laravel_pint",
+      "target": "composer_require_dev_laravel_pao",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15035,7 +15427,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_mockery_mockery",
+      "target": "composer_require_dev_laravel_pint",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15046,7 +15438,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_nunomaduro_collision",
+      "target": "composer_require_dev_mockery_mockery",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15057,7 +15449,7 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_pestphp_pest",
+      "target": "composer_require_dev_nunomaduro_collision",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -15068,13 +15460,24 @@
     },
     {
       "source": "composer_require_dev",
-      "target": "composer_require_dev_pestphp_pest_plugin_laravel",
+      "target": "composer_require_dev_pestphp_pest",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
       "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "composer_require_dev",
+      "target": "composer_require_dev_pestphp_pest_plugin_laravel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "composer.json",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -15085,7 +15488,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -15096,7 +15499,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L50",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -15107,7 +15510,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -15118,7 +15521,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -15129,7 +15532,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -15140,7 +15543,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -15151,7 +15554,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -15162,7 +15565,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "composer.json",
-      "source_location": "L74",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -15383,6 +15786,50 @@
       "confidence_score": 1.0,
       "source_file": "database/migrations/2026_09_22_000003_add_role_to_users_table.php",
       "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_up",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_closure_1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_down",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table",
+      "target": "database_migrations_2026_09_30_173138_add_last_login_device_information_to_users_table_closure_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_173138_add_last_login_device_information_to_users_table.php",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -16938,6 +17385,28 @@
     },
     {
       "source": "tests_feature_authentication_authenticationflowtest",
+      "target": "tests_feature_authentication_authenticationflowtest_closure_8",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest",
+      "target": "tests_feature_authentication_authenticationflowtest_closure_9",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_authenticationflowtest",
       "target": "tests_feature_authentication_authenticationflowtest_closure_2",
       "relation": "contains",
       "_origin": "ast",
@@ -17076,7 +17545,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L107",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -17098,7 +17567,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L129",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_9",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -17142,7 +17622,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L64",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -17153,7 +17633,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L82",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -18418,7 +18898,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -18429,7 +18909,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L17",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -18506,7 +18986,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L17",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -18573,6 +19053,28 @@
       "confidence_score": 1.0,
       "source_file": "tests/TestCase.php",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin_recorduserlogin",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "app_actions_auth_recorduserlogin_recorduserlogin",
+      "target": "app_actions_auth_recorduserlogin_recorduserlogin_nullabledetectionvalue",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Actions/Auth/RecordUserLogin.php",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -19045,7 +19547,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L11",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -19056,7 +19558,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L18",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -19067,7 +19569,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L27",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -19320,7 +19822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L20",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -19331,7 +19833,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/User.php",
-      "source_location": "L20",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -20200,5 +20702,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "07a6d5c4cdeda2cb20f4a4f2d5494e0e6b4eebd6"
+  "built_at_commit": "3215002d3824d9f73fb41d0230ff5f7f1d823a3a"
 }

@@ -42,6 +42,26 @@ test('an authenticated user sees profile and password forms on the account page'
         ->assertSee('value="ada@example.com"', false);
 });
 
+test('an authenticated user sees their latest login device on the account page', function (): void {
+    $user = User::factory()->create();
+
+    $user->forceFill([
+        'last_login_device_type' => 'smartphone',
+        'last_login_os' => 'iOS',
+        'last_login_browser' => 'Mobile Safari',
+        'last_login_at' => '2026-09-30 12:34:56',
+    ])->save();
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Latest login device', false)
+        ->assertSee('Smartphone', false)
+        ->assertSee('iOS', false)
+        ->assertSee('Mobile Safari', false)
+        ->assertSee('September 30, 2026', false);
+});
+
 test('account forms use standard Flowbite fields and server-side submission', function (): void {
     $user = User::factory()->create();
 

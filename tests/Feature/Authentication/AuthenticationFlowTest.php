@@ -82,6 +82,46 @@ test('a regular user is redirected to the account area after login', function ()
     $response->assertRedirect('/account');
 });
 
+test('a successful login records the latest device information', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $response = $this->withHeader('User-Agent', 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1')
+        ->post('/login', [
+            '_token' => csrf_token(),
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+    $response->assertRedirect('/account');
+
+    expect($user->fresh()->last_login_device_type)->toBe('smartphone')
+        ->and($user->fresh()->last_login_os)->toBe('iOS')
+        ->and($user->fresh()->last_login_browser)->not->toBeNull()
+        ->and($user->fresh()->last_login_at)->not->toBeNull();
+});
+
+test('a successful login stores unknown device information when the user agent is unavailable', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $response = $this->withHeader('User-Agent', '')
+        ->post('/login', [
+            '_token' => csrf_token(),
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+    $response->assertRedirect('/account');
+
+    expect($user->fresh()->last_login_device_type)->toBe('unknown')
+        ->and($user->fresh()->last_login_os)->toBeNull()
+        ->and($user->fresh()->last_login_browser)->toBeNull()
+        ->and($user->fresh()->last_login_at)->not->toBeNull();
+});
+
 test('an authenticated user can log out', function () {
     $user = User::factory()->create();
 

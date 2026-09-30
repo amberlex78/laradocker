@@ -1,6 +1,7 @@
 @php
     $profileErrors = $errors->getBag('updateProfileInformation');
     $passwordErrors = $errors->getBag('updatePassword');
+    $user = auth()->user();
 @endphp
 
 <x-layouts.account :title="'Account'">
@@ -20,6 +21,34 @@
             <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Manage your account</h1>
             <p class="mt-3 max-w-2xl text-gray-600 dark:text-gray-400">Update your profile details and keep your password secure.</p>
         </header>
+
+        <x-ui.card title="Latest login device" description="Information detected during your most recent sign-in." id="latest-login-device">
+            @if ($user->last_login_at)
+                <dl class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Device</dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ str($user->last_login_device_type ?: 'unknown')->headline() }}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Operating system</dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_os ?: 'Unknown' }}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Browser</dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_browser ?: 'Unknown' }}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Last login</dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_at->format('F j, Y') }}</dd>
+                    </div>
+                </dl>
+            @else
+                <p class="text-sm text-gray-600 dark:text-gray-400">No login information available.</p>
+            @endif
+        </x-ui.card>
 
         <div class="flex flex-col gap-6">
             <x-ui.card title="Profile information" description="Update your profile information and email address." id="profile-information">
