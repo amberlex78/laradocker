@@ -23,7 +23,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "recorduserlogin",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
@@ -36,7 +36,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "resolveuserlandingroute",
       "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
@@ -49,7 +49,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "advertiseclienthints",
       "source_file": "app/Http/Middleware/AdvertiseClientHints.php",
@@ -62,7 +62,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "ensureuserhasrole",
       "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
@@ -75,7 +75,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "loginresponse",
       "source_file": "app/Http/Responses/LoginResponse.php",
@@ -192,7 +192,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "createuser",
       "source_file": "app/Actions/UserManagement/CreateUser.php",
@@ -205,7 +205,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "deleteuser",
       "source_file": "app/Actions/UserManagement/DeleteUser.php",
@@ -218,7 +218,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "updateuser",
       "source_file": "app/Actions/UserManagement/UpdateUser.php",
@@ -231,7 +231,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "usercontroller",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -244,7 +244,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "controller",
       "source_file": "app/Http/Controllers/Controller.php",
@@ -257,7 +257,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "usercontroller",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -270,7 +270,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "workspacecomposer",
       "source_file": "app/View/Composers/WorkspaceComposer.php",
@@ -966,11 +966,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".clienthintheaders()",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L61"
+      "source_location": "L62"
     },
     {
       "id": "app_actions_auth_recorduserlogin_recorduserlogin_handle",
@@ -978,7 +978,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
@@ -990,11 +990,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".nullabledetectionvalue()",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L74"
+      "source_location": "L75"
     },
     {
       "id": "app_actions_auth_recorduserlogin_recorduserlogin_resolvedevicemodel",
@@ -1002,11 +1002,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".resolvedevicemodel()",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "app_actions_auth_recorduserlogin_recorduserlogin_resolvedevicetype",
@@ -1014,11 +1014,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".resolvedevicetype()",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L35"
+      "source_location": "L36"
     },
     {
       "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
@@ -1026,7 +1026,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
@@ -1038,7 +1038,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Http/Middleware/AdvertiseClientHints.php",
@@ -1050,7 +1050,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
@@ -1062,7 +1062,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
@@ -1074,7 +1074,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".__construct()",
       "source_file": "app/Http/Responses/LoginResponse.php",
@@ -1086,7 +1086,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": ".toresponse()",
       "source_file": "app/Http/Responses/LoginResponse.php",
@@ -1098,11 +1098,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L48"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider_closure_7",
+      "label": "{closure#7}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "{closure#7}()",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
+      "source_location": "L54"
     },
     {
       "id": "app_providers_fortifyserviceprovider_closure_8",
@@ -1110,7 +1122,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
@@ -1122,7 +1134,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "bootstrap/app.php",
@@ -1134,7 +1146,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "bootstrap/app.php",
@@ -1146,7 +1158,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "bootstrap/app.php",
@@ -1474,7 +1486,7 @@
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L69"
+      "source_location": "L71"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_6",
@@ -1486,7 +1498,7 @@
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L88"
+      "source_location": "L90"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_7",
@@ -1498,7 +1510,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L106"
+      "source_location": "L108"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_8",
@@ -1510,7 +1522,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L131"
+      "source_location": "L133"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_9",
@@ -1522,7 +1534,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L153"
+      "source_location": "L155"
     },
     {
       "id": "app_providers_appserviceprovider_appserviceprovider_boot",
@@ -1578,7 +1590,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Actions/UserManagement/CreateUser.php",
@@ -1590,7 +1602,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Actions/UserManagement/DeleteUser.php",
@@ -1602,7 +1614,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Actions/UserManagement/UpdateUser.php",
@@ -1614,7 +1626,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".create()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1626,7 +1638,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".destroy()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1638,7 +1650,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".edit()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1650,7 +1662,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".index()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1662,7 +1674,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".resolvevisibleuser()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1674,7 +1686,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".show()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1686,7 +1698,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".store()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1698,7 +1710,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".update()",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -1710,7 +1722,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".create()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1722,7 +1734,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".destroy()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1734,7 +1746,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".edit()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1746,7 +1758,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".index()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1758,7 +1770,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".resolveuser()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1770,7 +1782,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".show()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1782,7 +1794,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".store()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1794,7 +1806,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".update()",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
@@ -1806,7 +1818,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".view()",
       "source_file": "app/Policies/UserPolicy.php",
@@ -1818,7 +1830,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
@@ -1830,7 +1842,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
@@ -1842,7 +1854,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
@@ -1854,7 +1866,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
@@ -1866,23 +1878,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L40"
-    },
-    {
-      "id": "app_providers_fortifyserviceprovider_closure_7",
-      "label": "{closure#7}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "{closure#7}()",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
-      "source_location": "L54"
     },
     {
       "id": "app_view_composers_workspacecomposer_workspacecomposer_compose",
@@ -1890,7 +1890,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": ".compose()",
       "source_file": "app/View/Composers/WorkspaceComposer.php",
@@ -1902,7 +1902,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "routes/web.php",
@@ -1914,7 +1914,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "routes/web.php",
@@ -1926,7 +1926,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "routes/web.php",
@@ -1938,7 +1938,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "routes/web.php",
@@ -1950,7 +1950,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "routes/web.php",
@@ -1962,7 +1962,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "get /()",
       "source_file": "routes/web.php",
@@ -1990,7 +1990,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L142"
+      "source_location": "L143"
     },
     {
       "id": "tests_feature_authentication_authenticationflowtest_closure_11",
@@ -2002,7 +2002,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L150"
+      "source_location": "L151"
     },
     {
       "id": "tests_feature_authentication_authenticationflowtest_closure_12",
@@ -2014,7 +2014,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L171"
+      "source_location": "L172"
     },
     {
       "id": "tests_feature_authentication_authenticationflowtest_closure_13",
@@ -2026,7 +2026,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L191"
+      "source_location": "L193"
     },
     {
       "id": "tests_feature_authentication_authenticationflowtest_closure_2",
@@ -2110,7 +2110,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L105"
+      "source_location": "L106"
     },
     {
       "id": "tests_feature_authentication_authenticationflowtest_closure_9",
@@ -2122,7 +2122,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L136"
+      "source_location": "L137"
     },
     {
       "id": "tests_feature_authentication_applicationactionstest_closure_1",
@@ -3085,6 +3085,54 @@
       "source_location": "L12"
     },
     {
+      "id": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L24"
+    },
+    {
+      "id": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_down",
+      "label": "down()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "down()",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L22"
+    },
+    {
+      "id": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_up",
+      "label": "up()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "up()",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L12"
+    },
+    {
       "id": "app_models_user_user_casts",
       "label": ".casts()",
       "_callable": true,
@@ -3742,7 +3790,7 @@
       "label": "RecordUserLogin.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "recorduserlogin.php",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
@@ -3753,7 +3801,7 @@
       "label": "ResolveUserLandingRoute.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "resolveuserlandingroute.php",
       "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
@@ -3764,7 +3812,7 @@
       "label": "AdvertiseClientHints.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "advertiseclienthints.php",
       "source_file": "app/Http/Middleware/AdvertiseClientHints.php",
@@ -3775,7 +3823,7 @@
       "label": "EnsureUserHasRole.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "ensureuserhasrole.php",
       "source_file": "app/Http/Middleware/EnsureUserHasRole.php",
@@ -3786,10 +3834,21 @@
       "label": "LoginResponse.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "loginresponse.php",
       "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_providers_fortifyserviceprovider",
+      "label": "FortifyServiceProvider.php",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "fortifyserviceprovider.php",
+      "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L1"
     },
     {
@@ -3797,7 +3856,7 @@
       "label": "bootstrap/app.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "bootstrap/app.php",
       "source_file": "bootstrap/app.php",
@@ -3808,7 +3867,7 @@
       "label": "Closure",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "closure",
       "source_file": "",
@@ -3819,7 +3878,7 @@
       "label": "DeviceDetector",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "devicedetector",
       "source_file": "",
@@ -3830,7 +3889,7 @@
       "label": "DeviceDetector\\ClientHints",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "devicedetector\\clienthints",
       "source_file": "",
@@ -3841,9 +3900,20 @@
       "label": "DeviceDetector\\DeviceDetector",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "devicedetector\\devicedetector",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_cache_ratelimiting_limit",
+      "label": "Illuminate\\Cache\\RateLimiting\\Limit",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\cache\\ratelimiting\\limit",
       "source_file": "",
       "source_location": ""
     },
@@ -3852,7 +3922,7 @@
       "label": "Illuminate\\Foundation\\Application",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\application",
       "source_file": "",
@@ -3863,7 +3933,7 @@
       "label": "Illuminate\\Foundation\\Configuration\\Exceptions",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\configuration\\exceptions",
       "source_file": "",
@@ -3874,7 +3944,7 @@
       "label": "Illuminate\\Foundation\\Configuration\\Middleware",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\configuration\\middleware",
       "source_file": "",
@@ -3885,9 +3955,31 @@
       "label": "Illuminate\\Http\\Request",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "illuminate\\http\\request",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_support_facades_ratelimiter",
+      "label": "Illuminate\\Support\\Facades\\RateLimiter",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\ratelimiter",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_actions_redirectiftwofactorauthenticatable",
+      "label": "Laravel\\Fortify\\Actions\\RedirectIfTwoFactorAuthenticatable",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\actions\\redirectiftwofactorauthenticatable",
       "source_file": "",
       "source_location": ""
     },
@@ -3896,9 +3988,20 @@
       "label": "Laravel\\Fortify\\Contracts\\LoginResponse",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "laravel\\fortify\\contracts\\loginresponse",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "laravel_fortify_fortify",
+      "label": "Laravel\\Fortify\\Fortify",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "FortifyServiceProvider.php",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\fortify",
       "source_file": "",
       "source_location": ""
     },
@@ -3907,7 +4010,7 @@
       "label": "index.php",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "index.php",
       "source_file": "public/index.php",
@@ -3918,7 +4021,7 @@
       "label": "Symfony\\Component\\HttpFoundation\\RedirectResponse",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "symfony\\component\\httpfoundation\\redirectresponse",
       "source_file": "",
@@ -3929,7 +4032,7 @@
       "label": "Symfony\\Component\\HttpFoundation\\Response",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Illuminate\\Http\\Request",
+      "community_name": "FortifyServiceProvider.php",
       "file_type": "code",
       "norm_label": "symfony\\component\\httpfoundation\\response",
       "source_file": "",
@@ -5601,7 +5704,7 @@
       "label": "CreateUser.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "createuser.php",
       "source_file": "app/Actions/UserManagement/CreateUser.php",
@@ -5612,7 +5715,7 @@
       "label": "DeleteUser.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "deleteuser.php",
       "source_file": "app/Actions/UserManagement/DeleteUser.php",
@@ -5623,7 +5726,7 @@
       "label": "UpdateUser.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "updateuser.php",
       "source_file": "app/Actions/UserManagement/UpdateUser.php",
@@ -5634,7 +5737,7 @@
       "label": "Admin/UserController.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "admin/usercontroller.php",
       "source_file": "app/Http/Controllers/Admin/UserController.php",
@@ -5645,7 +5748,7 @@
       "label": "Controller.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "controller.php",
       "source_file": "app/Http/Controllers/Controller.php",
@@ -5656,21 +5759,10 @@
       "label": "Developer/UserController.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "developer/usercontroller.php",
       "source_file": "app/Http/Controllers/Developer/UserController.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_providers_fortifyserviceprovider",
-      "label": "FortifyServiceProvider.php",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "fortifyserviceprovider.php",
-      "source_file": "app/Providers/FortifyServiceProvider.php",
       "source_location": "L1"
     },
     {
@@ -5678,29 +5770,18 @@
       "label": "WorkspaceComposer.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "workspacecomposer.php",
       "source_file": "app/View/Composers/WorkspaceComposer.php",
       "source_location": "L1"
     },
     {
-      "id": "illuminate_cache_ratelimiting_limit",
-      "label": "Illuminate\\Cache\\RateLimiting\\Limit",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\cache\\ratelimiting\\limit",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "illuminate_http_redirectresponse",
       "label": "Illuminate\\Http\\RedirectResponse",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "illuminate\\http\\redirectresponse",
       "source_file": "",
@@ -5711,20 +5792,9 @@
       "label": "Illuminate\\Support\\Facades\\Gate",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\gate",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_support_facades_ratelimiter",
-      "label": "Illuminate\\Support\\Facades\\RateLimiter",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\support\\facades\\ratelimiter",
       "source_file": "",
       "source_location": ""
     },
@@ -5733,7 +5803,7 @@
       "label": "Illuminate\\Support\\Facades\\Route",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\route",
       "source_file": "",
@@ -5744,31 +5814,9 @@
       "label": "Illuminate\\View\\View",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "illuminate\\view\\view",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "laravel_fortify_actions_redirectiftwofactorauthenticatable",
-      "label": "Laravel\\Fortify\\Actions\\RedirectIfTwoFactorAuthenticatable",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "laravel\\fortify\\actions\\redirectiftwofactorauthenticatable",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "laravel_fortify_fortify",
-      "label": "Laravel\\Fortify\\Fortify",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "FortifyServiceProvider.php",
-      "file_type": "code",
-      "norm_label": "laravel\\fortify\\fortify",
       "source_file": "",
       "source_location": ""
     },
@@ -5777,7 +5825,7 @@
       "label": "web.php",
       "_origin": "ast",
       "community": 2,
-      "community_name": "FortifyServiceProvider.php",
+      "community_name": ".view",
       "file_type": "code",
       "norm_label": "web.php",
       "source_file": "routes/web.php",
@@ -8184,6 +8232,17 @@
       "source_location": "L1"
     },
     {
+      "id": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "label": "2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L1"
+    },
+    {
       "id": "illuminate_database_migrations_migration",
       "label": "Illuminate\\Database\\Migrations\\Migration",
       "_origin": "ast",
@@ -8662,7 +8721,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -9010,7 +9069,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L151",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -9022,7 +9081,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L172",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -9034,7 +9093,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L192",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -9118,7 +9177,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -9226,7 +9285,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L70",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -9238,7 +9297,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L89",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -9250,7 +9309,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L109",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -9262,7 +9321,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L132",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -9274,7 +9333,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L154",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -12398,6 +12457,42 @@
       "weight": 1.0
     },
     {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "illuminate_database_migrations_migration",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "illuminate_support_facades_schema",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "database_seeders_databaseseeder",
       "target": "illuminate_database_console_seeds_withoutmodelevents",
       "relation": "imports",
@@ -13618,7 +13713,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -13654,7 +13749,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -13666,7 +13761,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -13678,7 +13773,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -14459,6 +14554,30 @@
       "context": "parameter_type",
       "source_file": "database/migrations/2026_09_30_183242_add_last_login_device_model_and_ip_to_users_table.php",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_closure_1",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_closure_2",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -16413,6 +16532,50 @@
       "weight": 1.0
     },
     {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_up",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_closure_1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_down",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table",
+      "target": "database_migrations_2026_09_30_200305_add_last_login_browser_version_to_users_table_closure_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_09_30_200305_add_last_login_browser_version_to_users_table.php",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
       "source": "database_seeders_databaseseeder",
       "target": "database_seeders_databaseseeder_databaseseeder",
       "relation": "contains",
@@ -17982,7 +18145,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -17993,7 +18156,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -18015,7 +18178,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L142",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -18026,7 +18189,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L150",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -18037,7 +18200,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L171",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -18048,7 +18211,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/AuthenticationFlowTest.php",
-      "source_location": "L191",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -18180,7 +18343,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L106",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -18202,7 +18365,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L131",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -18213,7 +18376,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L153",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -18257,7 +18420,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L69",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -18268,7 +18431,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L88",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -19709,7 +19872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -19720,7 +19883,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -19731,7 +19894,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -19742,7 +19905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L74",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -20578,7 +20741,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Actions/Auth/RecordUserLogin.php",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -21392,5 +21555,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "32e624d0bdf02480a9d61e024c8cc8b2f799cc35"
+  "built_at_commit": "f307e87e4a3fbeb529004d0f090561176a6a04e5"
 }

@@ -42,7 +42,12 @@
 
                     <div>
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Browser</dt>
-                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_browser ?: 'Unknown' }}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            {{ $user->last_login_browser ?: 'Unknown' }}
+                            @if ($user->last_login_browser_version)
+                                ({{ $user->last_login_browser_version }})
+                            @endif
+                        </dd>
                     </div>
 
                     <div>

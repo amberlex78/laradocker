@@ -50,6 +50,7 @@ test('an authenticated user sees their latest login device on the account page',
         'last_login_device_model' => 'iPhone',
         'last_login_os' => 'iOS',
         'last_login_browser' => 'Mobile Safari',
+        'last_login_browser_version' => '17.0',
         'last_login_ip_address' => '203.0.113.7',
         'last_login_at' => '2026-09-30 12:34:56',
     ])->save();
@@ -62,6 +63,7 @@ test('an authenticated user sees their latest login device on the account page',
         ->assertSee('iPhone', false)
         ->assertSee('iOS', false)
         ->assertSee('Mobile Safari', false)
+        ->assertSee('17.0', false)
         ->assertSee('203.0.113.7', false)
         ->assertSee('September 30, 2026', false);
 });

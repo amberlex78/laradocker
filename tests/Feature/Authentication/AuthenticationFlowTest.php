@@ -99,6 +99,7 @@ test('a successful login records the latest device information', function (): vo
     expect($user->fresh()->last_login_device_type)->toBe('smartphone')
         ->and($user->fresh()->last_login_os)->toBe('iOS')
         ->and($user->fresh()->last_login_browser)->not->toBeNull()
+        ->and($user->fresh()->last_login_browser_version)->toBe('17.0')
         ->and($user->fresh()->last_login_at)->not->toBeNull();
 });
 
@@ -185,6 +186,7 @@ test('a successful login stores unknown device information when the user agent i
     expect($user->fresh()->last_login_device_type)->toBe('unknown')
         ->and($user->fresh()->last_login_os)->toBeNull()
         ->and($user->fresh()->last_login_browser)->toBeNull()
+        ->and($user->fresh()->last_login_browser_version)->toBeNull()
         ->and($user->fresh()->last_login_at)->not->toBeNull();
 });
 

@@ -27,6 +27,7 @@ final class RecordUserLogin
             'last_login_device_model' => $this->resolveDeviceModel($detector, $request, $deviceType),
             'last_login_os' => $this->nullableDetectionValue($detector->getOs('name')),
             'last_login_browser' => $this->nullableDetectionValue($detector->getClient('name')),
+            'last_login_browser_version' => $this->nullableDetectionValue($detector->getClient('version')),
             'last_login_ip_address' => $request->ip(),
             'last_login_at' => now(),
         ])->save();

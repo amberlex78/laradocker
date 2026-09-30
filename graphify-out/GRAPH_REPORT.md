@@ -1,24 +1,24 @@
 # Graph Report - laradocker  (2026-09-30)
 
 ## Corpus Check
-- 192 files · ~42,062 words
+- 193 files · ~42,134 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 739 nodes · 1110 edges · 147 communities (32 shown, 115 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 39 edges (avg confidence: 0.9)
+- 744 nodes · 1119 edges · 147 communities (32 shown, 115 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 39 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `32e624d0`
+- Built from commit: `f307e87e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - UserRole
-- Illuminate\Http\Request
 - FortifyServiceProvider.php
+- .view
 - Розгортання на VPS
 - AuthValidationRules
 - package.json
@@ -91,13 +91,13 @@
 Cohesion: 0.06
 Nodes (43): UserRole, Authentication, Admin, and Developer Areas Implementation Plan, Global Constraints, Illuminate\Foundation\Http\Middleware\PreventRequestForgery, Illuminate\Routing\Route, {closure#1}(), {closure#10}(), {closure#12}() (+35 more)
 
-### Community 1 - "Illuminate\Http\Request"
-Cohesion: 0.09
-Nodes (22): RecordUserLogin, ResolveUserLandingRoute, AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, LoginResponse, {closure#6}(), {closure#8}() (+14 more)
+### Community 1 - "FortifyServiceProvider.php"
+Cohesion: 0.08
+Nodes (27): RecordUserLogin, ResolveUserLandingRoute, AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, LoginResponse, {closure#6}(), {closure#7}() (+19 more)
 
-### Community 2 - "FortifyServiceProvider.php"
-Cohesion: 0.07
-Nodes (22): CreateUser, DeleteUser, UpdateUser, UserController, Controller, UserController, {closure#1}(), {closure#2}() (+14 more)
+### Community 2 - ".view"
+Cohesion: 0.08
+Nodes (17): CreateUser, DeleteUser, UpdateUser, UserController, Controller, UserController, {closure#1}(), {closure#2}() (+9 more)
 
 ### Community 3 - "Розгортання на VPS"
 Cohesion: 0.05
@@ -116,8 +116,8 @@ Cohesion: 0.09
 Nodes (16): UserFactory, DatabaseSeeder, UserSeeder, Review Focus, Task 1: Add the role domain model and database column, Task 2: Install and configure Fortify with Blade authentication views, Task 3: Add role middleware and route boundaries, Task 4: Build the public, account, admin, and developer Blade shells (+8 more)
 
 ### Community 7 - "Illuminate\Database\Schema\Blueprint"
-Cohesion: 0.10
-Nodes (17): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+9 more)
+Cohesion: 0.09
+Nodes (19): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+11 more)
 
 ### Community 8 - "User"
 Cohesion: 0.16
@@ -217,18 +217,18 @@ Nodes (7): {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#
 
 ## Knowledge Gaps
 - **137 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+132 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 338 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 340 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **115 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `FortifyServiceProvider.php`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User.php`, `AuthValidationRulesTest.php`?**
-  _High betweenness centrality (0.186) - this node is a cross-community bridge._
-- **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `FortifyServiceProvider.php`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User.php`, `Authentication, Admin, and Developer Areas`?**
-  _High betweenness centrality (0.056) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `UserRole`, `FortifyServiceProvider.php`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User.php`, `AuthValidationRulesTest.php`?**
+  _High betweenness centrality (0.184) - this node is a cross-community bridge._
+- **Why does `UserRole` connect `UserRole` to `FortifyServiceProvider.php`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `UserPolicy`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User.php`, `Authentication, Admin, and Developer Areas`?**
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `UserRole`, `User`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 7 inferred relationships involving `User` (e.g. with `Task 1: Add the role domain model and database column` and `Task 2: Install and configure Fortify with Blade authentication views`) actually correct?**
   _`User` has 7 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `UserRole` (e.g. with `Authentication, Admin, and Developer Areas Implementation Plan` and `Global Constraints`) actually correct?**
