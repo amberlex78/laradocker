@@ -273,6 +273,16 @@ sudo unlink /etc/nginx/sites-enabled/default
 
 Шаблон також містить security headers, заборону доступу до прихованих файлів, вимкнення зайвого логування для `favicon.ico` і `robots.txt`, а також кешування frontend-ресурсів на 7 днів. Для статичних файлів використовується `proxy_pass`, а не `try_files`, оскільки системний Nginx не має доступу до `/var/www/html/public` усередині Docker-образу.
 
+Production-шаблон довіряє заголовку `CF-Connecting-IP` лише для запитів з офіційних IPv4/IPv6-мереж Cloudflare. Після перевірки він замінює `X-Forwarded-For` нормалізованою адресою відвідувача. Це не дозволяє прямому клієнту підставити довільний IP через forwarding-заголовки. Актуальний список мереж публікується на `https://www.cloudflare.com/ips/`.
+
+У серверному `.env.prod` залиш:
+
+```dotenv
+TRUSTED_PROXIES=REMOTE_ADDR
+```
+
+Laravel довірятиме лише безпосередньо підключеному Docker Nginx, а Cloudflare-адресу перед цим безпечно обробить системний Nginx на VPS. Не використовуй `TRUSTED_PROXIES=*`.
+
 Активуй сайт і перезавантаж Nginx:
 
 ```bash
