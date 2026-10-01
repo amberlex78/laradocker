@@ -160,6 +160,10 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 
 </laravel-boost-guidelines>
 
+## Command entrypoint
+
+- Use the repository `Makefile` as the canonical entrypoint for development and production commands. Before running direct `npm`, `php artisan`, `docker compose`, or similar commands, check for and use the corresponding `make` target; use direct commands only when no suitable target exists.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
