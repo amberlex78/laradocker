@@ -1494,6 +1494,18 @@
       "source_location": "L10"
     },
     {
+      "id": "tests_feature_uicardcomponenttest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "UiCardComponentTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/UiCardComponentTest.php",
+      "source_location": "L3"
+    },
+    {
       "id": "tests_feature_authentication_roleaccesstest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -5124,6 +5136,17 @@
       "norm_label": "resources/views/components/layouts/admin.blade.php",
       "source_file": "resources/views/components/layouts/admin.blade.php",
       "source_location": null
+    },
+    {
+      "id": "tests_feature_uicardcomponenttest",
+      "label": "UiCardComponentTest.php",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "UiCardComponentTest.php",
+      "file_type": "code",
+      "norm_label": "uicardcomponenttest.php",
+      "source_file": "tests/Feature/UiCardComponentTest.php",
+      "source_location": "L1"
     },
     {
       "id": "resources_views_components_layouts_auth_blade",
@@ -21674,6 +21697,17 @@
       "weight": 1.0
     },
     {
+      "source": "tests_feature_uicardcomponenttest",
+      "target": "tests_feature_uicardcomponenttest_closure_1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/UiCardComponentTest.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "tests_feature_uiinputcomponenttest",
       "target": "tests_feature_uiinputcomponenttest_closure_2",
       "relation": "contains",
@@ -24586,5 +24620,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "aa957b8cce6fa2a52bbe41cb421b59d6f5351f22"
+  "built_at_commit": "c8b6bd857d545b165804b8d9a01d27a20947c345"
 }
