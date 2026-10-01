@@ -142,7 +142,6 @@
   "141": "resources/views/components/ui/modal.blade.php",
   "142": "password-input.blade.php",
   "143": "confirmation-modal.blade.php",
-  "144": "LoginHistory",
   "145": "UiThemeToggleComponentTest.php",
   "146": "ProfilePageTest.php"
 }

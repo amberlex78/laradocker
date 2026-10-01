@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-10-01)
 
 ## Corpus Check
-- 200 files · ~43,928 words
+- 200 files · ~43,918 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 789 nodes · 1219 edges · 146 communities (31 shown, 115 thin omitted)
+- 788 nodes · 1218 edges · 145 communities (30 shown, 115 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b2774207`
+- Built from commit: `6713f27f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -54,7 +54,6 @@
 - ui-icons.md
 - fortify.php
 - entrypoint.sh
-- LoginHistory
 - ProfilePageTest.php
 
 ## God Nodes (most connected - your core abstractions)
@@ -84,7 +83,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (146 total, 115 thin omitted)
+## Communities (145 total, 115 thin omitted)
 
 ### Community 0 - "UserRole"
 Cohesion: 0.05
@@ -95,8 +94,8 @@ Cohesion: 0.06
 Nodes (30): RecordUserLogin, ResolveDeviceInformation, ResolveUserLandingRoute, AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, LoginResponse, {closure#4}() (+22 more)
 
 ### Community 2 - ".view"
-Cohesion: 0.06
-Nodes (20): TerminateOtherSessions, CreateUser, DeleteUser, UpdateUser, AccountController, AccountSessionController, UserController, Controller (+12 more)
+Cohesion: 0.07
+Nodes (19): TerminateOtherSessions, CreateUser, DeleteUser, UpdateUser, AccountController, AccountSessionController, UserController, Controller (+11 more)
 
 ### Community 3 - "Розгортання на VPS"
 Cohesion: 0.05
@@ -127,8 +126,8 @@ Cohesion: 0.08
 Nodes (19): {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}(), {closure#18}() (+11 more)
 
 ### Community 10 - "Illuminate\Foundation\Http\FormRequest"
-Cohesion: 0.19
-Nodes (6): StoreUserRequest, UpdateUserRequest, UpdateUserRequest, Illuminate\Foundation\Http\FormRequest, Illuminate\Validation\Rule, Illuminate\Validation\Rules\Password
+Cohesion: 0.16
+Nodes (7): StoreUserRequest, UpdateUserRequest, StoreUserRequest, UpdateUserRequest, Illuminate\Foundation\Http\FormRequest, Illuminate\Validation\Rule, Illuminate\Validation\Rules\Password
 
 ### Community 11 - "AppServiceProvider"
 Cohesion: 0.24
@@ -202,23 +201,19 @@ Nodes (3): autoload-dev, psr-4, Tests\\
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
-### Community 144 - "LoginHistory"
-Cohesion: 0.24
-Nodes (7): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, {closure#1}(), {closure#5}(), {closure#7}()
-
 ### Community 146 - "ProfilePageTest.php"
-Cohesion: 0.11
-Nodes (14): Illuminate\Support\Facades\DB, {closure#10}(), {closure#11}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}() (+6 more)
+Cohesion: 0.09
+Nodes (20): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, {closure#1}(), {closure#10}(), {closure#11}(), {closure#13}() (+12 more)
 
 ## Knowledge Gaps
 - **135 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+130 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 343 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 342 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **115 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `LoginHistory`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.202) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.051) - this node is a cross-community bridge._
