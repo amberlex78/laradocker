@@ -16,13 +16,15 @@ class AccountController extends Controller
     {
         /** @var User $user */
         $user = $request->user();
+        $activeSessions = $userSessions->activeFor(
+            $user,
+            $request->session()->getId(),
+        );
 
         return view('account.index', [
             'user' => $user,
-            'activeSessions' => $userSessions->activeFor(
-                $user,
-                $request->session()->getId(),
-            ),
+            'activeSessions' => $activeSessions,
+            'activeSessionIds' => $activeSessions->pluck('session_id'),
             'loginHistories' => $user->loginHistories()
                 ->orderByDesc('logged_in_at')
                 ->paginate(10),

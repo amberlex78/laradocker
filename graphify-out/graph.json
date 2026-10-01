@@ -66,7 +66,7 @@
       "file_type": "code",
       "norm_label": "appserviceprovider",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L9"
+      "source_location": "L12"
     },
     {
       "id": "app_providers_fortifyserviceprovider_fortifyserviceprovider",
@@ -106,6 +106,19 @@
       "norm_label": "loginresponse",
       "source_file": "app/Http/Responses/LoginResponse.php",
       "source_location": "L11"
+    },
+    {
+      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity",
+      "label": "RecordLogoutActivity",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "recordlogoutactivity",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L9"
     },
     {
       "id": "app_services_auth_devicedetectionservice_devicedetectionservice",
@@ -166,7 +179,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "Pest.php",
+      "community_name": "TestCase",
       "file_type": "code",
       "norm_label": "testcase",
       "source_file": "tests/TestCase.php",
@@ -1143,7 +1156,7 @@
       "file_type": "code",
       "norm_label": ".boot()",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L22"
+      "source_location": "L25"
     },
     {
       "id": "app_providers_appserviceprovider_appserviceprovider_register",
@@ -1155,7 +1168,7 @@
       "file_type": "code",
       "norm_label": ".register()",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L14"
+      "source_location": "L17"
     },
     {
       "id": "app_providers_fortifyserviceprovider_closure_4",
@@ -1302,6 +1315,30 @@
       "source_location": "L23"
     },
     {
+      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L18"
+    },
+    {
       "id": "app_services_auth_devicedetectionservice_devicedetectionservice_clienthintheaders",
       "label": ".clientHintHeaders()",
       "_callable": true,
@@ -1386,18 +1423,6 @@
       "source_location": "L64"
     },
     {
-      "id": "app_services_auth_loginactivityservice_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "app/Services/Auth/LoginActivityService.php",
-      "source_location": "L26"
-    },
-    {
       "id": "app_services_auth_loginactivityservice_loginactivityservice_construct",
       "label": ".__construct()",
       "_callable": true,
@@ -1420,6 +1445,18 @@
       "norm_label": ".record()",
       "source_file": "app/Services/Auth/LoginActivityService.php",
       "source_location": "L20"
+    },
+    {
+      "id": "app_services_auth_loginactivityservice_loginactivityservice_recordlogout",
+      "label": ".recordLogout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".recordlogout()",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L56"
     },
     {
       "id": "app_services_auth_usersessionservice_closure_1",
@@ -1467,7 +1504,7 @@
       "file_type": "code",
       "norm_label": ".sessionsforuser()",
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L75"
+      "source_location": "L76"
     },
     {
       "id": "app_services_auth_usersessionservice_usersessionservice_terminateothers",
@@ -1479,10 +1516,10 @@
       "file_type": "code",
       "norm_label": ".terminateothers()",
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L68"
+      "source_location": "L69"
     },
     {
-      "id": "tests_feature_authentication_usersessionservicetest_closure_1",
+      "id": "tests_feature_authentication_devicedetectionservicetest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
@@ -1490,8 +1527,20 @@
       "community_name": "DeviceDetectionService",
       "file_type": "code",
       "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
-      "source_location": "L10"
+      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "tests_feature_authentication_devicedetectionservicetest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
+      "source_location": "L19"
     },
     {
       "id": "tests_feature_uicardcomponenttest_closure_1",
@@ -1611,7 +1660,7 @@
       "file_type": "code",
       "norm_label": ".casts()",
       "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L36"
+      "source_location": "L38"
     },
     {
       "id": "tests_feature_authentication_loginhistorytest_closure_1",
@@ -1647,7 +1696,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L236"
+      "source_location": "L205"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_11",
@@ -1659,7 +1708,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L256"
+      "source_location": "L221"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_12",
@@ -1671,7 +1720,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L276"
+      "source_location": "L302"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_13",
@@ -1683,7 +1732,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L298"
+      "source_location": "L322"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_14",
@@ -1695,7 +1744,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L304"
+      "source_location": "L342"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_15",
@@ -1707,7 +1756,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L360"
+      "source_location": "L364"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_16",
@@ -1719,7 +1768,7 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L379"
+      "source_location": "L370"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_17",
@@ -1731,7 +1780,7 @@
       "file_type": "code",
       "norm_label": "{closure#17}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L397"
+      "source_location": "L426"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_18",
@@ -1743,7 +1792,7 @@
       "file_type": "code",
       "norm_label": "{closure#18}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L422"
+      "source_location": "L445"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_19",
@@ -1755,7 +1804,7 @@
       "file_type": "code",
       "norm_label": "{closure#19}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L444"
+      "source_location": "L463"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_2",
@@ -1768,6 +1817,30 @@
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L18"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_20",
+      "label": "{closure#20}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#20}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L488"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_21",
+      "label": "{closure#21}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#21}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L510"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_3",
@@ -1827,7 +1900,7 @@
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L128"
+      "source_location": "L125"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_8",
@@ -1839,7 +1912,7 @@
       "file_type": "code",
       "norm_label": "{closure#8}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L139"
+      "source_location": "L144"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_9",
@@ -1851,7 +1924,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L155"
+      "source_location": "L194"
     },
     {
       "id": "app_models_loginhistory_loginhistory_user",
@@ -1863,31 +1936,7 @@
       "file_type": "code",
       "norm_label": ".user()",
       "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L26"
-    },
-    {
-      "id": "tests_pest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "Pest.php",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L32"
-    },
-    {
-      "id": "tests_pest_something",
-      "label": "something()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "Pest.php",
-      "file_type": "code",
-      "norm_label": "something()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L47"
+      "source_location": "L28"
     },
     {
       "id": "app_actions_usermanagement_createuser_createuser_handle",
@@ -2670,6 +2719,30 @@
       "source_location": "L31"
     },
     {
+      "id": "app_services_auth_loginactivityservice_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L27"
+    },
+    {
+      "id": "tests_feature_authentication_usersessionservicetest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "source_location": "L10"
+    },
+    {
       "id": "tests_feature_authentication_authvalidationrulestest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -2706,30 +2779,6 @@
       "source_location": "L36"
     },
     {
-      "id": "tests_feature_authentication_devicedetectionservicetest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
-      "source_location": "L8"
-    },
-    {
-      "id": "tests_feature_authentication_devicedetectionservicetest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
-      "source_location": "L19"
-    },
-    {
       "id": "tests_feature_authentication_loginactivityservicetest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -2764,6 +2813,30 @@
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
       "source_location": "L30"
+    },
+    {
+      "id": "tests_pest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "tests_pest_something",
+      "label": "something()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "something()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47"
     },
     {
       "id": "routes_console_closure_1",
@@ -3654,6 +3727,54 @@
       "source_location": "L12"
     },
     {
+      "id": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L14"
+    },
+    {
+      "id": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L25"
+    },
+    {
+      "id": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_down",
+      "label": "down()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "down()",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L23"
+    },
+    {
+      "id": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_up",
+      "label": "up()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "up()",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L12"
+    },
+    {
       "id": "app_models_user_user_casts",
       "label": ".casts()",
       "_callable": true,
@@ -4522,6 +4643,17 @@
       "source_location": ""
     },
     {
+      "id": "illuminate_support_facades_event",
+      "label": "Illuminate\\Support\\Facades\\Event",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Illuminate\\Http\\Request",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\event",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_support_facades_ratelimiter",
       "label": "Illuminate\\Support\\Facades\\RateLimiter",
       "_origin": "ast",
@@ -4621,6 +4753,17 @@
       "source_location": "L1"
     },
     {
+      "id": "app_listeners_recordlogoutactivity",
+      "label": "RecordLogoutActivity.php",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "recordlogoutactivity.php",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_services_auth_devicedetectionservice",
       "label": "DeviceDetectionService.php",
       "_origin": "ast",
@@ -4629,17 +4772,6 @@
       "file_type": "code",
       "norm_label": "devicedetectionservice.php",
       "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_services_auth_loginactivityservice",
-      "label": "LoginActivityService.php",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "loginactivityservice.php",
-      "source_file": "app/Services/Auth/LoginActivityService.php",
       "source_location": "L1"
     },
     {
@@ -4687,6 +4819,17 @@
       "source_location": ""
     },
     {
+      "id": "illuminate_auth_events_logout",
+      "label": "Illuminate\\Auth\\Events\\Logout",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "illuminate\\auth\\events\\logout",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_database_query_builder",
       "label": "Illuminate\\Database\\Query\\Builder",
       "_origin": "ast",
@@ -4720,17 +4863,6 @@
       "source_location": ""
     },
     {
-      "id": "illuminate_support_facades_db",
-      "label": "Illuminate\\Support\\Facades\\DB",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "illuminate\\support\\facades\\db",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "laravel_fortify_contracts_loginresponse",
       "label": "Laravel\\Fortify\\Contracts\\LoginResponse",
       "_origin": "ast",
@@ -4753,14 +4885,14 @@
       "source_location": ""
     },
     {
-      "id": "tests_feature_authentication_usersessionservicetest",
-      "label": "UserSessionServiceTest.php",
+      "id": "tests_feature_authentication_devicedetectionservicetest",
+      "label": "DeviceDetectionServiceTest.php",
       "_origin": "ast",
       "community": 10,
       "community_name": "DeviceDetectionService",
       "file_type": "code",
-      "norm_label": "usersessionservicetest.php",
-      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "norm_label": "devicedetectionservicetest.php",
+      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
       "source_location": "L1"
     },
     {
@@ -5953,50 +6085,6 @@
       "source_location": "L1"
     },
     {
-      "id": "app_models_loginhistory",
-      "label": "LoginHistory.php",
-      "_origin": "ast",
-      "community": 146,
-      "community_name": "ProfilePageTest.php",
-      "file_type": "code",
-      "norm_label": "loginhistory.php",
-      "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "illuminate_database_eloquent_attributes_fillable",
-      "label": "Illuminate\\Database\\Eloquent\\Attributes\\Fillable",
-      "_origin": "ast",
-      "community": 146,
-      "community_name": "ProfilePageTest.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\attributes\\fillable",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_eloquent_model",
-      "label": "Illuminate\\Database\\Eloquent\\Model",
-      "_origin": "ast",
-      "community": 146,
-      "community_name": "ProfilePageTest.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\model",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_database_eloquent_relations_belongsto",
-      "label": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
-      "_origin": "ast",
-      "community": 146,
-      "community_name": "ProfilePageTest.php",
-      "file_type": "code",
-      "norm_label": "illuminate\\database\\eloquent\\relations\\belongsto",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "tests_feature_authentication_loginhistorytest",
       "label": "LoginHistoryTest.php",
       "_origin": "ast",
@@ -6480,29 +6568,18 @@
       "label": "Illuminate\\Foundation\\Testing\\TestCase",
       "_origin": "ast",
       "community": 17,
-      "community_name": "Pest.php",
+      "community_name": "TestCase",
       "file_type": "code",
       "norm_label": "illuminate\\foundation\\testing\\testcase",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "tests_pest",
-      "label": "Pest.php",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "Pest.php",
-      "file_type": "code",
-      "norm_label": "pest.php",
-      "source_file": "tests/Pest.php",
-      "source_location": "L1"
-    },
-    {
       "id": "tests_testcase",
       "label": "TestCase.php",
       "_origin": "ast",
       "community": 17,
-      "community_name": "Pest.php",
+      "community_name": "TestCase",
       "file_type": "code",
       "norm_label": "testcase.php",
       "source_file": "tests/TestCase.php",
@@ -7015,6 +7092,17 @@
       "source_location": "L1"
     },
     {
+      "id": "app_models_loginhistory",
+      "label": "LoginHistory.php",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "loginhistory.php",
+      "source_file": "app/Models/LoginHistory.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_models_user",
       "label": "User.php",
       "_origin": "ast",
@@ -7037,6 +7125,17 @@
       "source_location": ""
     },
     {
+      "id": "illuminate_database_eloquent_attributes_fillable",
+      "label": "Illuminate\\Database\\Eloquent\\Attributes\\Fillable",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\attributes\\fillable",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_database_eloquent_attributes_hidden",
       "label": "Illuminate\\Database\\Eloquent\\Attributes\\Hidden",
       "_origin": "ast",
@@ -7055,6 +7154,28 @@
       "community_name": "User.php",
       "file_type": "code",
       "norm_label": "illuminate\\database\\eloquent\\factories\\hasfactory",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_eloquent_model",
+      "label": "Illuminate\\Database\\Eloquent\\Model",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\model",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "illuminate_database_eloquent_relations_belongsto",
+      "label": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "User.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\database\\eloquent\\relations\\belongsto",
       "source_file": "",
       "source_location": ""
     },
@@ -7090,6 +7211,39 @@
       "norm_label": "illuminate\\notifications\\notifiable",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "app_services_auth_loginactivityservice",
+      "label": "LoginActivityService.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService.php",
+      "file_type": "code",
+      "norm_label": "loginactivityservice.php",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "illuminate_support_facades_db",
+      "label": "Illuminate\\Support\\Facades\\DB",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService.php",
+      "file_type": "code",
+      "norm_label": "illuminate\\support\\facades\\db",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_feature_authentication_usersessionservicetest",
+      "label": "UserSessionServiceTest.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService.php",
+      "file_type": "code",
+      "norm_label": "usersessionservicetest.php",
+      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "source_location": "L1"
     },
     {
       "id": "composer_allow_plugins_pestphp_pest_plugin",
@@ -7378,17 +7532,6 @@
       "source_location": "L1"
     },
     {
-      "id": "tests_feature_authentication_devicedetectionservicetest",
-      "label": "DeviceDetectionServiceTest.php",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "devicedetectionservicetest.php",
-      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
-      "source_location": "L1"
-    },
-    {
       "id": "tests_feature_authentication_loginactivityservicetest",
       "label": "LoginActivityServiceTest.php",
       "_origin": "ast",
@@ -7408,6 +7551,17 @@
       "file_type": "code",
       "norm_label": "userseedertest.php",
       "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_pest",
+      "label": "Pest.php",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "pest.php",
+      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -9226,6 +9380,17 @@
       "source_location": "L1"
     },
     {
+      "id": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "label": "2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "Illuminate\\Database\\Schema\\Blueprint",
+      "file_type": "code",
+      "norm_label": "2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L1"
+    },
+    {
       "id": "illuminate_database_migrations_migration",
       "label": "Illuminate\\Database\\Migrations\\Migration",
       "_origin": "ast",
@@ -9968,7 +10133,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -10364,7 +10529,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L237",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_10",
+      "target": "app_models_loginhistory_loginhistory",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -10376,7 +10553,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L257",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -10388,7 +10565,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L277",
+      "source_location": "L303",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_13",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -10400,19 +10589,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L305",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest_closure_15",
-      "target": "app_models_user_user",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L361",
+      "source_location": "L343",
       "weight": 1.0
     },
     {
@@ -10424,7 +10601,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L380",
+      "source_location": "L371",
       "weight": 1.0
     },
     {
@@ -10436,7 +10613,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L400",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -10448,7 +10625,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L423",
+      "source_location": "L446",
       "weight": 1.0
     },
     {
@@ -10460,7 +10637,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L445",
+      "source_location": "L466",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_20",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L489",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_21",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L511",
       "weight": 1.0
     },
     {
@@ -10532,7 +10733,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L129",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_7",
+      "target": "app_models_loginhistory_loginhistory",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -10544,7 +10757,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L140",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -10556,7 +10769,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L142",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -10568,7 +10781,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L158",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -11736,6 +11949,18 @@
       "weight": 1.0
     },
     {
+      "source": "app_listeners_recordlogoutactivity_recordlogoutactivity",
+      "target": "app_services_auth_loginactivityservice_loginactivityservice",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
       "source": "app_services_auth_loginactivityservice_loginactivityservice",
       "target": "app_services_auth_devicedetectionservice_devicedetectionservice",
       "relation": "references",
@@ -12900,6 +13125,42 @@
       "weight": 1.0
     },
     {
+      "source": "app_listeners_recordlogoutactivity",
+      "target": "app_models_user_user",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_listeners_recordlogoutactivity",
+      "target": "app_services_auth_loginactivityservice_loginactivityservice",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "app_listeners_recordlogoutactivity",
+      "target": "illuminate_auth_events_logout",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "app_models_loginhistory",
       "target": "illuminate_database_eloquent_attributes_fillable",
       "relation": "imports",
@@ -13069,7 +13330,19 @@
     },
     {
       "source": "app_providers_appserviceprovider",
-      "target": "app_view_composers_workspacecomposer_workspacecomposer",
+      "target": "illuminate_support_serviceprovider",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_appserviceprovider",
+      "target": "app_listeners_recordlogoutactivity_recordlogoutactivity",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -13081,7 +13354,7 @@
     },
     {
       "source": "app_providers_appserviceprovider",
-      "target": "illuminate_support_facades_view",
+      "target": "app_view_composers_workspacecomposer_workspacecomposer",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -13093,7 +13366,7 @@
     },
     {
       "source": "app_providers_appserviceprovider",
-      "target": "illuminate_support_serviceprovider",
+      "target": "illuminate_auth_events_logout",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -13101,6 +13374,30 @@
       "context": "import",
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_appserviceprovider",
+      "target": "illuminate_support_facades_event",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_providers_appserviceprovider",
+      "target": "illuminate_support_facades_view",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -14024,6 +14321,42 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "database/migrations/2026_10_01_025503_create_login_histories_table.php",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "illuminate_database_migrations_migration",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "illuminate_support_facades_schema",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -15936,6 +16269,30 @@
       "weight": 1.0
     },
     {
+      "source": "app_listeners_recordlogoutactivity_recordlogoutactivity_construct",
+      "target": "app_services_auth_loginactivityservice_loginactivityservice",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_listeners_recordlogoutactivity_recordlogoutactivity_handle",
+      "target": "illuminate_auth_events_logout",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
       "source": "app_policies_userpolicy_userpolicy_changerole",
       "target": "app_models_user_user",
       "relation": "references",
@@ -16140,6 +16497,30 @@
       "weight": 1.0
     },
     {
+      "source": "app_services_auth_loginactivityservice_loginactivityservice_recordlogout",
+      "target": "app_models_user_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "app_services_auth_loginactivityservice_loginactivityservice_recordlogout",
+      "target": "illuminate_http_request",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
       "source": "app_services_auth_usersessionservice_usersessionservice_activefor",
       "target": "app_models_user_user",
       "relation": "references",
@@ -16172,7 +16553,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -16184,7 +16565,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -16437,6 +16818,30 @@
       "context": "parameter_type",
       "source_file": "database/migrations/2026_10_01_025503_create_login_histories_table.php",
       "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_closure_1",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_closure_2",
+      "target": "illuminate_database_schema_blueprint",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -17024,7 +17429,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -17060,7 +17465,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -17407,6 +17812,17 @@
       "weight": 1.0
     },
     {
+      "source": "app_listeners_recordlogoutactivity",
+      "target": "app_listeners_recordlogoutactivity_recordlogoutactivity",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "app_models_loginhistory",
       "target": "app_models_loginhistory_loginhistory",
       "relation": "contains",
@@ -17447,7 +17863,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L9",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -17568,7 +17984,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Services/Auth/LoginActivityService.php",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -18614,6 +19030,50 @@
       "confidence_score": 1.0,
       "source_file": "database/migrations/2026_10_01_025503_create_login_histories_table.php",
       "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_up",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_closure_1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_down",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table",
+      "target": "database_migrations_2026_10_01_135420_add_session_and_logout_times_to_login_histories_table_closure_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/migrations/2026_10_01_135420_add_session_and_logout_times_to_login_histories_table.php",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -20681,7 +21141,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L128",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -20703,18 +21163,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L139",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest",
-      "target": "tests_feature_authentication_profilepagetest_closure_9",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L155",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -20730,13 +21179,24 @@
     },
     {
       "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_9",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
       "target": "tests_feature_authentication_profilepagetest_closure_10",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L236",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -20747,7 +21207,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L256",
+      "source_location": "L221",
       "weight": 1.0
     },
     {
@@ -20769,7 +21229,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L276",
+      "source_location": "L302",
       "weight": 1.0
     },
     {
@@ -20780,7 +21240,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L298",
+      "source_location": "L322",
       "weight": 1.0
     },
     {
@@ -20791,7 +21251,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L304",
+      "source_location": "L342",
       "weight": 1.0
     },
     {
@@ -20802,7 +21262,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L360",
+      "source_location": "L364",
       "weight": 1.0
     },
     {
@@ -20813,7 +21273,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L379",
+      "source_location": "L370",
       "weight": 1.0
     },
     {
@@ -20824,7 +21284,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L397",
+      "source_location": "L426",
       "weight": 1.0
     },
     {
@@ -20835,7 +21295,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L422",
+      "source_location": "L445",
       "weight": 1.0
     },
     {
@@ -20846,7 +21306,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L444",
+      "source_location": "L463",
       "weight": 1.0
     },
     {
@@ -20858,6 +21318,28 @@
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_20",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L488",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_21",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L510",
       "weight": 1.0
     },
     {
@@ -22287,7 +22769,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -22309,7 +22791,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L9",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -22885,6 +23367,28 @@
       "weight": 1.0
     },
     {
+      "source": "app_listeners_recordlogoutactivity_recordlogoutactivity",
+      "target": "app_listeners_recordlogoutactivity_recordlogoutactivity_construct",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_listeners_recordlogoutactivity_recordlogoutactivity",
+      "target": "app_listeners_recordlogoutactivity_recordlogoutactivity_handle",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
       "source": "app_models_loginhistory_loginhistory",
       "target": "app_models_loginhistory_loginhistory_user",
       "relation": "method",
@@ -22892,7 +23396,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -22903,7 +23407,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Models/LoginHistory.php",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -23013,7 +23517,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L14",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -23024,7 +23528,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L22",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -23149,6 +23653,17 @@
       "weight": 1.0
     },
     {
+      "source": "app_services_auth_loginactivityservice_loginactivityservice",
+      "target": "app_services_auth_loginactivityservice_loginactivityservice_recordlogout",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
       "source": "app_services_auth_usersessionservice_usersessionservice",
       "target": "app_services_auth_usersessionservice_usersessionservice_construct",
       "relation": "method",
@@ -23178,7 +23693,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -23189,7 +23704,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/Services/Auth/UserSessionService.php",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -23751,7 +24266,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "app/Http/Controllers/AccountController.php",
-      "source_location": "L20",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -24620,5 +25135,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c8b6bd857d545b165804b8d9a01d27a20947c345"
+  "built_at_commit": "3f99557461557b077bf8c7ceeefaa82b50992c53"
 }

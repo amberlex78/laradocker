@@ -233,36 +233,40 @@
         <x-ui.card title="Login history" description="Recent successful sign-ins from your account." id="login-history">
             <x-ui.table striped hoverable>
                 <x-ui.table.head>
-                    <x-ui.table.cell as="th" variant="header" scope="col">Date and time</x-ui.table.cell>
                     <x-ui.table.cell as="th" variant="header" scope="col">Device</x-ui.table.cell>
-                    <x-ui.table.cell as="th" variant="header" scope="col">Operating system</x-ui.table.cell>
-                    <x-ui.table.cell as="th" variant="header" scope="col">Browser</x-ui.table.cell>
                     <x-ui.table.cell as="th" variant="header" scope="col">IP address</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Login time</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Logout time</x-ui.table.cell>
                 </x-ui.table.head>
                 <tbody>
                     @forelse ($loginHistories as $loginHistory)
                         <x-ui.table.row>
                             <x-ui.table.cell>
-                                {{ $loginHistory->logged_in_at?->format('F j, Y g:i A') ?: 'Unknown' }}
-                            </x-ui.table.cell>
-                            <x-ui.table.cell>
-                                {{ str($loginHistory->device_type ?: 'unknown')->headline() }}
-                                @if ($loginHistory->device_model)
-                                    ({{ $loginHistory->device_model }})
-                                @endif
-                            </x-ui.table.cell>
-                            <x-ui.table.cell>{{ $loginHistory->operating_system ?: 'Unknown' }}</x-ui.table.cell>
-                            <x-ui.table.cell>
-                                {{ $loginHistory->browser ?: 'Unknown' }}
-                                @if ($loginHistory->browser_version)
-                                    ({{ $loginHistory->browser_version }})
-                                @endif
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="font-medium text-gray-900 dark:text-white">{{ $loginHistory->browser ?: 'Unknown' }}{{ $loginHistory->browser_version ? ' '.$loginHistory->browser_version : '' }}{{ $loginHistory->operating_system ? ' / '.$loginHistory->operating_system : '' }}</span>
+                                </div>
+                                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                                    {{ str($loginHistory->device_type ?: 'unknown')->headline() }}
+                                    @if ($loginHistory->device_model)
+                                        ({{ $loginHistory->device_model }})
+                                    @endif
+                                </p>
                             </x-ui.table.cell>
                             <x-ui.table.cell>{{ $loginHistory->ip_address ?: 'Unknown' }}</x-ui.table.cell>
+                            <x-ui.table.cell>{{ $loginHistory->logged_in_at?->format('Y-m-d H:i') ?: 'Unknown' }}</x-ui.table.cell>
+                            <x-ui.table.cell>
+                                @if ($loginHistory->logged_out_at)
+                                    {{ $loginHistory->logged_out_at->format('Y-m-d H:i') }}
+                                @elseif ($loginHistory->session_id && $activeSessionIds->contains($loginHistory->session_id))
+                                    <x-ui.badge variant="green">Active</x-ui.badge>
+                                @else
+                                    Not recorded
+                                @endif
+                            </x-ui.table.cell>
                         </x-ui.table.row>
                     @empty
                         <x-ui.table.row>
-                            <x-ui.table.cell colspan="5" class="py-8 text-center">No login history available.</x-ui.table.cell>
+                            <x-ui.table.cell colspan="4" class="py-8 text-center">No login history available.</x-ui.table.cell>
                         </x-ui.table.row>
                     @endforelse
                 </tbody>

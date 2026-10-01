@@ -22,8 +22,9 @@ final class LoginActivityService
         $loginDetails = $this->deviceDetection->fromRequest($request);
         $loggedInAt = now();
         $ipAddress = $request->ip();
+        $sessionId = $request->hasSession() ? $request->session()->getId() : null;
 
-        DB::transaction(function () use ($user, $loginDetails, $loggedInAt, $ipAddress): void {
+        $loginHistoryId = DB::transaction(function () use ($user, $loginDetails, $loggedInAt, $ipAddress, $sessionId): int {
             $user->forceFill([
                 'last_login_device_type' => $loginDetails['device_type'],
                 'last_login_device_model' => $loginDetails['device_model'],
@@ -34,11 +35,36 @@ final class LoginActivityService
                 'last_login_at' => $loggedInAt,
             ])->save();
 
-            $user->loginHistories()->create([
+            $loginHistory = $user->loginHistories()->create([
                 ...$loginDetails,
                 'ip_address' => $ipAddress,
+                'session_id' => $sessionId,
                 'logged_in_at' => $loggedInAt,
             ]);
+
+            return (int) $loginHistory->getKey();
         });
+
+        if ($request->hasSession()) {
+            $request->session()->put('login_history_id', $loginHistoryId);
+        }
+    }
+
+    /**
+     * Record an explicit logout for the authenticated session.
+     */
+    public function recordLogout(User $user, Request $request): void
+    {
+        $loginHistoryId = $request->session()->pull('login_history_id');
+        $loginHistoryQuery = $user->loginHistories()
+            ->whereNull('logged_out_at');
+
+        if ($loginHistoryId !== null) {
+            $loginHistoryQuery->whereKey($loginHistoryId);
+        } else {
+            $loginHistoryQuery->where('session_id', $request->session()->getId());
+        }
+
+        $loginHistoryQuery->update(['logged_out_at' => now()]);
     }
 }

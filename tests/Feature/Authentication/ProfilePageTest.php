@@ -118,11 +118,77 @@ test('an authenticated user sees recent login history in reverse chronological o
         ->assertSee('203.0.113.11', false)
         ->assertSee('Tablet', false)
         ->assertSee('TAB 16', false)
-        ->assertSee('Android', false)
-        ->assertSee('Chrome', false)
-        ->assertSee('130.0', false)
-        ->assertSee('September 30, 2026 12:34 PM', false)
+        ->assertSee('2026-09-30 12:34', false)
         ->assertSeeInOrder(['203.0.113.11', '203.0.113.10'], false);
+});
+
+test('login history shows separate login and logout columns with the compact date format', function (): void {
+    $user = User::factory()->create();
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'logged_in_at' => '2026-10-01 07:06:00',
+        'ip_address' => '203.0.113.11',
+        'device_type' => 'smartphone',
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Login time', false)
+        ->assertSee('Logout time', false)
+        ->assertSee('2026-10-01 07:06', false)
+        ->assertSee('Not recorded', false);
+});
+
+test('login history distinguishes active, explicitly ended, and unrecorded sessions', function (): void {
+    $this->travelTo('2026-10-01 07:06:00');
+
+    $user = User::factory()->create();
+
+    DB::table('sessions')->insert([
+        'id' => 'active-login-session',
+        'user_id' => $user->id,
+        'ip_address' => '203.0.113.11',
+        'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+        'payload' => '{}',
+        'last_activity' => now()->timestamp,
+    ]);
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'session_id' => 'active-login-session',
+        'logged_in_at' => '2026-10-01 07:06:00',
+        'ip_address' => '203.0.113.11',
+        'device_type' => 'desktop',
+        'operating_system' => 'GNU/Linux',
+        'browser' => 'Chrome',
+        'browser_version' => '149.0',
+    ]);
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'session_id' => 'ended-login-session',
+        'logged_in_at' => '2026-10-01 06:00:00',
+        'logged_out_at' => '2026-10-01 07:05:00',
+        'ip_address' => '203.0.113.12',
+        'device_type' => 'smartphone',
+    ]);
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'session_id' => 'expired-login-session',
+        'logged_in_at' => '2026-09-30 23:00:00',
+        'ip_address' => '203.0.113.13',
+        'device_type' => 'tablet',
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Chrome 149.0 / GNU/Linux', false)
+        ->assertSeeInOrder(['Chrome', '149.0', 'GNU/Linux', 'Desktop'], false)
+        ->assertSee('Active', false)
+        ->assertSee('2026-10-01 07:05', false)
+        ->assertSee('Not recorded', false);
 });
 
 test('account tables use distinct dark mode states for striped and hoverable rows', function (): void {
@@ -149,7 +215,7 @@ test('an account page renders unknown values for incomplete login history', func
         ->assertOk()
         ->assertSee('Login history', false)
         ->assertSee('Unknown', false)
-        ->assertSee('September 30, 2026 12:34 PM', false);
+        ->assertSee('2026-09-30 12:34', false);
 });
 
 test('an authenticated user sees their active sessions with the current session first', function (): void {

@@ -20,7 +20,7 @@ final class UserSessionService
      * The current session is queried separately so this ordering stays explicit
      * without embedding the rule in a raw SQL expression.
      *
-     * @return Collection<int, array{is_current: bool, device_type: string, device_model: ?string, operating_system: ?string, browser: ?string, browser_version: ?string, ip_address: ?string, last_activity: Carbon}>
+     * @return Collection<int, array{session_id: string, is_current: bool, device_type: string, device_model: ?string, operating_system: ?string, browser: ?string, browser_version: ?string, ip_address: ?string, last_activity: Carbon}>
      */
     public function activeFor(User $user, string $currentSessionId): Collection
     {
@@ -47,6 +47,7 @@ final class UserSessionService
                 $detected = $this->deviceDetection->fromUserAgent($session->user_agent);
 
                 return [
+                    'session_id' => (string) $session->id,
                     'is_current' => hash_equals($currentSessionId, (string) $session->id),
                     'device_type' => $detected['device_type'],
                     'device_model' => $detected['device_model'],

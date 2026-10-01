@@ -35,5 +35,6 @@ test('recording login activity stores latest device details and login history', 
         ->and($user->last_login_at)->not->toBeNull()
         ->and($history->device_type)->toBe('smartphone')
         ->and($history->ip_address)->toBe('203.0.113.7')
-        ->and($history->logged_in_at)->not->toBeNull();
+        ->and($history->logged_in_at)->not->toBeNull()
+        ->and($history->session_id)->toBeNull();
 });

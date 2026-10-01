@@ -297,13 +297,28 @@ test('a successful login stores unknown device information when the user agent i
         ->and($history->browser_version)->toBeNull();
 });
 
-test('an authenticated user can log out', function () {
+test('an authenticated user can log out', function (): void {
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->post('/logout', [
+    $this->travelTo('2026-10-01 07:06:00');
+
+    $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ])->assertRedirect('/account');
+
+    $loginSessionId = $user->loginHistories()->sole()->session_id;
+
+    expect($loginSessionId)->not->toBeNull()
+        ->and($this->app['session']->getId())->toBe($loginSessionId);
+
+    $response = $this->post('/logout', [
         '_token' => csrf_token(),
     ]);
 
     $response->assertRedirect('/');
     $this->assertGuest();
+
+    expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))->toBe('2026-10-01 07:06');
 });

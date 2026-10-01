@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable([
     'user_id',
+    'session_id',
     'logged_in_at',
+    'logged_out_at',
     'ip_address',
     'device_type',
     'device_model',
@@ -37,6 +39,7 @@ class LoginHistory extends Model
     {
         return [
             'logged_in_at' => 'datetime',
+            'logged_out_at' => 'datetime',
         ];
     }
 }

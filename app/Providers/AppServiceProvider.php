@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Listeners\RecordLogoutActivity;
 use App\View\Composers\WorkspaceComposer;
+use Illuminate\Auth\Events\Logout;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Event::listen(Logout::class, RecordLogoutActivity::class);
         View::composer('*', WorkspaceComposer::class);
     }
 }
