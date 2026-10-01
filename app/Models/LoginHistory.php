@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\LogoutReason;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,6 +42,7 @@ class LoginHistory extends Model
         return [
             'logged_in_at' => 'datetime',
             'logged_out_at' => 'datetime',
+            'logout_reason' => LogoutReason::class,
         ];
     }
 }

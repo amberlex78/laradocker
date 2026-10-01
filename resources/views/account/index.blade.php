@@ -259,7 +259,7 @@
                                     <div>{{ $loginHistory->logged_out_at->format('Y-m-d H:i') }}</div>
                                     @if ($loginHistory->logout_reason)
                                         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                                            {{ $loginHistory->logout_reason === 'terminated' ? 'Terminated' : 'Logged out' }}
+                                            {{ $loginHistory->logout_reason->label() }}
                                         </p>
                                     @endif
                                 @elseif ($currentLoginHistoryId && $loginHistory->getKey() === (int) $currentLoginHistoryId)

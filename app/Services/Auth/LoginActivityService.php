@@ -2,6 +2,7 @@
 
 namespace App\Services\Auth;
 
+use App\Enums\LogoutReason;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -53,7 +54,7 @@ final class LoginActivityService
     /**
      * Record an explicit logout for the authenticated session.
      */
-    public function recordLogout(User $user, Request $request, string $reason = 'logout'): void
+    public function recordLogout(User $user, Request $request, LogoutReason $reason = LogoutReason::Logout): void
     {
         $loginHistoryId = $request->session()->pull('login_history_id');
         $loginHistoryQuery = $user->loginHistories()
@@ -67,7 +68,7 @@ final class LoginActivityService
 
         $loginHistoryQuery->update([
             'logged_out_at' => now(),
-            'logout_reason' => $reason,
+            'logout_reason' => $reason->value,
         ]);
     }
 }

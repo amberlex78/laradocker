@@ -2,6 +2,7 @@
 
 namespace App\Services\Auth;
 
+use App\Enums\LogoutReason;
 use App\Models\User;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
@@ -96,7 +97,7 @@ final class UserSessionService
                 ->whereNull('logged_out_at')
                 ->update([
                     'logged_out_at' => now(),
-                    'logout_reason' => 'terminated',
+                    'logout_reason' => LogoutReason::Terminated->value,
                 ]);
 
             $this->sessionsForUser($user)

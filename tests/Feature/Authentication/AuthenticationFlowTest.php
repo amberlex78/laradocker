@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\LogoutReason;
 use App\Enums\UserRole;
 use App\Models\LoginHistory;
 use App\Models\User;
@@ -321,5 +322,5 @@ test('an authenticated user can log out', function (): void {
     $this->assertGuest();
 
     expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))->toBe('2026-10-01 07:06')
-        ->and($user->loginHistories()->sole()->logout_reason)->toBe('logout');
+        ->and($user->loginHistories()->sole()->logout_reason)->toBe(LogoutReason::Logout);
 });

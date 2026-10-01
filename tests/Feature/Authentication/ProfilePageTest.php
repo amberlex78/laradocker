@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\LogoutReason;
 use App\Models\LoginHistory;
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -170,7 +171,7 @@ test('login history distinguishes active, explicitly ended, and unrecorded sessi
         'session_id' => 'ended-login-session',
         'logged_in_at' => '2026-10-01 06:00:00',
         'logged_out_at' => '2026-10-01 07:05:00',
-        'logout_reason' => 'terminated',
+        'logout_reason' => LogoutReason::Terminated,
         'ip_address' => '203.0.113.12',
         'device_type' => 'smartphone',
     ]);
@@ -523,7 +524,7 @@ test('terminating other sessions records their logout time in login history', fu
 
     expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))
         ->toBe('2026-10-01 07:06')
-        ->and($user->loginHistories()->sole()->logout_reason)->toBe('terminated');
+        ->and($user->loginHistories()->sole()->logout_reason)->toBe(LogoutReason::Terminated);
 
     $this->get(route('account'))
         ->assertOk()

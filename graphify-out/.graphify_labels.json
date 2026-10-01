@@ -16,13 +16,11 @@
   "14": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
   "15": "User Management in Admin and Developer Areas",
   "16": "require-dev",
-  "17": "Pest.php",
+  "17": "LogoutReason",
   "18": "composer.json",
   "19": "scripts",
   "20": "AuthenticationFlowTest.php",
-  "21": "UserPolicy",
   "22": "User.php",
-  "23": "AdminUserManagementTest.php",
   "24": "config",
   "25": "psr-4",
   "26": "require",
@@ -143,11 +141,6 @@
   "141": "resources/views/components/ui/modal.blade.php",
   "142": "password-input.blade.php",
   "143": "confirmation-modal.blade.php",
-  "144": "ApplicationActionsTest.php",
   "145": "UiThemeToggleComponentTest.php",
-  "146": "ProfilePageTest.php",
-  "147": "UserManagementActionsTest.php",
-  "148": "DeveloperUserManagementTest.php",
-  "149": "Authentication, Admin, and Developer Areas Implementation Plan",
-  "150": ".workspace"
+  "146": "ProfilePageTest.php"
 }
