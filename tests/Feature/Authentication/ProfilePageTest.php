@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\LoginHistory;
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -66,6 +67,60 @@ test('an authenticated user sees their latest login device on the account page',
         ->assertSee('17.0', false)
         ->assertSee('203.0.113.7', false)
         ->assertSee('September 30, 2026', false);
+});
+
+test('an authenticated user sees recent login history in reverse chronological order', function (): void {
+    $user = User::factory()->create();
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'logged_in_at' => '2026-09-29 12:34:56',
+        'ip_address' => '203.0.113.10',
+        'device_type' => 'smartphone',
+        'device_model' => 'iPhone',
+        'operating_system' => 'iOS',
+        'browser' => 'Safari',
+        'browser_version' => '17.0',
+    ]);
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'logged_in_at' => '2026-09-30 12:34:56',
+        'ip_address' => '203.0.113.11',
+        'device_type' => 'tablet',
+        'device_model' => 'TAB 16',
+        'operating_system' => 'Android',
+        'browser' => 'Chrome',
+        'browser_version' => '130.0',
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Login history', false)
+        ->assertSee('203.0.113.11', false)
+        ->assertSee('Tablet', false)
+        ->assertSee('TAB 16', false)
+        ->assertSee('Android', false)
+        ->assertSee('Chrome', false)
+        ->assertSee('130.0', false)
+        ->assertSee('September 30, 2026 12:34 PM', false)
+        ->assertSeeInOrder(['203.0.113.11', '203.0.113.10'], false);
+});
+
+test('an account page renders unknown values for incomplete login history', function (): void {
+    $user = User::factory()->create();
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'logged_in_at' => '2026-09-30 12:34:56',
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Login history', false)
+        ->assertSee('Unknown', false)
+        ->assertSee('September 30, 2026 12:34 PM', false);
 });
 
 test('account forms use standard Flowbite fields and server-side submission', function (): void {

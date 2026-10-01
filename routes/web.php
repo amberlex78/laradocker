@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Developer\UserController as DeveloperUserController;
 use Illuminate\Support\Facades\Route;
@@ -9,7 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware('auth')->group(function (): void {
-    Route::view('/account', 'account.index')->name('account');
+    Route::get('/account', AccountController::class)->name('account');
 });
 
 Route::middleware(['auth', 'role:developer,admin,operator'])

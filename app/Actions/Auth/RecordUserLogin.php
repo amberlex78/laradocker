@@ -21,16 +21,30 @@ final class RecordUserLogin
         $detector->parse();
 
         $deviceType = $this->resolveDeviceType($detector->getDeviceName(), $request);
+        $loggedInAt = now();
+        $loginDetails = [
+            'device_type' => $deviceType,
+            'device_model' => $this->resolveDeviceModel($detector, $request, $deviceType),
+            'operating_system' => $this->nullableDetectionValue($detector->getOs('name')),
+            'browser' => $this->nullableDetectionValue($detector->getClient('name')),
+            'browser_version' => $this->nullableDetectionValue($detector->getClient('version')),
+            'ip_address' => $request->ip(),
+        ];
 
         $user->forceFill([
             'last_login_device_type' => $deviceType,
-            'last_login_device_model' => $this->resolveDeviceModel($detector, $request, $deviceType),
-            'last_login_os' => $this->nullableDetectionValue($detector->getOs('name')),
-            'last_login_browser' => $this->nullableDetectionValue($detector->getClient('name')),
-            'last_login_browser_version' => $this->nullableDetectionValue($detector->getClient('version')),
-            'last_login_ip_address' => $request->ip(),
-            'last_login_at' => now(),
+            'last_login_device_model' => $loginDetails['device_model'],
+            'last_login_os' => $loginDetails['operating_system'],
+            'last_login_browser' => $loginDetails['browser'],
+            'last_login_browser_version' => $loginDetails['browser_version'],
+            'last_login_ip_address' => $loginDetails['ip_address'],
+            'last_login_at' => $loggedInAt,
         ])->save();
+
+        $user->loginHistories()->create([
+            ...$loginDetails,
+            'logged_in_at' => $loggedInAt,
+        ]);
     }
 
     private function resolveDeviceType(string $detectedDeviceType, Request $request): string

@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\UserRole;
+use App\Models\LoginHistory;
 use App\Models\User;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -103,6 +104,71 @@ test('a successful login records the latest device information', function (): vo
         ->and($user->fresh()->last_login_at)->not->toBeNull();
 });
 
+test('a successful login creates a history record with detected details and IP address', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $response = $this->withHeaders([
+        'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Sec-CH-UA' => '"Chromium";v="120", "Not.A/Brand";v="8"',
+        'Sec-CH-UA-Mobile' => '?0',
+        'Sec-CH-UA-Platform' => '"iPadOS"',
+        'Sec-CH-UA-Platform-Version' => '"17.0.0"',
+        'Sec-CH-UA-Model' => '"iPad"',
+        'Sec-CH-UA-Form-Factors' => '"Tablet"',
+    ])->withServerVariables([
+        'REMOTE_ADDR' => '10.0.0.10',
+        'HTTP_X_FORWARDED_FOR' => '203.0.113.7, 10.0.0.9',
+    ])->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $response->assertRedirect('/account');
+
+    $history = $user->loginHistories()->sole();
+
+    expect($history)
+        ->toBeInstanceOf(LoginHistory::class)
+        ->and($history->device_type)->toBe('tablet')
+        ->and($history->device_model)->toBe('iPad')
+        ->and($history->operating_system)->toBe('iPadOS')
+        ->and($history->browser)->toBe('Chrome')
+        ->and($history->browser_version)->toBe('120.0')
+        ->and($history->ip_address)->toBe('203.0.113.7')
+        ->and($history->logged_in_at)->not->toBeNull();
+});
+
+test('two successful logins create two history records', function (): void {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $this->withHeader('User-Agent', 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1')
+        ->post('/login', [
+            '_token' => csrf_token(),
+            'email' => $user->email,
+            'password' => 'password',
+        ])
+        ->assertRedirect('/account');
+
+    $this->post('/logout', [
+        '_token' => csrf_token(),
+    ])->assertRedirect('/');
+
+    $this->withHeader('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36')
+        ->post('/login', [
+            '_token' => csrf_token(),
+            'email' => $user->email,
+            'password' => 'password',
+        ])
+        ->assertRedirect('/account');
+
+    expect($user->loginHistories()->count())->toBe(2);
+});
+
 test('a successful login uses client hints to detect a tablet in desktop mode', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,
@@ -188,6 +254,13 @@ test('a successful login stores unknown device information when the user agent i
         ->and($user->fresh()->last_login_browser)->toBeNull()
         ->and($user->fresh()->last_login_browser_version)->toBeNull()
         ->and($user->fresh()->last_login_at)->not->toBeNull();
+
+    $history = $user->loginHistories()->sole();
+
+    expect($history->device_type)->toBe('unknown')
+        ->and($history->operating_system)->toBeNull()
+        ->and($history->browser)->toBeNull()
+        ->and($history->browser_version)->toBeNull();
 });
 
 test('an authenticated user can log out', function () {

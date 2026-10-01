@@ -1,7 +1,6 @@
 @php
     $profileErrors = $errors->getBag('updateProfileInformation');
     $passwordErrors = $errors->getBag('updatePassword');
-    $user = auth()->user();
 @endphp
 
 <x-layouts.account :title="'Account'">
@@ -65,6 +64,51 @@
             @endif
         </x-ui.card>
 
+        <x-ui.card title="Login history" description="Recent successful sign-ins from your account." id="login-history">
+            <x-ui.table variant="borderless" striped hoverable>
+                <x-ui.table.head>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Date and time</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Device</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Operating system</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Browser</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">IP address</x-ui.table.cell>
+                </x-ui.table.head>
+                <tbody>
+                    @forelse ($loginHistories as $loginHistory)
+                        <x-ui.table.row>
+                            <x-ui.table.cell>
+                                {{ $loginHistory->logged_in_at?->format('F j, Y g:i A') ?: 'Unknown' }}
+                            </x-ui.table.cell>
+                            <x-ui.table.cell>
+                                {{ str($loginHistory->device_type ?: 'unknown')->headline() }}
+                                @if ($loginHistory->device_model)
+                                    ({{ $loginHistory->device_model }})
+                                @endif
+                            </x-ui.table.cell>
+                            <x-ui.table.cell>{{ $loginHistory->operating_system ?: 'Unknown' }}</x-ui.table.cell>
+                            <x-ui.table.cell>
+                                {{ $loginHistory->browser ?: 'Unknown' }}
+                                @if ($loginHistory->browser_version)
+                                    ({{ $loginHistory->browser_version }})
+                                @endif
+                            </x-ui.table.cell>
+                            <x-ui.table.cell>{{ $loginHistory->ip_address ?: 'Unknown' }}</x-ui.table.cell>
+                        </x-ui.table.row>
+                    @empty
+                        <x-ui.table.row>
+                            <x-ui.table.cell colspan="5" class="py-8 text-center">No login history available.</x-ui.table.cell>
+                        </x-ui.table.row>
+                    @endforelse
+                </tbody>
+
+                @if ($loginHistories->hasPages())
+                    <x-slot:footer>
+                        <x-ui.table.pagination :paginator="$loginHistories" label="logins" />
+                    </x-slot:footer>
+                @endif
+            </x-ui.table>
+        </x-ui.card>
+
         <div class="flex flex-col gap-6">
             <x-ui.card title="Profile information" description="Update your profile information and email address." id="profile-information">
                 @if ($profileErrors->any())
@@ -86,7 +130,7 @@
                             id="name"
                             name="name"
                             label="Name"
-                            value="{{ old('name', auth()->user()->name) }}"
+                            value="{{ old('name', $user->name) }}"
                             placeholder="Your name"
                             autocomplete="name"
                             required
@@ -98,7 +142,7 @@
                             name="email"
                             type="email"
                             label="Email"
-                            value="{{ old('email', auth()->user()->email) }}"
+                            value="{{ old('email', $user->email) }}"
                             placeholder="you@example.com"
                             autocomplete="email"
                             required
