@@ -19,7 +19,7 @@
     <body class="bg-gray-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
         <x-site.navbar :show-user-menu="true" />
 
-        <main class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">{{ $slot }}</main>
+        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">{{ $slot }}</main>
 
         <x-site.footer />
     </body>

@@ -44,6 +44,23 @@ test('an authenticated user sees profile and password forms on the account page'
         ->assertSee('value="ada@example.com"', false);
 });
 
+test('the account page groups settings into a wide responsive layout', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12"', false)
+        ->assertSee('class="grid gap-6 lg:grid-cols-2 lg:items-start"', false)
+        ->assertSeeInOrder([
+            'id="profile-information"',
+            'id="update-password"',
+            'id="latest-login-device"',
+            'id="active-sessions"',
+            'id="login-history"',
+        ], false);
+});
+
 test('an authenticated user sees their latest login device on the account page', function (): void {
     $user = User::factory()->create();
 
@@ -177,14 +194,17 @@ test('an authenticated user sees their active sessions with the current session 
         ],
     ]);
 
-    $this->withCookie(config('session.cookie'), $currentSessionId)
+    $response = $this->withCookie(config('session.cookie'), $currentSessionId)
         ->actingAs($user)
-        ->get(route('account'))
+        ->get(route('account'));
+
+    $response
         ->assertOk()
         ->assertSee('Active sessions', false)
         ->assertSee('Current', false)
         ->assertSee('Desktop', false)
         ->assertSee('Chrome', false)
+        ->assertSee('GNU/Linux', false)
         ->assertSee('130.0', false)
         ->assertSee('Smartphone', false)
         ->assertSee('Safari', false)
@@ -195,6 +215,22 @@ test('an authenticated user sees their active sessions with the current session 
         ->assertDontSee('203.0.113.9', false)
         ->assertDontSee('203.0.113.10', false)
         ->assertDontSee($currentSessionId, false);
+
+    $content = $response->getContent();
+    $activeSessionsStart = strpos($content, 'id="active-sessions"');
+    $loginHistoryStart = strpos($content, 'id="login-history"');
+    $activeSessionsMarkup = substr($content, $activeSessionsStart, $loginHistoryStart - $activeSessionsStart);
+
+    expect($activeSessionsMarkup)
+        ->toContain('bg-red-700 text-white hover:bg-red-800')
+        ->toContain('class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"')
+        ->toContain('px-4 py-2.5 text-sm')
+        ->toContain('Device')
+        ->toContain('IP address')
+        ->toContain('Last activity')
+        ->not->toContain('Session</th>')
+        ->not->toContain('Browser</th>')
+        ->not->toContain('class="mb-4 flex justify-end"');
 });
 
 test('an active session displays its Unix timestamp in the application timezone', function (): void {

@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-10-01)
 
 ## Corpus Check
-- 205 files · ~46,174 words
+- 205 files · ~46,464 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 824 nodes · 1295 edges · 144 communities (29 shown, 115 thin omitted)
+- 825 nodes · 1297 edges · 144 communities (29 shown, 115 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 73 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f78f84a6`
+- Built from commit: `aa957b8c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,7 +56,7 @@
 - ProfilePageTest.php
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 210 edges
+1. `User` - 211 edges
 2. `UserRole` - 86 edges
 3. `AuthValidationRules` - 20 edges
 4. `DeviceDetectionService` - 18 edges
@@ -94,7 +94,7 @@ Nodes (24): AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, AppServicePr
 
 ### Community 2 - ".view"
 Cohesion: 0.05
-Nodes (24): CreateUser, DeleteUser, UpdateUser, AccountSessionController, UserController, Controller, UserController, StoreUserRequest (+16 more)
+Nodes (25): CreateUser, DeleteUser, UpdateUser, AccountController, AccountSessionController, UserController, Controller, UserController (+17 more)
 
 ### Community 3 - "Розгортання на VPS"
 Cohesion: 0.05
@@ -125,8 +125,8 @@ Cohesion: 0.08
 Nodes (19): {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}(), {closure#18}() (+11 more)
 
 ### Community 10 - "DeviceDetectionService"
-Cohesion: 0.05
-Nodes (36): ResolveUserLandingRoute, AccountController, LoginResponse, DeviceDetectionService, LoginActivityService, UserSessionService, DeviceDetector, DeviceDetector\ClientHints (+28 more)
+Cohesion: 0.06
+Nodes (35): ResolveUserLandingRoute, LoginResponse, DeviceDetectionService, LoginActivityService, UserSessionService, DeviceDetector, DeviceDetector\ClientHints, DeviceDetector\DeviceDetector (+27 more)
 
 ### Community 12 - "Laravel-проєкти без домену"
 Cohesion: 0.12
@@ -197,8 +197,8 @@ Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
 ### Community 146 - "ProfilePageTest.php"
-Cohesion: 0.09
-Nodes (20): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, {closure#1}(), {closure#10}(), {closure#11}(), {closure#13}() (+12 more)
+Cohesion: 0.08
+Nodes (21): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}() (+13 more)
 
 ## Knowledge Gaps
 - **142 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+137 more)
@@ -209,7 +209,7 @@ Nodes (20): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illu
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
-  _High betweenness centrality (0.212) - this node is a cross-community bridge._
+  _High betweenness centrality (0.213) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `UserRole`, `User`?**
