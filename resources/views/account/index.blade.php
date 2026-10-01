@@ -13,6 +13,10 @@
             <x-ui.alert variant="success">
                 Your password has been updated.
             </x-ui.alert>
+        @elseif (session('status') === 'active-sessions-terminated')
+            <x-ui.alert variant="success">
+                All other active sessions have been terminated.
+            </x-ui.alert>
         @endif
 
         <header>
@@ -62,6 +66,60 @@
             @else
                 <p class="text-sm text-gray-600 dark:text-gray-400">No login information available.</p>
             @endif
+        </x-ui.card>
+
+        <x-ui.card title="Active sessions" description="Devices currently signed in to your account." id="active-sessions">
+            <div class="mb-4 flex justify-end">
+                <form method="POST" action="{{ route('account.sessions.destroy-other') }}">
+                    @csrf
+
+                    <x-ui.button type="submit" variant="secondary" size="sm">
+                        <x-icon name="log-out" class="h-4 w-4" />
+                        Terminate other sessions
+                    </x-ui.button>
+                </form>
+            </div>
+
+            <x-ui.table variant="borderless" striped hoverable>
+                <x-ui.table.head>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Session</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Device</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Browser</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">IP address</x-ui.table.cell>
+                    <x-ui.table.cell as="th" variant="header" scope="col">Last activity</x-ui.table.cell>
+                </x-ui.table.head>
+                <tbody>
+                    @forelse ($activeSessions as $activeSession)
+                        <x-ui.table.row>
+                            <x-ui.table.cell>
+                                @if ($activeSession['is_current'])
+                                    <x-ui.badge variant="blue">Current</x-ui.badge>
+                                @else
+                                    <span class="text-gray-400 dark:text-gray-500">—</span>
+                                @endif
+                            </x-ui.table.cell>
+                            <x-ui.table.cell>
+                                {{ str($activeSession['device_type'] ?: 'unknown')->headline() }}
+                                @if ($activeSession['device_model'])
+                                    ({{ $activeSession['device_model'] }})
+                                @endif
+                            </x-ui.table.cell>
+                            <x-ui.table.cell>
+                                {{ $activeSession['browser'] ?: 'Unknown' }}
+                                @if ($activeSession['browser_version'])
+                                    ({{ $activeSession['browser_version'] }})
+                                @endif
+                            </x-ui.table.cell>
+                            <x-ui.table.cell>{{ $activeSession['ip_address'] ?: 'Unknown' }}</x-ui.table.cell>
+                            <x-ui.table.cell>{{ $activeSession['last_activity']?->format('F j, Y g:i A') ?: 'Unknown' }}</x-ui.table.cell>
+                        </x-ui.table.row>
+                    @empty
+                        <x-ui.table.row>
+                            <x-ui.table.cell colspan="5" class="py-8 text-center">No active sessions available.</x-ui.table.cell>
+                        </x-ui.table.row>
+                    @endforelse
+                </tbody>
+            </x-ui.table>
         </x-ui.card>
 
         <x-ui.card title="Login history" description="Recent successful sign-ins from your account." id="login-history">

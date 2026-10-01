@@ -4,6 +4,7 @@ use App\Models\LoginHistory;
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 
@@ -121,6 +122,172 @@ test('an account page renders unknown values for incomplete login history', func
         ->assertSee('Login history', false)
         ->assertSee('Unknown', false)
         ->assertSee('September 30, 2026 12:34 PM', false);
+});
+
+test('an authenticated user sees their active sessions with the current session first', function (): void {
+    $this->travelTo('2026-10-01 12:00:00');
+
+    $user = User::factory()->create();
+    $this->startSession();
+    $currentSessionId = $this->app['session']->getId();
+
+    DB::table('sessions')->insert([
+        [
+            'id' => $currentSessionId,
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.7',
+            'user_agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130.0.0.0 Safari/537.36',
+            'payload' => '{}',
+            'last_activity' => now()->subMinutes(10)->timestamp,
+        ],
+        [
+            'id' => 'other-active-session',
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.8',
+            'user_agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1',
+            'payload' => '{}',
+            'last_activity' => now()->subMinutes(2)->timestamp,
+        ],
+        [
+            'id' => 'expired-session',
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.9',
+            'user_agent' => 'Mozilla/5.0 Firefox/130.0',
+            'payload' => '{}',
+            'last_activity' => now()->subMinutes(121)->timestamp,
+        ],
+        [
+            'id' => 'another-users-session',
+            'user_id' => User::factory()->create()->id,
+            'ip_address' => '203.0.113.10',
+            'user_agent' => 'Mozilla/5.0 Chrome/131.0.0.0',
+            'payload' => '{}',
+            'last_activity' => now()->subMinute()->timestamp,
+        ],
+    ]);
+
+    $this->withCookie(config('session.cookie'), $currentSessionId)
+        ->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Active sessions', false)
+        ->assertSee('Current', false)
+        ->assertSee('Desktop', false)
+        ->assertSee('Chrome', false)
+        ->assertSee('130.0', false)
+        ->assertSee('Smartphone', false)
+        ->assertSee('Safari', false)
+        ->assertSee('17.0', false)
+        ->assertSee('203.0.113.7', false)
+        ->assertSee('203.0.113.8', false)
+        ->assertSeeInOrder(['203.0.113.7', '203.0.113.8'], false)
+        ->assertDontSee('203.0.113.9', false)
+        ->assertDontSee('203.0.113.10', false)
+        ->assertDontSee($currentSessionId, false);
+});
+
+test('an active session displays unknown values when its stored data is incomplete', function (): void {
+    $user = User::factory()->create();
+
+    DB::table('sessions')->insert([
+        [
+            'id' => 'unknown-session',
+            'user_id' => $user->id,
+            'ip_address' => null,
+            'user_agent' => null,
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ],
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Unknown', false);
+});
+
+test('the account page limits the number of active sessions displayed', function (): void {
+    $user = User::factory()->create();
+
+    foreach (range(1, 11) as $sessionNumber) {
+        DB::table('sessions')->insert([
+            'id' => 'limited-session-'.$sessionNumber,
+            'user_id' => $user->id,
+            'ip_address' => '198.51.100.'.$sessionNumber,
+            'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+            'payload' => '{}',
+            'last_activity' => now()->subMinutes($sessionNumber)->timestamp,
+        ]);
+    }
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('198.51.100.1', false)
+        ->assertSee('198.51.100.10', false)
+        ->assertDontSee('198.51.100.11', false);
+});
+
+test('a guest is redirected to login when terminating active sessions', function (): void {
+    $this->post(route('account.sessions.destroy-other'), [
+        '_token' => csrf_token(),
+    ])->assertRedirect(route('login'));
+});
+
+test('a user can terminate other sessions while keeping the current session active', function (): void {
+    $user = User::factory()->create();
+    $otherUser = User::factory()->create();
+    $this->startSession();
+    $currentSessionId = $this->app['session']->getId();
+
+    DB::table('sessions')->insert([
+        [
+            'id' => $currentSessionId,
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.7',
+            'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ],
+        [
+            'id' => 'user-other-session',
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.8',
+            'user_agent' => 'Mozilla/5.0 Safari/17.0',
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ],
+        [
+            'id' => 'other-users-session',
+            'user_id' => $otherUser->id,
+            'ip_address' => '203.0.113.9',
+            'user_agent' => 'Mozilla/5.0 Firefox/130.0',
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ],
+    ]);
+
+    $response = $this->withCookie(config('session.cookie'), $currentSessionId)
+        ->actingAs($user)
+        ->post(route('account.sessions.destroy-other'), [
+            '_token' => csrf_token(),
+            'session_id' => 'other-users-session',
+        ]);
+
+    $response
+        ->assertRedirect(route('account'))
+        ->assertSessionHas('status', 'active-sessions-terminated');
+
+    $this->assertAuthenticatedAs($user);
+    $this->assertDatabaseHas('sessions', ['id' => $currentSessionId, 'user_id' => $user->id]);
+    $this->assertDatabaseMissing('sessions', ['id' => 'user-other-session']);
+    $this->assertDatabaseHas('sessions', ['id' => 'other-users-session', 'user_id' => $otherUser->id]);
+
+    $this->get(route('account'))
+        ->assertOk()
+        ->assertSee('203.0.113.7', false)
+        ->assertDontSee('203.0.113.8', false)
+        ->assertDontSee('203.0.113.9', false);
 });
 
 test('account forms use standard Flowbite fields and server-side submission', function (): void {

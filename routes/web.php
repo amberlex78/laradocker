@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AccountSessionController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Developer\UserController as DeveloperUserController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,8 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function (): void {
     Route::get('/account', AccountController::class)->name('account');
+    Route::post('/account/sessions/terminate-other', AccountSessionController::class)
+        ->name('account.sessions.destroy-other');
 });
 
 Route::middleware(['auth', 'role:developer,admin,operator'])
