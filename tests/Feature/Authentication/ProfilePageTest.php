@@ -187,6 +187,7 @@ test('login history distinguishes active, explicitly ended, and unrecorded sessi
         ->assertSee('Chrome 149.0 / GNU/Linux', false)
         ->assertSeeInOrder(['Chrome', '149.0', 'GNU/Linux', 'Desktop'], false)
         ->assertSee('Active', false)
+        ->assertSee('bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300', false)
         ->assertSee('2026-10-01 07:05', false)
         ->assertSee('Not recorded', false);
 });
@@ -370,7 +371,7 @@ test('an active session displays its Unix timestamp in the application timezone'
     $this->actingAs($user)
         ->get(route('account'))
         ->assertOk()
-        ->assertSee('October 1, 2026 12:00 PM', false);
+        ->assertSee('2026-10-01 12:00', false);
 });
 
 test('an active session displays unknown values when its stored data is incomplete', function (): void {

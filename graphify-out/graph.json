@@ -1684,7 +1684,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L248"
+      "source_location": "L249"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_11",
@@ -1696,7 +1696,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L259"
+      "source_location": "L260"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_12",
@@ -1708,7 +1708,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L275"
+      "source_location": "L276"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_13",
@@ -1720,7 +1720,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L356"
+      "source_location": "L357"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_14",
@@ -1732,7 +1732,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L376"
+      "source_location": "L377"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_15",
@@ -1744,7 +1744,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L396"
+      "source_location": "L397"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_16",
@@ -1756,7 +1756,7 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L418"
+      "source_location": "L419"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_17",
@@ -1768,7 +1768,7 @@
       "file_type": "code",
       "norm_label": "{closure#17}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L424"
+      "source_location": "L425"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_18",
@@ -1780,7 +1780,7 @@
       "file_type": "code",
       "norm_label": "{closure#18}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L480"
+      "source_location": "L481"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_19",
@@ -1792,7 +1792,7 @@
       "file_type": "code",
       "norm_label": "{closure#19}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L530"
+      "source_location": "L531"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_2",
@@ -1816,7 +1816,7 @@
       "file_type": "code",
       "norm_label": "{closure#20}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L549"
+      "source_location": "L550"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_21",
@@ -1828,7 +1828,7 @@
       "file_type": "code",
       "norm_label": "{closure#21}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L567"
+      "source_location": "L568"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_22",
@@ -1840,7 +1840,7 @@
       "file_type": "code",
       "norm_label": "{closure#22}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L592"
+      "source_location": "L593"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_23",
@@ -1852,7 +1852,7 @@
       "file_type": "code",
       "norm_label": "{closure#23}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L614"
+      "source_location": "L615"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_3",
@@ -1936,7 +1936,7 @@
       "file_type": "code",
       "norm_label": "{closure#9}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L194"
+      "source_location": "L195"
     },
     {
       "id": "app_models_loginhistory_loginhistory_user",
@@ -10577,7 +10577,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L249",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -10589,7 +10589,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L260",
+      "source_location": "L261",
       "weight": 1.0
     },
     {
@@ -10601,7 +10601,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L262",
+      "source_location": "L263",
       "weight": 1.0
     },
     {
@@ -10613,7 +10613,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L278",
+      "source_location": "L279",
       "weight": 1.0
     },
     {
@@ -10625,7 +10625,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L357",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -10637,7 +10637,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L377",
+      "source_location": "L378",
       "weight": 1.0
     },
     {
@@ -10649,7 +10649,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L397",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -10661,7 +10661,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L425",
+      "source_location": "L426",
       "weight": 1.0
     },
     {
@@ -10673,7 +10673,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L483",
+      "source_location": "L484",
       "weight": 1.0
     },
     {
@@ -10685,7 +10685,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L506",
+      "source_location": "L507",
       "weight": 1.0
     },
     {
@@ -10697,7 +10697,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L531",
+      "source_location": "L532",
       "weight": 1.0
     },
     {
@@ -10709,7 +10709,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L550",
+      "source_location": "L551",
       "weight": 1.0
     },
     {
@@ -10721,7 +10721,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L570",
+      "source_location": "L571",
       "weight": 1.0
     },
     {
@@ -10733,7 +10733,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L593",
+      "source_location": "L594",
       "weight": 1.0
     },
     {
@@ -10745,7 +10745,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L615",
+      "source_location": "L616",
       "weight": 1.0
     },
     {
@@ -10865,7 +10865,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L195",
+      "source_location": "L196",
       "weight": 1.0
     },
     {
@@ -10877,7 +10877,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L230",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -21328,7 +21328,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L194",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -21339,18 +21339,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L248",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest",
-      "target": "tests_feature_authentication_profilepagetest_closure_11",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L259",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -21366,13 +21355,24 @@
     },
     {
       "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_11",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L260",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
       "target": "tests_feature_authentication_profilepagetest_closure_12",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L275",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -21383,7 +21383,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L356",
+      "source_location": "L357",
       "weight": 1.0
     },
     {
@@ -21394,7 +21394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L376",
+      "source_location": "L377",
       "weight": 1.0
     },
     {
@@ -21405,7 +21405,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L396",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -21416,7 +21416,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L418",
+      "source_location": "L419",
       "weight": 1.0
     },
     {
@@ -21427,7 +21427,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L424",
+      "source_location": "L425",
       "weight": 1.0
     },
     {
@@ -21449,7 +21449,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L480",
+      "source_location": "L481",
       "weight": 1.0
     },
     {
@@ -21460,7 +21460,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L530",
+      "source_location": "L531",
       "weight": 1.0
     },
     {
@@ -21471,7 +21471,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L549",
+      "source_location": "L550",
       "weight": 1.0
     },
     {
@@ -21482,7 +21482,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L567",
+      "source_location": "L568",
       "weight": 1.0
     },
     {
@@ -21493,7 +21493,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L592",
+      "source_location": "L593",
       "weight": 1.0
     },
     {
@@ -21504,7 +21504,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L614",
+      "source_location": "L615",
       "weight": 1.0
     },
     {
@@ -25311,5 +25311,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "69371025a2c9b0272721d8a5be91be182c27c124"
+  "built_at_commit": "faa1286180f69a10206278785a42dbb49353167a"
 }

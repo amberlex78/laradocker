@@ -219,7 +219,7 @@
                                 </p>
                             </x-ui.table.cell>
                             <x-ui.table.cell>{{ $activeSession['ip_address'] ?: 'Unknown' }}</x-ui.table.cell>
-                            <x-ui.table.cell>{{ $activeSession['last_activity']?->format('F j, Y g:i A') ?: 'Unknown' }}</x-ui.table.cell>
+                            <x-ui.table.cell>{{ $activeSession['last_activity']?->format('Y-m-d H:i') ?: 'Unknown' }}</x-ui.table.cell>
                         </x-ui.table.row>
                     @empty
                         <x-ui.table.row>
@@ -260,7 +260,7 @@
                                 @elseif ($currentLoginHistoryId && $loginHistory->getKey() === (int) $currentLoginHistoryId)
                                     <x-ui.badge variant="green">Current</x-ui.badge>
                                 @elseif ($loginHistory->session_id && $activeSessionIds->contains($loginHistory->session_id))
-                                    <x-ui.badge variant="green">Active</x-ui.badge>
+                                    <x-ui.badge variant="blue">Active</x-ui.badge>
                                 @else
                                     Not recorded
                                 @endif
