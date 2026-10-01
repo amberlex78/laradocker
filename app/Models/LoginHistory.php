@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     'session_id',
     'logged_in_at',
     'logged_out_at',
+    'logout_reason',
     'ip_address',
     'device_type',
     'device_model',

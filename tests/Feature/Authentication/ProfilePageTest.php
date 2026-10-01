@@ -170,6 +170,7 @@ test('login history distinguishes active, explicitly ended, and unrecorded sessi
         'session_id' => 'ended-login-session',
         'logged_in_at' => '2026-10-01 06:00:00',
         'logged_out_at' => '2026-10-01 07:05:00',
+        'logout_reason' => 'terminated',
         'ip_address' => '203.0.113.12',
         'device_type' => 'smartphone',
     ]);
@@ -189,6 +190,7 @@ test('login history distinguishes active, explicitly ended, and unrecorded sessi
         ->assertSee('Active', false)
         ->assertSee('bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300', false)
         ->assertSee('2026-10-01 07:05', false)
+        ->assertSee('Terminated', false)
         ->assertSee('Not recorded', false);
 });
 
@@ -520,7 +522,8 @@ test('terminating other sessions records their logout time in login history', fu
         ->assertRedirect(route('account'));
 
     expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))
-        ->toBe('2026-10-01 07:06');
+        ->toBe('2026-10-01 07:06')
+        ->and($user->loginHistories()->sole()->logout_reason)->toBe('terminated');
 
     $this->get(route('account'))
         ->assertOk()

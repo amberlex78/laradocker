@@ -256,7 +256,12 @@
                             <x-ui.table.cell>{{ $loginHistory->logged_in_at?->format('Y-m-d H:i') ?: 'Unknown' }}</x-ui.table.cell>
                             <x-ui.table.cell>
                                 @if ($loginHistory->logged_out_at)
-                                    {{ $loginHistory->logged_out_at->format('Y-m-d H:i') }}
+                                    <div>{{ $loginHistory->logged_out_at->format('Y-m-d H:i') }}</div>
+                                    @if ($loginHistory->logout_reason)
+                                        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                                            {{ $loginHistory->logout_reason === 'terminated' ? 'Terminated' : 'Logged out' }}
+                                        </p>
+                                    @endif
                                 @elseif ($currentLoginHistoryId && $loginHistory->getKey() === (int) $currentLoginHistoryId)
                                     <x-ui.badge variant="green">Current</x-ui.badge>
                                 @elseif ($loginHistory->session_id && $activeSessionIds->contains($loginHistory->session_id))

@@ -94,7 +94,10 @@ final class UserSessionService
             $user->loginHistories()
                 ->whereIn('session_id', $otherSessionIds)
                 ->whereNull('logged_out_at')
-                ->update(['logged_out_at' => now()]);
+                ->update([
+                    'logged_out_at' => now(),
+                    'logout_reason' => 'terminated',
+                ]);
 
             $this->sessionsForUser($user)
                 ->whereIn('id', $otherSessionIds)

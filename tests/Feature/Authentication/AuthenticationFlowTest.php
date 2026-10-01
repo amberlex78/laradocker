@@ -320,5 +320,6 @@ test('an authenticated user can log out', function (): void {
     $response->assertRedirect('/');
     $this->assertGuest();
 
-    expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))->toBe('2026-10-01 07:06');
+    expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))->toBe('2026-10-01 07:06')
+        ->and($user->loginHistories()->sole()->logout_reason)->toBe('logout');
 });

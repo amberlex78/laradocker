@@ -53,7 +53,7 @@ final class LoginActivityService
     /**
      * Record an explicit logout for the authenticated session.
      */
-    public function recordLogout(User $user, Request $request): void
+    public function recordLogout(User $user, Request $request, string $reason = 'logout'): void
     {
         $loginHistoryId = $request->session()->pull('login_history_id');
         $loginHistoryQuery = $user->loginHistories()
@@ -65,6 +65,9 @@ final class LoginActivityService
             $loginHistoryQuery->where('session_id', $request->session()->getId());
         }
 
-        $loginHistoryQuery->update(['logged_out_at' => now()]);
+        $loginHistoryQuery->update([
+            'logged_out_at' => now(),
+            'logout_reason' => $reason,
+        ]);
     }
 }
