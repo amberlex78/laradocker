@@ -41,23 +41,37 @@ final class UserSessionService
             ->limit($currentSession ? 9 : 10)
             ->get();
 
-        return collect($currentSession ? [$currentSession] : [])
-            ->merge($otherSessions)
-            ->map(function (object $session) use ($currentSessionId, $now): array {
-                $detected = $this->deviceDetection->fromUserAgent($session->user_agent);
+        $sessions = collect($currentSession ? [$currentSession] : [])
+            ->merge($otherSessions);
+        $loginHistories = $user->loginHistories()
+            ->whereIn('session_id', $sessions->pluck('id'))
+            ->get()
+            ->keyBy('session_id');
 
-                return [
-                    'session_id' => (string) $session->id,
-                    'is_current' => hash_equals($currentSessionId, (string) $session->id),
-                    'device_type' => $detected['device_type'],
-                    'device_model' => $detected['device_model'],
-                    'operating_system' => $detected['operating_system'],
-                    'browser' => $detected['browser'],
-                    'browser_version' => $detected['browser_version'],
-                    'ip_address' => $session->ip_address,
-                    'last_activity' => $now->copy()->setTimestamp((int) $session->last_activity),
-                ];
-            });
+        return $sessions->map(function (object $session) use ($currentSessionId, $now, $loginHistories): array {
+            $loginHistory = $loginHistories->get((string) $session->id);
+            $detected = $loginHistory
+                ? [
+                    'device_type' => $loginHistory->device_type ?: 'unknown',
+                    'device_model' => $loginHistory->device_model,
+                    'operating_system' => $loginHistory->operating_system,
+                    'browser' => $loginHistory->browser,
+                    'browser_version' => $loginHistory->browser_version,
+                ]
+                : $this->deviceDetection->fromUserAgent($session->user_agent);
+
+            return [
+                'session_id' => (string) $session->id,
+                'is_current' => hash_equals($currentSessionId, (string) $session->id),
+                'device_type' => $detected['device_type'],
+                'device_model' => $detected['device_model'],
+                'operating_system' => $detected['operating_system'],
+                'browser' => $detected['browser'],
+                'browser_version' => $detected['browser_version'],
+                'ip_address' => $session->ip_address,
+                'last_activity' => $now->copy()->setTimestamp((int) $session->last_activity),
+            ];
+        });
     }
 
     /**

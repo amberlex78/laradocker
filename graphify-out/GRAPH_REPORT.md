@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-10-01)
 
 ## Corpus Check
-- 208 files · ~46,922 words
+- 208 files · ~47,043 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 841 nodes · 1328 edges · 146 communities (29 shown, 117 thin omitted)
+- 842 nodes · 1332 edges · 146 communities (30 shown, 116 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 73 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3f995574`
+- Built from commit: `9507f8b3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,7 +38,7 @@
 - AuthenticationFlowTest.php
 - ApplicationActionsTest.php
 - User.php
-- LoginActivityService.php
+- UserSessionServiceTest.php
 - config
 - psr-4
 - require
@@ -57,14 +57,14 @@
 - ProfilePageTest.php
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 215 edges
+1. `User` - 216 edges
 2. `UserRole` - 86 edges
 3. `AuthValidationRules` - 20 edges
 4. `DeviceDetectionService` - 18 edges
 5. `LoginActivityService` - 16 edges
 6. `UserSessionService` - 15 edges
-7. `Розгортання на VPS` - 13 edges
-8. `LoginHistory` - 12 edges
+7. `LoginHistory` - 14 edges
+8. `Розгортання на VPS` - 13 edges
 9. `UserController` - 11 edges
 10. `UserController` - 11 edges
 
@@ -83,7 +83,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (146 total, 117 thin omitted)
+## Communities (146 total, 116 thin omitted)
 
 ### Community 0 - "UserRole"
 Cohesion: 0.05
@@ -169,6 +169,10 @@ Nodes (9): Illuminate\Auth\Notifications\VerifyEmail, Illuminate\Support\Facades
 Cohesion: 0.15
 Nodes (9): Illuminate\Contracts\Auth\MustVerifyEmail, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Attributes\Hidden, Illuminate\Database\Eloquent\Factories\HasFactory, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, Illuminate\Database\Eloquent\Relations\HasMany, Illuminate\Foundation\Auth\User (+1 more)
 
+### Community 23 - "UserSessionServiceTest.php"
+Cohesion: 0.33
+Nodes (3): Illuminate\Support\Facades\DB, {closure#1}(), {closure#2}()
+
 ### Community 24 - "config"
 Cohesion: 0.29
 Nodes (7): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, preferred-install, sort-packages
@@ -204,12 +208,12 @@ Nodes (20): LoginHistory, {closure#1}(), {closure#10}(), {closure#11}(), {closur
 ## Knowledge Gaps
 - **142 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+137 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 360 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **117 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `LoginActivityService.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `UserSessionServiceTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.217) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.046) - this node is a cross-community bridge._

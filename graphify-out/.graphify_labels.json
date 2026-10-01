@@ -22,7 +22,7 @@
   "20": "AuthenticationFlowTest.php",
   "21": "ApplicationActionsTest.php",
   "22": "User.php",
-  "23": "LoginActivityService.php",
+  "23": "UserSessionServiceTest.php",
   "24": "config",
   "25": "psr-4",
   "26": "require",
