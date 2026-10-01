@@ -75,105 +75,60 @@
                 </form>
             </x-ui.card>
 
-            <div class="flex flex-col gap-6">
-                <x-ui.card title="Update password" description="Use a strong, unique password to keep your account secure." id="update-password">
-                    @if ($passwordErrors->any())
-                        <x-ui.alert variant="danger" title="We could not update your password." class="mb-6">
-                            <ul class="list-disc space-y-1 ps-5">
-                                @foreach ($passwordErrors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </x-ui.alert>
-                    @endif
+            <x-ui.card title="Update password" description="Use a strong, unique password to keep your account secure." id="update-password">
+                @if ($passwordErrors->any())
+                    <x-ui.alert variant="danger" title="We could not update your password." class="mb-6">
+                        <ul class="list-disc space-y-1 ps-5">
+                            @foreach ($passwordErrors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </x-ui.alert>
+                @endif
 
-                    <form method="POST" action="{{ route('user-password.update') }}" class="flex flex-col gap-6">
-                        @csrf
-                        @method('PUT')
+                <form method="POST" action="{{ route('user-password.update') }}" class="flex flex-col gap-6">
+                    @csrf
+                    @method('PUT')
 
-                        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                            <div class="w-full sm:col-span-2">
-                                <x-ui.password-input
-                                    id="current_password"
-                                    name="current_password"
-                                    label="Current password"
-                                    placeholder="Enter your current password"
-                                    autocomplete="current-password"
-                                    required
-                                />
-                            </div>
-
+                    <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                        <div class="w-full sm:col-span-2">
                             <x-ui.password-input
-                                id="password"
-                                name="password"
-                                label="New password"
-                                placeholder="Create a new password"
-                                autocomplete="new-password"
-                                required
-                            />
-
-                            <x-ui.password-input
-                                id="password_confirmation"
-                                name="password_confirmation"
-                                label="Confirm password"
-                                placeholder="Repeat your new password"
-                                autocomplete="new-password"
+                                id="current_password"
+                                name="current_password"
+                                label="Current password"
+                                placeholder="Enter your current password"
+                                autocomplete="current-password"
                                 required
                             />
                         </div>
 
-                        <div class="flex items-center justify-end border-t border-gray-200 pt-5 dark:border-gray-700">
-                            <x-ui.button type="submit">
-                                <x-icon name="save" class="h-4 w-4" />
-                                Update password
-                            </x-ui.button>
-                        </div>
-                    </form>
-                </x-ui.card>
+                        <x-ui.password-input
+                            id="password"
+                            name="password"
+                            label="New password"
+                            placeholder="Create a new password"
+                            autocomplete="new-password"
+                            required
+                        />
 
-                <x-ui.card title="Latest login device" description="Information detected during your most recent sign-in." id="latest-login-device">
-                    @if ($latestLoginHistory)
-                        <dl class="grid gap-4 sm:grid-cols-2">
-                            <div>
-                                <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Device</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                                    {{ str($latestLoginHistory->device_type ?: 'unknown')->headline() }}
-                                    @if ($latestLoginHistory->device_model)
-                                        ({{ $latestLoginHistory->device_model }})
-                                    @endif
-                                </dd>
-                            </div>
+                        <x-ui.password-input
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            label="Confirm password"
+                            placeholder="Repeat your new password"
+                            autocomplete="new-password"
+                            required
+                        />
+                    </div>
 
-                            <div>
-                                <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Operating system</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $latestLoginHistory->operating_system ?: 'Unknown' }}</dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Browser</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                                    {{ $latestLoginHistory->browser ?: 'Unknown' }}
-                                    @if ($latestLoginHistory->browser_version)
-                                        ({{ $latestLoginHistory->browser_version }})
-                                    @endif
-                                </dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Last login</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $latestLoginHistory->logged_in_at->format('F j, Y') }}</dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">IP address</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $latestLoginHistory->ip_address ?: 'Unknown' }}</dd>
-                            </div>
-                        </dl>
-                    @else
-                        <p class="text-sm text-gray-600 dark:text-gray-400">No login information available.</p>
-                    @endif
-                </x-ui.card>
-            </div>
+                    <div class="flex items-center justify-end border-t border-gray-200 pt-5 dark:border-gray-700">
+                        <x-ui.button type="submit">
+                            <x-icon name="save" class="h-4 w-4" />
+                            Update password
+                        </x-ui.button>
+                    </div>
+                </form>
+            </x-ui.card>
         </div>
 
         <x-ui.card title="Active sessions" description="Devices currently signed in to your account." id="active-sessions">

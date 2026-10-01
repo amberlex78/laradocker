@@ -69,13 +69,13 @@ test('the account page groups settings into a wide responsive layout', function 
         ->assertSeeInOrder([
             'id="profile-information"',
             'id="update-password"',
-            'id="latest-login-device"',
             'id="active-sessions"',
             'id="login-history"',
-        ], false);
+        ], false)
+        ->assertDontSee('id="latest-login-device"', false);
 });
 
-test('an authenticated user sees their latest login device on the account page', function (): void {
+test('the account page keeps login device details in the login history', function (): void {
     $user = User::factory()->create();
 
     LoginHistory::create([
@@ -92,14 +92,15 @@ test('an authenticated user sees their latest login device on the account page',
     $this->actingAs($user)
         ->get(route('account'))
         ->assertOk()
-        ->assertSee('Latest login device', false)
+        ->assertDontSee('Latest login device', false)
+        ->assertSee('Login history', false)
         ->assertSee('Smartphone', false)
         ->assertSee('iPhone', false)
         ->assertSee('iOS', false)
         ->assertSee('Mobile Safari', false)
         ->assertSee('17.0', false)
         ->assertSee('203.0.113.7', false)
-        ->assertSee('September 30, 2026', false);
+        ->assertSee('2026-09-30 12:34', false);
 });
 
 test('an authenticated user sees recent login history in reverse chronological order', function (): void {

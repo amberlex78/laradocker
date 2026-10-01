@@ -27,10 +27,6 @@ class AccountController extends Controller
 
         return view('account.index', [
             'user' => $user,
-            'latestLoginHistory' => $user->loginHistories()
-                ->orderByDesc('logged_in_at')
-                ->orderByDesc('id')
-                ->first(),
             'activeSessions' => $activeSessions,
             'activeSessionIds' => $userSessions->activeSessionIdsFor(
                 $user,
