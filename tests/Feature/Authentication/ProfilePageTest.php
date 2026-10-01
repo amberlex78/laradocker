@@ -186,6 +186,26 @@ test('an authenticated user sees their active sessions with the current session 
         ->assertDontSee($currentSessionId, false);
 });
 
+test('an active session displays its Unix timestamp in the application timezone', function (): void {
+    $user = User::factory()->create();
+
+    DB::table('sessions')->insert([
+        'id' => 'kyiv-timezone-session',
+        'user_id' => $user->id,
+        'ip_address' => '203.0.113.7',
+        'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+        'payload' => '{}',
+        'last_activity' => 1790845200,
+    ]);
+
+    $this->travelTo('2026-10-01 12:00:00 Europe/Kyiv');
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('October 1, 2026 12:00 PM', false);
+});
+
 test('an active session displays unknown values when its stored data is incomplete', function (): void {
     $user = User::factory()->create();
 

@@ -141,6 +141,40 @@ test('a successful login creates a history record with detected details and IP a
         ->and($history->logged_in_at)->not->toBeNull();
 });
 
+test('login history trusts forwarded client IP only from a trusted proxy', function (): void {
+    $trustedProxyUser = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+    $untrustedProxyUser = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $this->withServerVariables([
+        'REMOTE_ADDR' => '10.0.0.10',
+        'HTTP_X_FORWARDED_FOR' => '203.0.113.7, 10.0.0.9',
+    ])->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $trustedProxyUser->email,
+        'password' => 'password',
+    ])->assertRedirect('/account');
+
+    $this->post('/logout', [
+        '_token' => csrf_token(),
+    ])->assertRedirect('/');
+
+    $this->withServerVariables([
+        'REMOTE_ADDR' => '198.51.100.10',
+        'HTTP_X_FORWARDED_FOR' => '203.0.113.8',
+    ])->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $untrustedProxyUser->email,
+        'password' => 'password',
+    ])->assertRedirect('/account');
+
+    expect($trustedProxyUser->loginHistories()->sole()->ip_address)->toBe('203.0.113.7')
+        ->and($untrustedProxyUser->loginHistories()->sole()->ip_address)->toBe('198.51.100.10');
+});
+
 test('two successful logins create two history records', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,

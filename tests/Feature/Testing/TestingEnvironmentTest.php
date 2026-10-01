@@ -8,3 +8,8 @@ test('feature tests use an isolated in-memory sqlite database', function () {
         ->and(config('session.driver'))->toBe('array')
         ->and(config('queue.default'))->toBe('sync');
 });
+
+test('the application timezone follows APP_TIMEZONE', function (): void {
+    expect(config('app.timezone'))->toBe('Europe/Kyiv')
+        ->and(date_default_timezone_get())->toBe('Europe/Kyiv');
+});
