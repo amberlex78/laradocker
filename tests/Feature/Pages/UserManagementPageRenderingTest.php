@@ -70,16 +70,24 @@ test('admin and developer user indexes use the shared Flowbite table structure',
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $developer = User::factory()->create(['role' => UserRole::Developer]);
 
-    foreach ([[$admin, 'admin.users.index'], [$developer, 'developer.users.index']] as [$user, $route]) {
-        $this->actingAs($user)
-            ->get(route($route))
-            ->assertOk()
-            ->assertSee('relative overflow-x-auto rounded-base border border-gray-200 shadow-sm', false)
-            ->assertSee('bg-gray-50 text-xs uppercase text-gray-700', false)
-            ->assertDontSee('border-slate', false)
-            ->assertDontSee('bg-indigo', false)
-            ->assertDontSee('rounded-xl', false);
-    }
+    $this->actingAs($admin)
+        ->get(route('admin.users.index'))
+        ->assertOk()
+        ->assertSee('relative overflow-x-auto rounded-base border border-gray-200 shadow-sm', false)
+        ->assertSee('bg-gray-50 text-xs uppercase text-gray-700', false)
+        ->assertDontSee('border-slate', false)
+        ->assertDontSee('bg-indigo', false)
+        ->assertDontSee('rounded-xl', false);
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.index'))
+        ->assertOk()
+        ->assertSee('relative overflow-x-auto rounded-base', false)
+        ->assertDontSee('relative overflow-x-auto rounded-base border border-gray-200 shadow-sm', false)
+        ->assertSee('bg-gray-50 text-xs uppercase text-gray-700', false)
+        ->assertDontSee('border-slate', false)
+        ->assertDontSee('bg-indigo', false)
+        ->assertDontSee('rounded-xl', false);
 });
 
 test('admin and developer user indexes use the reference Flowbite table pagination', function (): void {

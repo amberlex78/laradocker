@@ -15,8 +15,8 @@
 
     $tableClasses = [
         'w-full text-left text-sm text-gray-500 dark:text-gray-400',
-        $striped ? '[&>tbody>tr:nth-child(even)]:bg-gray-50 dark:[&>tbody>tr:nth-child(even)]:bg-gray-700' : null,
-        $hoverable ? '[&>tbody>tr:hover]:bg-gray-50 dark:[&>tbody>tr:hover]:bg-gray-600' : null,
+        $striped ? '[&>tbody>tr:nth-child(even)]:bg-gray-50 dark:[&>tbody>tr:nth-child(even)]:bg-gray-700/50' : null,
+        $hoverable ? '[&>tbody>tr:hover]:bg-gray-50 dark:[&>tbody>tr:hover]:bg-gray-700/70' : null,
     ];
 
     $captionClasses = $captionSide === 'bottom' ? 'caption-bottom' : 'caption-top';

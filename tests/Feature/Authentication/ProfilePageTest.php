@@ -108,6 +108,17 @@ test('an authenticated user sees recent login history in reverse chronological o
         ->assertSeeInOrder(['203.0.113.11', '203.0.113.10'], false);
 });
 
+test('account tables use distinct dark mode states for striped and hoverable rows', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertSee('relative overflow-x-auto rounded-base border border-gray-200 shadow-sm', false)
+        ->assertSee('bg-gray-700/50', false)
+        ->assertSee('bg-gray-700/70', false)
+        ->assertSee('dark:bg-gray-700 dark:text-gray-400', false);
+});
+
 test('an account page renders unknown values for incomplete login history', function (): void {
     $user = User::factory()->create();
 

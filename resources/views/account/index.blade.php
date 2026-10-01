@@ -80,7 +80,7 @@
                 </form>
             </div>
 
-            <x-ui.table variant="borderless" striped hoverable>
+            <x-ui.table striped hoverable>
                 <x-ui.table.head>
                     <x-ui.table.cell as="th" variant="header" scope="col">Session</x-ui.table.cell>
                     <x-ui.table.cell as="th" variant="header" scope="col">Device</x-ui.table.cell>
@@ -123,7 +123,7 @@
         </x-ui.card>
 
         <x-ui.card title="Login history" description="Recent successful sign-ins from your account." id="login-history">
-            <x-ui.table variant="borderless" striped hoverable>
+            <x-ui.table striped hoverable>
                 <x-ui.table.head>
                     <x-ui.table.cell as="th" variant="header" scope="col">Date and time</x-ui.table.cell>
                     <x-ui.table.cell as="th" variant="header" scope="col">Device</x-ui.table.cell>

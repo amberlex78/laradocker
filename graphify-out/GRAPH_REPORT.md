@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-10-01)
 
 ## Corpus Check
-- 200 files · ~43,879 words
+- 200 files · ~43,928 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 788 nodes · 1217 edges · 146 communities (31 shown, 115 thin omitted)
+- 789 nodes · 1219 edges · 146 communities (31 shown, 115 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a48353a4`
+- Built from commit: `b2774207`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -58,7 +58,7 @@
 - ProfilePageTest.php
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 203 edges
+1. `User` - 204 edges
 2. `UserRole` - 86 edges
 3. `AuthValidationRules` - 20 edges
 4. `Розгортання на VPS` - 13 edges
@@ -204,11 +204,11 @@ Nodes (3): extra, laravel, dont-discover
 
 ### Community 144 - "LoginHistory"
 Cohesion: 0.24
-Nodes (7): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, {closure#1}(), {closure#5}(), {closure#6}()
+Nodes (7): LoginHistory, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, {closure#1}(), {closure#5}(), {closure#7}()
 
 ### Community 146 - "ProfilePageTest.php"
 Cohesion: 0.11
-Nodes (13): Illuminate\Support\Facades\DB, {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}() (+5 more)
+Nodes (14): Illuminate\Support\Facades\DB, {closure#10}(), {closure#11}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}() (+6 more)
 
 ## Knowledge Gaps
 - **135 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+130 more)
@@ -219,7 +219,7 @@ Nodes (13): Illuminate\Support\Facades\DB, {closure#10}(), {closure#12}(), {clos
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `LoginHistory`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
-  _High betweenness centrality (0.201) - this node is a cross-community bridge._
+  _High betweenness centrality (0.202) - this node is a cross-community bridge._
 - **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Http\FormRequest`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `UserRole`, `User`?**
