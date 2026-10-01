@@ -2,7 +2,7 @@
 
 namespace App\Actions\Fortify;
 
-use App\Actions\Auth\RegisterUser;
+use App\Enums\UserRole;
 use App\Models\User;
 use App\Validation\AuthValidationRules;
 use Illuminate\Contracts\Validation\Factory;
@@ -13,7 +13,6 @@ class CreateNewUser implements CreatesNewUsers
     public function __construct(
         private readonly Factory $validator,
         private readonly AuthValidationRules $rules,
-        private readonly RegisterUser $registerUser,
     ) {}
 
     /**
@@ -27,10 +26,11 @@ class CreateNewUser implements CreatesNewUsers
             ->make($input, $this->rules->registration())
             ->validate();
 
-        return $this->registerUser->handle([
+        return User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => $validated['password'],
+            'role' => UserRole::User,
         ]);
     }
 }

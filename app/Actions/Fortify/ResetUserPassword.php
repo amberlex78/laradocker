@@ -2,10 +2,12 @@
 
 namespace App\Actions\Fortify;
 
-use App\Actions\Auth\SetUserPassword;
+use App\Enums\LogoutReason;
 use App\Models\User;
+use App\Services\Auth\UserSessionService;
 use App\Validation\AuthValidationRules;
 use Illuminate\Contracts\Validation\Factory;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\Contracts\ResetsUserPasswords;
 
 class ResetUserPassword implements ResetsUserPasswords
@@ -13,7 +15,7 @@ class ResetUserPassword implements ResetsUserPasswords
     public function __construct(
         private readonly Factory $validator,
         private readonly AuthValidationRules $rules,
-        private readonly SetUserPassword $setUserPassword,
+        private readonly UserSessionService $userSessions,
     ) {}
 
     /**
@@ -27,6 +29,11 @@ class ResetUserPassword implements ResetsUserPasswords
             ->make($input, $this->rules->passwordReset())
             ->validate();
 
-        $this->setUserPassword->handle($user, $validated['password']);
+        DB::transaction(function () use ($user, $validated): void {
+            $user->forceFill([
+                'password' => $validated['password'],
+            ])->save();
+            $this->userSessions->terminateAll($user, LogoutReason::PasswordReset);
+        });
     }
 }

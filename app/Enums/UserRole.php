@@ -9,6 +9,11 @@ enum UserRole: string
     case Operator = 'operator';
     case User = 'user';
 
+    public function landingRoute(): string
+    {
+        return $this->workspace()['route'] ?? 'account';
+    }
+
     /**
      * @return array{route: string, name: string, label: string, initial: string}|null
      */

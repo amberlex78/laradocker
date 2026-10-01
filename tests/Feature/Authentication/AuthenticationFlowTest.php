@@ -6,6 +6,7 @@ use App\Models\LoginHistory;
 use App\Models\User;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 
 uses(RefreshDatabase::class);
 
@@ -24,8 +25,10 @@ test('a visitor can register as a regular user', function () {
 
     $response->assertRedirect('/account');
 
-    expect(User::query()->where('email', 'user@example.com')->firstOrFail()->role)
-        ->toBe(UserRole::User);
+    $user = User::query()->where('email', 'user@example.com')->firstOrFail();
+
+    expect($user->role)->toBe(UserRole::User)
+        ->and($user->loginHistories()->sole()->session_id)->toBe($this->app['session']->getId());
 });
 
 test('a developer is redirected to the developer area after login', function () {
@@ -98,11 +101,13 @@ test('a successful login records the latest device information', function (): vo
 
     $response->assertRedirect('/account');
 
-    expect($user->fresh()->last_login_device_type)->toBe('smartphone')
-        ->and($user->fresh()->last_login_os)->toBe('iOS')
-        ->and($user->fresh()->last_login_browser)->not->toBeNull()
-        ->and($user->fresh()->last_login_browser_version)->toBe('17.0')
-        ->and($user->fresh()->last_login_at)->not->toBeNull();
+    $history = $user->loginHistories()->sole();
+
+    expect($history->device_type)->toBe('smartphone')
+        ->and($history->operating_system)->toBe('iOS')
+        ->and($history->browser)->not->toBeNull()
+        ->and($history->browser_version)->toBe('17.0')
+        ->and($history->logged_in_at)->not->toBeNull();
 });
 
 test('a successful login creates a history record with detected details and IP address', function (): void {
@@ -204,6 +209,75 @@ test('two successful logins create two history records', function (): void {
     expect($user->loginHistories()->count())->toBe(2);
 });
 
+test('restoring authentication from a remember cookie creates a new history record', function (): void {
+    $user = User::factory()->create();
+
+    $loginResponse = $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+        'remember' => '1',
+    ]);
+
+    $recallerName = Auth::guard('web')->getRecallerName();
+    $recaller = $loginResponse->getCookie($recallerName)?->getValue();
+    $firstSessionId = $user->loginHistories()->sole()->session_id;
+
+    expect($recaller)->not->toBeNull();
+
+    app('auth')->forgetGuards();
+    app('session')->forgetDrivers();
+    app()->forgetInstance('session.store');
+
+    $this->withCookie($recallerName, $recaller)
+        ->get(route('account'))
+        ->assertOk();
+
+    $histories = $user->loginHistories()->orderBy('id')->get();
+
+    expect($histories)->toHaveCount(2)
+        ->and($histories->last()->session_id)->not->toBe($firstSessionId);
+});
+
+test('terminating other sessions invalidates an existing remember cookie', function (): void {
+    $user = User::factory()->create();
+
+    $rememberedLogin = $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+        'remember' => '1',
+    ]);
+
+    $recallerName = Auth::guard('web')->getRecallerName();
+    $oldRecaller = $rememberedLogin->getCookie($recallerName)?->getValue();
+
+    expect($oldRecaller)->not->toBeNull();
+
+    app('auth')->forgetGuards();
+    app('session')->forgetDrivers();
+    app()->forgetInstance('session.store');
+
+    $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ])->assertRedirect(route('account'));
+
+    $this->post(route('account.sessions.destroy-other'), [
+        '_token' => csrf_token(),
+        'current_password' => 'password',
+    ])->assertRedirect(route('account'));
+
+    app('auth')->forgetGuards();
+    app('session')->forgetDrivers();
+    app()->forgetInstance('session.store');
+
+    $this->withCookie($recallerName, $oldRecaller)
+        ->get(route('account'))
+        ->assertRedirect(route('login'));
+});
+
 test('a successful login uses client hints to detect a tablet in desktop mode', function (): void {
     $user = User::factory()->create([
         'role' => UserRole::User,
@@ -228,11 +302,13 @@ test('a successful login uses client hints to detect a tablet in desktop mode', 
 
     $response->assertRedirect('/account');
 
-    expect($user->fresh()->last_login_device_type)->toBe('tablet')
-        ->and($user->fresh()->last_login_device_model)->toBe('iPad')
-        ->and($user->fresh()->last_login_os)->toBe('iPadOS')
-        ->and($user->fresh()->last_login_browser)->toBe('Chrome')
-        ->and($user->fresh()->last_login_ip_address)->toBe('203.0.113.7');
+    $history = $user->loginHistories()->sole();
+
+    expect($history->device_type)->toBe('tablet')
+        ->and($history->device_model)->toBe('iPad')
+        ->and($history->operating_system)->toBe('iPadOS')
+        ->and($history->browser)->toBe('Chrome')
+        ->and($history->ip_address)->toBe('203.0.113.7');
 });
 
 test('login pages advertise the client hints used for device detection', function (): void {
@@ -266,8 +342,10 @@ test('a successful login uses the browser fallback when a tablet masks its user 
 
     $response->assertRedirect('/account');
 
-    expect($user->fresh()->last_login_device_type)->toBe('tablet')
-        ->and($user->fresh()->last_login_device_model)->toBe('TAB 16');
+    $history = $user->loginHistories()->sole();
+
+    expect($history->device_type)->toBe('tablet')
+        ->and($history->device_model)->toBe('TAB 16');
 });
 
 test('a successful login stores unknown device information when the user agent is unavailable', function (): void {
@@ -284,18 +362,13 @@ test('a successful login stores unknown device information when the user agent i
 
     $response->assertRedirect('/account');
 
-    expect($user->fresh()->last_login_device_type)->toBe('unknown')
-        ->and($user->fresh()->last_login_os)->toBeNull()
-        ->and($user->fresh()->last_login_browser)->toBeNull()
-        ->and($user->fresh()->last_login_browser_version)->toBeNull()
-        ->and($user->fresh()->last_login_at)->not->toBeNull();
-
     $history = $user->loginHistories()->sole();
 
     expect($history->device_type)->toBe('unknown')
         ->and($history->operating_system)->toBeNull()
         ->and($history->browser)->toBeNull()
-        ->and($history->browser_version)->toBeNull();
+        ->and($history->browser_version)->toBeNull()
+        ->and($history->logged_in_at)->not->toBeNull();
 });
 
 test('an authenticated user can log out', function (): void {

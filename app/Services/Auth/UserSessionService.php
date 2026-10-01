@@ -26,10 +26,10 @@ final class UserSessionService
     public function activeFor(User $user, string $currentSessionId): Collection
     {
         $now = now();
-        $activeSince = $now->copy()->subMinutes((int) config('session.lifetime'))->timestamp;
-        $activeSessionsQuery = $this->sessionsForUser($user)
+        $activeSessionsQuery = $this->activeSessionsQuery($user, $now)
             ->select(['id', 'ip_address', 'user_agent', 'last_activity'])
-            ->where('last_activity', '>=', $activeSince);
+            ->orderByDesc('last_activity')
+            ->orderBy('id');
 
         $currentSession = (clone $activeSessionsQuery)
             ->where('id', $currentSessionId)
@@ -37,8 +37,6 @@ final class UserSessionService
 
         $otherSessions = (clone $activeSessionsQuery)
             ->where('id', '<>', $currentSessionId)
-            ->orderByDesc('last_activity')
-            ->orderBy('id')
             ->limit($currentSession ? 9 : 10)
             ->get();
 
@@ -76,14 +74,35 @@ final class UserSessionService
     }
 
     /**
+     * Find which session IDs from the visible history page are still active.
+     *
+     * @return Collection<int, string>
+     */
+    public function activeSessionIdsFor(User $user, Collection $sessionIds): Collection
+    {
+        if ($sessionIds->isEmpty()) {
+            return collect();
+        }
+
+        return $this->activeSessionsQuery($user, now())
+            ->whereIn('id', $sessionIds)
+            ->orderBy('id')
+            ->pluck('id')
+            ->map(static fn (mixed $sessionId): string => (string) $sessionId);
+    }
+
+    /**
      * Remove every database session for the user except the current session.
      *
      * The user scope is part of the query so another user's session can never
      * be terminated by this operation.
      */
-    public function terminateOthers(User $user, string $currentSessionId): void
-    {
-        DB::transaction(function () use ($user, $currentSessionId): void {
+    public function terminateOthers(
+        User $user,
+        string $currentSessionId,
+        LogoutReason $reason = LogoutReason::Terminated,
+    ): void {
+        DB::transaction(function () use ($user, $currentSessionId, $reason): void {
             $otherSessionIds = $this->sessionsForUser($user)
                 ->where('id', '<>', $currentSessionId)
                 ->pluck('id');
@@ -97,7 +116,7 @@ final class UserSessionService
                 ->whereNull('logged_out_at')
                 ->update([
                     'logged_out_at' => now(),
-                    'logout_reason' => LogoutReason::Terminated->value,
+                    'logout_reason' => $reason->value,
                 ]);
 
             $this->sessionsForUser($user)
@@ -106,9 +125,37 @@ final class UserSessionService
         });
     }
 
+    /**
+     * Remove every database session for the user.
+     */
+    public function terminateAll(User $user, LogoutReason $reason): void
+    {
+        DB::transaction(function () use ($user, $reason): void {
+            $user->loginHistories()
+                ->whereNull('logged_out_at')
+                ->update([
+                    'logged_out_at' => now(),
+                    'logout_reason' => $reason->value,
+                ]);
+
+            $this->sessionsForUser($user)->delete();
+        });
+    }
+
     private function sessionsForUser(User $user): Builder
     {
-        return DB::table('sessions')
+        return DB::connection(config('session.connection'))
+            ->table(config('session.table', 'sessions'))
             ->where('user_id', $user->getKey());
+    }
+
+    private function activeSessionsQuery(User $user, Carbon $now): Builder
+    {
+        return $this->sessionsForUser($user)
+            ->where(
+                'last_activity',
+                '>=',
+                $now->copy()->subMinutes((int) config('session.lifetime'))->timestamp,
+            );
     }
 }

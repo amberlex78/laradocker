@@ -20,15 +20,24 @@ class AccountController extends Controller
             $user,
             $request->session()->getId(),
         );
+        $loginHistories = $user->loginHistories()
+            ->orderByDesc('logged_in_at')
+            ->orderByDesc('id')
+            ->paginate(10);
 
         return view('account.index', [
             'user' => $user,
-            'activeSessions' => $activeSessions,
-            'activeSessionIds' => $activeSessions->pluck('session_id'),
-            'currentLoginHistoryId' => $request->session()->get('login_history_id'),
-            'loginHistories' => $user->loginHistories()
+            'latestLoginHistory' => $user->loginHistories()
                 ->orderByDesc('logged_in_at')
-                ->paginate(10),
+                ->orderByDesc('id')
+                ->first(),
+            'activeSessions' => $activeSessions,
+            'activeSessionIds' => $userSessions->activeSessionIdsFor(
+                $user,
+                $loginHistories->getCollection()->pluck('session_id')->filter(),
+            ),
+            'currentLoginHistoryId' => $request->session()->get('login_history_id'),
+            'loginHistories' => $loginHistories,
         ]);
     }
 }

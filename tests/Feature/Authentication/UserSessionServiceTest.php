@@ -3,8 +3,10 @@
 use App\Models\LoginHistory;
 use App\Models\User;
 use App\Services\Auth\UserSessionService;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 uses(RefreshDatabase::class);
 
@@ -71,4 +73,74 @@ test('active sessions use the stored login detection snapshot when available', f
         ->and($session['operating_system'])->toBe('GNU/Linux')
         ->and($session['browser'])->toBe('Quetta')
         ->and($session['browser_version'])->toBe('148.0');
+});
+
+test('active session status is limited to the requested history session ids', function (): void {
+    $user = User::factory()->create();
+
+    foreach (['included-session', 'excluded-session'] as $sessionId) {
+        DB::table('sessions')->insert([
+            'id' => $sessionId,
+            'user_id' => $user->id,
+            'ip_address' => null,
+            'user_agent' => null,
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ]);
+    }
+
+    $activeSessionIds = app(UserSessionService::class)
+        ->activeSessionIdsFor($user, collect(['included-session']));
+
+    expect($activeSessionIds->all())->toBe(['included-session']);
+});
+
+test('session queries honor the configured database session connection and table', function (): void {
+    config()->set('database.connections.session_testing', [
+        'driver' => 'sqlite',
+        'database' => ':memory:',
+        'prefix' => '',
+        'foreign_key_constraints' => true,
+    ]);
+    config()->set([
+        'session.connection' => 'session_testing',
+        'session.table' => 'custom_sessions',
+    ]);
+
+    Schema::connection('session_testing')->create('custom_sessions', function (Blueprint $table): void {
+        $table->string('id')->primary();
+        $table->foreignId('user_id')->nullable()->index();
+        $table->string('ip_address', 45)->nullable();
+        $table->text('user_agent')->nullable();
+        $table->longText('payload');
+        $table->integer('last_activity')->index();
+    });
+
+    try {
+        $user = User::factory()->create();
+
+        DB::connection('session_testing')->table('custom_sessions')->insert([
+            'id' => 'configured-table-session',
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.20',
+            'user_agent' => null,
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ]);
+        DB::table('sessions')->insert([
+            'id' => 'default-table-session',
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.21',
+            'user_agent' => null,
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ]);
+
+        $sessions = app(UserSessionService::class)->activeFor($user, 'missing-current-session');
+
+        expect($sessions->pluck('session_id')->all())->toBe(['configured-table-session']);
+    } finally {
+        Schema::connection('session_testing')->dropIfExists('custom_sessions');
+        DB::purge('session_testing');
+    }
 });

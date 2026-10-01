@@ -2,11 +2,18 @@
 
 namespace App\Actions\UserManagement;
 
+use App\Enums\LogoutReason;
 use App\Enums\UserRole;
 use App\Models\User;
+use App\Services\Auth\UserSessionService;
+use Illuminate\Support\Facades\DB;
 
 final class UpdateUser
 {
+    public function __construct(
+        private readonly UserSessionService $userSessions,
+    ) {}
+
     /**
      * Update a user from validated attributes.
      *
@@ -14,19 +21,26 @@ final class UpdateUser
      */
     public function handle(User $user, array $attributes): User
     {
-        $updatedAttributes = [
-            'name' => $attributes['name'],
-            'email' => $attributes['email'],
-            'role' => $attributes['role'],
-        ];
+        return DB::transaction(function () use ($user, $attributes): User {
+            $updatedAttributes = [
+                'name' => $attributes['name'],
+                'email' => $attributes['email'],
+                'role' => $attributes['role'],
+            ];
+            $passwordChanged = filled($attributes['password'] ?? null);
 
-        if (filled($attributes['password'] ?? null)) {
-            $updatedAttributes['password'] = $attributes['password'];
-        }
+            if ($passwordChanged) {
+                $updatedAttributes['password'] = $attributes['password'];
+            }
 
-        $user->fill($updatedAttributes);
-        $user->save();
+            $user->fill($updatedAttributes);
+            $user->save();
 
-        return $user;
+            if ($passwordChanged) {
+                $this->userSessions->terminateAll($user, LogoutReason::PasswordChanged);
+            }
+
+            return $user;
+        });
     }
 }

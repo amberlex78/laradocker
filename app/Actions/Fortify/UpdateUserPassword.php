@@ -2,10 +2,13 @@
 
 namespace App\Actions\Fortify;
 
-use App\Actions\Auth\SetUserPassword;
+use App\Enums\LogoutReason;
 use App\Models\User;
+use App\Services\Auth\UserSessionService;
 use App\Validation\AuthValidationRules;
 use Illuminate\Contracts\Validation\Factory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\Contracts\UpdatesUserPasswords;
 
 class UpdateUserPassword implements UpdatesUserPasswords
@@ -13,7 +16,8 @@ class UpdateUserPassword implements UpdatesUserPasswords
     public function __construct(
         private readonly Factory $validator,
         private readonly AuthValidationRules $rules,
-        private readonly SetUserPassword $setUserPassword,
+        private readonly UserSessionService $userSessions,
+        private readonly Request $request,
     ) {}
 
     /**
@@ -31,6 +35,22 @@ class UpdateUserPassword implements UpdatesUserPasswords
             )
             ->validateWithBag('updatePassword');
 
-        $this->setUserPassword->handle($user, $validated['password']);
+        DB::transaction(function () use ($user, $validated): void {
+            $user->forceFill([
+                'password' => $validated['password'],
+            ])->save();
+
+            if ($this->request->hasSession()) {
+                $this->userSessions->terminateOthers(
+                    $user,
+                    $this->request->session()->getId(),
+                    LogoutReason::PasswordChanged,
+                );
+
+                return;
+            }
+
+            $this->userSessions->terminateAll($user, LogoutReason::PasswordChanged);
+        });
     }
 }

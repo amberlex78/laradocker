@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 uses(RefreshDatabase::class);
 
-test('recording login activity stores latest device details and login history', function (): void {
+test('recording login activity stores a device snapshot in login history', function (): void {
     $user = User::factory()->create();
     $request = Request::create(
         '/login',
@@ -24,16 +24,12 @@ test('recording login activity stores latest device details and login history', 
 
     app(LoginActivityService::class)->record($user, $request);
 
-    $user = $user->fresh();
     $history = $user->loginHistories()->sole();
 
-    expect($user->last_login_device_type)->toBe('smartphone')
-        ->and($user->last_login_os)->toBe('iOS')
-        ->and($user->last_login_browser)->toBe('Mobile Safari')
-        ->and($user->last_login_browser_version)->toBe('17.0')
-        ->and($user->last_login_ip_address)->toBe('203.0.113.7')
-        ->and($user->last_login_at)->not->toBeNull()
-        ->and($history->device_type)->toBe('smartphone')
+    expect($history->device_type)->toBe('smartphone')
+        ->and($history->operating_system)->toBe('iOS')
+        ->and($history->browser)->toBe('Mobile Safari')
+        ->and($history->browser_version)->toBe('17.0')
         ->and($history->ip_address)->toBe('203.0.113.7')
         ->and($history->logged_in_at)->not->toBeNull()
         ->and($history->session_id)->toBeNull();

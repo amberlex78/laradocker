@@ -13,3 +13,13 @@ test('the application timezone follows APP_TIMEZONE', function (): void {
     expect(config('app.timezone'))->toBe('Europe/Kyiv')
         ->and(date_default_timezone_get())->toBe('Europe/Kyiv');
 });
+
+test('environment templates never trust arbitrary forwarding proxies', function (): void {
+    foreach (['.env.example', '.env.prod.example'] as $environmentTemplate) {
+        $contents = file_get_contents(base_path($environmentTemplate));
+
+        expect($contents)
+            ->toContain('TRUSTED_PROXIES=REMOTE_ADDR')
+            ->not->toContain('TRUSTED_PROXIES=*');
+    }
+});

@@ -4,6 +4,7 @@ use App\Enums\LogoutReason;
 use App\Models\LoginHistory;
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +15,17 @@ uses(RefreshDatabase::class);
 test('a guest is redirected to login from account settings', function (): void {
     $this->get(route('account'))
         ->assertRedirect(route('login'));
+});
+
+test('an authenticated session is rejected after the stored password hash changes', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->withSession(['password_hash_web' => 'stale-password-hash'])
+        ->get(route('account'))
+        ->assertRedirect(route('login'));
+
+    $this->assertGuest();
 });
 
 test('a guest cannot update profile information', function (): void {
@@ -41,6 +53,7 @@ test('an authenticated user sees profile and password forms on the account page'
         ->assertSee('action="'.route('user-profile-information.update').'"', false)
         ->assertSee('action="'.route('user-password.update').'"', false)
         ->assertSee('name="current_password"', false)
+        ->assertSee('id="terminate_sessions_current_password"', false)
         ->assertSee('value="Ada Lovelace"', false)
         ->assertSee('value="ada@example.com"', false);
 });
@@ -65,15 +78,16 @@ test('the account page groups settings into a wide responsive layout', function 
 test('an authenticated user sees their latest login device on the account page', function (): void {
     $user = User::factory()->create();
 
-    $user->forceFill([
-        'last_login_device_type' => 'smartphone',
-        'last_login_device_model' => 'iPhone',
-        'last_login_os' => 'iOS',
-        'last_login_browser' => 'Mobile Safari',
-        'last_login_browser_version' => '17.0',
-        'last_login_ip_address' => '203.0.113.7',
-        'last_login_at' => '2026-09-30 12:34:56',
-    ])->save();
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'device_type' => 'smartphone',
+        'device_model' => 'iPhone',
+        'operating_system' => 'iOS',
+        'browser' => 'Mobile Safari',
+        'browser_version' => '17.0',
+        'ip_address' => '203.0.113.7',
+        'logged_in_at' => '2026-09-30 12:34:56',
+    ]);
 
     $this->actingAs($user)
         ->get(route('account'))
@@ -193,6 +207,56 @@ test('login history distinguishes active, explicitly ended, and unrecorded sessi
         ->assertSee('2026-10-01 07:05', false)
         ->assertSee('Terminated', false)
         ->assertSee('Not recorded', false);
+});
+
+test('login history identifies active sessions beyond the ten-row display limit', function (): void {
+    $user = User::factory()->create();
+
+    foreach (range(1, 11) as $sessionNumber) {
+        DB::table('sessions')->insert([
+            'id' => 'status-session-'.$sessionNumber,
+            'user_id' => $user->id,
+            'ip_address' => '198.51.100.'.$sessionNumber,
+            'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+            'payload' => '{}',
+            'last_activity' => now()->subMinutes($sessionNumber)->timestamp,
+        ]);
+    }
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'session_id' => 'status-session-11',
+        'logged_in_at' => now(),
+        'ip_address' => '198.51.100.11',
+        'device_type' => 'desktop',
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSee('Active', false)
+        ->assertDontSee('Not recorded', false);
+});
+
+test('login history uses its id as a stable newest-first tie breaker', function (): void {
+    $user = User::factory()->create();
+    $loggedInAt = now()->subHour();
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'logged_in_at' => $loggedInAt,
+        'ip_address' => '198.51.100.10',
+    ]);
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'logged_in_at' => $loggedInAt,
+        'ip_address' => '198.51.100.11',
+    ]);
+
+    $this->actingAs($user)
+        ->get(route('account'))
+        ->assertOk()
+        ->assertSeeInOrder(['198.51.100.11', '198.51.100.10'], false);
 });
 
 test('login history marks the current session separately from other active sessions', function (): void {
@@ -425,8 +489,55 @@ test('a guest is redirected to login when terminating active sessions', function
     ])->assertRedirect(route('login'));
 });
 
+test('a user must confirm their current password before terminating other sessions', function (): void {
+    $user = User::factory()->create();
+    $this->startSession();
+    $currentSessionId = $this->app['session']->getId();
+
+    DB::table('sessions')->insert([
+        'id' => 'protected-other-session',
+        'user_id' => $user->id,
+        'ip_address' => '203.0.113.8',
+        'user_agent' => 'Mozilla/5.0 Safari/17.0',
+        'payload' => '{}',
+        'last_activity' => now()->timestamp,
+    ]);
+
+    $this->from(route('account'))
+        ->withCookie(config('session.cookie'), $currentSessionId)
+        ->actingAs($user)
+        ->post(route('account.sessions.destroy-other'), [
+            '_token' => csrf_token(),
+            'current_password' => 'wrong-password',
+        ])
+        ->assertRedirect(route('account'))
+        ->assertSessionHasErrorsIn('terminateSessions', 'current_password');
+
+    $this->assertDatabaseHas('sessions', [
+        'id' => 'protected-other-session',
+        'user_id' => $user->id,
+    ]);
+});
+
+test('failed session revocation rolls back the password rehash used to terminate sessions', function (): void {
+    $user = User::factory()->create();
+    $originalPasswordHash = $user->password;
+
+    config()->set('session.table', 'missing_sessions_table');
+    $this->withoutExceptionHandling();
+
+    expect(fn () => $this->actingAs($user)
+        ->post(route('account.sessions.destroy-other'), [
+            '_token' => csrf_token(),
+            'current_password' => 'password',
+        ]))->toThrow(QueryException::class);
+
+    expect($user->fresh()->password)->toBe($originalPasswordHash);
+});
+
 test('a user can terminate other sessions while keeping the current session active', function (): void {
     $user = User::factory()->create();
+    $passwordHashBeforeTermination = $user->password;
     $otherUser = User::factory()->create();
     $this->startSession();
     $currentSessionId = $this->app['session']->getId();
@@ -462,6 +573,7 @@ test('a user can terminate other sessions while keeping the current session acti
         ->actingAs($user)
         ->post(route('account.sessions.destroy-other'), [
             '_token' => csrf_token(),
+            'current_password' => 'password',
             'session_id' => 'other-users-session',
         ]);
 
@@ -473,6 +585,9 @@ test('a user can terminate other sessions while keeping the current session acti
     $this->assertDatabaseHas('sessions', ['id' => $currentSessionId, 'user_id' => $user->id]);
     $this->assertDatabaseMissing('sessions', ['id' => 'user-other-session']);
     $this->assertDatabaseHas('sessions', ['id' => 'other-users-session', 'user_id' => $otherUser->id]);
+
+    expect($user->fresh()->password)->not->toBe($passwordHashBeforeTermination)
+        ->and(Hash::check('password', $user->fresh()->password))->toBeTrue();
 
     $this->get(route('account'))
         ->assertOk()
@@ -519,6 +634,7 @@ test('terminating other sessions records their logout time in login history', fu
         ->actingAs($user)
         ->post(route('account.sessions.destroy-other'), [
             '_token' => csrf_token(),
+            'current_password' => 'password',
         ])
         ->assertRedirect(route('account'));
 
@@ -631,4 +747,23 @@ test('a user can update their password with the correct current password', funct
     $response->assertRedirect(route('account'));
 
     expect(Hash::check('new-password', $user->fresh()->password))->toBeTrue();
+});
+
+test('failed session revocation rolls back a password update', function (): void {
+    $user = User::factory()->create();
+    $originalPasswordHash = $user->password;
+
+    config()->set('session.table', 'missing_sessions_table');
+    $this->withoutExceptionHandling();
+
+    expect(fn () => $this->from(route('account'))
+        ->actingAs($user)
+        ->put('/user/password', [
+            '_token' => csrf_token(),
+            'current_password' => 'password',
+            'password' => 'new-password',
+            'password_confirmation' => 'new-password',
+        ]))->toThrow(QueryException::class);
+
+    expect($user->fresh()->password)->toBe($originalPasswordHash);
 });

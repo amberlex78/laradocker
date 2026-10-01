@@ -3,6 +3,7 @@
 use App\Actions\UserManagement\CreateUser;
 use App\Actions\UserManagement\DeleteUser;
 use App\Actions\UserManagement\UpdateUser;
+use App\Enums\LogoutReason;
 use App\Enums\UserRole;
 use App\Http\Requests\Admin\StoreUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
@@ -12,6 +13,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -66,12 +68,52 @@ test('the update action preserves the existing password when the edit password i
     expect($user->fresh()->password)->toBe($originalPasswordHash);
 });
 
+test('the update action revokes sessions when an administrator changes the password', function (): void {
+    $user = User::factory()->create();
+
+    DB::table('sessions')->insert([
+        'id' => 'managed-user-session',
+        'user_id' => $user->id,
+        'ip_address' => '203.0.113.7',
+        'user_agent' => 'Managed browser',
+        'payload' => '{}',
+        'last_activity' => now()->timestamp,
+    ]);
+
+    $history = $user->loginHistories()->create([
+        'session_id' => 'managed-user-session',
+        'logged_in_at' => now()->subHour(),
+    ]);
+
+    app(UpdateUser::class)->handle($user, [
+        'name' => $user->name,
+        'email' => $user->email,
+        'password' => 'managed-new-password',
+        'role' => $user->role,
+    ]);
+
+    $this->assertDatabaseMissing('sessions', ['id' => 'managed-user-session']);
+
+    expect($history->fresh()->logged_out_at)->not->toBeNull()
+        ->and($history->fresh()->logout_reason)->toBe(LogoutReason::PasswordChanged);
+});
+
 test('the delete action removes the supplied user', function (): void {
     $user = User::factory()->create();
+
+    DB::table('sessions')->insert([
+        'id' => 'deleted-user-session',
+        'user_id' => $user->id,
+        'ip_address' => null,
+        'user_agent' => null,
+        'payload' => '{}',
+        'last_activity' => now()->timestamp,
+    ]);
 
     app(DeleteUser::class)->handle($user);
 
     $this->assertModelMissing($user);
+    $this->assertDatabaseMissing('sessions', ['id' => 'deleted-user-session']);
 });
 
 test('the create action ignores unexpected attributes', function (): void {

@@ -1,6 +1,7 @@
 @php
     $profileErrors = $errors->getBag('updateProfileInformation');
     $passwordErrors = $errors->getBag('updatePassword');
+    $sessionErrors = $errors->getBag('terminateSessions');
 @endphp
 
 <x-layouts.account :title="'Account'">
@@ -131,41 +132,41 @@
                 </x-ui.card>
 
                 <x-ui.card title="Latest login device" description="Information detected during your most recent sign-in." id="latest-login-device">
-                    @if ($user->last_login_at)
+                    @if ($latestLoginHistory)
                         <dl class="grid gap-4 sm:grid-cols-2">
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Device</dt>
                                 <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                                    {{ str($user->last_login_device_type ?: 'unknown')->headline() }}
-                                    @if ($user->last_login_device_model)
-                                        ({{ $user->last_login_device_model }})
+                                    {{ str($latestLoginHistory->device_type ?: 'unknown')->headline() }}
+                                    @if ($latestLoginHistory->device_model)
+                                        ({{ $latestLoginHistory->device_model }})
                                     @endif
                                 </dd>
                             </div>
 
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Operating system</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_os ?: 'Unknown' }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $latestLoginHistory->operating_system ?: 'Unknown' }}</dd>
                             </div>
 
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Browser</dt>
                                 <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                                    {{ $user->last_login_browser ?: 'Unknown' }}
-                                    @if ($user->last_login_browser_version)
-                                        ({{ $user->last_login_browser_version }})
+                                    {{ $latestLoginHistory->browser ?: 'Unknown' }}
+                                    @if ($latestLoginHistory->browser_version)
+                                        ({{ $latestLoginHistory->browser_version }})
                                     @endif
                                 </dd>
                             </div>
 
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Last login</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_at->format('F j, Y') }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $latestLoginHistory->logged_in_at->format('F j, Y') }}</dd>
                             </div>
 
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">IP address</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $user->last_login_ip_address ?: 'Unknown' }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $latestLoginHistory->ip_address ?: 'Unknown' }}</dd>
                             </div>
                         </dl>
                     @else
@@ -176,16 +177,26 @@
         </div>
 
         <x-ui.card title="Active sessions" description="Devices currently signed in to your account." id="active-sessions">
-            <x-slot:actions>
-                <form method="POST" action="{{ route('account.sessions.destroy-other') }}">
-                    @csrf
+            <form method="POST" action="{{ route('account.sessions.destroy-other') }}" class="grid gap-4 sm:grid-cols-[minmax(0,24rem)_auto] sm:items-end">
+                @csrf
 
+                <x-ui.password-input
+                    id="terminate_sessions_current_password"
+                    name="current_password"
+                    label="Current password"
+                    placeholder="Confirm your current password"
+                    autocomplete="current-password"
+                    :error="$sessionErrors->first('current_password')"
+                    required
+                />
+
+                <div>
                     <x-ui.button type="submit" variant="danger">
                         <x-icon name="log-out" class="h-4 w-4" />
                         Terminate other sessions
                     </x-ui.button>
-                </form>
-            </x-slot:actions>
+                </div>
+            </form>
 
             <x-ui.table striped hoverable>
                 <x-ui.table.head>

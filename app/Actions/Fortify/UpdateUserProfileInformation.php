@@ -2,9 +2,9 @@
 
 namespace App\Actions\Fortify;
 
-use App\Actions\Auth\UpdateUserProfile;
 use App\Models\User;
 use App\Validation\AuthValidationRules;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Validation\Factory;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
@@ -13,7 +13,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function __construct(
         private readonly Factory $validator,
         private readonly AuthValidationRules $rules,
-        private readonly UpdateUserProfile $updateUserProfile,
     ) {}
 
     /**
@@ -27,9 +26,22 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             ->make($input, $this->rules->profile($user))
             ->validateWithBag('updateProfileInformation');
 
-        $this->updateUserProfile->handle($user, [
+        $attributes = [
             'name' => $validated['name'],
             'email' => $validated['email'],
-        ]);
+        ];
+
+        if ($attributes['email'] !== $user->email && $user instanceof MustVerifyEmail) {
+            $user->forceFill([
+                ...$attributes,
+                'email_verified_at' => null,
+            ])->save();
+
+            $user->sendEmailVerificationNotification();
+
+            return;
+        }
+
+        $user->forceFill($attributes)->save();
     }
 }
