@@ -477,6 +477,56 @@ test('a user can terminate other sessions while keeping the current session acti
         ->assertDontSee('203.0.113.9', false);
 });
 
+test('terminating other sessions records their logout time in login history', function (): void {
+    $this->travelTo('2026-10-01 07:06:00');
+
+    $user = User::factory()->create();
+    $this->startSession();
+    $currentSessionId = $this->app['session']->getId();
+
+    DB::table('sessions')->insert([
+        [
+            'id' => $currentSessionId,
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.7',
+            'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ],
+        [
+            'id' => 'user-other-session',
+            'user_id' => $user->id,
+            'ip_address' => '203.0.113.8',
+            'user_agent' => 'Mozilla/5.0 Safari/17.0',
+            'payload' => '{}',
+            'last_activity' => now()->timestamp,
+        ],
+    ]);
+
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'session_id' => 'user-other-session',
+        'logged_in_at' => now()->subHour(),
+        'ip_address' => '203.0.113.8',
+        'device_type' => 'tablet',
+    ]);
+
+    $this->withCookie(config('session.cookie'), $currentSessionId)
+        ->actingAs($user)
+        ->post(route('account.sessions.destroy-other'), [
+            '_token' => csrf_token(),
+        ])
+        ->assertRedirect(route('account'));
+
+    expect($user->loginHistories()->sole()->logged_out_at?->format('Y-m-d H:i'))
+        ->toBe('2026-10-01 07:06');
+
+    $this->get(route('account'))
+        ->assertOk()
+        ->assertSee('2026-10-01 07:06', false)
+        ->assertDontSee('Not recorded', false);
+});
+
 test('account forms use standard Flowbite fields and server-side submission', function (): void {
     $user = User::factory()->create();
 

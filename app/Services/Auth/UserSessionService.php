@@ -82,9 +82,24 @@ final class UserSessionService
      */
     public function terminateOthers(User $user, string $currentSessionId): void
     {
-        $this->sessionsForUser($user)
-            ->where('id', '<>', $currentSessionId)
-            ->delete();
+        DB::transaction(function () use ($user, $currentSessionId): void {
+            $otherSessionIds = $this->sessionsForUser($user)
+                ->where('id', '<>', $currentSessionId)
+                ->pluck('id');
+
+            if ($otherSessionIds->isEmpty()) {
+                return;
+            }
+
+            $user->loginHistories()
+                ->whereIn('session_id', $otherSessionIds)
+                ->whereNull('logged_out_at')
+                ->update(['logged_out_at' => now()]);
+
+            $this->sessionsForUser($user)
+                ->whereIn('id', $otherSessionIds)
+                ->delete();
+        });
     }
 
     private function sessionsForUser(User $user): Builder
