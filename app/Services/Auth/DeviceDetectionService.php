@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Actions\Auth;
+namespace App\Services\Auth;
 
 use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use Illuminate\Http\Request;
 
-final class ResolveDeviceInformation
+final class DeviceDetectionService
 {
     /**
      * Resolve device information from an authenticated request.
@@ -34,6 +34,8 @@ final class ResolveDeviceInformation
     }
 
     /**
+     * Normalize detector output and apply client-side fallback hints.
+     *
      * @param  array<string, mixed>  $clientHintHeaders
      * @return array{device_type: string, device_model: ?string, operating_system: ?string, browser: ?string, browser_version: ?string}
      */
@@ -56,6 +58,9 @@ final class ResolveDeviceInformation
         ];
     }
 
+    /**
+     * Prefer a tablet hint when the browser masks the tablet as a desktop.
+     */
     private function resolveDeviceType(string $detectedDeviceType, ?string $deviceTypeHint): string
     {
         if ($detectedDeviceType === 'desktop' && $deviceTypeHint === 'tablet') {
@@ -65,6 +70,9 @@ final class ResolveDeviceInformation
         return $detectedDeviceType ?: 'unknown';
     }
 
+    /**
+     * Use the browser-provided model only when the detector cannot identify a tablet model.
+     */
     private function resolveDeviceModel(DeviceDetector $detector, ?string $deviceModelHint, string $deviceType): ?string
     {
         $model = $detector->getModel();
@@ -94,6 +102,9 @@ final class ResolveDeviceInformation
         return array_merge($request->server->all(), $headers);
     }
 
+    /**
+     * Convert empty and Device Detector sentinel values into nullable fields.
+     */
     private function nullableDetectionValue(mixed $value): ?string
     {
         if (! is_string($value) || $value === '' || $value === DeviceDetector::UNKNOWN) {
