@@ -191,6 +191,60 @@ test('login history distinguishes active, explicitly ended, and unrecorded sessi
         ->assertSee('Not recorded', false);
 });
 
+test('login history marks the current session separately from other active sessions', function (): void {
+    $user = User::factory()->create();
+
+    $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ])->assertRedirect(route('account'));
+
+    $currentHistory = $user->loginHistories()->sole();
+    $currentSessionId = $currentHistory->session_id;
+
+    DB::table('sessions')->updateOrInsert([
+        'id' => $currentSessionId,
+    ], [
+        'user_id' => $user->id,
+        'ip_address' => '203.0.113.11',
+        'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+        'payload' => '{}',
+        'last_activity' => now()->timestamp,
+    ]);
+    DB::table('sessions')->insert([
+        'id' => 'other-active-session',
+        'user_id' => $user->id,
+        'ip_address' => '203.0.113.12',
+        'user_agent' => 'Mozilla/5.0 Chrome/130.0.0.0',
+        'payload' => '{}',
+        'last_activity' => now()->timestamp,
+    ]);
+
+    $currentHistory->forceFill([
+        'ip_address' => '203.0.113.11',
+        'device_type' => 'desktop',
+        'browser' => 'Chrome',
+        'browser_version' => '130.0',
+    ])->save();
+    LoginHistory::create([
+        'user_id' => $user->id,
+        'session_id' => 'other-active-session',
+        'logged_in_at' => now()->subMinute(),
+        'ip_address' => '203.0.113.12',
+        'device_type' => 'smartphone',
+        'browser' => 'Chrome Mobile',
+        'browser_version' => '130.0',
+    ]);
+
+    $response = $this->get(route('account'));
+
+    expect(preg_match_all('/<span[^>]*>\s*Current\s*<\/span>/', $response->getContent()))
+        ->toBe(1)
+        ->and(preg_match_all('/<span[^>]*>\s*Active\s*<\/span>/', $response->getContent()))
+        ->toBe(1);
+});
+
 test('account tables use distinct dark mode states for striped and hoverable rows', function (): void {
     $user = User::factory()->create();
 

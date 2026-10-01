@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-10-01)
 
 ## Corpus Check
-- 208 files · ~47,043 words
+- 208 files · ~47,192 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
 
 ## Summary
-- 842 nodes · 1332 edges · 146 communities (30 shown, 116 thin omitted)
+- 843 nodes · 1335 edges · 151 communities (34 shown, 117 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 73 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9507f8b3`
+- Built from commit: `7350fa22`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,10 +26,10 @@
 - Illuminate\Database\Schema\Blueprint
 - User
 - PageRenderingTest.php
-- DeviceDetectionService
+- UserSessionService
 - Laravel-проєкти без домену
 - Laravel-проєкти з доменами
-- RoleAccessTest.php
+- Illuminate\Foundation\Testing\RefreshDatabase
 - User Management in Admin and Developer Areas
 - require-dev
 - TestCase
@@ -38,12 +38,12 @@
 - AuthenticationFlowTest.php
 - ApplicationActionsTest.php
 - User.php
-- UserSessionServiceTest.php
+- LoginActivityService
 - config
 - psr-4
 - require
 - logging.php
-- Illuminate\Foundation\Testing\RefreshDatabase
+- AuthValidationRulesTest.php
 - console.php
 - Views
 - artisan
@@ -54,16 +54,20 @@
 - ui-icons.md
 - fortify.php
 - entrypoint.sh
+- DeviceDetectionService
 - ProfilePageTest.php
+- Authentication Services Refactor Design
+- LoginResponse
+- Authentication Services Refactor Implementation Plan
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 216 edges
+1. `User` - 217 edges
 2. `UserRole` - 86 edges
 3. `AuthValidationRules` - 20 edges
 4. `DeviceDetectionService` - 18 edges
 5. `LoginActivityService` - 16 edges
-6. `UserSessionService` - 15 edges
-7. `LoginHistory` - 14 edges
+6. `LoginHistory` - 15 edges
+7. `UserSessionService` - 15 edges
 8. `Розгортання на VPS` - 13 edges
 9. `UserController` - 11 edges
 10. `UserController` - 11 edges
@@ -71,19 +75,19 @@
 ## Surprising Connections (you probably didn't know these)
 - `Global Constraints` --references--> `User`  [INFERRED]
   docs/superpowers/plans/2026-09-26-user-management.md → app/Models/User.php
-- `Authentication, Admin, and Developer Areas Implementation Plan` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
-- `Global Constraints` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
-- `Task 1: Add the role domain model and database column` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
-- `Roles and access` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/specs/2026-09-22-auth-admin-developer-design.md → app/Enums/UserRole.php
+- `Task 2: Extract device detection` --references--> `DeviceDetectionService`  [INFERRED]
+  docs/superpowers/plans/2026-10-01-auth-services-refactor.md → app/Services/Auth/DeviceDetectionService.php
+- ``DeviceDetectionService`` --references--> `DeviceDetectionService`  [INFERRED]
+  docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md → app/Services/Auth/DeviceDetectionService.php
+- ``LoginActivityService`` --references--> `LoginActivityService`  [INFERRED]
+  docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md → app/Services/Auth/LoginActivityService.php
+- ``UserSessionService`` --references--> `UserSessionService`  [INFERRED]
+  docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md → app/Services/Auth/UserSessionService.php
 
 ## Import Cycles
 - None detected.
 
-## Communities (146 total, 116 thin omitted)
+## Communities (151 total, 117 thin omitted)
 
 ### Community 0 - "UserRole"
 Cohesion: 0.05
@@ -95,7 +99,7 @@ Nodes (25): AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, AppServicePr
 
 ### Community 2 - ".view"
 Cohesion: 0.05
-Nodes (25): CreateUser, DeleteUser, UpdateUser, AccountController, AccountSessionController, UserController, Controller, UserController (+17 more)
+Nodes (24): CreateUser, DeleteUser, UpdateUser, AccountSessionController, UserController, Controller, UserController, StoreUserRequest (+16 more)
 
 ### Community 3 - "Розгортання на VPS"
 Cohesion: 0.05
@@ -118,16 +122,16 @@ Cohesion: 0.07
 Nodes (22): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+14 more)
 
 ### Community 8 - "User"
-Cohesion: 0.16
-Nodes (20): User, {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}() (+12 more)
+Cohesion: 0.14
+Nodes (22): User, {closure#1}(), {closure#2}(), {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}() (+14 more)
 
 ### Community 9 - "PageRenderingTest.php"
 Cohesion: 0.08
 Nodes (19): {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}(), {closure#18}() (+11 more)
 
-### Community 10 - "DeviceDetectionService"
-Cohesion: 0.05
-Nodes (35): ResolveUserLandingRoute, LoginResponse, RecordLogoutActivity, DeviceDetectionService, LoginActivityService, UserSessionService, DeviceDetector, DeviceDetector\ClientHints (+27 more)
+### Community 10 - "UserSessionService"
+Cohesion: 0.21
+Nodes (7): AccountController, UserSessionService, Task 4: Extract active-session lookup and termination, Current state, Illuminate\Database\Query\Builder, Illuminate\Support\Carbon, Illuminate\Support\Collection
 
 ### Community 12 - "Laravel-проєкти без домену"
 Cohesion: 0.12
@@ -137,9 +141,9 @@ Nodes (16): 1. Схема портів, 2. Локальний запуск, 3. P
 Cohesion: 0.12
 Nodes (16): 1. Схема доменів і портів, 2. Локальний запуск, 3. Підготовка доменів, Cloudflare і сертифікатів, 4. Production-запуск на VPS, 5.1. Конфігурація example1.com, 5.2. Конфігурація example2.com, 5. Системний Nginx як reverse proxy, 6. Активація Nginx і firewall (+8 more)
 
-### Community 14 - "RoleAccessTest.php"
-Cohesion: 0.25
-Nodes (5): {closure#2}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
+### Community 14 - "Illuminate\Foundation\Testing\RefreshDatabase"
+Cohesion: 0.14
+Nodes (7): Illuminate\Foundation\Testing\RefreshDatabase, {closure#1}(), {closure#2}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}()
 
 ### Community 15 - "User Management in Admin and Developer Areas"
 Cohesion: 0.08
@@ -169,9 +173,9 @@ Nodes (9): Illuminate\Auth\Notifications\VerifyEmail, Illuminate\Support\Facades
 Cohesion: 0.15
 Nodes (9): Illuminate\Contracts\Auth\MustVerifyEmail, Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database\Eloquent\Attributes\Hidden, Illuminate\Database\Eloquent\Factories\HasFactory, Illuminate\Database\Eloquent\Model, Illuminate\Database\Eloquent\Relations\BelongsTo, Illuminate\Database\Eloquent\Relations\HasMany, Illuminate\Foundation\Auth\User (+1 more)
 
-### Community 23 - "UserSessionServiceTest.php"
-Cohesion: 0.33
-Nodes (3): Illuminate\Support\Facades\DB, {closure#1}(), {closure#2}()
+### Community 23 - "LoginActivityService"
+Cohesion: 0.21
+Nodes (5): RecordLogoutActivity, LoginActivityService, Task 3: Extract login activity recording, Illuminate\Auth\Events\Logout, Illuminate\Support\Facades\DB
 
 ### Community 24 - "config"
 Cohesion: 0.29
@@ -189,9 +193,9 @@ Nodes (6): require, laravel/fortify, laravel/framework, laravel/tinker, matomo/d
 Cohesion: 0.40
 Nodes (4): Monolog\Handler\NullHandler, Monolog\Handler\StreamHandler, Monolog\Handler\SyslogUdpHandler, Monolog\Processor\PsrLogMessageProcessor
 
-### Community 28 - "Illuminate\Foundation\Testing\RefreshDatabase"
-Cohesion: 0.14
-Nodes (8): Illuminate\Foundation\Testing\RefreshDatabase, Illuminate\Support\Facades\Validator, {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#1}(), {closure#2}()
+### Community 28 - "AuthValidationRulesTest.php"
+Cohesion: 0.40
+Nodes (4): Illuminate\Support\Facades\Validator, {closure#1}(), {closure#2}(), {closure#3}()
 
 ### Community 33 - "autoload-dev"
 Cohesion: 0.67
@@ -201,21 +205,37 @@ Nodes (3): autoload-dev, psr-4, Tests\\
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
+### Community 144 - "DeviceDetectionService"
+Cohesion: 0.29
+Nodes (4): DeviceDetectionService, DeviceDetector, DeviceDetector\ClientHints, DeviceDetector\DeviceDetector
+
 ### Community 146 - "ProfilePageTest.php"
-Cohesion: 0.09
-Nodes (20): LoginHistory, {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#16}() (+12 more)
+Cohesion: 0.08
+Nodes (23): LoginHistory, {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}() (+15 more)
+
+### Community 147 - "Authentication Services Refactor Design"
+Cohesion: 0.18
+Nodes (10): Authentication Services Refactor Design, `DeviceDetectionService`, Explicitly out of scope, Goal, `LoginActivityService`, Preserved behavior, Proposed architecture, Risks and trade-offs (+2 more)
+
+### Community 148 - "LoginResponse"
+Cohesion: 0.31
+Nodes (5): ResolveUserLandingRoute, LoginResponse, Responsibilities after refactoring, Laravel\Fortify\Contracts\LoginResponse, Symfony\Component\HttpFoundation\RedirectResponse
+
+### Community 149 - "Authentication Services Refactor Implementation Plan"
+Cohesion: 0.29
+Nodes (6): Authentication Services Refactor Implementation Plan, Global Constraints, Review Focus, Task 1: Add focused service-contract tests, Task 2: Extract device detection, Task 5: Remove transition leftovers and verify the refactor
 
 ## Knowledge Gaps
 - **142 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+137 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 360 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **117 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `UserSessionServiceTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+- **Why does `User` connect `User` to `UserRole`, `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `PageRenderingTest.php`, `UserSessionService`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User Management in Admin and Developer Areas`, `ProfilePageTest.php`, `LoginResponse`, `ApplicationActionsTest.php`, `User.php`, `LoginActivityService`, `AuthenticationFlowTest.php`, `AuthValidationRulesTest.php`?**
   _High betweenness centrality (0.217) - this node is a cross-community bridge._
-- **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `DeviceDetectionService`, `RoleAccessTest.php`, `User Management in Admin and Developer Areas`, `AuthenticationFlowTest.php`, `ApplicationActionsTest.php`, `User.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+- **Why does `UserRole` connect `UserRole` to `Illuminate\Http\Request`, `.view`, `AuthValidationRules`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `User Management in Admin and Developer Areas`, `LoginResponse`, `ApplicationActionsTest.php`, `User.php`, `AuthenticationFlowTest.php`?**
   _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Why does `Validation and persistence` connect `User Management in Admin and Developer Areas` to `UserRole`, `User`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._

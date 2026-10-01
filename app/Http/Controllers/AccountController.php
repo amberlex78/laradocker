@@ -25,6 +25,7 @@ class AccountController extends Controller
             'user' => $user,
             'activeSessions' => $activeSessions,
             'activeSessionIds' => $activeSessions->pluck('session_id'),
+            'currentLoginHistoryId' => $request->session()->get('login_history_id'),
             'loginHistories' => $user->loginHistories()
                 ->orderByDesc('logged_in_at')
                 ->paginate(10),

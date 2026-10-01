@@ -82,69 +82,17 @@
       "source_location": "L19"
     },
     {
-      "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
-      "label": "ResolveUserLandingRoute",
+      "id": "app_http_controllers_accountcontroller_accountcontroller",
+      "label": "AccountController",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
-      "norm_label": "resolveuserlandingroute",
-      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
-      "source_location": "L8"
-    },
-    {
-      "id": "app_http_responses_loginresponse_loginresponse",
-      "label": "LoginResponse",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "loginresponse",
-      "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity",
-      "label": "RecordLogoutActivity",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "recordlogoutactivity",
-      "source_file": "app/Listeners/RecordLogoutActivity.php",
-      "source_location": "L9"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice",
-      "label": "DeviceDetectionService",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "devicedetectionservice",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L9"
-    },
-    {
-      "id": "app_services_auth_loginactivityservice_loginactivityservice",
-      "label": "LoginActivityService",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "loginactivityservice",
-      "source_file": "app/Services/Auth/LoginActivityService.php",
-      "source_location": "L9"
+      "norm_label": "accountcontroller",
+      "source_file": "app/Http/Controllers/AccountController.php",
+      "source_location": "L10"
     },
     {
       "id": "app_services_auth_usersessionservice_usersessionservice",
@@ -153,11 +101,24 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": "usersessionservice",
       "source_file": "app/Services/Auth/UserSessionService.php",
       "source_location": "L11"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice",
+      "label": "DeviceDetectionService",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "devicedetectionservice",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L9"
     },
     {
       "id": "app_models_loginhistory_loginhistory",
@@ -171,6 +132,32 @@
       "norm_label": "loginhistory",
       "source_file": "app/Models/LoginHistory.php",
       "source_location": "L9"
+    },
+    {
+      "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute",
+      "label": "ResolveUserLandingRoute",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": "resolveuserlandingroute",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "app_http_responses_loginresponse_loginresponse",
+      "label": "LoginResponse",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": "loginresponse",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L11"
     },
     {
       "id": "tests_testcase_testcase",
@@ -223,19 +210,6 @@
       "norm_label": "updateuser",
       "source_file": "app/Actions/UserManagement/UpdateUser.php",
       "source_location": "L8"
-    },
-    {
-      "id": "app_http_controllers_accountcontroller_accountcontroller",
-      "label": "AccountController",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": "accountcontroller",
-      "source_file": "app/Http/Controllers/AccountController.php",
-      "source_location": "L10"
     },
     {
       "id": "app_http_controllers_accountsessioncontroller_accountsessioncontroller",
@@ -353,6 +327,32 @@
       "norm_label": "workspacecomposer",
       "source_file": "app/View/Composers/WorkspaceComposer.php",
       "source_location": "L7"
+    },
+    {
+      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity",
+      "label": "RecordLogoutActivity",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": "recordlogoutactivity",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L9"
+    },
+    {
+      "id": "app_services_auth_loginactivityservice_loginactivityservice",
+      "label": "LoginActivityService",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": "loginactivityservice",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L9"
     },
     {
       "id": "app_actions_auth_registeruser_registeruser",
@@ -1279,184 +1279,16 @@
       "source_location": "L25"
     },
     {
-      "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
-      "label": ".handle()",
+      "id": "app_http_controllers_accountcontroller_accountcontroller_invoke",
+      "label": ".__invoke()",
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
-      "norm_label": ".handle()",
-      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "app_http_responses_loginresponse_loginresponse_construct",
-      "label": ".__construct()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".__construct()",
-      "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_http_responses_loginresponse_loginresponse_toresponse",
-      "label": ".toResponse()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".toresponse()",
-      "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L23"
-    },
-    {
-      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity_construct",
-      "label": ".__construct()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".__construct()",
-      "source_file": "app/Listeners/RecordLogoutActivity.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity_handle",
-      "label": ".handle()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".handle()",
-      "source_file": "app/Listeners/RecordLogoutActivity.php",
-      "source_location": "L18"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_clienthintheaders",
-      "label": ".clientHintHeaders()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".clienthintheaders()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L92"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_fromrequest",
-      "label": ".fromRequest()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".fromrequest()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L16"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_fromuseragent",
-      "label": ".fromUserAgent()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".fromuseragent()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L31"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_nullabledetectionvalue",
-      "label": ".nullableDetectionValue()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".nullabledetectionvalue()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L108"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_resolve",
-      "label": ".resolve()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".resolve()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L42"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_resolvedevicemodel",
-      "label": ".resolveDeviceModel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".resolvedevicemodel()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L76"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_resolvedevicetype",
-      "label": ".resolveDeviceType()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".resolvedevicetype()",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
-      "source_location": "L64"
-    },
-    {
-      "id": "app_services_auth_loginactivityservice_loginactivityservice_construct",
-      "label": ".__construct()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".__construct()",
-      "source_file": "app/Services/Auth/LoginActivityService.php",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_services_auth_loginactivityservice_loginactivityservice_record",
-      "label": ".record()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".record()",
-      "source_file": "app/Services/Auth/LoginActivityService.php",
-      "source_location": "L20"
-    },
-    {
-      "id": "app_services_auth_loginactivityservice_loginactivityservice_recordlogout",
-      "label": ".recordLogout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": ".recordlogout()",
-      "source_file": "app/Services/Auth/LoginActivityService.php",
-      "source_location": "L56"
+      "norm_label": ".__invoke()",
+      "source_file": "app/Http/Controllers/AccountController.php",
+      "source_location": "L15"
     },
     {
       "id": "app_services_auth_usersessionservice_closure_1",
@@ -1464,7 +1296,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "app/Services/Auth/UserSessionService.php",
@@ -1476,7 +1308,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": ".activefor()",
       "source_file": "app/Services/Auth/UserSessionService.php",
@@ -1488,7 +1320,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": ".__construct()",
       "source_file": "app/Services/Auth/UserSessionService.php",
@@ -1500,7 +1332,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": ".sessionsforuser()",
       "source_file": "app/Services/Auth/UserSessionService.php",
@@ -1512,35 +1344,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": ".terminateothers()",
       "source_file": "app/Services/Auth/UserSessionService.php",
       "source_location": "L83"
-    },
-    {
-      "id": "tests_feature_authentication_devicedetectionservicetest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
-      "source_location": "L8"
-    },
-    {
-      "id": "tests_feature_authentication_devicedetectionservicetest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
-      "source_location": "L19"
     },
     {
       "id": "tests_feature_uicardcomponenttest_closure_1",
@@ -1555,12 +1363,24 @@
       "source_location": "L3"
     },
     {
+      "id": "tests_feature_authentication_loginactivityservicetest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/LoginActivityServiceTest.php",
+      "source_location": "L10"
+    },
+    {
       "id": "tests_feature_authentication_roleaccesstest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1572,7 +1392,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1584,7 +1404,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1596,7 +1416,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#4}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1608,7 +1428,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#5}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1620,7 +1440,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#6}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
@@ -1632,11 +1452,119 @@
       "_callable": true,
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "{closure#7}()",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
       "source_location": "L56"
+    },
+    {
+      "id": "tests_pest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L32"
+    },
+    {
+      "id": "tests_pest_something",
+      "label": "something()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "something()",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_clienthintheaders",
+      "label": ".clientHintHeaders()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".clienthintheaders()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L92"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_fromrequest",
+      "label": ".fromRequest()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".fromrequest()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L16"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_fromuseragent",
+      "label": ".fromUserAgent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".fromuseragent()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L31"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_nullabledetectionvalue",
+      "label": ".nullableDetectionValue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".nullabledetectionvalue()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L108"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_resolve",
+      "label": ".resolve()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".resolve()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L42"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_resolvedevicemodel",
+      "label": ".resolveDeviceModel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".resolvedevicemodel()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L76"
+    },
+    {
+      "id": "app_services_auth_devicedetectionservice_devicedetectionservice_resolvedevicetype",
+      "label": ".resolveDeviceType()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": ".resolvedevicetype()",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L64"
     },
     {
       "id": "tests_feature_uithemetogglecomponenttest_closure_1",
@@ -1696,7 +1624,7 @@
       "file_type": "code",
       "norm_label": "{closure#10}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L205"
+      "source_location": "L251"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_11",
@@ -1708,7 +1636,7 @@
       "file_type": "code",
       "norm_label": "{closure#11}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L221"
+      "source_location": "L262"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_12",
@@ -1720,7 +1648,7 @@
       "file_type": "code",
       "norm_label": "{closure#12}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L302"
+      "source_location": "L278"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_13",
@@ -1732,7 +1660,7 @@
       "file_type": "code",
       "norm_label": "{closure#13}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L322"
+      "source_location": "L359"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_14",
@@ -1744,7 +1672,7 @@
       "file_type": "code",
       "norm_label": "{closure#14}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L342"
+      "source_location": "L379"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_15",
@@ -1756,7 +1684,7 @@
       "file_type": "code",
       "norm_label": "{closure#15}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L364"
+      "source_location": "L399"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_16",
@@ -1768,7 +1696,7 @@
       "file_type": "code",
       "norm_label": "{closure#16}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L370"
+      "source_location": "L421"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_17",
@@ -1780,7 +1708,7 @@
       "file_type": "code",
       "norm_label": "{closure#17}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L426"
+      "source_location": "L427"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_18",
@@ -1792,7 +1720,7 @@
       "file_type": "code",
       "norm_label": "{closure#18}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L445"
+      "source_location": "L483"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_19",
@@ -1804,7 +1732,7 @@
       "file_type": "code",
       "norm_label": "{closure#19}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L463"
+      "source_location": "L502"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_2",
@@ -1828,7 +1756,7 @@
       "file_type": "code",
       "norm_label": "{closure#20}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L488"
+      "source_location": "L520"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_21",
@@ -1840,7 +1768,19 @@
       "file_type": "code",
       "norm_label": "{closure#21}()",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L510"
+      "source_location": "L545"
+    },
+    {
+      "id": "tests_feature_authentication_profilepagetest_closure_22",
+      "label": "{closure#22}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#22}()",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L567"
     },
     {
       "id": "tests_feature_authentication_profilepagetest_closure_3",
@@ -1927,6 +1867,66 @@
       "source_location": "L194"
     },
     {
+      "id": "tests_feature_authentication_usersessionservicetest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "tests_feature_authentication_usersessionservicetest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "source_location": "L42"
+    },
+    {
+      "id": "app_actions_auth_resolveuserlandingroute_resolveuserlandingroute_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "app_http_responses_loginresponse_loginresponse_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_http_responses_loginresponse_loginresponse_toresponse",
+      "label": ".toResponse()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": ".toresponse()",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L23"
+    },
+    {
       "id": "app_models_loginhistory_loginhistory_user",
       "label": ".user()",
       "_callable": true,
@@ -1937,6 +1937,30 @@
       "norm_label": ".user()",
       "source_file": "app/Models/LoginHistory.php",
       "source_location": "L28"
+    },
+    {
+      "id": "tests_feature_authentication_devicedetectionservicetest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 150,
+      "community_name": "DeviceDetectionServiceTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
+      "source_location": "L8"
+    },
+    {
+      "id": "tests_feature_authentication_devicedetectionservicetest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 150,
+      "community_name": "DeviceDetectionServiceTest.php",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
+      "source_location": "L19"
     },
     {
       "id": "app_actions_usermanagement_createuser_createuser_handle",
@@ -1972,18 +1996,6 @@
       "file_type": "code",
       "norm_label": ".handle()",
       "source_file": "app/Actions/UserManagement/UpdateUser.php",
-      "source_location": "L15"
-    },
-    {
-      "id": "app_http_controllers_accountcontroller_accountcontroller_invoke",
-      "label": ".__invoke()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": ".__invoke()",
-      "source_file": "app/Http/Controllers/AccountController.php",
       "source_location": "L15"
     },
     {
@@ -2719,40 +2731,76 @@
       "source_location": "L31"
     },
     {
+      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity_construct",
+      "label": ".__construct()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": ".__construct()",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_listeners_recordlogoutactivity_recordlogoutactivity_handle",
+      "label": ".handle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": ".handle()",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L18"
+    },
+    {
       "id": "app_services_auth_loginactivityservice_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "UserSessionServiceTest.php",
+      "community_name": "LoginActivityService",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "app/Services/Auth/LoginActivityService.php",
       "source_location": "L27"
     },
     {
-      "id": "tests_feature_authentication_usersessionservicetest_closure_1",
-      "label": "{closure#1}()",
+      "id": "app_services_auth_loginactivityservice_loginactivityservice_construct",
+      "label": ".__construct()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "UserSessionServiceTest.php",
+      "community_name": "LoginActivityService",
       "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "norm_label": ".__construct()",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
       "source_location": "L11"
     },
     {
-      "id": "tests_feature_authentication_usersessionservicetest_closure_2",
-      "label": "{closure#2}()",
+      "id": "app_services_auth_loginactivityservice_loginactivityservice_record",
+      "label": ".record()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "UserSessionServiceTest.php",
+      "community_name": "LoginActivityService",
       "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
-      "source_location": "L42"
+      "norm_label": ".record()",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L20"
+    },
+    {
+      "id": "app_services_auth_loginactivityservice_loginactivityservice_recordlogout",
+      "label": ".recordLogout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": ".recordlogout()",
+      "source_file": "app/Services/Auth/LoginActivityService.php",
+      "source_location": "L56"
     },
     {
       "id": "tests_feature_authentication_authvalidationrulestest_closure_1",
@@ -2760,7 +2808,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthValidationRulesTest.php",
       "file_type": "code",
       "norm_label": "{closure#1}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
@@ -2772,7 +2820,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthValidationRulesTest.php",
       "file_type": "code",
       "norm_label": "{closure#2}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
@@ -2784,71 +2832,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthValidationRulesTest.php",
       "file_type": "code",
       "norm_label": "{closure#3}()",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
       "source_location": "L36"
-    },
-    {
-      "id": "tests_feature_authentication_loginactivityservicetest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Authentication/LoginActivityServiceTest.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest_closure_2",
-      "label": "{closure#2}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#2}()",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L30"
-    },
-    {
-      "id": "tests_pest_closure_1",
-      "label": "{closure#1}()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "{closure#1}()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L32"
-    },
-    {
-      "id": "tests_pest_something",
-      "label": "something()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "something()",
-      "source_file": "tests/Pest.php",
-      "source_location": "L47"
     },
     {
       "id": "routes_console_closure_1",
@@ -3799,6 +3787,30 @@
       "source_location": "L41"
     },
     {
+      "id": "tests_feature_database_seeders_userseedertest_closure_1",
+      "label": "{closure#1}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#1}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_feature_database_seeders_userseedertest_closure_2",
+      "label": "{closure#2}()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "{closure#2}()",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L30"
+    },
+    {
       "id": "tests_feature_pages_usermanagementpagerenderingtest_closure_1",
       "label": "{closure#1}()",
       "_callable": true,
@@ -4743,47 +4755,14 @@
       "source_location": ""
     },
     {
-      "id": "app_actions_auth_resolveuserlandingroute",
-      "label": "ResolveUserLandingRoute.php",
+      "id": "app_http_controllers_accountcontroller",
+      "label": "AccountController.php",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
-      "norm_label": "resolveuserlandingroute.php",
-      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_http_responses_loginresponse",
-      "label": "LoginResponse.php",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "loginresponse.php",
-      "source_file": "app/Http/Responses/LoginResponse.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_listeners_recordlogoutactivity",
-      "label": "RecordLogoutActivity.php",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "recordlogoutactivity.php",
-      "source_file": "app/Listeners/RecordLogoutActivity.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_services_auth_devicedetectionservice",
-      "label": "DeviceDetectionService.php",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "devicedetectionservice.php",
-      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "norm_label": "accountcontroller.php",
+      "source_file": "app/Http/Controllers/AccountController.php",
       "source_location": "L1"
     },
     {
@@ -4791,62 +4770,18 @@
       "label": "UserSessionService.php",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": "usersessionservice.php",
       "source_file": "app/Services/Auth/UserSessionService.php",
       "source_location": "L1"
     },
     {
-      "id": "devicedetector",
-      "label": "DeviceDetector",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "devicedetector",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "devicedetector_clienthints",
-      "label": "DeviceDetector\\ClientHints",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "devicedetector\\clienthints",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "devicedetector_devicedetector",
-      "label": "DeviceDetector\\DeviceDetector",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "devicedetector\\devicedetector",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "illuminate_auth_events_logout",
-      "label": "Illuminate\\Auth\\Events\\Logout",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "illuminate\\auth\\events\\logout",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "illuminate_database_query_builder",
       "label": "Illuminate\\Database\\Query\\Builder",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": "illuminate\\database\\query\\builder",
       "source_file": "",
@@ -4857,7 +4792,7 @@
       "label": "Illuminate\\Support\\Carbon",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": "illuminate\\support\\carbon",
       "source_file": "",
@@ -4868,135 +4803,18 @@
       "label": "Illuminate\\Support\\Collection",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "code",
       "norm_label": "illuminate\\support\\collection",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "laravel_fortify_contracts_loginresponse",
-      "label": "Laravel\\Fortify\\Contracts\\LoginResponse",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "laravel\\fortify\\contracts\\loginresponse",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "symfony_component_httpfoundation_redirectresponse",
-      "label": "Symfony\\Component\\HttpFoundation\\RedirectResponse",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "symfony\\component\\httpfoundation\\redirectresponse",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "tests_feature_authentication_devicedetectionservicetest",
-      "label": "DeviceDetectionServiceTest.php",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "code",
-      "norm_label": "devicedetectionservicetest.php",
-      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor",
-      "label": "2026-10-01-auth-services-refactor.md",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "2026-10-01-auth-services-refactor.md",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_authentication_services_refactor_implementation_plan",
-      "label": "Authentication Services Refactor Implementation Plan",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "authentication services refactor implementation plan",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_global_constraints",
-      "label": "Global Constraints",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "global constraints",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L13"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_review_focus",
-      "label": "Review Focus",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "review focus",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L23"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_1_add_focused_service_contract_tests",
-      "label": "Task 1: Add focused service-contract tests",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 1: add focused service-contract tests",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L33"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_2_extract_device_detection",
-      "label": "Task 2: Extract device detection",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 2: extract device detection",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L70"
-    },
-    {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_3_extract_login_activity_recording",
-      "label": "Task 3: Extract login activity recording",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 3: extract login activity recording",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L112"
-    },
-    {
       "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_4_extract_active_session_lookup_and_termination",
       "label": "Task 4: Extract active-session lookup and termination",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "task 4: extract active-session lookup and termination",
@@ -5004,172 +4822,16 @@
       "source_location": "L144"
     },
     {
-      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_5_remove_transition_leftovers_and_verify_the_refactor",
-      "label": "Task 5: Remove transition leftovers and verify the refactor",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "task 5: remove transition leftovers and verify the refactor",
-      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
-      "source_location": "L192"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design",
-      "label": "2026-10-01-auth-services-refactor-design.md",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "2026-10-01-auth-services-refactor-design.md",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_authentication_services_refactor_design",
-      "label": "Authentication Services Refactor Design",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "authentication services refactor design",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L1"
-    },
-    {
       "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_current_state",
       "label": "Current state",
       "_origin": "ast",
       "community": 10,
-      "community_name": "DeviceDetectionService",
+      "community_name": "UserSessionService",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "current state",
       "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
       "source_location": "L10"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_devicedetectionservice",
-      "label": "`DeviceDetectionService`",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "`devicedetectionservice`",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L29"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_explicitly_out_of_scope",
-      "label": "Explicitly out of scope",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "explicitly out of scope",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L67"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_goal",
-      "label": "Goal",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "goal",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L3"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_loginactivityservice",
-      "label": "`LoginActivityService`",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "`loginactivityservice`",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L36"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_preserved_behavior",
-      "label": "Preserved behavior",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "preserved behavior",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L77"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_proposed_architecture",
-      "label": "Proposed architecture",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "proposed architecture",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L25"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_responsibilities_after_refactoring",
-      "label": "Responsibilities after refactoring",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "responsibilities after refactoring",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L55"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_risks_and_trade_offs",
-      "label": "Risks and trade-offs",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "risks and trade-offs",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L105"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_testing_strategy",
-      "label": "Testing strategy",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "testing strategy",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L91"
-    },
-    {
-      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_usersessionservice",
-      "label": "`UserSessionService`",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "DeviceDetectionService",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "`usersessionservice`",
-      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
-      "source_location": "L43"
     },
     {
       "id": "resources_views_components_admin_header_blade",
@@ -6031,14 +5693,47 @@
       "source_location": null
     },
     {
+      "id": "illuminate_foundation_testing_refreshdatabase",
+      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_feature_authentication_loginactivityservicetest",
+      "label": "LoginActivityServiceTest.php",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "loginactivityservicetest.php",
+      "source_file": "tests/Feature/Authentication/LoginActivityServiceTest.php",
+      "source_location": "L1"
+    },
+    {
       "id": "tests_feature_authentication_roleaccesstest",
       "label": "RoleAccessTest.php",
       "_origin": "ast",
       "community": 14,
-      "community_name": "RoleAccessTest.php",
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
       "file_type": "code",
       "norm_label": "roleaccesstest.php",
       "source_file": "tests/Feature/Authentication/RoleAccessTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_pest",
+      "label": "Pest.php",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "file_type": "code",
+      "norm_label": "pest.php",
+      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -6086,6 +5781,50 @@
       "source_location": null
     },
     {
+      "id": "app_services_auth_devicedetectionservice",
+      "label": "DeviceDetectionService.php",
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "devicedetectionservice.php",
+      "source_file": "app/Services/Auth/DeviceDetectionService.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "devicedetector",
+      "label": "DeviceDetector",
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "devicedetector",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "devicedetector_clienthints",
+      "label": "DeviceDetector\\ClientHints",
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "devicedetector\\clienthints",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "devicedetector_devicedetector",
+      "label": "DeviceDetector\\DeviceDetector",
+      "_origin": "ast",
+      "community": 144,
+      "community_name": "DeviceDetectionService",
+      "file_type": "code",
+      "norm_label": "devicedetector\\devicedetector",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "tests_feature_uithemetogglecomponenttest",
       "label": "UiThemeToggleComponentTest.php",
       "_origin": "ast",
@@ -6117,6 +5856,289 @@
       "norm_label": "profilepagetest.php",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L1"
+    },
+    {
+      "id": "tests_feature_authentication_usersessionservicetest",
+      "label": "UserSessionServiceTest.php",
+      "_origin": "ast",
+      "community": 146,
+      "community_name": "ProfilePageTest.php",
+      "file_type": "code",
+      "norm_label": "usersessionservicetest.php",
+      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design",
+      "label": "2026-10-01-auth-services-refactor-design.md",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-10-01-auth-services-refactor-design.md",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_authentication_services_refactor_design",
+      "label": "Authentication Services Refactor Design",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "authentication services refactor design",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_devicedetectionservice",
+      "label": "`DeviceDetectionService`",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "`devicedetectionservice`",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_explicitly_out_of_scope",
+      "label": "Explicitly out of scope",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "explicitly out of scope",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L67"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_goal",
+      "label": "Goal",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "goal",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_loginactivityservice",
+      "label": "`LoginActivityService`",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "`loginactivityservice`",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L36"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_preserved_behavior",
+      "label": "Preserved behavior",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "preserved behavior",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L77"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_proposed_architecture",
+      "label": "Proposed architecture",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "proposed architecture",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L25"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_risks_and_trade_offs",
+      "label": "Risks and trade-offs",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "risks and trade-offs",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L105"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_testing_strategy",
+      "label": "Testing strategy",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "testing strategy",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L91"
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_usersessionservice",
+      "label": "`UserSessionService`",
+      "_origin": "ast",
+      "community": 147,
+      "community_name": "Authentication Services Refactor Design",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "`usersessionservice`",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L43"
+    },
+    {
+      "id": "app_actions_auth_resolveuserlandingroute",
+      "label": "ResolveUserLandingRoute.php",
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": "resolveuserlandingroute.php",
+      "source_file": "app/Actions/Auth/ResolveUserLandingRoute.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_http_responses_loginresponse",
+      "label": "LoginResponse.php",
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": "loginresponse.php",
+      "source_file": "app/Http/Responses/LoginResponse.php",
+      "source_location": "L1"
+    },
+    {
+      "id": "laravel_fortify_contracts_loginresponse",
+      "label": "Laravel\\Fortify\\Contracts\\LoginResponse",
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": "laravel\\fortify\\contracts\\loginresponse",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "symfony_component_httpfoundation_redirectresponse",
+      "label": "Symfony\\Component\\HttpFoundation\\RedirectResponse",
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "code",
+      "norm_label": "symfony\\component\\httpfoundation\\redirectresponse",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "docs_superpowers_specs_2026_10_01_auth_services_refactor_design_responsibilities_after_refactoring",
+      "label": "Responsibilities after refactoring",
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "LoginResponse",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "responsibilities after refactoring",
+      "source_file": "docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md",
+      "source_location": "L55"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor",
+      "label": "2026-10-01-auth-services-refactor.md",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "2026-10-01-auth-services-refactor.md",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_authentication_services_refactor_implementation_plan",
+      "label": "Authentication Services Refactor Implementation Plan",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "authentication services refactor implementation plan",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_global_constraints",
+      "label": "Global Constraints",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "global constraints",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_review_focus",
+      "label": "Review Focus",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "review focus",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_1_add_focused_service_contract_tests",
+      "label": "Task 1: Add focused service-contract tests",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 1: add focused service-contract tests",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_2_extract_device_detection",
+      "label": "Task 2: Extract device detection",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 2: extract device detection",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_5_remove_transition_leftovers_and_verify_the_refactor",
+      "label": "Task 5: Remove transition leftovers and verify the refactor",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "Authentication Services Refactor Implementation Plan",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 5: remove transition leftovers and verify the refactor",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L192"
     },
     {
       "id": "docs_superpowers_plans_2026_09_22_auth_admin_developer_areas",
@@ -6453,6 +6475,17 @@
       "norm_label": "validation and persistence",
       "source_file": "docs/superpowers/specs/2026-09-26-user-management-design.md",
       "source_location": "L87"
+    },
+    {
+      "id": "tests_feature_authentication_devicedetectionservicetest",
+      "label": "DeviceDetectionServiceTest.php",
+      "_origin": "ast",
+      "community": 150,
+      "community_name": "DeviceDetectionServiceTest.php",
+      "file_type": "code",
+      "norm_label": "devicedetectionservicetest.php",
+      "source_file": "tests/Feature/Authentication/DeviceDetectionServiceTest.php",
+      "source_location": "L1"
     },
     {
       "id": "composer_require_dev",
@@ -6826,17 +6859,6 @@
       "file_type": "code",
       "norm_label": "updateuser.php",
       "source_file": "app/Actions/UserManagement/UpdateUser.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_http_controllers_accountcontroller",
-      "label": "AccountController.php",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": ".view",
-      "file_type": "code",
-      "norm_label": "accountcontroller.php",
-      "source_file": "app/Http/Controllers/AccountController.php",
       "source_location": "L1"
     },
     {
@@ -7225,37 +7247,60 @@
       "source_location": ""
     },
     {
+      "id": "app_listeners_recordlogoutactivity",
+      "label": "RecordLogoutActivity.php",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": "recordlogoutactivity.php",
+      "source_file": "app/Listeners/RecordLogoutActivity.php",
+      "source_location": "L1"
+    },
+    {
       "id": "app_services_auth_loginactivityservice",
       "label": "LoginActivityService.php",
       "_origin": "ast",
       "community": 23,
-      "community_name": "UserSessionServiceTest.php",
+      "community_name": "LoginActivityService",
       "file_type": "code",
       "norm_label": "loginactivityservice.php",
       "source_file": "app/Services/Auth/LoginActivityService.php",
       "source_location": "L1"
     },
     {
+      "id": "illuminate_auth_events_logout",
+      "label": "Illuminate\\Auth\\Events\\Logout",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "LoginActivityService",
+      "file_type": "code",
+      "norm_label": "illuminate\\auth\\events\\logout",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "illuminate_support_facades_db",
       "label": "Illuminate\\Support\\Facades\\DB",
       "_origin": "ast",
       "community": 23,
-      "community_name": "UserSessionServiceTest.php",
+      "community_name": "LoginActivityService",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\db",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "tests_feature_authentication_usersessionservicetest",
-      "label": "UserSessionServiceTest.php",
+      "id": "docs_superpowers_plans_2026_10_01_auth_services_refactor_task_3_extract_login_activity_recording",
+      "label": "Task 3: Extract login activity recording",
       "_origin": "ast",
       "community": 23,
-      "community_name": "UserSessionServiceTest.php",
-      "file_type": "code",
-      "norm_label": "usersessionservicetest.php",
-      "source_file": "tests/Feature/Authentication/UserSessionServiceTest.php",
-      "source_location": "L1"
+      "community_name": "LoginActivityService",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "task 3: extract login activity recording",
+      "source_file": "docs/superpowers/plans/2026-10-01-auth-services-refactor.md",
+      "source_location": "L112"
     },
     {
       "id": "composer_allow_plugins_pestphp_pest_plugin",
@@ -7511,22 +7556,11 @@
       "source_location": ""
     },
     {
-      "id": "illuminate_foundation_testing_refreshdatabase",
-      "label": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "illuminate\\foundation\\testing\\refreshdatabase",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "illuminate_support_facades_validator",
       "label": "Illuminate\\Support\\Facades\\Validator",
       "_origin": "ast",
       "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthValidationRulesTest.php",
       "file_type": "code",
       "norm_label": "illuminate\\support\\facades\\validator",
       "source_file": "",
@@ -7537,43 +7571,10 @@
       "label": "AuthValidationRulesTest.php",
       "_origin": "ast",
       "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
+      "community_name": "AuthValidationRulesTest.php",
       "file_type": "code",
       "norm_label": "authvalidationrulestest.php",
       "source_file": "tests/Feature/Authentication/AuthValidationRulesTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_authentication_loginactivityservicetest",
-      "label": "LoginActivityServiceTest.php",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "loginactivityservicetest.php",
-      "source_file": "tests/Feature/Authentication/LoginActivityServiceTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_feature_database_seeders_userseedertest",
-      "label": "UserSeederTest.php",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "userseedertest.php",
-      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_pest",
-      "label": "Pest.php",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "Illuminate\\Foundation\\Testing\\RefreshDatabase",
-      "file_type": "code",
-      "norm_label": "pest.php",
-      "source_file": "tests/Pest.php",
       "source_location": "L1"
     },
     {
@@ -9557,6 +9558,17 @@
       "source_location": "L1"
     },
     {
+      "id": "tests_feature_database_seeders_userseedertest",
+      "label": "UserSeederTest.php",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "User",
+      "file_type": "code",
+      "norm_label": "userseedertest.php",
+      "source_file": "tests/Feature/Database/Seeders/UserSeederTest.php",
+      "source_location": "L1"
+    },
+    {
       "id": "tests_feature_pages_usermanagementpagerenderingtest",
       "label": "UserManagementPageRenderingTest.php",
       "_origin": "ast",
@@ -10541,19 +10553,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L206",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest_closure_10",
-      "target": "app_models_loginhistory_loginhistory",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L208",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -10565,7 +10565,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L224",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_11",
+      "target": "app_models_loginhistory_loginhistory",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -10577,7 +10589,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L303",
+      "source_location": "L281",
       "weight": 1.0
     },
     {
@@ -10589,7 +10601,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L323",
+      "source_location": "L360",
       "weight": 1.0
     },
     {
@@ -10601,11 +10613,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L343",
+      "source_location": "L380",
       "weight": 1.0
     },
     {
-      "source": "tests_feature_authentication_profilepagetest_closure_16",
+      "source": "tests_feature_authentication_profilepagetest_closure_15",
       "target": "app_models_user_user",
       "relation": "calls",
       "_origin": "ast",
@@ -10613,7 +10625,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L371",
+      "source_location": "L400",
       "weight": 1.0
     },
     {
@@ -10625,7 +10637,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L427",
+      "source_location": "L428",
       "weight": 1.0
     },
     {
@@ -10637,7 +10649,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L446",
+      "source_location": "L484",
       "weight": 1.0
     },
     {
@@ -10649,7 +10661,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L466",
+      "source_location": "L503",
       "weight": 1.0
     },
     {
@@ -10661,7 +10673,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L489",
+      "source_location": "L523",
       "weight": 1.0
     },
     {
@@ -10673,7 +10685,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L511",
+      "source_location": "L546",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_22",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L568",
       "weight": 1.0
     },
     {
@@ -10794,6 +10818,18 @@
       "context": "call",
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
       "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest_closure_9",
+      "target": "app_models_loginhistory_loginhistory",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -21244,18 +21280,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L205",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest",
-      "target": "tests_feature_authentication_profilepagetest_closure_11",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L221",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -21271,13 +21296,24 @@
     },
     {
       "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_11",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L262",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
       "target": "tests_feature_authentication_profilepagetest_closure_12",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L302",
+      "source_location": "L278",
       "weight": 1.0
     },
     {
@@ -21288,7 +21324,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L322",
+      "source_location": "L359",
       "weight": 1.0
     },
     {
@@ -21299,7 +21335,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L342",
+      "source_location": "L379",
       "weight": 1.0
     },
     {
@@ -21310,7 +21346,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L364",
+      "source_location": "L399",
       "weight": 1.0
     },
     {
@@ -21321,7 +21357,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L370",
+      "source_location": "L421",
       "weight": 1.0
     },
     {
@@ -21332,29 +21368,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L426",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest",
-      "target": "tests_feature_authentication_profilepagetest_closure_18",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L445",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_feature_authentication_profilepagetest",
-      "target": "tests_feature_authentication_profilepagetest_closure_19",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L463",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -21370,13 +21384,35 @@
     },
     {
       "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_18",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L483",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_19",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L502",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
       "target": "tests_feature_authentication_profilepagetest_closure_20",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L488",
+      "source_location": "L520",
       "weight": 1.0
     },
     {
@@ -21387,7 +21423,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
-      "source_location": "L510",
+      "source_location": "L545",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_feature_authentication_profilepagetest",
+      "target": "tests_feature_authentication_profilepagetest_closure_22",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/Authentication/ProfilePageTest.php",
+      "source_location": "L567",
       "weight": 1.0
     },
     {
@@ -25194,5 +25241,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9507f8b3c3009a07a153ac27d6764680066e20aa"
+  "built_at_commit": "7350fa221cab5fce41ce5c64e53b8cd601782285"
 }

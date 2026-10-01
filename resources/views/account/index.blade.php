@@ -257,6 +257,8 @@
                             <x-ui.table.cell>
                                 @if ($loginHistory->logged_out_at)
                                     {{ $loginHistory->logged_out_at->format('Y-m-d H:i') }}
+                                @elseif ($currentLoginHistoryId && $loginHistory->getKey() === (int) $currentLoginHistoryId)
+                                    <x-ui.badge variant="green">Current</x-ui.badge>
                                 @elseif ($loginHistory->session_id && $activeSessionIds->contains($loginHistory->session_id))
                                     <x-ui.badge variant="green">Active</x-ui.badge>
                                 @else
