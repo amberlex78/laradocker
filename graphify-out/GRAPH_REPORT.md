@@ -1,17 +1,17 @@
-# Graph Report - laradocker  (2026-10-01)
+# Graph Report - documentation-restructure  (2026-10-02)
 
 ## Corpus Check
-- 210 files · ~48,991 words
+- 213 files · ~54,119 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 30 file(s) not represented in the graph (top: (none) 16, .example 4, .conf 3)
+- Unclassified: 33 file(s) not represented in the graph (top: (none) 17, .example 6, .conf 3)
 
 ## Summary
-- 898 nodes · 1463 edges · 150 communities (33 shown, 117 thin omitted)
+- 914 nodes · 1485 edges · 164 communities (45 shown, 119 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 72 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `397420c5`
+- Built from commit: `25541e21`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,23 +19,25 @@
 - UserRole
 - User.php
 - .view
-- Розгортання на VPS
-- Illuminate\Http\Request
+- UserSessionService
 - package.json
 - DatabaseSessionLifecycleTest.php
 - Illuminate\Database\Schema\Blueprint
 - User
 - PageRenderingTest.php
-- UserSessionService
-- Laravel-проєкти без домену
-- Laravel-проєкти з доменами
+- DeviceDetectionService
+- Дизайн реструктуризації документації
+- LoginResponse
+- Illuminate\Http\Request
 - User Management in Admin and Developer Areas
 - require-dev
+- Review Focus
 - composer.json
 - scripts
 - AuthenticationFlowTest.php
 - LoginActivityService
 - UserPolicy
+- Authentication Services Refactor Design
 - config
 - psr-4
 - require
@@ -53,11 +55,21 @@
 - entrypoint.sh
 - AdminUserManagementTest.php
 - ProfilePageTest.php
+- EnsureUserHasRole.php
+- Розгортання на Ubuntu VPS
 - UserManagementActionsTest.php
+- AppServiceProvider
 - DeveloperUserManagementTest.php
 - FortifyActionsTest.php
+- bootstrap/app.php
+- Необов'язкова інтеграція Cloudflare
 - Pest.php
 - UserSessionServiceTest.php
+- Локальна розробка
+- Docker-архітектура
+- Діагностика
+- Production operations
+- Laravel Docker Starter
 
 ## God Nodes (most connected - your core abstractions)
 1. `User` - 225 edges
@@ -68,25 +80,25 @@
 6. `AuthValidationRules` - 20 edges
 7. `DeviceDetectionService` - 18 edges
 8. `LogoutReason` - 16 edges
-9. `Розгортання на VPS` - 13 edges
+9. `Дизайн реструктуризації документації` - 13 edges
 10. `UserController` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Global Constraints` --references--> `User`  [INFERRED]
   docs/superpowers/plans/2026-09-26-user-management.md → app/Models/User.php
+- `Task 2: Extract device detection` --references--> `DeviceDetectionService`  [INFERRED]
+  docs/superpowers/plans/2026-10-01-auth-services-refactor.md → app/Services/Auth/DeviceDetectionService.php
 - ``DeviceDetectionService`` --references--> `DeviceDetectionService`  [INFERRED]
   docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md → app/Services/Auth/DeviceDetectionService.php
+- ``LoginActivityService`` --references--> `LoginActivityService`  [INFERRED]
+  docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md → app/Services/Auth/LoginActivityService.php
 - ``UserSessionService`` --references--> `UserSessionService`  [INFERRED]
   docs/superpowers/specs/2026-10-01-auth-services-refactor-design.md → app/Services/Auth/UserSessionService.php
-- `Authentication, Admin, and Developer Areas Implementation Plan` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
-- `Global Constraints` --references--> `UserRole`  [INFERRED]
-  docs/superpowers/plans/2026-09-22-auth-admin-developer-areas.md → app/Enums/UserRole.php
 
 ## Import Cycles
 - None detected.
 
-## Communities (150 total, 117 thin omitted)
+## Communities (164 total, 119 thin omitted)
 
 ### Community 0 - "UserRole"
 Cohesion: 0.19
@@ -100,13 +112,9 @@ Nodes (8): Illuminate\Database\Eloquent\Attributes\Fillable, Illuminate\Database
 Cohesion: 0.05
 Nodes (26): CreateUser, DeleteUser, UpdateUser, AccountController, AccountSessionController, UserController, Controller, UserController (+18 more)
 
-### Community 3 - "Розгортання на VPS"
-Cohesion: 0.05
-Nodes (37): Development mounts and production volumes, Docker architecture, Images, Multiple projects on one VPS, Networks and ports, 1. Підготовка сервера, 2. Клонування проєкту та production-конфігурація, 3. Побудова та запуск production-стека (+29 more)
-
-### Community 4 - "Illuminate\Http\Request"
+### Community 4 - "UserSessionService"
 Cohesion: 0.06
-Nodes (31): CreateNewUser, ResetUserPassword, UpdateUserPassword, UpdateUserProfileInformation, AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, {closure#4}() (+23 more)
+Nodes (21): CreateNewUser, ResetUserPassword, UpdateUserPassword, UpdateUserProfileInformation, {closure#1}(), LogoutReason, {closure#3}(), {closure#4}() (+13 more)
 
 ### Community 5 - "package.json"
 Cohesion: 0.07
@@ -114,7 +122,7 @@ Nodes (32): dependencies, alpinejs, flowbite, devDependencies, concurrently, lar
 
 ### Community 6 - "DatabaseSessionLifecycleTest.php"
 Cohesion: 0.09
-Nodes (18): UserFactory, DatabaseSeeder, UserSeeder, Task 2: Install and configure Fortify with Blade authentication views, Illuminate\Database\Console\Seeds\WithoutModelEvents, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Database\Seeder, Illuminate\Session\DatabaseSessionHandler (+10 more)
+Nodes (19): UserFactory, DatabaseSeeder, UserSeeder, Task 2: Install and configure Fortify with Blade authentication views, Illuminate\Database\Console\Seeds\WithoutModelEvents, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Database\Seeder, Illuminate\Foundation\Http\Middleware\PreventRequestForgery (+11 more)
 
 ### Community 7 - "Illuminate\Database\Schema\Blueprint"
 Cohesion: 0.06
@@ -128,17 +136,21 @@ Nodes (22): User, {closure#1}(), {closure#2}(), {closure#1}(), {closure#10}(), {
 Cohesion: 0.08
 Nodes (19): {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}(), {closure#18}() (+11 more)
 
-### Community 10 - "UserSessionService"
-Cohesion: 0.07
-Nodes (20): {closure#1}(), LogoutReason, DeviceDetectionService, {closure#3}(), {closure#4}(), UserSessionService, DeviceDetector, DeviceDetector\ClientHints (+12 more)
+### Community 10 - "DeviceDetectionService"
+Cohesion: 0.26
+Nodes (4): DeviceDetectionService, DeviceDetector, DeviceDetector\ClientHints, DeviceDetector\DeviceDetector
 
-### Community 12 - "Laravel-проєкти без домену"
-Cohesion: 0.12
-Nodes (16): 1. Схема портів, 2. Локальний запуск, 3. Production-запуск на VPS, 4.1. Конфігурація laradockervps1, 4.2. Конфігурація laradockervps2, 4.3. Активація sites-enabled, 4. Мінімальний reverse proxy Nginx, 5. Видалення непотрібного проєкту (+8 more)
+### Community 12 - "Дизайн реструктуризації документації"
+Cohesion: 0.10
+Nodes (19): `docs/architecture.md`, `docs/cloudflare.md`, `docs/deployment.md`, `docs/development.md`, `docs/operations.md`, Env-шаблони, Nginx-шаблони, `README.md` (+11 more)
 
-### Community 13 - "Laravel-проєкти з доменами"
-Cohesion: 0.12
-Nodes (16): 1. Схема доменів і портів, 2. Локальний запуск, 3. Підготовка доменів, Cloudflare і сертифікатів, 4. Production-запуск на VPS, 5.1. Конфігурація example1.com, 5.2. Конфігурація example2.com, 5. Системний Nginx як reverse proxy, 6. Активація Nginx і firewall (+8 more)
+### Community 13 - "LoginResponse"
+Cohesion: 0.15
+Nodes (11): LoginResponse, Authentication Services Refactor Implementation Plan, Global Constraints, Review Focus, Task 1: Add focused service-contract tests, Task 2: Extract device detection, Task 3: Extract login activity recording, Task 5: Remove transition leftovers and verify the refactor (+3 more)
+
+### Community 14 - "Illuminate\Http\Request"
+Cohesion: 0.20
+Nodes (12): RegisterResponse, {closure#4}(), {closure#6}(), {closure#7}(), {closure#8}(), Illuminate\Cache\RateLimiting\Limit, Illuminate\Http\JsonResponse, Illuminate\Http\Request (+4 more)
 
 ### Community 15 - "User Management in Admin and Developer Areas"
 Cohesion: 0.08
@@ -147,6 +159,10 @@ Nodes (25): Authentication, Admin, and Developer Areas Implementation Plan, Glob
 ### Community 16 - "require-dev"
 Cohesion: 0.18
 Nodes (11): require-dev, fakerphp/faker, fruitcake/laravel-debugbar, laravel/boost, laravel/pail, laravel/pao, laravel/pint, mockery/mockery (+3 more)
+
+### Community 17 - "Review Focus"
+Cohesion: 0.17
+Nodes (11): Documentation Restructure Implementation Plan, Global Constraints, Review Focus, Task 1: Канонічні env- і Nginx-шаблони, Task 2: Переписати Docker architecture reference, Task 3: Переписати local development guide, Task 4: Переписати Ubuntu VPS deployment guide, Task 5: Додати optional Cloudflare guide (+3 more)
 
 ### Community 18 - "composer.json"
 Cohesion: 0.22
@@ -161,12 +177,16 @@ Cohesion: 0.11
 Nodes (15): {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#16}(), {closure#17}(), {closure#18}(), {closure#2}() (+7 more)
 
 ### Community 21 - "LoginActivityService"
-Cohesion: 0.06
-Nodes (29): LoginResponse, RegisterResponse, RecordLogoutActivity, RecordRememberedLoginActivity, AppServiceProvider, FortifyServiceProvider, LoginActivityService, Task 3: Extract login activity recording (+21 more)
+Cohesion: 0.20
+Nodes (8): RecordLogoutActivity, RecordRememberedLoginActivity, LoginActivityService, Illuminate\Auth\Events\Login, Illuminate\Auth\Events\Logout, Illuminate\Support\Facades\Auth, Illuminate\Support\Facades\Event, Illuminate\Support\Facades\View
 
 ### Community 22 - "UserPolicy"
 Cohesion: 0.16
 Nodes (9): UserPolicy, Global Constraints, Review Focus, Task 1: Add and test the shared user authorization policy, Task 2: Add shared user-management persistence actions and request validation, Task 3: Add the admin and developer CRUD controllers and route boundaries, Task 4: Build the separated user-management UI and navigation, Task 5: Run the complete verification pass and update the code graph (+1 more)
+
+### Community 23 - "Authentication Services Refactor Design"
+Cohesion: 0.18
+Nodes (10): Authentication Services Refactor Design, `DeviceDetectionService`, Explicitly out of scope, Goal, `LoginActivityService`, Preserved behavior, Proposed architecture, Risks and trade-offs (+2 more)
 
 ### Community 24 - "config"
 Cohesion: 0.29
@@ -204,36 +224,76 @@ Nodes (10): {closure#10}(), {closure#11}(), {closure#12}(), {closure#3}(), {clos
 Cohesion: 0.07
 Nodes (30): LoginHistory, Illuminate\Database\QueryException, {closure#1}(), {closure#3}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}() (+22 more)
 
+### Community 147 - "EnsureUserHasRole.php"
+Cohesion: 0.31
+Nodes (5): AdvertiseClientHints, {closure#1}(), EnsureUserHasRole, Closure, Symfony\Component\HttpFoundation\Response
+
+### Community 148 - "Розгортання на Ubuntu VPS"
+Cohesion: 0.20
+Nodes (10): Вибір публічного доступу, Вимоги, Домен і звичайний HTTPS, Доступ без домену, Клонування та production-конфігурація, Кілька проєктів на одному VPS, Наступні кроки, Перевірка приватного Docker stack (+2 more)
+
 ### Community 149 - "UserManagementActionsTest.php"
 Cohesion: 0.18
 Nodes (11): Illuminate\Routing\Route, {closure#1}(), {closure#10}(), {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}() (+3 more)
 
+### Community 150 - "AppServiceProvider"
+Cohesion: 0.29
+Nodes (3): AppServiceProvider, FortifyServiceProvider, Illuminate\Support\ServiceProvider
+
 ### Community 151 - "DeveloperUserManagementTest.php"
-Cohesion: 0.20
-Nodes (7): Illuminate\Foundation\Http\Middleware\PreventRequestForgery, {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}(), {closure#8}()
+Cohesion: 0.22
+Nodes (6): {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}(), {closure#7}(), {closure#8}()
 
 ### Community 152 - "FortifyActionsTest.php"
 Cohesion: 0.25
 Nodes (7): Illuminate\Auth\Notifications\VerifyEmail, Illuminate\Support\Facades\Notification, {closure#1}(), {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}()
 
+### Community 153 - "bootstrap/app.php"
+Cohesion: 0.32
+Nodes (6): {closure#1}(), {closure#2}(), {closure#3}(), Illuminate\Foundation\Application, Illuminate\Foundation\Configuration\Exceptions, Illuminate\Foundation\Configuration\Middleware
+
+### Community 154 - "Необов'язкова інтеграція Cloudflare"
+Cohesion: 0.25
+Nodes (8): Cloudflare networks і client IP, Cloudflare Origin Certificate, DNS і SSL/TLS mode, Nginx reverse proxy, Необов'язкова інтеграція Cloudflare, Перевірка, Передумови, Повернення до звичайного HTTPS
+
 ### Community 156 - "UserSessionServiceTest.php"
 Cohesion: 0.33
 Nodes (5): {closure#1}(), {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}()
 
+### Community 158 - "Локальна розробка"
+Cohesion: 0.25
+Nodes (8): Production-образ локально, Вимоги, Діагностика, Кілька проєктів одночасно, Локальна розробка, Перший запуск, Створення нового проєкту, Щоденні команди
+
+### Community 159 - "Docker-архітектура"
+Cohesion: 0.29
+Nodes (7): Compose-файли, Docker-архітектура, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту
+
+### Community 160 - "Діагностика"
+Cohesion: 0.29
+Nodes (7): 1. Compose configuration, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Діагностика
+
+### Community 161 - "Production operations"
+Cohesion: 0.29
+Nodes (7): Backup MariaDB, Production operations, Restore MariaDB, Видалення одного проєкту, Міграції, Оновлення застосунку, Статус і логи
+
+### Community 162 - "Laravel Docker Starter"
+Cohesion: 0.40
+Nodes (5): Laravel Docker Starter, Вимоги, Основні команди, Швидкий старт, Що ви хочете зробити?
+
 ## Knowledge Gaps
-- **142 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+137 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 381 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **117 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **158 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+153 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 398 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **119 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserRole`, `User.php`, `.view`, `Illuminate\Http\Request`, `DatabaseSessionLifecycleTest.php`, `PageRenderingTest.php`, `UserSessionService`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `UserSessionServiceTest.php`, `ProfilePageTest.php`, `AuthenticationFlowTest.php`, `LoginActivityService`, `UserPolicy`, `DeveloperUserManagementTest.php`, `FortifyActionsTest.php`, `UserManagementActionsTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
-  _High betweenness centrality (0.268) - this node is a cross-community bridge._
-- **Why does `UserRole` connect `UserRole` to `User.php`, `.view`, `Illuminate\Http\Request`, `DatabaseSessionLifecycleTest.php`, `User`, `PageRenderingTest.php`, `UserSessionService`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `AuthenticationFlowTest.php`, `UserManagementActionsTest.php`, `UserPolicy`, `DeveloperUserManagementTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `.workspace`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `UserSessionService` connect `UserSessionService` to `UserSessionServiceTest.php`, `.view`, `Illuminate\Http\Request`, `LoginActivityService`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `UserRole`, `User.php`, `.view`, `UserSessionService`, `DatabaseSessionLifecycleTest.php`, `PageRenderingTest.php`, `LoginResponse`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `ProfilePageTest.php`, `EnsureUserHasRole.php`, `AuthenticationFlowTest.php`, `LoginActivityService`, `UserPolicy`, `DeveloperUserManagementTest.php`, `FortifyActionsTest.php`, `UserManagementActionsTest.php`, `UserSessionServiceTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+  _High betweenness centrality (0.259) - this node is a cross-community bridge._
+- **Why does `UserRole` connect `UserRole` to `User.php`, `.view`, `UserSessionService`, `DatabaseSessionLifecycleTest.php`, `User`, `PageRenderingTest.php`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `EnsureUserHasRole.php`, `AuthenticationFlowTest.php`, `UserManagementActionsTest.php`, `UserPolicy`, `DeveloperUserManagementTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `.workspace`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `UserSessionService` connect `UserSessionService` to `.view`, `DeviceDetectionService`, `LoginResponse`, `Authentication Services Refactor Design`, `UserSessionServiceTest.php`?**
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Are the 7 inferred relationships involving `User` (e.g. with `Task 1: Add the role domain model and database column` and `Task 2: Install and configure Fortify with Blade authentication views`) actually correct?**
   _`User` has 7 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `UserRole` (e.g. with `Authentication, Admin, and Developer Areas Implementation Plan` and `Global Constraints`) actually correct?**
@@ -241,4 +301,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 4 inferred relationships involving `UserSessionService` (e.g. with `Authentication Services Refactor Implementation Plan` and `Task 1: Add focused service-contract tests`) actually correct?**
   _`UserSessionService` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `php`, `savedTheme`, `$schema` to the rest of the system?**
-  _142 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _158 weakly-connected nodes found - possible documentation gaps or missing edges._
