@@ -11,7 +11,7 @@
             <p class="text-sm font-medium text-blue-600 dark:text-blue-400">{{ $eyebrow }}</p>
         @endif
 
-        <h1 class="inline-flex items-center gap-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h1 class="inline-flex min-w-0 flex-wrap items-center gap-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             @if ($icon)
                 <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-base bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300" aria-hidden="true">
                     <x-icon :name="$icon" class="h-5 w-5" />

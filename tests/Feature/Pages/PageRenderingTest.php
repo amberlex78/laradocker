@@ -38,6 +38,16 @@ test('the public home page renders', function () {
         ->assertSee('data-icon="user-plus"', false);
 });
 
+test('the public navigation keeps its mobile controls inside the viewport', function (): void {
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('class="mx-auto flex min-w-0 max-w-7xl items-center justify-between gap-2 px-3 py-4 sm:gap-4 sm:px-6 lg:px-8"', false)
+        ->assertSee('class="flex min-w-0 shrink items-center gap-2 sm:gap-3"', false)
+        ->assertSee('class="truncate text-lg font-semibold text-gray-900 dark:text-white sm:text-xl"', false)
+        ->assertSee('whitespace-nowrap rounded-base px-2 py-2 text-sm', false)
+        ->assertSee('class="flex shrink-0 items-center gap-1 sm:gap-2"', false);
+});
+
 test('an authenticated admin sees the admin workspace menu on the public home page', function (): void {
     $admin = User::factory()->create([
         'role' => UserRole::Admin,
@@ -299,6 +309,11 @@ test('an admin shell renders the Flowbite sidebar and navbar structure', functio
         ->assertSee('md:ms-64', false)
         ->assertSee('bg-gray-800', false)
         ->assertSee(now()->format('l, F j, Y'))
+        ->assertSee('class="flex min-w-0 items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-4 lg:px-6"', false)
+        ->assertSee('class="flex min-w-0 flex-1 items-center gap-2 sm:gap-3"', false)
+        ->assertSee('class="flex shrink-0 items-center gap-1 sm:gap-2"', false)
+        ->assertSee('class="min-w-0 md:ms-64"', false)
+        ->assertSee('main class="min-w-0 w-full p-4 sm:p-6 lg:p-8"', false)
         ->assertDontSee('min-h-screen bg-slate-50', false);
 });
 

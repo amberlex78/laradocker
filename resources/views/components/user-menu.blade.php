@@ -1,5 +1,5 @@
-<div class="relative" x-data="{ profileMenuOpen: false }" @click.outside="profileMenuOpen = false" @keydown.escape.window="profileMenuOpen = false">
-    <button id="admin-user-menu-trigger" type="button" @click="profileMenuOpen = ! profileMenuOpen" :aria-expanded="profileMenuOpen" aria-haspopup="menu" class="inline-flex max-w-56 items-center gap-2 rounded-base px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+<div class="relative min-w-0 shrink-0" x-data="{ profileMenuOpen: false }" @click.outside="profileMenuOpen = false" @keydown.escape.window="profileMenuOpen = false">
+    <button id="admin-user-menu-trigger" type="button" @click="profileMenuOpen = ! profileMenuOpen" :aria-expanded="profileMenuOpen" aria-haspopup="menu" class="inline-flex min-w-0 max-w-40 shrink-0 items-center gap-2 rounded-base px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 sm:max-w-56">
         <span class="sr-only">Open user menu for {{ auth()->user()->name }}</span>
         <span class="truncate">{{ auth()->user()->name }}</span>
         <x-icon name="chevron-down" class="h-4 w-4 shrink-0 text-gray-500 dark:text-gray-400" />

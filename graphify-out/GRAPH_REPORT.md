@@ -1,17 +1,17 @@
-# Graph Report - documentation-restructure  (2026-10-02)
+# Graph Report - laradocker  (2026-10-02)
 
 ## Corpus Check
-- 213 files · ~54,392 words
+- 213 files · ~54,516 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 33 file(s) not represented in the graph (top: (none) 17, .example 6, .conf 3)
+- Unclassified: 32 file(s) not represented in the graph (top: (none) 16, .example 6, .conf 3)
 
 ## Summary
-- 914 nodes · 1485 edges · 164 communities (45 shown, 119 thin omitted)
+- 915 nodes · 1486 edges · 164 communities (45 shown, 119 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 72 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0ed15c08`
+- Built from commit: `03e2f711`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,13 +21,13 @@
 - .view
 - UserSessionService
 - package.json
-- DatabaseSessionLifecycleTest.php
+- UserFactory.php
 - Illuminate\Database\Schema\Blueprint
 - User
 - PageRenderingTest.php
 - DeviceDetectionService
 - Дизайн реструктуризації документації
-- LoginResponse
+- LoginActivityService
 - Illuminate\Http\Request
 - User Management in Admin and Developer Areas
 - require-dev
@@ -35,7 +35,7 @@
 - composer.json
 - scripts
 - AuthenticationFlowTest.php
-- LoginActivityService
+- DatabaseSessionLifecycleTest.php
 - UserPolicy
 - Authentication Services Refactor Design
 - config
@@ -58,7 +58,7 @@
 - EnsureUserHasRole.php
 - Розгортання на Ubuntu VPS
 - UserManagementActionsTest.php
-- AppServiceProvider
+- Authentication Services Refactor Implementation Plan
 - DeveloperUserManagementTest.php
 - FortifyActionsTest.php
 - bootstrap/app.php
@@ -120,9 +120,9 @@ Nodes (21): CreateNewUser, ResetUserPassword, UpdateUserPassword, UpdateUserProf
 Cohesion: 0.07
 Nodes (32): dependencies, alpinejs, flowbite, devDependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite (+24 more)
 
-### Community 6 - "DatabaseSessionLifecycleTest.php"
-Cohesion: 0.09
-Nodes (19): UserFactory, DatabaseSeeder, UserSeeder, Task 2: Install and configure Fortify with Blade authentication views, Illuminate\Database\Console\Seeds\WithoutModelEvents, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Database\Seeder, Illuminate\Foundation\Http\Middleware\PreventRequestForgery (+11 more)
+### Community 6 - "UserFactory.php"
+Cohesion: 0.12
+Nodes (11): UserFactory, DatabaseSeeder, UserSeeder, Task 2: Install and configure Fortify with Blade authentication views, Illuminate\Database\Console\Seeds\WithoutModelEvents, Illuminate\Database\Eloquent\Factories\Factory, Illuminate\Database\Seeder, Illuminate\Support\Facades\Hash (+3 more)
 
 ### Community 7 - "Illuminate\Database\Schema\Blueprint"
 Cohesion: 0.06
@@ -133,8 +133,8 @@ Cohesion: 0.14
 Nodes (22): User, {closure#1}(), {closure#2}(), {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}() (+14 more)
 
 ### Community 9 - "PageRenderingTest.php"
-Cohesion: 0.08
-Nodes (19): {closure#10}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}(), {closure#18}() (+11 more)
+Cohesion: 0.07
+Nodes (19): {closure#11}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}(), {closure#17}(), {closure#18}(), {closure#19}() (+11 more)
 
 ### Community 10 - "DeviceDetectionService"
 Cohesion: 0.26
@@ -144,9 +144,9 @@ Nodes (4): DeviceDetectionService, DeviceDetector, DeviceDetector\ClientHints, D
 Cohesion: 0.10
 Nodes (19): `docs/architecture.md`, `docs/cloudflare.md`, `docs/deployment.md`, `docs/development.md`, `docs/operations.md`, Env-шаблони, Nginx-шаблони, `README.md` (+11 more)
 
-### Community 13 - "LoginResponse"
-Cohesion: 0.15
-Nodes (11): LoginResponse, Authentication Services Refactor Implementation Plan, Global Constraints, Review Focus, Task 1: Add focused service-contract tests, Task 2: Extract device detection, Task 3: Extract login activity recording, Task 5: Remove transition leftovers and verify the refactor (+3 more)
+### Community 13 - "LoginActivityService"
+Cohesion: 0.22
+Nodes (7): LoginResponse, RecordLogoutActivity, LoginActivityService, Task 3: Extract login activity recording, Illuminate\Auth\Events\Logout, Laravel\Fortify\Contracts\LoginResponse, Symfony\Component\HttpFoundation\RedirectResponse
 
 ### Community 14 - "Illuminate\Http\Request"
 Cohesion: 0.20
@@ -176,17 +176,17 @@ Nodes (9): scripts, dev, post-autoload-dump, post-create-project-cmd, post-root-
 Cohesion: 0.11
 Nodes (15): {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#16}(), {closure#17}(), {closure#18}(), {closure#2}() (+7 more)
 
-### Community 21 - "LoginActivityService"
-Cohesion: 0.20
-Nodes (8): RecordLogoutActivity, RecordRememberedLoginActivity, LoginActivityService, Illuminate\Auth\Events\Login, Illuminate\Auth\Events\Logout, Illuminate\Support\Facades\Auth, Illuminate\Support\Facades\Event, Illuminate\Support\Facades\View
+### Community 21 - "DatabaseSessionLifecycleTest.php"
+Cohesion: 0.10
+Nodes (16): RecordRememberedLoginActivity, AppServiceProvider, FortifyServiceProvider, Illuminate\Auth\Events\Login, Illuminate\Foundation\Http\Middleware\PreventRequestForgery, Illuminate\Session\DatabaseSessionHandler, Illuminate\Session\Store, Illuminate\Support\Facades\Auth (+8 more)
 
 ### Community 22 - "UserPolicy"
 Cohesion: 0.16
 Nodes (9): UserPolicy, Global Constraints, Review Focus, Task 1: Add and test the shared user authorization policy, Task 2: Add shared user-management persistence actions and request validation, Task 3: Add the admin and developer CRUD controllers and route boundaries, Task 4: Build the separated user-management UI and navigation, Task 5: Run the complete verification pass and update the code graph (+1 more)
 
 ### Community 23 - "Authentication Services Refactor Design"
-Cohesion: 0.18
-Nodes (10): Authentication Services Refactor Design, `DeviceDetectionService`, Explicitly out of scope, Goal, `LoginActivityService`, Preserved behavior, Proposed architecture, Risks and trade-offs (+2 more)
+Cohesion: 0.17
+Nodes (11): Authentication Services Refactor Design, Current state, `DeviceDetectionService`, Explicitly out of scope, Goal, `LoginActivityService`, Preserved behavior, Proposed architecture (+3 more)
 
 ### Community 24 - "config"
 Cohesion: 0.29
@@ -236,9 +236,9 @@ Nodes (10): Вибір публічного доступу, Вимоги, Дом
 Cohesion: 0.18
 Nodes (11): Illuminate\Routing\Route, {closure#1}(), {closure#10}(), {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}(), {closure#6}() (+3 more)
 
-### Community 150 - "AppServiceProvider"
+### Community 150 - "Authentication Services Refactor Implementation Plan"
 Cohesion: 0.29
-Nodes (3): AppServiceProvider, FortifyServiceProvider, Illuminate\Support\ServiceProvider
+Nodes (6): Authentication Services Refactor Implementation Plan, Global Constraints, Review Focus, Task 1: Add focused service-contract tests, Task 2: Extract device detection, Task 5: Remove transition leftovers and verify the refactor
 
 ### Community 151 - "DeveloperUserManagementTest.php"
 Cohesion: 0.22
@@ -282,17 +282,17 @@ Nodes (5): Laravel Docker Starter, Вимоги, Основні команди, 
 
 ## Knowledge Gaps
 - **158 isolated node(s):** `php`, `savedTheme`, `$schema`, `name`, `type` (+153 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 398 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 399 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **119 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `UserRole`, `User.php`, `.view`, `UserSessionService`, `DatabaseSessionLifecycleTest.php`, `PageRenderingTest.php`, `LoginResponse`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `ProfilePageTest.php`, `EnsureUserHasRole.php`, `AuthenticationFlowTest.php`, `LoginActivityService`, `UserPolicy`, `DeveloperUserManagementTest.php`, `FortifyActionsTest.php`, `UserManagementActionsTest.php`, `UserSessionServiceTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
+- **Why does `User` connect `User` to `UserRole`, `User.php`, `.view`, `UserSessionService`, `UserFactory.php`, `PageRenderingTest.php`, `LoginActivityService`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `ProfilePageTest.php`, `EnsureUserHasRole.php`, `AuthenticationFlowTest.php`, `DatabaseSessionLifecycleTest.php`, `UserPolicy`, `DeveloperUserManagementTest.php`, `FortifyActionsTest.php`, `UserManagementActionsTest.php`, `UserSessionServiceTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`?**
   _High betweenness centrality (0.259) - this node is a cross-community bridge._
-- **Why does `UserRole` connect `UserRole` to `User.php`, `.view`, `UserSessionService`, `DatabaseSessionLifecycleTest.php`, `User`, `PageRenderingTest.php`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `EnsureUserHasRole.php`, `AuthenticationFlowTest.php`, `UserManagementActionsTest.php`, `UserPolicy`, `DeveloperUserManagementTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `.workspace`?**
+- **Why does `UserRole` connect `UserRole` to `User.php`, `.view`, `UserSessionService`, `UserFactory.php`, `User`, `PageRenderingTest.php`, `User Management in Admin and Developer Areas`, `AdminUserManagementTest.php`, `EnsureUserHasRole.php`, `AuthenticationFlowTest.php`, `UserManagementActionsTest.php`, `UserPolicy`, `DeveloperUserManagementTest.php`, `Illuminate\Foundation\Testing\RefreshDatabase`, `.workspace`?**
   _High betweenness centrality (0.043) - this node is a cross-community bridge._
-- **Why does `UserSessionService` connect `UserSessionService` to `.view`, `DeviceDetectionService`, `LoginResponse`, `Authentication Services Refactor Design`, `UserSessionServiceTest.php`?**
+- **Why does `UserSessionService` connect `UserSessionService` to `.view`, `DeviceDetectionService`, `Authentication Services Refactor Implementation Plan`, `Authentication Services Refactor Design`, `UserSessionServiceTest.php`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Are the 7 inferred relationships involving `User` (e.g. with `Task 1: Add the role domain model and database column` and `Task 2: Install and configure Fortify with Blade authentication views`) actually correct?**
   _`User` has 7 INFERRED edges - model-reasoned connections that need verification._
