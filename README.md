@@ -1,23 +1,22 @@
-# Laravel Docker Application
+# Laravel Docker Starter
 
-Laravel-застосунок, підготовлений для роботи повністю в Docker.
+Шаблон Laravel-застосунку, у якому локальна розробка та production deployment
+працюють через Docker Compose. Репозиторій можна клонувати як основу нового
+проєкту, запустити кілька копій одночасно або розгорнути на Ubuntu VPS.
 
-## Стек
+Стек: Laravel 13, PHP-FPM 8.5, Nginx, MariaDB, Node.js/Vite і Composer.
 
-| Компонент | Версія / образ | Призначення |
-| --- | --- | --- |
-| Laravel | 13.x | Application framework |
-| PHP-FPM | `php:8.5-fpm-bookworm` | Виконання PHP-коду |
-| Nginx | `nginx:1.30.4-alpine` | Web server і віддача frontend assets |
-| MariaDB | `mariadb:12.3` | Основна база даних |
-| Composer | `composer:2.9.8` | PHP-залежності |
-| Node.js | `node:24-bookworm-slim` | Vite та frontend dependencies |
+## Вимоги
+
+- Git;
+- Docker Engine із Docker Compose plugin;
+- GNU Make.
+
+PHP, Composer, Node.js, Nginx і MariaDB на host встановлювати не потрібно.
 
 ## Швидкий старт
 
-```bash
-git clone git@github.com:amberlex78/laradocker.git
-```
+Після клонування перейдіть у каталог проєкту та виконайте:
 
 ```bash
 cp .env.example .env
@@ -26,135 +25,48 @@ make up
 make migrate
 ```
 
-Після запуску:
+Після запуску доступні:
 
-- Laravel: <http://localhost:8000>;
-- health endpoint: <http://localhost:8000/up>;
-- Vite HMR: <http://localhost:5173>;
-- MariaDB: `127.0.0.1:3306`.
+| Сервіс | Адреса |
+| --- | --- |
+| Laravel | <http://localhost:8000> |
+| Health endpoint | <http://localhost:8000/up> |
+| Vite HMR | <http://localhost:5173> |
+| MariaDB для host-клієнта | `127.0.0.1:3306` |
+| Adminer | <http://localhost:8090> |
 
-`vendor/`, `node_modules/`, `public/build/`, `public/hot` і Laravel cache створюються від UID/GID поточного користувача хоста.
-
-## Як працює Docker-архітектура
-
-Compose розділений на три файли:
-
-- `docker-compose.yml` — спільні сервіси, мережі, volumes, healthchecks;
-- `docker-compose.dev.yml` — локальні bind-mount-и та host-порти;
-- `docker-compose.prod.yml` — self-contained production images без bind-mount source code.
-
-Сервіси підключені до ізольованих мереж:
-
-- `frontend` — Nginx ↔ PHP-FPM;
-- `backend` — PHP-FPM ↔ MariaDB, мережа `internal`.
-
-### Безпека та збереження даних
-
-- PHP працює від користувача `app`, а не від `root`.
-- У development MariaDB доступна локально через `127.0.0.1:3306`.
-- У production MariaDB доступна лише контейнерам.
-- Дані MariaDB зберігаються у volume `mariadb-data`.
-
-## Як запустити ще один проєкт
-
-Якщо поточний проєкт має залишатися запущеним, у другому `.env` потрібно вказати інші host-порти.
-
-`COMPOSE_PROJECT_NAME` ізолює контейнери, мережі, image names і MariaDB volume проєкту. 
-
-`DB_HOST`, `DB_PORT`, `DB_DATABASE` та внутрішній `VITE_PORT=5173` змінювати не потрібно: вони працюють усередині окремого Compose-оточення.
-
-```dotenv
-COMPOSE_PROJECT_NAME=laravel-app-2
-APP_NAME=Laravel-2
-APP_URL=http://localhost:8001
-
-DEV_HTTP_PORT=8001
-VITE_FORWARD_PORT=5174
-VITE_PORT=5173
-VITE_HMR_PORT=5174
-DB_FORWARD_PORT=3307
-```
-
-Для другого clone будуть доступні такі host-порти:
-
-- Laravel: `http://localhost:8001`;
-- Vite HMR: `http://localhost:5174`;
-- MariaDB: `127.0.0.1:3307`.
-
-## Встановлення проєкту на VPS
-
-Production-інструкція складається з двох частин:
-
-1. Docker збирає PHP, Composer-залежності, frontend і MariaDB та запускає production-контейнери.
-2. Системний Nginx на VPS приймає HTTPS-запити від Cloudflare і проксіює їх у Docker на `127.0.0.1:8080`.
-
-Короткий маршрут:
-
-```bash
-git clone git@github.com:amberlex78/laradocker.git
-cd laradocker
-cp .env.prod.example .env.prod
-nano .env.prod
-make config-prod
-make deploy
-```
-
-Повна інструкція, включно з перевірками, системним Nginx, Cloudflare Origin Certificate і налаштуванням домену:
-
-- [Розгортання на VPS](docs/deployment.md)
+Compose складається зі спільного файла та окремих development/production
+overlay. Контейнери використовують сталі внутрішні порти, а конфлікти між
+копіями усуваються зміною host-портів. Детальна схема — у
+[Docker-архітектурі](docs/architecture.md).
 
 ## Основні команди
 
-Подивитися всі доступні команди:
-
 ```bash
-make
-```
-
-### Розробка
-
-```bash
-make up           # запустити dev-оточення
-make down         # зупинити контейнери без видалення volumes
-make ps           # перевірити статус сервісів
-make logs         # переглядати логи
-```
-
-### Laravel і база даних
-
-```bash
-make migrate
-make db-seed
+make                 # показати всі доступні targets
+make up              # запустити development stack
+make down            # зупинити його без видалення даних
+make ps              # стан контейнерів
+make logs            # логи development stack
+make test            # тести
+make pint            # форматування PHP
 make artisan CMD="about"
-make artisan CMD="route:list"
-```
-
-### Тести та якість коду
-
-```bash
-make test
-make pint
-```
-
-### Composer, npm і shell
-
-```bash
-make composer CMD="show"
 make npm CMD="run build"
-make shell-php
-make shell-node
-make shell-mariadb
+make prod-ps         # стан production stack
 ```
 
-### Vite
+## Що ви хочете зробити?
 
-Vite запускається разом із `make up`. Якщо його потрібно перезапустити:
+| Завдання | Інструкція |
+| --- | --- |
+| Запустити один проєкт локально | [Локальна розробка](docs/development.md) |
+| Запустити кілька проєктів локально | [Кілька проєктів одночасно](docs/development.md#кілька-проєктів-одночасно) |
+| Перевірити production-образ локально | [Production-образ локально](docs/development.md#production-образ-локально) |
+| Розгорнути на VPS без домену | [Доступ без домену](docs/deployment.md#доступ-без-домену) |
+| Розгорнути з доменом і звичайним HTTPS | [Домен і звичайний HTTPS](docs/deployment.md#домен-і-звичайний-https) |
+| Додати Cloudflare | [Необов'язкова інтеграція Cloudflare](docs/cloudflare.md) |
+| Оновлювати, діагностувати, робити backup | [Production operations](docs/operations.md) |
+| Зрозуміти сервіси, мережі та порти | [Docker-архітектура](docs/architecture.md) |
 
-```bash
-make vite
-```
-
-## Документація
-
-- [Docker architecture](docs/architecture.md)
-- [Local development](docs/development.md)
+Звичайний HTTPS через Let's Encrypt є основним production-маршрутом.
+Cloudflare описаний окремо як необов'язкова заміна DNS/TLS-рівня.

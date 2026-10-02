@@ -184,5 +184,8 @@ curl -I http://127.0.0.1:18080/up
 
 Не видаляйте Origin Certificate або DNS-конфігурацію до завершення переходу.
 
+Повна послідовність налаштування Let's Encrypt наведена в розділі
+[«Домен і звичайний HTTPS»](deployment.md#домен-і-звичайний-https).
+
 Оновлення, backup і видалення deployment описані в
 [production operations](operations.md).
