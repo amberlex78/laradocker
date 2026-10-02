@@ -108,7 +108,8 @@ Run:
 
 ```bash
 make config-dev
-docker compose --env-file .env.prod.example -f docker-compose.yml -f docker-compose.prod.yml config --quiet
+cp .env.prod.example .env.prod
+make config-prod
 rg -n 'PROD_HTTP_PORT=18080|APP_URL=https://example\.com|TRUSTED_PROXIES=REMOTE_ADDR' .env.prod.example
 rg -n '127\.0\.0\.1:18080' docker/nginx/host/prod-*.conf.example
 test ! -e docker/nginx/host/prod.conf.example
@@ -522,7 +523,8 @@ Run:
 
 ```bash
 make config-dev
-docker compose --env-file .env.prod.example -f docker-compose.yml -f docker-compose.prod.yml config --quiet
+cp .env.prod.example .env.prod
+make config-prod
 ```
 
 Expected: both commands exit `0`.

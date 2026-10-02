@@ -1,10 +1,10 @@
-# Optional system Nginx configuration for local development.
+# Необов'язкова конфігурація системного Nginx для локальної розробки.
 #
-# The development Compose stack publishes the container Nginx on
-# 127.0.0.1:8000. This file is only a reverse proxy; it must not use the
-# project checkout as its document root.
+# Development Compose публікує контейнерний Nginx на 127.0.0.1:8000.
+# Цей файл працює лише як reverse proxy і не використовує checkout проєкту
+# як document root.
 #
-# Example installation:
+# Приклад встановлення:
 #   sudo cp dev.conf.example /etc/nginx/sites-available/laravel-dev
 #   sudo ln -s /etc/nginx/sites-available/laravel-dev /etc/nginx/sites-enabled/laravel-dev
 #   sudo nginx -t && sudo systemctl reload nginx

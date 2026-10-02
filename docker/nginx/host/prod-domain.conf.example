@@ -1,0 +1,63 @@
+# Системний Nginx для production із доменом і звичайним HTTPS через Certbot.
+# Замініть example.com і upstream-порт для свого проєкту. Спочатку активуйте
+# цей HTTP bootstrap, перевірте nginx -t, а потім запустіть certbot --nginx.
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name example.com www.example.com;
+
+    charset utf-8;
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-Frame-Options SAMEORIGIN always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location = /favicon.ico {
+        access_log off;
+        log_not_found off;
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location = /robots.txt {
+        access_log off;
+        log_not_found off;
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location ~* \.(?:css|js|jpg|jpeg|gif|png|svg|ico|webp|woff|woff2|ttf)$ {
+        proxy_pass http://127.0.0.1:18080;
+        proxy_hide_header Cache-Control;
+        proxy_hide_header Expires;
+        expires 7d;
+        add_header Cache-Control "public, immutable" always;
+        add_header X-Content-Type-Options nosniff always;
+        add_header X-Frame-Options SAMEORIGIN always;
+        add_header Referrer-Policy strict-origin-when-cross-origin always;
+    }
+
+    location = /index.php {
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location ~ \.php$ {
+        return 404;
+    }
+
+    # Не блокуємо /.well-known/acme-challenge/, який використовує Certbot.
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
