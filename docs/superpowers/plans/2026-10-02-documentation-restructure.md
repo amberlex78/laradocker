@@ -366,7 +366,7 @@ Run:
 
 ```bash
 rg -n 'Full \(strict\)|Origin Certificate|prod-cloudflare\.conf\.example|CF-Connecting-IP|TRUSTED_PROXIES=REMOTE_ADDR|ips-v4|ips-v6' docs/cloudflare.md
-! rg -n 'TRUSTED_PROXIES=\*' docs/cloudflare.md docker/nginx/host/prod-cloudflare.conf.example
+! rg -n '^TRUSTED_PROXIES=\*' docs/cloudflare.md docker/nginx/host/prod-cloudflare.conf.example
 ```
 
 Expected: every required trust element is present and wildcard proxy trust is absent.
