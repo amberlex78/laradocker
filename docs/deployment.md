@@ -1,384 +1,292 @@
-# Розгортання на VPS
+# Розгортання на Ubuntu VPS
 
-Production-образи збираються безпосередньо на VPS із поточної версії Git. Окремий Docker Registry не потрібен. PHP, Composer, Node.js і MariaDB не потрібно встановлювати безпосередньо на сервері — вони працюють у Docker.
+Цей гайд описує один production-процес для одного або кількох Laravel-проєктів.
+Docker stack завжди залишається приватним на `127.0.0.1`, а публічний трафік
+приймає системний Nginx.
 
-Ця інструкція описує повне розгортання на Ubuntu 24.04 із Cloudflare та доменом `esp32.xyz`.
+Доступ можна налаштувати двома способами:
 
-## Як розділений production-стек
+- домен зі звичайним Let’s Encrypt HTTPS — рекомендований production-варіант;
+- IP-адреса й окремий HTTP-порт — тимчасово для демо або тестування.
 
-У production використовуються два Nginx із різними завданнями:
+Cloudflare не потрібен для базового deployment. Якщо він потрібен, завершіть
+спільні кроки й перейдіть до [окремого Cloudflare-гайда](cloudflare.md).
 
-- Nginx-контейнер обслуговує Laravel і зібраний frontend на внутрішньому Docker-порті `8080`;
-- системний Nginx на VPS приймає HTTPS-запити та проксіює їх на `127.0.0.1:8080`.
+## Вимоги
 
-Node.js використовується лише під час побудови Docker-образу. Команди `npm ci` і `npm run build` виконуються у тимчасовому frontend-builder stage, а готові файли копіюються в Nginx image. Тому `node_modules` не повинен існувати на VPS.
+- Ubuntu VPS із користувачем, який має `sudo`;
+- Docker Engine із Compose plugin;
+- Git і GNU Make;
+- відкритий SSH-доступ;
+- для HTTPS — домен, DNS якого можна спрямувати на VPS.
 
-Composer-залежності встановлюються в PHP image. У checkout-каталозі на сервері також не обов’язково має бути папка `vendor/`.
-
-## 1. Підготовка сервера
-
-Перевір доступні інструменти:
+Перевірте Docker:
 
 ```bash
 docker --version
 docker compose version
-make --version
 ```
 
-Встанови системний Nginx на Ubuntu:
+Встановіть спільні host-пакети:
 
 ```bash
 sudo apt update
-sudo apt install -y nginx
+sudo apt install -y git make nginx
 sudo systemctl enable --now nginx
-```
-
-Перевір, що він запущений:
-
-```bash
-sudo systemctl status nginx --no-pager
 sudo nginx -t
-curl -I http://127.0.0.1
 ```
 
-Якщо увімкнений UFW, дозволь лише HTTP та HTTPS для системного Nginx:
+Не встановлюйте PHP, Composer, Node.js або MariaDB безпосередньо на VPS: вони
+входять до Docker images.
+
+## Клонування та production-конфігурація
 
 ```bash
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
-sudo ufw status
-```
-
-Не додавай одночасно профіль `Nginx Full`, оскільки він відкриває ті самі
-порти й створює дублікати правил.
-
-Порти `8081` і `8082` не потрібні для доменного доступу через системний Nginx.
-Відкривай їх лише для окремого сценарію перевірки сайтів без доменів. Порти
-Docker `18080` і `28080` мають залишатися прив'язаними до `127.0.0.1` і не
-повинні відкриватися у UFW.
-
-## 2. Клонування проєкту та production-конфігурація
-
-```bash
-git clone git@github.com:amberlex78/laradocker.git
-cd laradocker
+git clone https://github.com/amberlex78/laradocker.git my-project
+cd my-project
 cp .env.prod.example .env.prod
 ```
 
-Згенеруй ключ застосунку:
+Створіть унікальний Laravel application key:
 
 ```bash
 openssl rand -base64 32
 ```
 
-Скопіюй згенероване значення та відкрий production-файл оточення:
-
-```bash
-nano .env.prod
-```
-
-Мінімально потрібно замінити всі placeholder-значення на реальні:
+Додайте до результату префікс `base64:` і запишіть значення в
+`APP_KEY`. Мінімальна конфігурація першого проєкту:
 
 ```dotenv
-COMPOSE_PROJECT_NAME=laradockervps
+COMPOSE_PROJECT_NAME=project-a
+IMAGE_TAG=prod
+APP_NAME=ProjectA
 APP_ENV=production
+APP_KEY=base64:UNIQUE_GENERATED_KEY
 APP_DEBUG=false
-APP_KEY=base64:скопійований-ключ
-APP_URL=http://127.0.0.1:8080
-PROD_HTTP_PORT=8080
+APP_URL=https://example.com
+TRUSTED_PROXIES=REMOTE_ADDR
+
+PROD_HTTP_PORT=18080
+
 DB_CONNECTION=mariadb
-DB_DATABASE=esp32_xyz
-DB_USERNAME=esp32_xyz
-DB_PASSWORD=сильний-пароль-для-бази
-DB_ROOT_PASSWORD=інший-сильний-пароль
+DB_HOST=mariadb
+DB_PORT=3306
+DB_DATABASE=project_a
+DB_USERNAME=project_a
+DB_PASSWORD=REPLACE_WITH_STRONG_PASSWORD
+DB_ROOT_PASSWORD=REPLACE_WITH_DIFFERENT_STRONG_PASSWORD
 ```
 
-Початковий `APP_URL` підходить для локальної перевірки застосунку безпосередньо на VPS. Після налаштування Cloudflare заміни його на:
+Для тимчасового доступу без домену замість HTTPS URL використовуйте:
 
 ```dotenv
-APP_URL=https://esp32.xyz
+APP_URL=http://VPS_IP:8081
 ```
 
-Файл `.env.prod` виключений із Docker build context. `APP_KEY` і паролі бази даних не вбудовуються в Docker-образ. Надалі використовуй той самий `APP_KEY` під час наступних деплоїв.
+`APP_URL` — адреса, яку відкриває користувач. `PROD_HTTP_PORT=18080` —
+окремий приватний порт між системним і Docker Nginx; його не додають до
+`APP_URL` і не відкривають у firewall.
 
-## 3. Побудова та запуск production-стека
+Кожен production-проєкт повинен мати власні `COMPOSE_PROJECT_NAME`,
+`PROD_HTTP_PORT`, `APP_KEY`, database name, user і passwords.
 
-Перевір конфігурацію Compose:
+## Перша побудова та запуск
+
+Перевірте Compose interpolation:
 
 ```bash
 make config-prod
 ```
 
-Якщо конфігурація правильна, ця команда зазвичай нічого не виводить. Будь-який вивід із помилкою означає, що конфігурацію потрібно виправити перед деплоєм.
-
-Запусти деплой:
+Стандартний deployment:
 
 ```bash
 make deploy
 ```
 
-`deploy` виконує таку безпечну послідовність:
+`make deploy` навмисно вимагає:
 
-1. Збирає PHP-, Nginx- і MariaDB-образи.
-2. Встановлює Composer-залежності в PHP image.
-3. Встановлює Node-залежності та збирає frontend у Nginx image.
-4. Запускає або оновлює production-сервіси.
-5. Виконує `php artisan migrate --force`.
-6. Кешує конфігурацію, маршрути та view.
-7. Перевіряє Laravel endpoint `/up` через локальний production-порт.
+- поточну гілку `main`;
+- чистий Git working tree;
+- доступний remote `origin/main`;
+- наявний файл `.env.prod`.
 
-Команда не виконує `migrate:fresh`, не видаляє volumes і не видаляє дані бази.
+Команда сама виконує `git pull --ff-only origin main`, перевіряє Compose,
+збирає images, запускає сервіси з очікуванням healthchecks, виконує production
+migrations і кешує Laravel configuration, routes та views. Не запускайте
+окремий pull перед нею.
 
-Перевір статус сервісів:
+Якщо ця Git-політика не підходить, використовуйте нижчі targets явно:
+
+```bash
+make prod-build
+make prod-up
+make prod-migrate
+make prod-optimize
+```
+
+## Перевірка приватного Docker stack
+
+Спочатку перевірте стан без DNS, TLS і зовнішнього Nginx:
 
 ```bash
 make prod-ps
+curl -I http://127.0.0.1:18080/up
 ```
 
-Очікувано сервіси `app`, `mariadb` і `nginx` мають бути в статусі `Up` та `(healthy)`. Для Nginx має бути приблизно таке port mapping:
+Очікується успішний HTTP response, а `app`, `mariadb` і `nginx` мають
+бути healthy. Якщо приватний endpoint не працює, зовнішній reverse proxy ще не
+налаштовуйте — дивіться [діагностику](operations.md#діагностика).
 
-```text
-127.0.0.1:8080->8080/tcp
+## Вибір публічного доступу
+
+| Варіант | Публічні порти | TLS | Рекомендація |
+| --- | --- | --- | --- |
+| Домен | `80/443` | Let’s Encrypt | Production |
+| Без домену | окремий `8081+` | Немає | Тимчасове демо |
+
+В обох варіантах Docker upstream `127.0.0.1:18080` залишається приватним.
+
+## Доступ без домену
+
+> Цей маршрут передає credentials і session cookies через незашифрований HTTP.
+> Не використовуйте його як постійний production-доступ.
+
+Скопіюйте готовий шаблон:
+
+```bash
+sudo cp docker/nginx/host/prod-no-domain.conf.example \
+    /etc/nginx/sites-available/project-a-no-domain
+sudo ln -s /etc/nginx/sites-available/project-a-no-domain \
+    /etc/nginx/sites-enabled/project-a-no-domain
 ```
 
-В image tag може відображатися `:local`. Це лише значення за замовчуванням для `IMAGE_TAG` і не означає, що запущено development Compose stack. Щоб використовувати зрозуміліший production tag, перед повторною збіркою додай у `.env.prod`:
+За замовчуванням
+[prod-no-domain.conf.example](../docker/nginx/host/prod-no-domain.conf.example)
+слухає публічний порт `8081` і проксіює до `127.0.0.1:18080`. Для іншого
+проєкту змініть обидва значення.
+
+Перевірте й активуйте конфігурацію:
+
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+sudo ufw allow 8081/tcp
+```
+
+Не відкривайте `18080/tcp`. Перевірка має йти від приватного шару до
+публічного:
+
+```bash
+curl -I http://127.0.0.1:18080/up
+sudo nginx -t
+curl -I http://VPS_IP:8081/up
+```
+
+## Домен і звичайний HTTPS
+
+Створіть DNS `A`-записи для `example.com` і, за потреби,
+`www.example.com`, які напряму вказують на IPv4-адресу VPS. Для IPv6 додайте
+`AAAA` лише якщо сервер справді доступний через IPv6.
+
+У `.env.prod` встановіть:
 
 ```dotenv
-IMAGE_TAG=prod
+APP_URL=https://example.com
 ```
 
-## 4. Перевірка production-образів
-
-Frontend знаходиться всередині Nginx-контейнера, а не в checkout-каталозі на сервері. Перевір його так:
+Скопіюйте HTTP bootstrap:
 
 ```bash
-docker compose --env-file .env.prod \
-  -f docker-compose.yml \
-  -f docker-compose.prod.yml \
-  exec -T nginx \
-  sh -lc 'find /var/www/html/public -maxdepth 2 -type f | sort | head -30'
+sudo cp docker/nginx/host/prod-domain.conf.example \
+    /etc/nginx/sites-available/example.com
+sudo nano /etc/nginx/sites-available/example.com
 ```
 
-Очікуваний результат:
+У [prod-domain.conf.example](../docker/nginx/host/prod-domain.conf.example)
+замініть `example.com`, `www.example.com` і upstream-порт, якщо він
+відрізняється від `18080`.
 
-```text
-/var/www/html/public/.htaccess
-/var/www/html/public/build/fonts-manifest.json
-/var/www/html/public/build/manifest.json
-/var/www/html/public/favicon.ico
-/var/www/html/public/index.php
-/var/www/html/public/robots.txt
-```
-
-Composer-залежності знаходяться всередині PHP-контейнера. Перевір їх так:
-
-```bash
-docker compose --env-file .env.prod \
-  -f docker-compose.yml \
-  -f docker-compose.prod.yml \
-  exec -T app \
-  sh -lc 'test -f vendor/autoload.php && echo vendor-ok'
-```
-
-Очікуваний результат:
-
-```text
-vendor-ok
-```
-
-Перевір Laravel через Docker Nginx port:
-
-```bash
-curl -i http://127.0.0.1:8080/up
-```
-
-Очікуваний результат:
-
-```text
-HTTP/1.1 200 OK
-Server: nginx
-Content-Type: text/html; charset=utf-8
-Connection: keep-alive
-Cache-Control: no-cache, private
-```
-
-## 5. Встановлення Cloudflare Origin Certificate
-
-Cloudflare Origin Certificate складається з двох файлів:
-
-- `origin.crt` — сертифікат;
-- `origin.key` — приватний ключ.
-
-Не додавай жоден із цих файлів у Git. На локальному комп’ютері скопіюй їх у домашню папку користувача на сервері:
-
-```bash
-scp -P 2222 /path/to/origin.crt /path/to/origin.key USER@SERVER_IP:~/
-```
-
-
-На сервері встанови їх із правильними правами доступу:
-
-```bash
-sudo install -d -m 700 /etc/nginx/certs/cloudflare
-
-sudo install -m 644 ~/origin.crt \
-  /etc/nginx/certs/cloudflare/esp32.xyz.origin.crt
-
-sudo install -m 600 ~/origin.key \
-  /etc/nginx/certs/cloudflare/esp32.xyz.origin.key
-```
-
-Перевір встановлені файли:
-
-```bash
-sudo ls -l /etc/nginx/certs/cloudflare
-```
-
-Після перевірки видали лише тимчасові копії з домашньої папки сервера. Захищену резервну копію ключа збережи в іншому безпечному місці:
-
-```bash
-rm ~/origin.crt ~/origin.key
-```
-
-## 6. Налаштування системного Nginx як reverse proxy
-
-У репозиторії є готовий production-шаблон системного Nginx:
-
-```text
-docker/nginx/host/prod.conf.example
-```
-
-Скопіюй його в конфігурацію Nginx на сервері:
-
-```bash
-sudo cp docker/nginx/host/prod.conf.example \
-  /etc/nginx/sites-available/esp32.xyz
-```
-
-Ubuntu після встановлення Nginx зазвичай має увімкнений стандартний сайт. Він також використовує `default_server` на порту `80`, тому його потрібно вимкнути перед активацією production-конфігурації:
+Активуйте сайт. Якщо стандартний Ubuntu site більше не потрібен, видаліть лише
+його symlink:
 
 ```bash
 sudo unlink /etc/nginx/sites-enabled/default
-```
-
-Це видаляє лише symlink із `sites-enabled`; стандартний файл у `sites-available` не видаляється.
-
-Якщо розгортаєш інший домен, відредагуй скопійований файл і заміни:
-
-- `esp32.xyz` і `www.esp32.xyz` на свої домени;
-- шлях до `ssl_certificate`, якщо сертифікат має іншу назву або розташування;
-- шлях до `ssl_certificate_key`, якщо ключ має іншу назву або розташування.
-
-Конфігурація використовує `proxy_pass http://127.0.0.1:8080`. Вона не використовує `root /var/www/html/public` і не підключається напряму до `app:9000`, оскільки це адреси та шляхи Docker-контейнерів, а не системного Nginx на VPS.
-
-Шаблон також містить security headers, заборону доступу до прихованих файлів, вимкнення зайвого логування для `favicon.ico` і `robots.txt`, а також кешування frontend-ресурсів на 7 днів. Для статичних файлів використовується `proxy_pass`, а не `try_files`, оскільки системний Nginx не має доступу до `/var/www/html/public` усередині Docker-образу.
-
-Production-шаблон довіряє заголовку `CF-Connecting-IP` лише для запитів з офіційних IPv4/IPv6-мереж Cloudflare. Після перевірки він замінює `X-Forwarded-For` нормалізованою адресою відвідувача. Це не дозволяє прямому клієнту підставити довільний IP через forwarding-заголовки. Актуальний список мереж публікується на `https://www.cloudflare.com/ips/`.
-
-У серверному `.env.prod` залиш:
-
-```dotenv
-TRUSTED_PROXIES=REMOTE_ADDR
-```
-
-Laravel довірятиме лише безпосередньо підключеному Docker Nginx, а Cloudflare-адресу перед цим безпечно обробить системний Nginx на VPS. Не використовуй `TRUSTED_PROXIES=*`.
-
-Активуй сайт і перезавантаж Nginx:
-
-```bash
-sudo ln -s /etc/nginx/sites-available/esp32.xyz \
-  /etc/nginx/sites-enabled/esp32.xyz
-
+sudo ln -s /etc/nginx/sites-available/example.com \
+    /etc/nginx/sites-enabled/example.com
 sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-Системний Nginx має проксіювати запити на `127.0.0.1:8080`. Не використовуй checkout-каталог Git як `root`, оскільки production frontend і Composer-залежності зберігаються в Docker-образах.
-
-Для локального development-оточення є окремий шаблон:
-
-```text
-docker/nginx/host/dev.conf.example
-```
-
-Він проксіює системний Nginx на dev-порт Docker `127.0.0.1:8000` і не потребує SSL.
-
-## 7. Налаштування Cloudflare та фінального Laravel URL
-
-У Cloudflare:
-
-1. Створи `A`-запис для `esp32.xyz`, який вказує на IP-адресу VPS.
-2. Увімкни Proxy для цього запису — помаранчеву хмаринку.
-3. Встанови режим SSL/TLS `Full (strict)`.
-
-Зміни `.env.prod` на публічний HTTPS URL:
-
-```dotenv
-APP_URL=https://esp32.xyz
-```
-
-Застосуй змінене оточення та перебудуй кеш конфігурації Laravel:
+Відкрийте тільки стандартні web-порти:
 
 ```bash
-make prod-up
-make prod-optimize
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw status numbered
 ```
 
-До налаштування DNS перевір HTTPS virtual host локально на VPS:
+Перед TLS перевірте HTTP virtual host:
 
 ```bash
-curl -k --resolve esp32.xyz:443:127.0.0.1 https://esp32.xyz/up
+curl -I http://example.com/up
 ```
 
-Очікуваний результат:
-
-```text
-HTTP/1.1 200 OK
-```
-
-Після налаштування DNS і Cloudflare перевір публічний endpoint:
+Встановіть Certbot і Nginx plugin:
 
 ```bash
-curl -I https://esp32.xyz/up
+sudo apt install -y certbot python3-certbot-nginx
 ```
 
-## 8. Деплой нової версії
-
-У каталозі проєкту на VPS:
+Отримайте сертифікат і дозвольте Certbot додати HTTPS та redirect:
 
 ```bash
-git pull
-make deploy
+sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-Наявний volume `mariadb-data` зберігається. У `.env.prod` мають залишатися той самий `APP_KEY` і ті самі облікові дані бази даних.
-
-## Reverse proxy для іншого проєкту
-
-Для другого Laravel-проєкту використовуй інший hostname і host port, наприклад `app-two.example.com` → `127.0.0.1:8081`. Два Compose-проєкти мають використовувати різні значення `COMPOSE_PROJECT_NAME` і різні host-порти.
-
-## Резервне копіювання та відновлення
-
-Створи логічний backup без відкриття MariaDB назовні:
+Якщо `www.example.com` не використовується, не додавайте його до команди й
+`server_name`. Перевірте автоматичне renewal:
 
 ```bash
-docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml exec -T mariadb \
-    sh -lc 'mariadb-dump -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"' > backup.sql
+sudo certbot renew --dry-run
+sudo nginx -t
+curl -I https://example.com/up
 ```
 
-Відновлюй backup лише після перевірки цільової бази даних:
+Certbot змінює активний файл у `/etc/nginx/sites-available/`, а repository
+template залишається повторно використовуваним HTTP bootstrap.
 
-```bash
-cat backup.sql | docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml exec -T mariadb \
-    sh -lc 'mariadb -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"'
-```
+## Кілька проєктів на одному VPS
 
-Використовуй password manager або захищене shell-оточення для credentials backup. Зберігай backup за межами каталогу проєкту та періодично перевіряй відновлення.
+Приклад розподілу:
 
-## Діагностика
+| Значення | Project A | Project B |
+| --- | --- | --- |
+| Каталог | `~/sites/project-a` | `~/sites/project-b` |
+| `COMPOSE_PROJECT_NAME` | `project-a` | `project-b` |
+| `PROD_HTTP_PORT` | `18080` | `18081` |
+| `APP_KEY` | унікальний A | унікальний B |
+| Database/user/passwords | окремі A | окремі B |
+| Domain URL | `https://example-a.com` | `https://example-b.com` |
+| No-domain URL | `http://VPS_IP:8081` | `http://VPS_IP:8082` |
 
-- `make config-prod` — перевіряє інтерполяцію Compose і конфігурацію сервісів;
-- `make prod-ps` — показує статус і health state контейнерів;
-- `make prod-logs` — показує логи production-сервісів;
-- `docker compose ... exec app php artisan about --only=environment` — підтверджує активне Laravel environment;
-- якщо `/up` не працює, спочатку перевір health MariaDB, потім логи PHP-FPM і Nginx.
+Для доменів усі system Nginx virtual hosts спільно слухають `80/443` і
+вибираються за `server_name`. Їхні `proxy_pass` ведуть на різні приватні
+upstreams `18080` і `18081`.
+
+Без доменів кожному проєкту потрібен окремий публічний listener, наприклад
+`8081` і `8082`. У firewall відкривають лише ці listeners, а не production
+upstreams.
+
+Для третього проєкту не потрібна нова інструкція: виберіть нові
+`COMPOSE_PROJECT_NAME`, `PROD_HTTP_PORT`, credentials і public identity та
+повторіть той самий параметризований процес.
+
+## Наступні кроки
+
+- Оновлення, логи, backup, діагностика й видалення:
+  [production operations](operations.md).
+- Cloudflare замість стандартного DNS/TLS:
+  [необов'язкова інтеграція Cloudflare](cloudflare.md).
+- Внутрішні мережі та порти:
+  [Docker-архітектура](architecture.md).
