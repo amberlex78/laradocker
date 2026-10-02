@@ -9,7 +9,7 @@
             <span class="truncate text-lg font-semibold text-gray-900 dark:text-white sm:text-xl">{{ config('app.name', 'Application') }}</span>
         </a>
 
-        <div class="ms-auto flex shrink-0 items-center gap-1 sm:gap-2">
+        <div class="flex shrink-0 items-center gap-1 sm:gap-2">
             <x-ui.theme-toggle />
 
             @auth

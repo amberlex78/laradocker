@@ -45,7 +45,7 @@ test('the public navigation keeps its mobile controls inside the viewport', func
         ->assertSee('class="flex min-w-48 flex-1 items-center gap-2 sm:gap-3"', false)
         ->assertSee('class="truncate text-lg font-semibold text-gray-900 dark:text-white sm:text-xl"', false)
         ->assertSee('whitespace-nowrap rounded-base px-2 py-2 text-sm', false)
-        ->assertSee('class="ms-auto flex shrink-0 items-center gap-1 sm:gap-2"', false)
+        ->assertSee('class="flex shrink-0 items-center gap-1 sm:gap-2"', false)
         ->assertDontSee('max-[', false);
 });
 
@@ -312,7 +312,7 @@ test('an admin shell renders the Flowbite sidebar and navbar structure', functio
         ->assertSee(now()->format('l, F j, Y'))
         ->assertSee('class="flex min-w-0 flex-wrap items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-4 lg:px-6"', false)
         ->assertSee('class="flex min-w-48 flex-1 items-center gap-2 sm:gap-3"', false)
-        ->assertSee('class="ms-auto flex shrink-0 items-center gap-1 sm:gap-2"', false)
+        ->assertSee('class="flex shrink-0 items-center gap-1 sm:gap-2"', false)
         ->assertDontSee('max-[480px]:', false)
         ->assertDontSee('hidden sm:inline-flex', false)
         ->assertSee('class="min-w-0 md:ms-64"', false)

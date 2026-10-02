@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="ms-auto flex shrink-0 items-center gap-1 sm:gap-2">
+        <div class="flex shrink-0 items-center gap-1 sm:gap-2">
             <x-ui.theme-toggle />
 
             <x-admin.user-role-badge :role="auth()->user()->role" class="inline-flex" />
