@@ -367,6 +367,8 @@ test('workspace header exposes the authenticated user menu', function (): void {
         ->assertSee('action="'.route('logout').'"', false)
         ->assertSee('x-data="{ profileMenuOpen: false }"', false)
         ->assertSee('x-show="profileMenuOpen"', false)
+        ->assertSee('x-transition', false)
+        ->assertSee('class="absolute start-0 top-full z-50 my-4 w-56 list-none divide-y divide-gray-100 rounded-base bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700 sm:end-0 sm:start-auto"', false)
         ->assertSee('divide-y divide-gray-100', false)
         ->assertSee('bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300', false)
         ->assertDontSee('Back to workspace')

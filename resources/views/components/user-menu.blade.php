@@ -5,7 +5,7 @@
         <x-icon name="chevron-down" class="h-4 w-4 shrink-0 text-gray-500 dark:text-gray-400" />
     </button>
 
-    <div x-cloak x-show="profileMenuOpen" x-transition.origin.top.right class="absolute end-0 top-full z-50 my-4 w-56 list-none divide-y divide-gray-100 rounded-base bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700" role="menu">
+    <div x-cloak x-show="profileMenuOpen" x-transition class="absolute start-0 top-full z-50 my-4 w-56 list-none divide-y divide-gray-100 rounded-base bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700 sm:end-0 sm:start-auto" role="menu">
         <div class="px-4 py-3">
             <span class="block truncate text-sm text-gray-900 dark:text-white">{{ auth()->user()->name }}</span>
             <span class="block truncate text-sm text-gray-500 dark:text-gray-400">{{ auth()->user()->email }}</span>
