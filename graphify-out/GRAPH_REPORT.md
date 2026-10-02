@@ -1,7 +1,7 @@
 # Graph Report - documentation-restructure  (2026-10-02)
 
 ## Corpus Check
-- 213 files · ~54,119 words
+- 213 files · ~54,392 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 33 file(s) not represented in the graph (top: (none) 17, .example 6, .conf 3)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `25541e21`
+- Built from commit: `0ed15c08`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -68,7 +68,7 @@
 - Локальна розробка
 - Docker-архітектура
 - Діагностика
-- Production operations
+- Експлуатація production-середовища
 - Laravel Docker Starter
 
 ## God Nodes (most connected - your core abstractions)
@@ -270,11 +270,11 @@ Nodes (7): Compose-файли, Docker-архітектура, Внутрішні
 
 ### Community 160 - "Діагностика"
 Cohesion: 0.29
-Nodes (7): 1. Compose configuration, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Діагностика
+Nodes (7): 1. Конфігурація Docker Compose, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Діагностика
 
-### Community 161 - "Production operations"
+### Community 161 - "Експлуатація production-середовища"
 Cohesion: 0.29
-Nodes (7): Backup MariaDB, Production operations, Restore MariaDB, Видалення одного проєкту, Міграції, Оновлення застосунку, Статус і логи
+Nodes (7): Видалення одного проєкту, Відновлення MariaDB, Експлуатація production-середовища, Міграції, Оновлення застосунку, Резервна копія MariaDB, Статус і логи
 
 ### Community 162 - "Laravel Docker Starter"
 Cohesion: 0.40

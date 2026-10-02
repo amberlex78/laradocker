@@ -6160,7 +6160,7 @@
       "node_kind": "heading",
       "norm_label": "\u0432\u0438\u0431\u0456\u0440 \u043f\u0443\u0431\u043b\u0456\u0447\u043d\u043e\u0433\u043e \u0434\u043e\u0441\u0442\u0443\u043f\u0443",
       "source_file": "docs/deployment.md",
-      "source_location": "L141"
+      "source_location": "L155"
     },
     {
       "id": "docs_deployment_\u0432\u0438\u043c\u043e\u0433\u0438",
@@ -6184,7 +6184,7 @@
       "node_kind": "heading",
       "norm_label": "\u0434\u043e\u043c\u0435\u043d \u0456 \u0437\u0432\u0438\u0447\u0430\u0438\u043d\u0438\u0438 https",
       "source_file": "docs/deployment.md",
-      "source_location": "L186"
+      "source_location": "L200"
     },
     {
       "id": "docs_deployment_\u0434\u043e\u0441\u0442\u0443\u043f_\u0431\u0435\u0437_\u0434\u043e\u043c\u0435\u043d\u0443",
@@ -6196,7 +6196,7 @@
       "node_kind": "heading",
       "norm_label": "\u0434\u043e\u0441\u0442\u0443\u043f \u0431\u0435\u0437 \u0434\u043e\u043c\u0435\u043d\u0443",
       "source_file": "docs/deployment.md",
-      "source_location": "L150"
+      "source_location": "L164"
     },
     {
       "id": "docs_deployment_\u043a\u043b\u043e\u043d\u0443\u0432\u0430\u043d\u043d\u044f_\u0442\u0430_production_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f",
@@ -6208,7 +6208,7 @@
       "node_kind": "heading",
       "norm_label": "\u043a\u043b\u043e\u043d\u0443\u0432\u0430\u043d\u043d\u044f \u0442\u0430 production-\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f",
       "source_file": "docs/deployment.md",
-      "source_location": "L42"
+      "source_location": "L56"
     },
     {
       "id": "docs_deployment_\u043a\u0456\u043b\u044c\u043a\u0430_\u043f\u0440\u043e\u0454\u043a\u0442\u0456\u0432_\u043d\u0430_\u043e\u0434\u043d\u043e\u043c\u0443_vps",
@@ -6220,7 +6220,7 @@
       "node_kind": "heading",
       "norm_label": "\u043a\u0456\u043b\u044c\u043a\u0430 \u043f\u0440\u043e\u0454\u043a\u0442\u0456\u0432 \u043d\u0430 \u043e\u0434\u043d\u043e\u043c\u0443 vps",
       "source_file": "docs/deployment.md",
-      "source_location": "L259"
+      "source_location": "L273"
     },
     {
       "id": "docs_deployment_\u043d\u0430\u0441\u0442\u0443\u043f\u043d\u0456_\u043a\u0440\u043e\u043a\u0438",
@@ -6232,7 +6232,7 @@
       "node_kind": "heading",
       "norm_label": "\u043d\u0430\u0441\u0442\u0443\u043f\u043d\u0456 \u043a\u0440\u043e\u043a\u0438",
       "source_file": "docs/deployment.md",
-      "source_location": "L285"
+      "source_location": "L299"
     },
     {
       "id": "docs_deployment_\u043f\u0435\u0440\u0435\u0432\u0456\u0440\u043a\u0430_\u043f\u0440\u0438\u0432\u0430\u0442\u043d\u043e\u0433\u043e_docker_stack",
@@ -6244,7 +6244,7 @@
       "node_kind": "heading",
       "norm_label": "\u043f\u0435\u0440\u0435\u0432\u0456\u0440\u043a\u0430 \u043f\u0440\u0438\u0432\u0430\u0442\u043d\u043e\u0433\u043e docker stack",
       "source_file": "docs/deployment.md",
-      "source_location": "L128"
+      "source_location": "L142"
     },
     {
       "id": "docs_deployment_\u043f\u0435\u0440\u0448\u0430_\u043f\u043e\u0431\u0443\u0434\u043e\u0432\u0430_\u0442\u0430_\u0437\u0430\u043f\u0443\u0441\u043a",
@@ -6256,7 +6256,7 @@
       "node_kind": "heading",
       "norm_label": "\u043f\u0435\u0440\u0448\u0430 \u043f\u043e\u0431\u0443\u0434\u043e\u0432\u0430 \u0442\u0430 \u0437\u0430\u043f\u0443\u0441\u043a",
       "source_file": "docs/deployment.md",
-      "source_location": "L93"
+      "source_location": "L107"
     },
     {
       "id": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
@@ -7191,16 +7191,16 @@
       "source_location": "L28"
     },
     {
-      "id": "docs_operations_1_compose_configuration",
-      "label": "1. Compose configuration",
+      "id": "docs_operations_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_docker_compose",
+      "label": "1. \u041a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f Docker Compose",
       "_origin": "ast",
       "community": 160,
       "community_name": "\u0414\u0456\u0430\u0433\u043d\u043e\u0441\u0442\u0438\u043a\u0430",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "1. compose configuration",
+      "norm_label": "1. \u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f docker compose",
       "source_file": "docs/operations.md",
-      "source_location": "L169"
+      "source_location": "L184"
     },
     {
       "id": "docs_operations_2_\u043a\u043e\u043d\u0442\u0435\u0439\u043d\u0435\u0440\u0438_\u0442\u0430_healthchecks",
@@ -7212,7 +7212,7 @@
       "node_kind": "heading",
       "norm_label": "2. \u043a\u043e\u043d\u0442\u0435\u0438\u043d\u0435\u0440\u0438 \u0442\u0430 healthchecks",
       "source_file": "docs/operations.md",
-      "source_location": "L177"
+      "source_location": "L192"
     },
     {
       "id": "docs_operations_3_laravel",
@@ -7224,7 +7224,7 @@
       "node_kind": "heading",
       "norm_label": "3. laravel",
       "source_file": "docs/operations.md",
-      "source_location": "L187"
+      "source_location": "L202"
     },
     {
       "id": "docs_operations_4_\u043f\u0440\u0438\u0432\u0430\u0442\u043d\u0438\u0439_upstream",
@@ -7236,7 +7236,7 @@
       "node_kind": "heading",
       "norm_label": "4. \u043f\u0440\u0438\u0432\u0430\u0442\u043d\u0438\u0438 upstream",
       "source_file": "docs/operations.md",
-      "source_location": "L200"
+      "source_location": "L215"
     },
     {
       "id": "docs_operations_5_\u0441\u0438\u0441\u0442\u0435\u043c\u043d\u0438\u0439_nginx",
@@ -7248,7 +7248,7 @@
       "node_kind": "heading",
       "norm_label": "5. \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u0438\u0438 nginx",
       "source_file": "docs/operations.md",
-      "source_location": "L210"
+      "source_location": "L225"
     },
     {
       "id": "docs_operations_6_firewall_dns_\u0456_tls",
@@ -7260,7 +7260,7 @@
       "node_kind": "heading",
       "norm_label": "6. firewall, dns \u0456 tls",
       "source_file": "docs/operations.md",
-      "source_location": "L220"
+      "source_location": "L235"
     },
     {
       "id": "docs_operations_\u0434\u0456\u0430\u0433\u043d\u043e\u0441\u0442\u0438\u043a\u0430",
@@ -7272,62 +7272,50 @@
       "node_kind": "heading",
       "norm_label": "\u0434\u0456\u0430\u0433\u043d\u043e\u0441\u0442\u0438\u043a\u0430",
       "source_file": "docs/operations.md",
-      "source_location": "L164"
-    },
-    {
-      "id": "docs_operations_backup_mariadb",
-      "label": "Backup MariaDB",
-      "_origin": "ast",
-      "community": 161,
-      "community_name": "Production operations",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "backup mariadb",
-      "source_file": "docs/operations.md",
-      "source_location": "L91"
-    },
-    {
-      "id": "docs_operations_production_operations",
-      "label": "Production operations",
-      "_origin": "ast",
-      "community": 161,
-      "community_name": "Production operations",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "production operations",
-      "source_file": "docs/operations.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "docs_operations_restore_mariadb",
-      "label": "Restore MariaDB",
-      "_origin": "ast",
-      "community": 161,
-      "community_name": "Production operations",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "restore mariadb",
-      "source_file": "docs/operations.md",
-      "source_location": "L133"
+      "source_location": "L179"
     },
     {
       "id": "docs_operations_\u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043d\u044f_\u043e\u0434\u043d\u043e\u0433\u043e_\u043f\u0440\u043e\u0454\u043a\u0442\u0443",
       "label": "\u0412\u0438\u0434\u0430\u043b\u0435\u043d\u043d\u044f \u043e\u0434\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0454\u043a\u0442\u0443",
       "_origin": "ast",
       "community": 161,
-      "community_name": "Production operations",
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "\u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043d\u044f \u043e\u0434\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0454\u043a\u0442\u0443",
       "source_file": "docs/operations.md",
-      "source_location": "L231"
+      "source_location": "L246"
+    },
+    {
+      "id": "docs_operations_\u0432\u0456\u0434\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f_mariadb",
+      "label": "\u0412\u0456\u0434\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f MariaDB",
+      "_origin": "ast",
+      "community": 161,
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\u0432\u0456\u0434\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f mariadb",
+      "source_file": "docs/operations.md",
+      "source_location": "L144"
+    },
+    {
+      "id": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "label": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "_origin": "ast",
+      "community": 161,
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "source_file": "docs/operations.md",
+      "source_location": "L1"
     },
     {
       "id": "docs_operations_\u043c\u0456\u0433\u0440\u0430\u0446\u0456\u0457",
       "label": "\u041c\u0456\u0433\u0440\u0430\u0446\u0456\u0457",
       "_origin": "ast",
       "community": 161,
-      "community_name": "Production operations",
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "\u043c\u0456\u0433\u0440\u0430\u0446\u0456\u0456",
@@ -7339,7 +7327,7 @@
       "label": "\u041e\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f \u0437\u0430\u0441\u0442\u043e\u0441\u0443\u043d\u043a\u0443",
       "_origin": "ast",
       "community": 161,
-      "community_name": "Production operations",
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "\u043e\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f \u0437\u0430\u0441\u0442\u043e\u0441\u0443\u043d\u043a\u0443",
@@ -7347,11 +7335,23 @@
       "source_location": "L33"
     },
     {
+      "id": "docs_operations_\u0440\u0435\u0437\u0435\u0440\u0432\u043d\u0430_\u043a\u043e\u043f\u0456\u044f_mariadb",
+      "label": "\u0420\u0435\u0437\u0435\u0440\u0432\u043d\u0430 \u043a\u043e\u043f\u0456\u044f MariaDB",
+      "_origin": "ast",
+      "community": 161,
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\u0440\u0435\u0437\u0435\u0440\u0432\u043d\u0430 \u043a\u043e\u043f\u0456\u044f mariadb",
+      "source_file": "docs/operations.md",
+      "source_location": "L91"
+    },
+    {
       "id": "docs_operations_\u0441\u0442\u0430\u0442\u0443\u0441_\u0456_\u043b\u043e\u0433\u0438",
       "label": "\u0421\u0442\u0430\u0442\u0443\u0441 \u0456 \u043b\u043e\u0433\u0438",
       "_origin": "ast",
       "community": 161,
-      "community_name": "Production operations",
+      "community_name": "\u0415\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f production-\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "\u0441\u0442\u0430\u0442\u0443\u0441 \u0456 \u043b\u043e\u0433\u0438",
@@ -21384,24 +21384,24 @@
     },
     {
       "source": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
+      "target": "docs_deployment_\u043f\u0435\u0440\u0448\u0430_\u043f\u043e\u0431\u0443\u0434\u043e\u0432\u0430_\u0442\u0430_\u0437\u0430\u043f\u0443\u0441\u043a",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/deployment.md",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
       "target": "docs_deployment_\u043f\u0435\u0440\u0435\u0432\u0456\u0440\u043a\u0430_\u043f\u0440\u0438\u0432\u0430\u0442\u043d\u043e\u0433\u043e_docker_stack",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L128",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
-      "target": "docs_deployment_\u0432\u0438\u0431\u0456\u0440_\u043f\u0443\u0431\u043b\u0456\u0447\u043d\u043e\u0433\u043e_\u0434\u043e\u0441\u0442\u0443\u043f\u0443",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/deployment.md",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -21417,13 +21417,24 @@
     },
     {
       "source": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
+      "target": "docs_deployment_\u0432\u0438\u0431\u0456\u0440_\u043f\u0443\u0431\u043b\u0456\u0447\u043d\u043e\u0433\u043e_\u0434\u043e\u0441\u0442\u0443\u043f\u0443",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/deployment.md",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
       "target": "docs_deployment_\u0434\u043e\u0441\u0442\u0443\u043f_\u0431\u0435\u0437_\u0434\u043e\u043c\u0435\u043d\u0443",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L150",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -21434,7 +21445,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L186",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -21445,7 +21456,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L259",
+      "source_location": "L273",
       "weight": 1.0
     },
     {
@@ -21456,7 +21467,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L285",
+      "source_location": "L299",
       "weight": 1.0
     },
     {
@@ -21467,18 +21478,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_deployment_\u0440\u043e\u0437\u0433\u043e\u0440\u0442\u0430\u043d\u043d\u044f_\u043d\u0430_ubuntu_vps",
-      "target": "docs_deployment_\u043f\u0435\u0440\u0448\u0430_\u043f\u043e\u0431\u0443\u0434\u043e\u0432\u0430_\u0442\u0430_\u0437\u0430\u043f\u0443\u0441\u043a",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/deployment.md",
-      "source_location": "L93",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -21571,7 +21571,7 @@
     },
     {
       "source": "docs_operations",
-      "target": "docs_operations_production_operations",
+      "target": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21581,91 +21581,14 @@
       "weight": 1.0
     },
     {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_restore_mariadb",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L133",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_\u0434\u0456\u0430\u0433\u043d\u043e\u0441\u0442\u0438\u043a\u0430",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L164",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_\u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043d\u044f_\u043e\u0434\u043d\u043e\u0433\u043e_\u043f\u0440\u043e\u0454\u043a\u0442\u0443",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L231",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_\u043e\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f_\u0437\u0430\u0441\u0442\u043e\u0441\u0443\u043d\u043a\u0443",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_\u0441\u0442\u0430\u0442\u0443\u0441_\u0456_\u043b\u043e\u0433\u0438",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_\u043c\u0456\u0433\u0440\u0430\u0446\u0456\u0457",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L73",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_operations_production_operations",
-      "target": "docs_operations_backup_mariadb",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/operations.md",
-      "source_location": "L91",
-      "weight": 1.0
-    },
-    {
       "source": "docs_operations_\u0434\u0456\u0430\u0433\u043d\u043e\u0441\u0442\u0438\u043a\u0430",
-      "target": "docs_operations_1_compose_configuration",
+      "target": "docs_operations_1_\u043a\u043e\u043d\u0444\u0456\u0433\u0443\u0440\u0430\u0446\u0456\u044f_docker_compose",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L169",
+      "source_location": "L184",
       "weight": 1.0
     },
     {
@@ -21676,7 +21599,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L177",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -21687,7 +21610,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L187",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -21698,7 +21621,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L200",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -21709,7 +21632,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L210",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -21720,7 +21643,84 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L220",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u0432\u0456\u0434\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f_mariadb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u0434\u0456\u0430\u0433\u043d\u043e\u0441\u0442\u0438\u043a\u0430",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043d\u044f_\u043e\u0434\u043d\u043e\u0433\u043e_\u043f\u0440\u043e\u0454\u043a\u0442\u0443",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u043e\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f_\u0437\u0430\u0441\u0442\u043e\u0441\u0443\u043d\u043a\u0443",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u0441\u0442\u0430\u0442\u0443\u0441_\u0456_\u043b\u043e\u0433\u0438",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u043c\u0456\u0433\u0440\u0430\u0446\u0456\u0457",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_operations_\u0435\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0456\u044f_production_\u0441\u0435\u0440\u0435\u0434\u043e\u0432\u0438\u0449\u0430",
+      "target": "docs_operations_\u0440\u0435\u0437\u0435\u0440\u0432\u043d\u0430_\u043a\u043e\u043f\u0456\u044f_mariadb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/operations.md",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -26505,7 +26505,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/cloudflare.md",
-      "source_location": "L191",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -26527,7 +26527,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/deployment.md",
-      "source_location": "L139",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -26549,7 +26549,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/operations.md",
-      "source_location": "L269",
+      "source_location": "L286",
       "weight": 1.0
     },
     {
@@ -27814,5 +27814,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "25541e2113e5934f521bf6d72e10500b75036d2e"
+  "built_at_commit": "0ed15c08433c9d386bd7dcd3ae29d67b08c82b37"
 }

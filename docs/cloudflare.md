@@ -174,13 +174,31 @@ curl -I http://127.0.0.1:18080/up
 
 ## Повернення до звичайного HTTPS
 
-Щоб відмовитися від Cloudflare:
+Перехід потребує короткого maintenance window: HTTP bootstrap не слухає
+`443`, а два active virtual hosts з однаковими hostname не можна вмикати
+одночасно.
 
-1. Підготуйте `prod-domain.conf.example` для того самого upstream.
-2. Вимкніть Cloudflare Proxy для DNS records і дочекайтеся оновлення DNS.
-3. Активуйте HTTP bootstrap, перевірте `nginx -t` і доступ через port `80`.
-4. Отримайте публічно довірений сертифікат через `certbot --nginx`.
-5. Лише після успішної HTTPS-перевірки вимкніть Cloudflare virtual host.
+1. Поки Cloudflare Proxy увімкнений, підготуйте
+   `prod-domain.conf.example` у `/etc/nginx/sites-available/example.com` для
+   того самого upstream, але ще не активуйте його.
+2. В узгоджене maintenance window атомарно замініть active symlink і
+   перезавантажте Nginx лише після успішної перевірки:
+
+```bash
+sudo unlink /etc/nginx/sites-enabled/example.com-cloudflare
+sudo ln -s /etc/nginx/sites-available/example.com \
+    /etc/nginx/sites-enabled/example.com
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+3. Не вимикаючи Cloudflare Proxy, одразу отримайте публічно довірений
+   сертифікат через `certbot --nginx`. HTTP-01 challenge пройде через port
+   `80`; до завершення issuance звичайні HTTPS-запити через Cloudflare можуть
+   бути тимчасово недоступні.
+4. Перевірте `sudo nginx -t`, `https://example.com/up` і certificate issuer.
+5. Лише після цього переведіть DNS records у режим **DNS only**, дочекайтеся
+   оновлення DNS і повторно перевірте HTTPS уже напряму до VPS.
 
 Не видаляйте Origin Certificate або DNS-конфігурацію до завершення переходу.
 

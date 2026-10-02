@@ -1,4 +1,4 @@
-# Production operations
+# Експлуатація production-середовища
 
 Цей гайд застосовується після успішного
 [deployment на Ubuntu VPS](deployment.md). Усі Make-команди запускайте з
@@ -88,7 +88,7 @@ make prod-optimize
 видаляє всі таблиці та дані. Відновлення production виконується з перевіреної
 резервної копії, а не через fresh migration.
 
-## Backup MariaDB
+## Резервна копія MariaDB
 
 Створіть захищений каталог поза Git checkout:
 
@@ -97,16 +97,27 @@ mkdir -p ~/backups/project-a
 chmod 700 ~/backups/project-a
 ```
 
-Перевірте назву Compose project і цільову базу:
+Перевірте checkout, безпечні значення з `.env.prod`, фактичні імена
+контейнерів і host binding. `grep` навмисно не виводить passwords:
 
 ```bash
+pwd
+grep -E '^(COMPOSE_PROJECT_NAME|PROD_HTTP_PORT|DB_DATABASE)=' .env.prod
 make config-prod
+docker compose --env-file .env.prod \
+    -f docker-compose.yml \
+    -f docker-compose.prod.yml \
+    ps
 docker compose --env-file .env.prod \
     -f docker-compose.yml \
     -f docker-compose.prod.yml \
     exec -T mariadb \
     sh -lc 'printf "Database: %s\n" "$MARIADB_DATABASE"'
 ```
+
+У `ps` ім'я контейнера має починатися з потрібного `COMPOSE_PROJECT_NAME`, а
+Nginx має публікувати саме `127.0.0.1:PROD_HTTP_PORT->8080/tcp`. Якщо stack ще
+не запущений, перевірте ці значення до запуску й повторіть `ps` після нього.
 
 Створіть logical dump без публікації MariaDB на host:
 
@@ -130,7 +141,7 @@ sed -n '1,10p' ~/backups/project-a/database.sql
 Зберігайте копію за межами VPS. Backup, який ніколи не перевіряли
 відновленням, не можна вважати надійним.
 
-## Restore MariaDB
+## Відновлення MariaDB
 
 Відновлення перезаписує стан цільової бази. Перед виконанням:
 
@@ -139,6 +150,10 @@ sed -n '1,10p' ~/backups/project-a/database.sql
    `MARIADB_DATABASE`.
 3. Спочатку відновіть dump у staging або тимчасовий окремий Compose project.
 4. Перевірте migrations, ключові записи та запуск застосунку.
+
+Перед restore повторіть read-only перевірки `pwd`, `grep`, `make config-prod`,
+`docker compose ... ps` і назви бази з розділу про резервну копію. Не
+продовжуйте, якщо project name, database або binding не збігаються з ціллю.
 
 Після явної перевірки цілі:
 
@@ -166,7 +181,7 @@ make prod-ps
 Перевіряйте шари по черзі й не переходьте назовні, доки внутрішній шар не
 працює.
 
-### 1. Compose configuration
+### 1. Конфігурація Docker Compose
 
 ```bash
 make config-prod
@@ -235,8 +250,10 @@ Nginx site.
 
 1. Створіть і перевірте backup.
 2. Перейдіть у checkout та перевірте шлях через `pwd`.
-3. Перевірте `COMPOSE_PROJECT_NAME` і `PROD_HTTP_PORT` через
-   `make config-prod`.
+3. Повторіть read-only перевірки `pwd`, `grep`, `make config-prod`,
+   `docker compose ... ps` і назви бази з розділу про резервну копію.
+   Переконайтеся, що container names, database і
+   `127.0.0.1:PROD_HTTP_PORT->8080/tcp` належать саме цьому проєкту.
 4. Знайдіть посилання на domain, public port і upstream:
 
 ```bash

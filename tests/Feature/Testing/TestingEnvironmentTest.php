@@ -25,7 +25,7 @@ test('environment templates never trust arbitrary forwarding proxies', function 
 });
 
 test('the production host proxy restores Cloudflare visitor addresses before forwarding', function (): void {
-    $contents = file_get_contents(base_path('docker/nginx/host/prod.conf.example'));
+    $contents = file_get_contents(base_path('docker/nginx/host/prod-cloudflare.conf.example'));
     $cloudflareNetworks = [
         '173.245.48.0/20',
         '103.21.244.0/22',

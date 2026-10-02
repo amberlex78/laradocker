@@ -31,10 +31,24 @@ docker compose version
 
 ```bash
 sudo apt update
-sudo apt install -y git make nginx
+sudo apt install -y git make nginx ufw
 sudo systemctl enable --now nginx
 sudo nginx -t
 ```
+
+Перед увімкненням UFW спочатку дозвольте фактичний SSH-порт. `OpenSSH`
+відповідає стандартному port `22`; якщо `sshd` слухає інший port, замініть
+правило на `sudo ufw allow SSH_PORT/tcp` і не закривайте поточну SSH-сесію,
+доки не перевірите нове підключення в окремому terminal:
+
+```bash
+sudo ufw allow OpenSSH
+sudo ufw enable
+sudo ufw status verbose
+```
+
+Firewall у панелі VPS provider або security group також має дозволяти SSH і
+лише ті web-порти, які ви оберете нижче. Не відкривайте `PROD_HTTP_PORT`.
 
 Не встановлюйте PHP, Composer, Node.js або MariaDB безпосередньо на VPS: вони
 входять до Docker images.
