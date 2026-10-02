@@ -3,13 +3,13 @@
 ])
 
 <header class="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-    <nav class="mx-auto flex min-w-0 max-w-7xl items-center justify-between gap-2 px-3 py-4 sm:gap-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <a href="{{ route('home') }}" class="flex min-w-0 shrink items-center gap-2 sm:gap-3">
+    <nav class="mx-auto flex min-w-0 flex-wrap items-center justify-between gap-2 px-3 py-4 sm:gap-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+        <a href="{{ route('home') }}" class="flex min-w-48 flex-1 items-center gap-2 sm:gap-3">
             <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-base bg-blue-600 text-lg font-bold text-white">L</span>
             <span class="truncate text-lg font-semibold text-gray-900 dark:text-white sm:text-xl">{{ config('app.name', 'Application') }}</span>
         </a>
 
-        <div class="flex shrink-0 items-center gap-1 sm:gap-2">
+        <div class="ms-auto flex shrink-0 items-center gap-1 sm:gap-2">
             <x-ui.theme-toggle />
 
             @auth
