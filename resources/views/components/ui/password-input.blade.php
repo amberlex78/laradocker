@@ -5,6 +5,10 @@
     'error' => null,
 ])
 
+@php
+    $isDisabled = $attributes->has('disabled') && $attributes->get('disabled') !== false;
+@endphp
+
 <div x-data="{ passwordVisible: false }">
     <x-ui.input
         :label="$label"
@@ -13,10 +17,10 @@
         :error="$error"
         type="password"
         x-bind:type="passwordVisible ? 'text' : 'password'"
-        {{ $attributes->class($attributes->has('disabled') ? [] : ['pe-11']) }}
+        {{ $attributes->class($isDisabled ? [] : ['pe-11']) }}
     >
         <x-slot:trailing>
-            @unless ($attributes->has('disabled'))
+            @unless ($isDisabled)
                 <button
                     type="button"
                     class="absolute inset-y-0 end-0 flex w-11 items-center justify-center p-0 text-gray-500 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-blue-500"

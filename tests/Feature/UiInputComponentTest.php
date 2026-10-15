@@ -35,3 +35,17 @@ test('ui password input renders an accessible visibility toggle', function (): v
         ->assertSeeHtml('data-icon="eye"')
         ->assertSeeHtml('data-icon="eye-off"');
 });
+
+test('ui password input only hides the visibility toggle when disabled', function (): void {
+    $this->blade(
+        '<x-ui.password-input id="editable-password" name="password" :disabled="false" />'
+    )
+        ->assertSeeHtml('data-icon="eye"')
+        ->assertSeeHtml('pe-11');
+
+    $this->blade(
+        '<x-ui.password-input id="disabled-password" name="password" disabled />'
+    )
+        ->assertDontSee('data-icon="eye"')
+        ->assertDontSee('pe-11');
+});
