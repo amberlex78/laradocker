@@ -46,7 +46,7 @@ test('the admin index excludes developers while showing business users', functio
         ->assertDontSee($developer->email);
 });
 
-test('an admin can create every business role', function (UserRole $role): void {
+test('an admin can create non-administrator business roles', function (UserRole $role): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
 
     $response = $this->actingAs($admin)->post(route('admin.users.store'), [
@@ -63,10 +63,25 @@ test('an admin can create every business role', function (UserRole $role): void 
 
     expect($createdUser->role)->toBe($role);
 })->with([
-    'admin' => UserRole::Admin,
     'operator' => UserRole::Operator,
     'user' => UserRole::User,
 ]);
+
+test('an admin cannot create another administrator', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+
+    $this->actingAs($admin)
+        ->post(route('admin.users.store'), [
+            'name' => 'Second Administrator',
+            'email' => 'second-admin@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'role' => UserRole::Admin->value,
+        ])
+        ->assertForbidden();
+
+    expect(User::where('email', 'second-admin@example.com')->exists())->toBeFalse();
+});
 
 test('an admin can update an allowed user profile', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
@@ -102,6 +117,47 @@ test('an admin cannot demote an existing administrator', function (): void {
         ->assertForbidden();
 
     expect($target->fresh()->role)->toBe(UserRole::Admin);
+});
+
+test('an admin cannot update another administrator profile', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $target = User::factory()->create([
+        'name' => 'Protected Administrator',
+        'email' => 'protected-admin@example.com',
+        'role' => UserRole::Admin,
+    ]);
+    $originalPassword = $target->password;
+
+    $this->actingAs($admin)
+        ->put(route('admin.users.update', $target), [
+            'name' => 'Changed Administrator',
+            'email' => 'changed-admin@example.com',
+            'password' => 'new-password',
+            'password_confirmation' => 'new-password',
+            'role' => UserRole::Admin->value,
+        ])
+        ->assertForbidden();
+
+    expect($target->fresh()->name)->toBe('Protected Administrator')
+        ->and($target->fresh()->email)->toBe('protected-admin@example.com')
+        ->and($target->fresh()->password)->toBe($originalPassword);
+});
+
+test('an admin cannot promote a business user to administrator', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $target = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->put(route('admin.users.update', $target), [
+            'name' => $target->name,
+            'email' => $target->email,
+            'password' => '',
+            'password_confirmation' => '',
+            'role' => UserRole::Admin->value,
+        ])
+        ->assertForbidden();
+
+    expect($target->fresh()->role)->toBe(UserRole::User);
 });
 
 test('an admin cannot change their own role', function (): void {

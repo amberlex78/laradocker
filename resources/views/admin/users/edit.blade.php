@@ -2,17 +2,18 @@
     <x-admin.page-header
         title="Edit user"
         icon="file-pen"
-        description="Update account details without changing protected access boundaries."
+        description="{{ $canEdit ? 'Update account details without changing protected access boundaries.' : 'This administrator account is read-only.' }}"
     />
 
     <div class="grid gap-6 lg:grid-cols-2 lg:items-stretch">
-        <x-ui.card title="User details" description="Update the account profile and role where permitted.">
+        <x-ui.card title="User details" description="{{ $canEdit ? 'Update the account profile and role where permitted.' : 'This account is protected and cannot be edited.' }}">
             <x-admin.user-form
                 :user="$user"
                 :action="route('admin.users.update', $user)"
                 method="PUT"
                 :available-roles="$availableRoles"
-                :role-editable="! ($user->role === \App\Enums\UserRole::Admin)"
+                :role-editable="$canEdit && $user->role !== \App\Enums\UserRole::Admin"
+                :fields-editable="$canEdit"
                 :cancel-url="route('admin.users.index')"
             />
         </x-ui.card>

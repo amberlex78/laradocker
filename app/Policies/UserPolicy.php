@@ -21,13 +21,18 @@ class UserPolicy
     public function create(User $actor, UserRole $role): bool
     {
         return $actor->role === UserRole::Developer
-            || ($actor->role === UserRole::Admin && $role !== UserRole::Developer);
+            || ($actor->role === UserRole::Admin && in_array($role, [
+                UserRole::Operator,
+                UserRole::User,
+            ], true));
     }
 
     public function update(User $actor, User $target): bool
     {
         return $actor->role === UserRole::Developer
-            || ($actor->role === UserRole::Admin && $target->role !== UserRole::Developer);
+            || ($actor->role === UserRole::Admin
+                && $target->role !== UserRole::Developer
+                && ($target->role !== UserRole::Admin || $this->isSameUser($actor, $target)));
     }
 
     public function changeRole(User $actor, User $target, UserRole $role): bool
@@ -44,7 +49,7 @@ class UserPolicy
             return false;
         }
 
-        return $target->role !== UserRole::Admin || $role === UserRole::Admin;
+        return $target->role !== UserRole::Admin && $role !== UserRole::Admin;
     }
 
     public function delete(User $actor, User $target): bool

@@ -280,6 +280,19 @@ test('user details pages share the overview two-column card grid', function (): 
         ->assertDontSee('Danger zone');
 });
 
+test('admin details pages do not render delete controls for another administrator', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $target = User::factory()->create(['role' => UserRole::Admin]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.show', $target))
+        ->assertOk()
+        ->assertSee('Account protection')
+        ->assertSee('Protected')
+        ->assertDontSee('Danger zone')
+        ->assertDontSee('action="'.route('admin.users.destroy', $target).'"', false);
+});
+
 test('user management actions render named Lucide icons', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $target = User::factory()->create(['role' => UserRole::User]);
@@ -327,7 +340,6 @@ test('admin create and edit forms expose business roles and delete controls', fu
         ->assertSee('name="name"', false)
         ->assertSee('name="email"', false)
         ->assertSee('name="password"', false)
-        ->assertSee('value="admin"', false)
         ->assertSee('value="operator"', false)
         ->assertSee('value="user"', false)
         ->assertDontSee('value="developer"', false);
@@ -411,6 +423,7 @@ test('edit pages place the danger zone in the second column without empty create
         ->assertSee('lg:grid-cols-2', false)
         ->assertSee('Account protection')
         ->assertSee('Protected')
+        ->assertSee('This role is protected in the current workspace.')
         ->assertDontSee('Danger zone');
 
     $this->actingAs($developer)
@@ -424,4 +437,24 @@ test('edit pages place the danger zone in the second column without empty create
         ->assertSee('lg:grid-cols-2', false)
         ->assertSee('Danger zone')
         ->assertSee('Delete user');
+});
+
+test('admin edit pages render another administrator as read-only', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $target = User::factory()->create([
+        'name' => 'Protected Administrator',
+        'email' => 'protected-admin@example.com',
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.edit', $target))
+        ->assertOk()
+        ->assertSee('value="Protected Administrator"', false)
+        ->assertSee('value="protected-admin@example.com"', false)
+        ->assertDontSee('readonly', false)
+        ->assertSee('disabled', false)
+        ->assertSee('This account is protected.')
+        ->assertDontSee('developer')
+        ->assertDontSee('>Save changes<', false);
 });

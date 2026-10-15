@@ -37,12 +37,12 @@ test('developers can view every user role', function (UserRole $targetRole): voi
     expect(Gate::forUser($actor)->allows('view', $target))->toBeTrue();
 })->with(UserRole::cases());
 
-test('administrators can create business roles but not developers', function (UserRole $role, bool $allowed): void {
+test('administrators can create non-administrator business roles but not administrators or developers', function (UserRole $role, bool $allowed): void {
     $actor = User::factory()->make(['role' => UserRole::Admin]);
 
     expect(Gate::forUser($actor)->allows('create', [User::class, $role]))->toBe($allowed);
 })->with([
-    'admin' => [UserRole::Admin, true],
+    'admin' => [UserRole::Admin, false],
     'operator' => [UserRole::Operator, true],
     'user' => [UserRole::User, true],
     'developer' => [UserRole::Developer, false],
@@ -54,17 +54,25 @@ test('developers can create every user role', function (UserRole $role): void {
     expect(Gate::forUser($actor)->allows('create', [User::class, $role]))->toBeTrue();
 })->with(UserRole::cases());
 
-test('admins can update profile fields for business users including themselves', function (UserRole $targetRole): void {
+test('administrators can update their own profile and business user profiles', function (UserRole $targetRole): void {
     $actor = User::factory()->make(['role' => UserRole::Admin]);
-    $target = User::factory()->make(['role' => $targetRole]);
+    $target = $targetRole === UserRole::Admin
+        ? $actor
+        : User::factory()->make(['role' => $targetRole]);
 
     expect(Gate::forUser($actor)->allows('update', $target))->toBeTrue();
 })->with([
     'self' => [UserRole::Admin],
-    'other admin' => [UserRole::Admin],
     'operator' => [UserRole::Operator],
     'user' => [UserRole::User],
 ]);
+
+test('administrators cannot update another administrator profile', function (): void {
+    $actor = User::factory()->make(['role' => UserRole::Admin]);
+    $target = User::factory()->make(['role' => UserRole::Admin]);
+
+    expect(Gate::forUser($actor)->allows('update', $target))->toBeFalse();
+});
 
 test('administrators cannot update developer profiles', function (): void {
     $actor = User::factory()->make(['role' => UserRole::Admin]);
@@ -73,13 +81,13 @@ test('administrators cannot update developer profiles', function (): void {
     expect(Gate::forUser($actor)->allows('update', $target))->toBeFalse();
 });
 
-test('administrators can change business roles except for admin demotions', function (UserRole $targetRole, UserRole $role, bool $allowed): void {
+test('administrators can change business roles but cannot assign administrator access', function (UserRole $targetRole, UserRole $role, bool $allowed): void {
     $actor = User::factory()->make(['role' => UserRole::Admin]);
     $target = User::factory()->make(['role' => $targetRole]);
 
     expect(Gate::forUser($actor)->allows('changeRole', [$target, $role]))->toBe($allowed);
 })->with([
-    'promote user' => [UserRole::User, UserRole::Admin, true],
+    'promote user' => [UserRole::User, UserRole::Admin, false],
     'lower operator' => [UserRole::Operator, UserRole::User, true],
     'demote admin' => [UserRole::Admin, UserRole::User, false],
 ]);

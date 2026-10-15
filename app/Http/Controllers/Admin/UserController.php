@@ -34,7 +34,6 @@ class UserController extends Controller
 
         return view('admin.users.create', [
             'availableRoles' => [
-                UserRole::Admin,
                 UserRole::Operator,
                 UserRole::User,
             ],
@@ -71,15 +70,18 @@ class UserController extends Controller
     {
         $target = $this->resolveVisibleUser($user);
 
-        Gate::authorize('update', $target);
+        Gate::authorize('view', $target);
+
+        $canEdit = Gate::allows('update', $target);
 
         return view('admin.users.edit', [
             'user' => $target,
             'availableRoles' => [
-                UserRole::Admin,
+                ...($target->role === UserRole::Admin ? [UserRole::Admin] : []),
                 UserRole::Operator,
                 UserRole::User,
             ],
+            'canEdit' => $canEdit,
         ]);
     }
 

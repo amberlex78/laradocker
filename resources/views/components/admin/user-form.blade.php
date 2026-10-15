@@ -4,6 +4,7 @@
     'method' => 'POST',
     'availableRoles' => [],
     'roleEditable' => true,
+    'fieldsEditable' => true,
     'submitLabel' => 'Save changes',
     'cancelUrl' => null,
 ])
@@ -29,6 +30,7 @@
             label="Full name"
             :value="old('name', $user?->name)"
             :error="$errors->first('name')"
+            :disabled="! $fieldsEditable"
             required
             autofocus
         />
@@ -39,6 +41,7 @@
             type="email"
             :value="old('email', $user?->email)"
             :error="$errors->first('email')"
+            :disabled="! $fieldsEditable"
             required
         />
 
@@ -47,6 +50,7 @@
             label="Password"
             :error="$errors->first('password')"
             :required="$user === null"
+            :disabled="! $fieldsEditable"
         />
 
         <x-ui.password-input
@@ -54,6 +58,7 @@
             label="Confirm password"
             :error="$errors->first('password_confirmation')"
             :required="$user === null"
+            :disabled="! $fieldsEditable"
         />
 
         @if (! $roleEditable)
@@ -75,6 +80,10 @@
         </x-ui.select>
     </div>
 
+    @if (! $fieldsEditable)
+        <p class="text-sm text-gray-500 dark:text-gray-400">This account is protected.</p>
+    @endif
+
     <div class="flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700">
         @if ($cancelUrl)
             <x-ui.link-button href="{{ $cancelUrl }}" variant="secondary">
@@ -82,9 +91,11 @@
                 Back to users
             </x-ui.link-button>
         @endif
-        <x-ui.button type="submit">
-            <x-icon name="save" class="h-4 w-4" />
-            {{ $submitLabel }}
-        </x-ui.button>
+        @if ($fieldsEditable)
+            <x-ui.button type="submit">
+                <x-icon name="save" class="h-4 w-4" />
+                {{ $submitLabel }}
+            </x-ui.button>
+        @endif
     </div>
 </form>
