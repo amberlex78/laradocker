@@ -21,6 +21,7 @@
             $error
                 ? 'block w-full rounded-base border border-red-500 bg-red-50 p-2.5 text-sm text-red-900 focus:border-red-500 focus:ring-red-500 focus:outline-none dark:border-red-400 dark:bg-red-900/20 dark:text-red-400'
                 : 'block w-full rounded-base border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400',
+            'disabled:cursor-not-allowed disabled:bg-neutral-secondary-medium disabled:border-default-medium disabled:text-fg-disabled disabled:shadow-xs disabled:focus:border-default-medium disabled:focus:ring-0',
         ])->merge(['id' => $selectId, 'name' => $name]) }}
     >
         {{ $slot }}

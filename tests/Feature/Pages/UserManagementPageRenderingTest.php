@@ -454,6 +454,11 @@ test('admin edit pages render another administrator as read-only', function (): 
         ->assertSee('value="protected-admin@example.com"', false)
         ->assertDontSee('readonly', false)
         ->assertSee('disabled', false)
+        ->assertSee('disabled:bg-neutral-secondary-medium', false)
+        ->assertSee('disabled:border-default-medium', false)
+        ->assertSee('disabled:text-fg-disabled', false)
+        ->assertSee('disabled:shadow-xs', false)
+        ->assertDontSee('aria-label="Show password"', false)
         ->assertSee('This account is protected.')
         ->assertDontSee('developer')
         ->assertDontSee('>Save changes<', false);
