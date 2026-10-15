@@ -179,12 +179,18 @@ test('developer user pages protect the current developer from self-deletion', fu
 
     $this->actingAs($developer)
         ->get(route('developer.users.show', $developer))
-        ->assertSee('Protected')
+        ->assertSee('Account protection')
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('action="'.route('developer.users.destroy', $developer).'"', false);
 
     $this->actingAs($developer)
         ->get(route('developer.users.edit', $developer))
-        ->assertSee('Protected')
+        ->assertSee('Account protection')
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('value="DELETE"', false);
 });
 
@@ -216,7 +222,7 @@ test('user deletion controls render confirmation modals instead of native confir
     }
 });
 
-test('user details pages use a text edit action in the page header', function (): void {
+test('user details pages render the edit action in the details card footer', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
     $adminTarget = User::factory()->create(['role' => UserRole::User]);
     $developer = User::factory()->create(['role' => UserRole::Developer]);
@@ -225,7 +231,8 @@ test('user details pages use a text edit action in the page header', function ()
     $this->actingAs($admin)
         ->get(route('admin.users.show', $adminTarget))
         ->assertOk()
-        ->assertSee('<div class="shrink-0">', false)
+        ->assertDontSee('<div class="shrink-0">', false)
+        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
         ->assertSee('href="'.route('admin.users.edit', $adminTarget).'"', false)
         ->assertSee('Edit User')
         ->assertSee('data-icon="file-pen"', false)
@@ -235,7 +242,8 @@ test('user details pages use a text edit action in the page header', function ()
     $this->actingAs($developer)
         ->get(route('developer.users.show', $developerTarget))
         ->assertOk()
-        ->assertSee('<div class="shrink-0">', false)
+        ->assertDontSee('<div class="shrink-0">', false)
+        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
         ->assertSee('href="'.route('developer.users.edit', $developerTarget).'"', false)
         ->assertSee('Edit User')
         ->assertSee('data-icon="file-pen"', false)
@@ -262,6 +270,9 @@ test('user details pages share the overview two-column card grid', function (): 
         ->assertOk()
         ->assertSee('class="mt-6 grid gap-6 xl:grid-cols-2"', false)
         ->assertSee('Account protection')
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('Danger zone');
 
     $this->actingAs($developer)
@@ -277,7 +288,31 @@ test('user details pages share the overview two-column card grid', function (): 
         ->assertOk()
         ->assertSee('class="mt-6 grid gap-6 xl:grid-cols-2"', false)
         ->assertSee('Account protection')
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('Danger zone');
+});
+
+test('user details pages render the back action below the overview cards', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    $adminTarget = User::factory()->create(['role' => UserRole::User]);
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    $developerTarget = User::factory()->create(['role' => UserRole::User]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.users.show', $adminTarget))
+        ->assertOk()
+        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
+        ->assertSee('href="'.route('admin.users.index').'"', false)
+        ->assertSee('Back to users');
+
+    $this->actingAs($developer)
+        ->get(route('developer.users.show', $developerTarget))
+        ->assertOk()
+        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
+        ->assertSee('href="'.route('developer.users.index').'"', false)
+        ->assertSee('Back to users');
 });
 
 test('admin details pages do not render delete controls for another administrator', function (): void {
@@ -288,8 +323,12 @@ test('admin details pages do not render delete controls for another administrato
         ->get(route('admin.users.show', $target))
         ->assertOk()
         ->assertSee('Account protection')
-        ->assertSee('Protected')
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('Danger zone')
+        ->assertDontSee('href="'.route('admin.users.edit', $target).'"', false)
+        ->assertDontSee('Edit User')
         ->assertDontSee('action="'.route('admin.users.destroy', $target).'"', false);
 });
 
@@ -422,7 +461,9 @@ test('edit pages place the danger zone in the second column without empty create
         ->get(route('admin.users.edit', $admin))
         ->assertSee('lg:grid-cols-2', false)
         ->assertSee('Account protection')
-        ->assertSee('Protected')
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertSee('This role is protected in the current workspace.')
         ->assertDontSee('Danger zone');
 
@@ -458,6 +499,9 @@ test('admin edit pages render another administrator as read-only', function (): 
         ->assertSee('disabled:border-default-medium', false)
         ->assertSee('disabled:text-fg-disabled', false)
         ->assertSee('disabled:shadow-xs', false)
+        ->assertSee('Delete user')
+        ->assertSee('disabled', false)
+        ->assertDontSee('>Protected<', false)
         ->assertDontSee('aria-label="Show password"', false)
         ->assertSee('This account is protected.')
         ->assertDontSee('developer')

@@ -63,7 +63,10 @@ class UserController extends Controller
 
         Gate::authorize('view', $target);
 
-        return view('admin.users.show', ['user' => $target]);
+        return view('admin.users.show', [
+            'user' => $target,
+            'canEdit' => Gate::allows('update', $target),
+        ]);
     }
 
     public function edit(int|string $user): View
