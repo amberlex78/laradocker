@@ -2,8 +2,10 @@
 
 use App\Enums\UserRole;
 use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 
 uses(RefreshDatabase::class);
 
@@ -57,6 +59,23 @@ test('a developer can create every user role', function (UserRole $role): void {
     expect(User::where('email', "developer-{$role->value}@example.com")->firstOrFail()->role)
         ->toBe($role);
 })->with(UserRole::cases());
+
+test('a developer sends email verification to a newly created user', function (): void {
+    $developer = User::factory()->create(['role' => UserRole::Developer]);
+    Notification::fake();
+
+    $this->actingAs($developer)->post(route('developer.users.store'), [
+        'name' => 'Developer Verification User',
+        'email' => 'developer-verification@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+        'role' => UserRole::User->value,
+    ])->assertRedirect(route('developer.users.index'));
+
+    $createdUser = User::where('email', 'developer-verification@example.com')->firstOrFail();
+
+    Notification::assertSentTo($createdUser, VerifyEmail::class);
+});
 
 test('a developer can update a user profile and role', function (): void {
     $developer = User::factory()->create(['role' => UserRole::Developer]);

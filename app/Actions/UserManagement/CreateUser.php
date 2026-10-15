@@ -14,11 +14,15 @@ final class CreateUser
      */
     public function handle(array $attributes): User
     {
-        return User::create([
+        $user = User::create([
             'name' => $attributes['name'],
             'email' => $attributes['email'],
             'password' => $attributes['password'],
             'role' => $attributes['role'],
         ]);
+
+        $user->sendEmailVerificationNotification();
+
+        return $user;
     }
 }

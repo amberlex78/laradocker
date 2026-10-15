@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 uses(RefreshDatabase::class);
 
@@ -85,6 +86,32 @@ test('a regular user is redirected to the account area after login', function ()
     ]);
 
     $response->assertRedirect('/account');
+});
+
+test('a user is returned to the email verification link after logging in', function (): void {
+    $user = User::factory()->unverified()->create([
+        'role' => UserRole::User,
+    ]);
+    $verificationUrl = URL::temporarySignedRoute(
+        'verification.verify',
+        now()->addMinutes(10),
+        [
+            'id' => $user->getKey(),
+            'hash' => sha1($user->getEmailForVerification()),
+        ],
+    );
+
+    $this->get($verificationUrl)->assertRedirect(route('login'));
+
+    $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ])->assertRedirect($verificationUrl);
+
+    $this->get($verificationUrl);
+
+    expect($user->fresh()->email_verified_at)->not->toBeNull();
 });
 
 test('a successful login records the latest device information', function (): void {

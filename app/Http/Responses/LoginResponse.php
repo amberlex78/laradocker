@@ -22,6 +22,6 @@ class LoginResponse implements LoginResponseContract
     {
         $this->loginActivity->record($request->user(), $request);
 
-        return redirect()->route($request->user()->role->landingRoute());
+        return redirect()->intended(route($request->user()->role->landingRoute()));
     }
 }

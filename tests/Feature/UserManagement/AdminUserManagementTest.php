@@ -2,8 +2,10 @@
 
 use App\Enums\UserRole;
 use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 
 uses(RefreshDatabase::class);
 
@@ -66,6 +68,25 @@ test('an admin can create non-administrator business roles', function (UserRole 
     'operator' => UserRole::Operator,
     'user' => UserRole::User,
 ]);
+
+test('an admin sends email verification to a newly created user', function (): void {
+    $admin = User::factory()->create(['role' => UserRole::Admin]);
+    Notification::fake();
+
+    $this->actingAs($admin)->post(route('admin.users.store'), [
+        'name' => 'Pending Verification User',
+        'email' => 'pending-verification@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+        'role' => UserRole::User->value,
+    ]);
+
+    $createdUser = User::where('email', 'pending-verification@example.com')->firstOrFail();
+
+    expect($createdUser->hasVerifiedEmail())->toBeFalse();
+
+    Notification::assertSentTo($createdUser, VerifyEmail::class);
+});
 
 test('an admin cannot create another administrator', function (): void {
     $admin = User::factory()->create(['role' => UserRole::Admin]);
