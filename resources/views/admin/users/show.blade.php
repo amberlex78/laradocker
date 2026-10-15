@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700">
+            <x-ui.action-bar>
                 <x-ui.link-button href="{{ route('admin.users.index') }}" variant="secondary">
                     <x-icon name="arrow-left" class="h-4 w-4" />
                     Back to users
@@ -22,7 +22,7 @@
                         Edit User
                     </x-ui.link-button>
                 @endif
-            </div>
+            </x-ui.action-bar>
         </x-ui.card>
 
         @can('delete', $user)

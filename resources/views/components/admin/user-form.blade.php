@@ -11,6 +11,9 @@
 
 @php
     $selectedRole = old('role', $user?->role?->value ?? \App\Enums\UserRole::User->value);
+    $roleHint = ! $roleEditable && $user?->is(auth()->user())
+        ? 'You cannot change your own role.'
+        : null;
 @endphp
 
 <form method="POST" action="{{ $action }}" class="grid gap-6">
@@ -68,7 +71,7 @@
         <x-ui.select
             name="role"
             label="Role"
-            hint="{{ $roleEditable ? '' : 'This role is protected in the current workspace.' }}"
+            :hint="$roleHint"
             :error="$errors->first('role')"
             :disabled="! $roleEditable"
             :required="true"
@@ -80,11 +83,7 @@
         </x-ui.select>
     </div>
 
-    @if (! $fieldsEditable)
-        <p class="text-sm text-gray-500 dark:text-gray-400">This account is protected.</p>
-    @endif
-
-    <div class="flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700">
+    <x-ui.action-bar>
         @if ($cancelUrl)
             <x-ui.link-button href="{{ $cancelUrl }}" variant="secondary">
                 <x-icon name="arrow-left" class="h-4 w-4" />
@@ -97,5 +96,5 @@
                 {{ $submitLabel }}
             </x-ui.button>
         @endif
-    </div>
+    </x-ui.action-bar>
 </form>

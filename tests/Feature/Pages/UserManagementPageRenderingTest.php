@@ -232,7 +232,7 @@ test('user details pages render the edit action in the details card footer', fun
         ->get(route('admin.users.show', $adminTarget))
         ->assertOk()
         ->assertDontSee('<div class="shrink-0">', false)
-        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
+        ->assertSee('flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700', false)
         ->assertSee('href="'.route('admin.users.edit', $adminTarget).'"', false)
         ->assertSee('Edit User')
         ->assertSee('data-icon="file-pen"', false)
@@ -243,7 +243,7 @@ test('user details pages render the edit action in the details card footer', fun
         ->get(route('developer.users.show', $developerTarget))
         ->assertOk()
         ->assertDontSee('<div class="shrink-0">', false)
-        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
+        ->assertSee('flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700', false)
         ->assertSee('href="'.route('developer.users.edit', $developerTarget).'"', false)
         ->assertSee('Edit User')
         ->assertSee('data-icon="file-pen"', false)
@@ -303,14 +303,14 @@ test('user details pages render the back action below the overview cards', funct
     $this->actingAs($admin)
         ->get(route('admin.users.show', $adminTarget))
         ->assertOk()
-        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
+        ->assertSee('flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700', false)
         ->assertSee('href="'.route('admin.users.index').'"', false)
         ->assertSee('Back to users');
 
     $this->actingAs($developer)
         ->get(route('developer.users.show', $developerTarget))
         ->assertOk()
-        ->assertSee('class="mt-6 flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700"', false)
+        ->assertSee('flex flex-wrap items-center justify-end gap-3 border-t border-gray-200 pt-5 dark:border-gray-700', false)
         ->assertSee('href="'.route('developer.users.index').'"', false)
         ->assertSee('Back to users');
 });
@@ -464,7 +464,7 @@ test('edit pages place the danger zone in the second column without empty create
         ->assertSee('Delete user')
         ->assertSee('disabled', false)
         ->assertDontSee('>Protected<', false)
-        ->assertSee('This role is protected in the current workspace.')
+        ->assertSee('You cannot change your own role.')
         ->assertDontSee('Danger zone');
 
     $this->actingAs($developer)
@@ -502,8 +502,10 @@ test('admin edit pages render another administrator as read-only', function (): 
         ->assertSee('Delete user')
         ->assertSee('disabled', false)
         ->assertDontSee('>Protected<', false)
+        ->assertDontSee('You cannot change your own role.')
         ->assertDontSee('aria-label="Show password"', false)
-        ->assertSee('This account is protected.')
+        ->assertSee('This administrator account is protected.')
+        ->assertDontSee('You cannot delete your own account.')
         ->assertDontSee('developer')
         ->assertDontSee('>Save changes<', false);
 });

@@ -31,7 +31,7 @@
                 This action cannot be undone.
             </x-ui.confirmation-modal>
         @else
-            <x-ui.card title="Account protection" description="You cannot delete your own account.">
+            <x-ui.card title="Account protection" description="{{ $user->is(auth()->user()) ? 'You cannot delete your own account.' : 'This administrator account is protected.' }}">
                 <x-ui.button variant="danger" disabled><x-icon name="trash" class="h-4 w-4" />Delete user</x-ui.button>
             </x-ui.card>
         @endif
