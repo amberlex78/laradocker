@@ -4,9 +4,11 @@ use App\Enums\LogoutReason;
 use App\Enums\UserRole;
 use App\Models\LoginHistory;
 use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\URL;
 
 uses(RefreshDatabase::class);
@@ -16,6 +18,8 @@ beforeEach(function (): void {
 });
 
 test('a visitor can register as a regular user', function () {
+    Notification::fake();
+
     $response = $this->post('/register', [
         '_token' => csrf_token(),
         'name' => 'Regular User',
@@ -24,12 +28,43 @@ test('a visitor can register as a regular user', function () {
         'password_confirmation' => 'password',
     ]);
 
-    $response->assertRedirect('/account');
+    $response->assertRedirect(route('verification.notice'));
 
     $user = User::query()->where('email', 'user@example.com')->firstOrFail();
 
     expect($user->role)->toBe(UserRole::User)
+        ->and($user->email_verified_at)->toBeNull()
         ->and($user->loginHistories()->sole()->session_id)->toBe($this->app['session']->getId());
+
+    Notification::assertSentTo($user, VerifyEmail::class);
+});
+
+test('an unverified user is redirected to the verification notice after login', function (): void {
+    $user = User::factory()->unverified()->create([
+        'role' => UserRole::User,
+    ]);
+
+    $this->post('/login', [
+        '_token' => csrf_token(),
+        'email' => $user->email,
+        'password' => 'password',
+    ])->assertRedirect(route('verification.notice'));
+
+    expect($user->loginHistories()->count())->toBe(1);
+});
+
+test('an unverified user can resend the verification email', function (): void {
+    Notification::fake();
+
+    $user = User::factory()->unverified()->create();
+
+    $this->actingAs($user)
+        ->post(route('verification.send'), [
+            '_token' => csrf_token(),
+        ])
+        ->assertRedirect();
+
+    Notification::assertSentTo($user, VerifyEmail::class);
 });
 
 test('a developer is redirected to the developer area after login', function () {

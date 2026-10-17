@@ -10,34 +10,34 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::middleware('auth')->group(function (): void {
+Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('/account', AccountController::class)->name('account');
     Route::post('/account/sessions/terminate-other', AccountSessionController::class)
         ->name('account.sessions.destroy-other');
 });
 
-Route::middleware(['auth', 'role:developer,admin,operator'])
+Route::middleware(['auth', 'verified', 'role:developer,admin,operator'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function (): void {
         Route::view('/', 'admin.dashboard')->name('dashboard');
     });
 
-Route::middleware(['auth', 'role:admin'])
+Route::middleware(['auth', 'verified', 'role:admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function (): void {
         Route::resource('users', AdminUserController::class);
     });
 
-Route::middleware(['auth', 'role:developer'])
+Route::middleware(['auth', 'verified', 'role:developer'])
     ->prefix('developer')
     ->name('developer.')
     ->group(function (): void {
         Route::view('/', 'developer.dashboard')->name('dashboard');
     });
 
-Route::middleware(['auth', 'role:developer'])
+Route::middleware(['auth', 'verified', 'role:developer'])
     ->prefix('developer')
     ->name('developer.')
     ->group(function (): void {

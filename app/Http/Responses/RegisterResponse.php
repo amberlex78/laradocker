@@ -3,6 +3,7 @@
 namespace App\Http\Responses;
 
 use App\Services\Auth\LoginActivityService;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
@@ -27,6 +28,8 @@ class RegisterResponse implements RegisterResponseContract
 
         return $request->wantsJson()
             ? new JsonResponse('', 201)
-            : redirect()->route($user->role->landingRoute());
+            : ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()
+                ? redirect()->route('verification.notice')
+                : redirect()->route($user->role->landingRoute()));
     }
 }

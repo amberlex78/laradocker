@@ -35,6 +35,22 @@ test('a regular user cannot access privileged areas', function () {
     $this->actingAs($user)->get('/developer')->assertForbidden();
 });
 
+test('unverified users are redirected to email verification before application areas', function (UserRole $role, string $route): void {
+    $user = User::factory()->unverified()->create([
+        'role' => $role,
+    ]);
+
+    $this->actingAs($user)
+        ->get(route($route))
+        ->assertRedirect(route('verification.notice'));
+})->with([
+    'regular user account' => [UserRole::User, 'account'],
+    'operator admin area' => [UserRole::Operator, 'admin.dashboard'],
+    'admin admin area' => [UserRole::Admin, 'admin.dashboard'],
+    'developer admin area' => [UserRole::Developer, 'admin.dashboard'],
+    'developer developer area' => [UserRole::Developer, 'developer.dashboard'],
+]);
+
 test('an operator can access the admin area but not the developer area', function () {
     $user = User::factory()->create([
         'role' => UserRole::Operator,
