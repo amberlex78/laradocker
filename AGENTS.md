@@ -162,12 +162,3 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 ## Command entrypoint
 
 - Use the repository `Makefile` as the canonical entrypoint for development and production commands. Before running direct `npm`, `php artisan`, `docker compose`, or similar commands, check for and use the corresponding `make` target; use direct commands only when no suitable target exists.
-
-## graphify
-
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
-
-- When the user types `/graphify`, invoke the `skill` tool with `skill: "graphify"` before doing anything else.
-- For codebase questions, if `graphify-out/graph.json` exists, start with `graphify query "<question>"`; use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. Existing or dirty graph files do not by themselves block these reads; skip them only when the graph is stale/incorrect for the task or the user says not to use it.
-- Use `graphify-out/wiki/index.md` for broad navigation when available. Read `GRAPH_REPORT.md` only for broad architecture review or when a scoped query/path/explain result is insufficient.
-- Never run `graphify update .` automatically. Run it immediately when the user explicitly types `/graphify` or asks to update the graph. Otherwise, ask once before a final update only if it materially helps the task; if it does not help, do not ask or run it. Queries never modify `graphify-out/`.
