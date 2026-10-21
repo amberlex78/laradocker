@@ -29,3 +29,20 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+
+# Graphify local environment may contain provider credentials.
+/.graphify.env
+
+# Keep installer rollback copies local; the active skill remains versioned.
+/.codex/skills/graphify/*.bak
+
+# Keep generated state local while sharing the portable knowledge artifacts.
+/graphify-out/*
+!/graphify-out/graph.json
+!/graphify-out/GRAPH_REPORT.md
+!/graphify-out/manifest.json
+
+# Preserve shared community labels and their membership signatures across updates.
+!/graphify-out/.graphify_labels.json
+!/graphify-out/.graphify_labels.json.sig
