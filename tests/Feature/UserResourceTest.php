@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\UserRole;
 use App\Filament\Resources\Users\Pages\CreateUser;
 use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
@@ -13,7 +14,9 @@ use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
 
 beforeEach(function () {
-    $this->admin = User::factory()->create();
+    $this->admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
     actingAs($this->admin);
 });
 
@@ -35,6 +38,7 @@ it('can create a user', function () {
         ->fillForm([
             'name' => 'John Doe',
             'email' => 'john@example.com',
+            'role' => UserRole::Operator->value,
             'password' => 'password123',
         ])
         ->call('create')
@@ -44,6 +48,7 @@ it('can create a user', function () {
     assertDatabaseHas(User::class, [
         'name' => 'John Doe',
         'email' => 'john@example.com',
+        'role' => UserRole::Operator->value,
     ]);
 
     $createdUser = User::where('email', 'john@example.com')->first();
@@ -55,12 +60,14 @@ it('validates required fields on create', function () {
         ->fillForm([
             'name' => null,
             'email' => null,
+            'role' => null,
             'password' => null,
         ])
         ->call('create')
         ->assertHasFormErrors([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required',
         ]);
 });
@@ -72,6 +79,7 @@ it('validates unique email on create', function () {
         ->fillForm([
             'name' => 'Another User',
             'email' => 'existing@example.com',
+            'role' => UserRole::User->value,
             'password' => 'password123',
         ])
         ->call('create')

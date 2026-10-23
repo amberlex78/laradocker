@@ -1,12 +1,15 @@
 <?php
 
+use App\Enums\UserRole;
 use App\Models\User;
 use Filament\Facades\Filament;
 
 use function Pest\Laravel\actingAs;
 
 it('registers the public site user menu item before sign out', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
     actingAs($user);
 
     $panel = Filament::getPanel('admin');
