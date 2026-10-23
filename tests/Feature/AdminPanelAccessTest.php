@@ -6,6 +6,13 @@ use Filament\Facades\Filament;
 
 use function Pest\Laravel\actingAs;
 
+it('assigns a distinct color to each user role', function () {
+    expect(UserRole::User->getColor())->toBe('gray')
+        ->and(UserRole::Operator->getColor())->toBe('info')
+        ->and(UserRole::Admin->getColor())->toBe('danger')
+        ->and(UserRole::Developer->getColor())->toBe('success');
+});
+
 it('allows admin and developer users to access the admin panel', function (UserRole $role) {
     $user = User::factory()->create([
         'role' => $role,

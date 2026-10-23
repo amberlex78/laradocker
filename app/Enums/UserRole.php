@@ -2,7 +2,9 @@
 
 namespace App\Enums;
 
-enum UserRole: string
+use Filament\Support\Contracts\HasColor;
+
+enum UserRole: string implements HasColor
 {
     case User = 'user';
     case Operator = 'operator';
@@ -23,5 +25,15 @@ enum UserRole: string
         }
 
         return $options;
+    }
+
+    public function getColor(): string
+    {
+        return match ($this) {
+            self::User => 'gray',
+            self::Operator => 'info',
+            self::Admin => 'danger',
+            self::Developer => 'success',
+        };
     }
 }

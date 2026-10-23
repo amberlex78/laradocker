@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "app/Enums/UserRole.php": {
-    "mtime": 1792790819.831355,
-    "seen": 1792790861.8943803,
-    "ast_hash": "2031a19b0bcae8f5abf2766597031488",
+    "mtime": 1792793239.8018155,
+    "seen": 1792793242.0151541,
+    "ast_hash": "6767c32d7f5bdc8bf999235c95fb613b",
     "semantic_hash": ""
   },
   "database/migrations/2026_10_23_212633_add_role_to_users_table.php": {
@@ -294,9 +294,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/AdminPanelAccessTest.php": {
-    "mtime": 1792790868.6625545,
-    "seen": 1792790873.7624514,
-    "ast_hash": "b72f5afb88608b5f754a8763ccc3da3c",
+    "mtime": 1792793230.8287787,
+    "seen": 1792793242.0152338,
+    "ast_hash": "feb1cee102df99c998fa3bc032df203a",
     "semantic_hash": ""
   },
   "tests/Feature/DatabaseSeederTest.php": {

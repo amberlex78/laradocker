@@ -29,6 +29,7 @@ class UserForm
                         Select::make('role')
                             ->options(UserRole::options())
                             ->required()
+                            ->native(false)
                             ->default(UserRole::User->value),
                         TextInput::make('password')
                             ->password()
