@@ -1,14 +1,14 @@
 {
   "app/Filament/Resources/Users/Pages/CreateUser.php": {
-    "mtime": 1792771070.756131,
-    "seen": 1792782818.0235963,
+    "mtime": 1792831058.1701682,
+    "seen": 1792862221.0089216,
     "ast_hash": "27a1576c8105b4b309c407a9772b85ae",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Pages/EditUser.php": {
-    "mtime": 1792798339.0990145,
-    "seen": 1792798352.9345143,
-    "ast_hash": "da13ea68342a72782b71fa4042ccd76a",
+    "mtime": 1792861264.350749,
+    "seen": 1792862221.008925,
+    "ast_hash": "ea3035b89de680fdae9a6f0648a55212",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Pages/ListUsers.php": {
@@ -18,21 +18,21 @@
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Schemas/UserForm.php": {
-    "mtime": 1792798339.0990055,
-    "seen": 1792798352.9345198,
-    "ast_hash": "b427379e285f8e5e7cdbbdd35b9cb5f7",
+    "mtime": 1792861539.0776772,
+    "seen": 1792862221.0089326,
+    "ast_hash": "ace8e0b2f4a7524ca1e81dff2f030962",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Tables/UsersTable.php": {
-    "mtime": 1792798339.0980144,
-    "seen": 1792798352.9345212,
-    "ast_hash": "d8a09de1b85c411d22d0e2d600cf03d8",
+    "mtime": 1792861686.8587914,
+    "seen": 1792862221.0089333,
+    "ast_hash": "604286046b1478dc9e5d125f1ecc79bb",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/UserResource.php": {
-    "mtime": 1792798564.0483394,
-    "seen": 1792798578.1217031,
-    "ast_hash": "cf2c9f6da883fd15573136bb75be1375",
+    "mtime": 1792831654.676962,
+    "seen": 1792862221.0089347,
+    "ast_hash": "ea9c191085543ee415b4b26c1053ba51",
     "semantic_hash": ""
   },
   "app/Http/Controllers/Controller.php": {
@@ -168,9 +168,9 @@
     "semantic_hash": ""
   },
   "database/seeders/DatabaseSeeder.php": {
-    "mtime": 1792790819.8321157,
-    "seen": 1792790861.8944435,
-    "ast_hash": "7a75d403db003b3621a05ddce925663e",
+    "mtime": 1792831656.299134,
+    "seen": 1792862221.0089624,
+    "ast_hash": "44b19c630bc22745e5c48d991fdf39c9",
     "semantic_hash": ""
   },
   "package.json": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/UserResourceTest.php": {
-    "mtime": 1792798572.5234287,
-    "seen": 1792798578.1217449,
-    "ast_hash": "2eb9c9257c8f04f2d6e84fad0b351b3b",
+    "mtime": 1792861264.350749,
+    "seen": 1792862221.0089726,
+    "ast_hash": "9ccdf1777ed7905bd4b34325a3e38721",
     "semantic_hash": ""
   },
   "tests/Pest.php": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "app/Enums/UserRole.php": {
-    "mtime": 1792796957.733933,
-    "seen": 1792796967.2259927,
-    "ast_hash": "b04e39b341c62390468586e5ba19ea22",
+    "mtime": 1792861891.605333,
+    "seen": 1792862221.008916,
+    "ast_hash": "21cedf83d54b240e7fa7ca80281f054c",
     "semantic_hash": ""
   },
   "database/migrations/2026_10_23_212633_add_role_to_users_table.php": {
@@ -294,27 +294,33 @@
     "semantic_hash": ""
   },
   "tests/Feature/AdminPanelAccessTest.php": {
-    "mtime": 1792796957.734933,
-    "seen": 1792796967.2260687,
-    "ast_hash": "8ef51abb274cf28054c39a49efa4f041",
+    "mtime": 1792831671.378696,
+    "seen": 1792862221.0089693,
+    "ast_hash": "cd91e5e79942c06d4dd207f13b15025a",
     "semantic_hash": ""
   },
   "tests/Feature/DatabaseSeederTest.php": {
-    "mtime": 1792790839.3752933,
-    "seen": 1792790861.8944578,
-    "ast_hash": "6ff222e09c6b31e8face979631da92ac",
+    "mtime": 1792831674.3389947,
+    "seen": 1792862221.0089705,
+    "ast_hash": "d79a7b0941d2d2354654720a7a0da3e9",
     "semantic_hash": ""
   },
   "app/Policies/UserPolicy.php": {
-    "mtime": 1792798339.0980144,
-    "seen": 1792798352.9345267,
-    "ast_hash": "d5c0a996f2d630747fe8925854ba46f8",
+    "mtime": 1792862140.9073644,
+    "seen": 1792862221.0089388,
+    "ast_hash": "5fe5aed03cbe9d182fe6f97c18dc099e",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Pages/ViewUser.php": {
-    "mtime": 1792798564.0483394,
-    "seen": 1792798578.1216986,
-    "ast_hash": "23017cae7ee1481a9df81b50a264092e",
+    "mtime": 1792798736.0531728,
+    "seen": 1792862221.008931,
+    "ast_hash": "cd0a69125768fc1bdab9dfc0bb597a33",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_10_24_084738_migrate_developer_users_to_admins.php": {
+    "mtime": 1792831692.0906856,
+    "seen": 1792862221.0089612,
+    "ast_hash": "ba2f8934e00708fe152ac09d69db1d7b",
     "semantic_hash": ""
   }
 }
