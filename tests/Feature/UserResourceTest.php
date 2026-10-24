@@ -44,7 +44,7 @@ it('does not show developers to administrators', function () {
         ->assertCanNotSeeTableRecords([$developer]);
 });
 
-it('allows developers to view but not manage developer users', function () {
+it('allows developers to manage users of every role', function () {
     $developer = User::factory()->create([
         'role' => UserRole::Developer,
     ]);
@@ -56,8 +56,18 @@ it('allows developers to view but not manage developer users', function () {
     Livewire::test(ListUsers::class)
         ->assertCanSeeTableRecords([$anotherDeveloper]);
 
-    expect(UserResource::canEdit($anotherDeveloper))->toBeFalse()
-        ->and(UserResource::canDelete($anotherDeveloper))->toBeFalse()
+    Livewire::test(EditUser::class, [
+        'record' => $developer->id,
+    ])
+        ->fillForm(['name' => 'Updated Developer'])
+        ->call('save')
+        ->assertHasNoFormErrors();
+
+    expect($developer->refresh()->name)->toBe('Updated Developer')
+        ->and(UserResource::canEdit($developer))->toBeTrue()
+        ->and(UserResource::canDelete($developer))->toBeTrue()
+        ->and(UserResource::canEdit($anotherDeveloper))->toBeTrue()
+        ->and(UserResource::canDelete($anotherDeveloper))->toBeTrue()
         ->and(UserResource::canEdit($this->admin))->toBeTrue()
         ->and(UserResource::canDelete($this->admin))->toBeTrue();
 });
@@ -74,8 +84,7 @@ it('shows other administrators as read-only and allows editing your own record',
     ])
         ->assertOk()
         ->assertSchemaStateSet([
-            'name' => $anotherAdmin->name,
-            'email' => $anotherAdmin->email,
+            'role' => $anotherAdmin->role,
         ])
         ->assertActionHidden(EditAction::class);
 
@@ -83,12 +92,14 @@ it('shows other administrators as read-only and allows editing your own record',
         'record' => $this->admin->id,
     ])
         ->assertFormFieldEnabled('name')
+        ->assertFormFieldDisabled('role')
         ->fillForm(['name' => 'Updated Admin'])
         ->call('save')
         ->assertHasNoFormErrors()
         ->assertActionHidden(DeleteAction::class);
 
-    expect($this->admin->refresh()->name)->toBe('Updated Admin');
+    expect($this->admin->refresh()->name)->toBe('Updated Admin')
+        ->and($this->admin->role)->toBe(UserRole::Admin);
 });
 
 it('does not allow administrators to create privileged roles', function () {
@@ -103,7 +114,7 @@ it('does not allow administrators to create privileged roles', function () {
         ->assertHasFormErrors(['role' => 'in']);
 });
 
-it('does not allow developers to create developer users', function () {
+it('allows developers to create developer users', function () {
     $developer = User::factory()->create([
         'role' => UserRole::Developer,
     ]);
@@ -117,7 +128,13 @@ it('does not allow developers to create developer users', function () {
             'password' => 'password123',
         ])
         ->call('create')
-        ->assertHasFormErrors(['role' => 'in']);
+        ->assertHasNoFormErrors()
+        ->assertNotified();
+
+    assertDatabaseHas(User::class, [
+        'email' => 'another-developer@example.com',
+        'role' => UserRole::Developer->value,
+    ]);
 });
 
 it('can render create user page', function () {

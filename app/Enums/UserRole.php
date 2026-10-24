@@ -50,17 +50,9 @@ enum UserRole: string implements HasColor, HasLabel
             ->all();
     }
 
-    /**
-     * Get roles that this role can assign and manage.
-     *
-     * @return list<UserRole>
-     */
-    public function assignableRoles(): array
+    public function canManage(self $targetRole): bool
     {
-        return match ($this) {
-            self::Admin => [self::User, self::Operator],
-            self::Developer => [self::User, self::Operator, self::Admin],
-            default => [],
-        };
+        return $this === self::Developer
+            || ($this === self::Admin && in_array($targetRole, [self::User, self::Operator], true));
     }
 }

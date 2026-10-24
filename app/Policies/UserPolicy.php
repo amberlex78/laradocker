@@ -44,27 +44,26 @@ class UserPolicy
     /**
      * Determine whether the user can update the target user.
      *
-     * The current user's role defines which target roles are manageable.
-     * An administrator may also update their own administrator account.
-     * Other administrator accounts are view-only.
+     * Developers can update every user. Administrators can update users and
+     * operators, as well as their own administrator account.
      */
     public function update(User $user, User $model): bool
     {
-        return in_array($model->role, $user->role->assignableRoles(), true)
+        return $user->role->canManage($model->role)
             || ($user->role === UserRole::Admin
-                && $model->id === $user->id
+                && $model->is($user)
                 && $model->role === UserRole::Admin);
     }
 
     /**
      * Determine whether the user can delete the target user.
      *
-     * A user cannot delete their own account or another administrator account
-     * because administrators cannot assign or manage the administrator role.
+     * Developers can delete every user. Administrators cannot delete another
+     * administrator account.
      */
     public function delete(User $user, User $model): bool
     {
-        return in_array($model->role, $user->role->assignableRoles(), true);
+        return $user->role->canManage($model->role);
     }
 
     /**

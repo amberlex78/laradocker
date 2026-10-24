@@ -38,14 +38,21 @@ class UserForm
                             ->rule(Password::defaults())
                             ->maxLength(255),
                         Select::make('role')
-                            ->options(fn (string $operation, ?User $record): array => self::roleOptions($operation, $record))
                             ->required()
-                            ->rules(fn (string $operation, ?User $record): array => [
-                                Rule::enum(UserRole::class),
-                                Rule::in(array_keys(self::roleOptions($operation, $record))),
-                            ])
+                            ->enum(UserRole::class)
+                            ->options(fn (string $operation, ?User $record): array => self::roleOptions($operation, $record))
+                            ->disabled(function (string $operation, ?User $record): bool {
+                                $actor = Filament::auth()->user();
+
+                                return $operation === 'edit'
+                                    && $actor instanceof User
+                                    && $actor->role === UserRole::Admin
+                                    && $record?->id === $actor->id;
+                            })
                             ->native(false)
-                            ->default(UserRole::User->value),
+                            ->rules(fn (string $operation, ?User $record): array => [
+                                Rule::in(array_keys(self::roleOptions($operation, $record))),
+                            ]),
                     ]),
             ]);
     }
@@ -61,13 +68,14 @@ class UserForm
             return [];
         }
 
-        $roles = $actor->role->assignableRoles();
+        $roles = collect(UserRole::cases())
+            ->filter(fn (UserRole $role): bool => $actor->role->canManage($role));
 
-        if ($operation === 'edit' && $actor->role === UserRole::Admin && $record?->role === UserRole::Admin) {
-            $roles[] = UserRole::Admin;
+        if ($operation === 'edit' && $record?->id === $actor->id) {
+            $roles->push($record->role);
         }
 
-        return collect($roles)
+        return $roles
             ->unique()
             ->mapWithKeys(fn (UserRole $role): array => [$role->value => $role->getLabel()])
             ->all();
