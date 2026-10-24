@@ -42,11 +42,13 @@ class UserForm
                             ->options([
                                 UserRole::User->value => UserRole::User->getLabel(),
                                 UserRole::Operator->value => UserRole::Operator->getLabel(),
+                                UserRole::Admin->value => UserRole::Admin->getLabel(),
                             ])
                             ->rules([
                                 Rule::in([
                                     UserRole::User->value,
                                     UserRole::Operator->value,
+                                    UserRole::Admin->value,
                                 ]),
                             ]),
                     ]),
