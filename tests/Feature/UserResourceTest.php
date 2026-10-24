@@ -8,7 +8,7 @@ use App\Filament\Resources\Users\Pages\ViewUser;
 use App\Filament\Resources\Users\UserResource;
 use App\Models\User;
 use Filament\Actions\DeleteAction;
-use Illuminate\Support\Facades\Gate;
+use Filament\Actions\EditAction;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
@@ -43,27 +43,27 @@ it('allows administrators to see users of every role', function () {
         ->assertCanSeeTableRecords([$operator, $anotherAdmin]);
 });
 
-it('keeps administrator accounts independent while allowing admins to edit themselves', function () {
+it('shows other administrators as read-only and allows editing your own record', function () {
     $anotherAdmin = User::factory()->create([
         'role' => UserRole::Admin,
     ]);
 
-    expect(UserResource::canView($anotherAdmin))->toBeFalse()
-        ->and(UserResource::canEdit($anotherAdmin))->toBeFalse()
-        ->and(UserResource::canDelete($anotherAdmin))->toBeFalse()
+    expect(UserResource::canDelete($anotherAdmin))->toBeFalse()
         ->and(UserResource::canDelete($this->admin))->toBeFalse();
 
-    Livewire::test(ViewUser::class, ['record' => $anotherAdmin->id])
-        ->assertForbidden();
-
-    Livewire::test(EditUser::class, ['record' => $anotherAdmin->id])
-        ->assertForbidden();
+    Livewire::test(ViewUser::class, [
+        'record' => $anotherAdmin->id,
+    ])
+        ->assertOk()
+        ->assertSchemaStateSet([
+            'role' => $anotherAdmin->role,
+        ])
+        ->assertActionHidden(EditAction::class);
 
     Livewire::test(EditUser::class, [
         'record' => $this->admin->id,
     ])
         ->assertFormFieldEnabled('name')
-        ->assertFormFieldHidden('role')
         ->fillForm(['name' => 'Updated Admin'])
         ->call('save')
         ->assertHasNoFormErrors()
@@ -89,23 +89,7 @@ it('does not allow administrators to create administrator users', function () {
     ]);
 });
 
-it('authorizes role changes only for non-admin users and roles', function () {
-    $user = User::factory()->create([
-        'role' => UserRole::User,
-    ]);
-    $anotherAdmin = User::factory()->create([
-        'role' => UserRole::Admin,
-    ]);
-
-    $gate = Gate::forUser($this->admin);
-
-    expect($gate->allows('changeRole', [$user, UserRole::Operator]))->toBeTrue()
-        ->and($gate->allows('changeRole', [$user, UserRole::Admin]))->toBeFalse()
-        ->and($gate->allows('changeRole', [$anotherAdmin, UserRole::User]))->toBeFalse()
-        ->and($gate->allows('changeRole', [$this->admin, UserRole::User]))->toBeFalse();
-});
-
-it('allows administrators to change non-admin roles but not promote users to admin', function () {
+it('does not change an existing user role while editing the user', function () {
     $user = User::factory()->create([
         'role' => UserRole::User,
     ]);
@@ -117,16 +101,7 @@ it('allows administrators to change non-admin roles but not promote users to adm
         ->call('save')
         ->assertHasNoFormErrors();
 
-    expect($user->refresh()->role)->toBe(UserRole::Operator);
-
-    Livewire::test(EditUser::class, [
-        'record' => $user->id,
-    ])
-        ->fillForm(['role' => UserRole::Admin->value])
-        ->call('save')
-        ->assertHasFormErrors(['role' => 'in']);
-
-    expect($user->refresh()->role)->toBe(UserRole::Operator);
+    expect($user->refresh()->role)->toBe(UserRole::User);
 });
 
 it('can render create user page', function () {

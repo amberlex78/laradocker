@@ -46,4 +46,10 @@ enum UserRole: string implements HasColor, HasLabel
             ->mapWithKeys(fn (self $role): array => [$role->value => $role->getLabel()])
             ->all();
     }
+
+    public function canManage(self $targetRole): bool
+    {
+        return $this === self::Admin
+            && in_array($targetRole, [self::User, self::Operator], true);
+    }
 }
