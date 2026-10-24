@@ -41,10 +41,7 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
-        return $user->role->canManage($model->role)
-            || ($user->role === UserRole::Admin
-                && $model->is($user)
-                && $model->role === UserRole::Admin);
+        return $user->role === UserRole::Admin;
     }
 
     /**
@@ -54,8 +51,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        return ! $model->is($user)
-            && $user->role->canManage($model->role);
+        return ! $model->is($user);
     }
 
     /**

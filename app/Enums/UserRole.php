@@ -29,10 +29,4 @@ enum UserRole: string implements HasColor, HasLabel
     {
         return $this === self::Admin;
     }
-
-    public function canManage(self $targetRole): bool
-    {
-        return $this === self::Admin
-            && in_array($targetRole, [self::User, self::Operator], true);
-    }
 }
