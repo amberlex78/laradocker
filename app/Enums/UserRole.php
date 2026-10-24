@@ -3,28 +3,18 @@
 namespace App\Enums;
 
 use Filament\Support\Contracts\HasColor;
+use Filament\Support\Contracts\HasLabel;
 
-enum UserRole: string implements HasColor
+enum UserRole: string implements HasColor, HasLabel
 {
     case User = 'user';
     case Operator = 'operator';
     case Admin = 'admin';
     case Developer = 'developer';
 
-    /**
-     * Get the available role options for forms.
-     *
-     * @return array<string, string>
-     */
-    public static function options(): array
+    public function getLabel(): string
     {
-        $options = [];
-
-        foreach (self::cases() as $role) {
-            $options[$role->value] = ucfirst($role->value);
-        }
-
-        return $options;
+        return ucfirst($this->value);
     }
 
     public function getColor(): string
@@ -34,6 +24,43 @@ enum UserRole: string implements HasColor
             self::Operator => 'info',
             self::Admin => 'danger',
             self::Developer => 'success',
+        };
+    }
+
+    public function canAccessAdminPanel(): bool
+    {
+        return in_array($this, [self::Admin, self::Developer], true);
+    }
+
+    /**
+     * Get role options visible to an actor.
+     *
+     * @return array<string, string>
+     */
+    public static function options(?self $actorRole = null): array
+    {
+        $roles = match ($actorRole) {
+            null, self::Developer => self::cases(),
+            self::Admin => [self::User, self::Operator, self::Admin],
+            default => [],
+        };
+
+        return collect($roles)
+            ->mapWithKeys(fn (self $role): array => [$role->value => $role->getLabel()])
+            ->all();
+    }
+
+    /**
+     * Get roles that this role can assign and manage.
+     *
+     * @return list<UserRole>
+     */
+    public function assignableRoles(): array
+    {
+        return match ($this) {
+            self::Admin => [self::User, self::Operator],
+            self::Developer => [self::User, self::Operator, self::Admin],
+            default => [],
         };
     }
 }

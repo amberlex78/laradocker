@@ -6,8 +6,8 @@
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Pages/EditUser.php": {
-    "mtime": 1792771070.7566645,
-    "seen": 1792782818.0236068,
+    "mtime": 1792798339.0990145,
+    "seen": 1792798352.9345143,
     "ast_hash": "da13ea68342a72782b71fa4042ccd76a",
     "semantic_hash": ""
   },
@@ -18,21 +18,21 @@
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Schemas/UserForm.php": {
-    "mtime": 1792790819.8331158,
-    "seen": 1792790861.8944023,
-    "ast_hash": "89ac1846e612eabdbd81b16a6b96f9ae",
+    "mtime": 1792798339.0990055,
+    "seen": 1792798352.9345198,
+    "ast_hash": "b427379e285f8e5e7cdbbdd35b9cb5f7",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Tables/UsersTable.php": {
-    "mtime": 1792790829.1062002,
-    "seen": 1792790861.894405,
-    "ast_hash": "0a567fe192c4c257f47ba05ac7ee6438",
+    "mtime": 1792798339.0980144,
+    "seen": 1792798352.9345212,
+    "ast_hash": "d8a09de1b85c411d22d0e2d600cf03d8",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/UserResource.php": {
-    "mtime": 1792787786.7865088,
-    "seen": 1792790861.8944068,
-    "ast_hash": "0df33f8225198c6b730160df1c83acf6",
+    "mtime": 1792798564.0483394,
+    "seen": 1792798578.1217031,
+    "ast_hash": "cf2c9f6da883fd15573136bb75be1375",
     "semantic_hash": ""
   },
   "app/Http/Controllers/Controller.php": {
@@ -42,9 +42,9 @@
     "semantic_hash": ""
   },
   "app/Models/User.php": {
-    "mtime": 1792790819.8321157,
-    "seen": 1792790861.8944108,
-    "ast_hash": "a64847ce62f3915ba33f11dd9975894c",
+    "mtime": 1792795440.3427792,
+    "seen": 1792795460.6757827,
+    "ast_hash": "03840d327cd60db1072c7a12feff4f56",
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/UserResourceTest.php": {
-    "mtime": 1792790829.1062002,
-    "seen": 1792790861.8944607,
-    "ast_hash": "b326f9a884af1df3389fb4e3746402dc",
+    "mtime": 1792798572.5234287,
+    "seen": 1792798578.1217449,
+    "ast_hash": "2eb9c9257c8f04f2d6e84fad0b351b3b",
     "semantic_hash": ""
   },
   "tests/Pest.php": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "app/Enums/UserRole.php": {
-    "mtime": 1792793239.8018155,
-    "seen": 1792793242.0151541,
-    "ast_hash": "6767c32d7f5bdc8bf999235c95fb613b",
+    "mtime": 1792796957.733933,
+    "seen": 1792796967.2259927,
+    "ast_hash": "b04e39b341c62390468586e5ba19ea22",
     "semantic_hash": ""
   },
   "database/migrations/2026_10_23_212633_add_role_to_users_table.php": {
@@ -294,15 +294,27 @@
     "semantic_hash": ""
   },
   "tests/Feature/AdminPanelAccessTest.php": {
-    "mtime": 1792793230.8287787,
-    "seen": 1792793242.0152338,
-    "ast_hash": "feb1cee102df99c998fa3bc032df203a",
+    "mtime": 1792796957.734933,
+    "seen": 1792796967.2260687,
+    "ast_hash": "8ef51abb274cf28054c39a49efa4f041",
     "semantic_hash": ""
   },
   "tests/Feature/DatabaseSeederTest.php": {
     "mtime": 1792790839.3752933,
     "seen": 1792790861.8944578,
     "ast_hash": "6ff222e09c6b31e8face979631da92ac",
+    "semantic_hash": ""
+  },
+  "app/Policies/UserPolicy.php": {
+    "mtime": 1792798339.0980144,
+    "seen": 1792798352.9345267,
+    "ast_hash": "d5c0a996f2d630747fe8925854ba46f8",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Users/Pages/ViewUser.php": {
+    "mtime": 1792798564.0483394,
+    "seen": 1792798578.1216986,
+    "ast_hash": "23017cae7ee1481a9df81b50a264092e",
     "semantic_hash": ""
   }
 }

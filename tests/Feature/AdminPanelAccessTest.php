@@ -13,6 +13,15 @@ it('assigns a distinct color to each user role', function () {
         ->and(UserRole::Developer->getColor())->toBe('success');
 });
 
+it('limits role filter options to roles visible to the actor', function () {
+    expect(UserRole::options(UserRole::Admin))->toBe([
+        UserRole::User->value => 'User',
+        UserRole::Operator->value => 'Operator',
+        UserRole::Admin->value => 'Admin',
+    ])
+        ->and(UserRole::options(UserRole::Developer))->toBe(UserRole::options());
+});
+
 it('allows admin and developer users to access the admin panel', function (UserRole $role) {
     $user = User::factory()->create([
         'role' => $role,

@@ -4,8 +4,11 @@ use App\Enums\UserRole;
 use App\Filament\Resources\Users\Pages\CreateUser;
 use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
+use App\Filament\Resources\Users\Pages\ViewUser;
+use App\Filament\Resources\Users\UserResource;
 use App\Models\User;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
@@ -26,6 +29,95 @@ it('can list users', function () {
     Livewire::test(ListUsers::class)
         ->assertOk()
         ->assertCanSeeTableRecords($users);
+});
+
+it('does not show developers to administrators', function () {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    $operator = User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+
+    Livewire::test(ListUsers::class)
+        ->assertCanSeeTableRecords([$operator])
+        ->assertCanNotSeeTableRecords([$developer]);
+});
+
+it('allows developers to view but not manage developer users', function () {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    $anotherDeveloper = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    actingAs($developer);
+
+    Livewire::test(ListUsers::class)
+        ->assertCanSeeTableRecords([$anotherDeveloper]);
+
+    expect(UserResource::canEdit($anotherDeveloper))->toBeFalse()
+        ->and(UserResource::canDelete($anotherDeveloper))->toBeFalse()
+        ->and(UserResource::canEdit($this->admin))->toBeTrue()
+        ->and(UserResource::canDelete($this->admin))->toBeTrue();
+});
+
+it('shows other administrators as read-only and allows editing your own record', function () {
+    $anotherAdmin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    expect(UserResource::canDelete($anotherAdmin))->toBeFalse();
+
+    Livewire::test(ViewUser::class, [
+        'record' => $anotherAdmin->id,
+    ])
+        ->assertOk()
+        ->assertSchemaStateSet([
+            'name' => $anotherAdmin->name,
+            'email' => $anotherAdmin->email,
+        ])
+        ->assertActionHidden(EditAction::class);
+
+    Livewire::test(EditUser::class, [
+        'record' => $this->admin->id,
+    ])
+        ->assertFormFieldEnabled('name')
+        ->fillForm(['name' => 'Updated Admin'])
+        ->call('save')
+        ->assertHasNoFormErrors()
+        ->assertActionHidden(DeleteAction::class);
+
+    expect($this->admin->refresh()->name)->toBe('Updated Admin');
+});
+
+it('does not allow administrators to create privileged roles', function () {
+    Livewire::test(CreateUser::class)
+        ->fillForm([
+            'name' => 'Privileged User',
+            'email' => 'privileged@example.com',
+            'role' => UserRole::Developer->value,
+            'password' => 'password123',
+        ])
+        ->call('create')
+        ->assertHasFormErrors(['role' => 'in']);
+});
+
+it('does not allow developers to create developer users', function () {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    actingAs($developer);
+
+    Livewire::test(CreateUser::class)
+        ->fillForm([
+            'name' => 'Another Developer',
+            'email' => 'another-developer@example.com',
+            'role' => UserRole::Developer->value,
+            'password' => 'password123',
+        ])
+        ->call('create')
+        ->assertHasFormErrors(['role' => 'in']);
 });
 
 it('can render create user page', function () {
