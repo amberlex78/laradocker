@@ -35,6 +35,46 @@ it('assigns panel colors to user roles', function (UserRole $role, array $color)
     'admin uses admin amber' => [UserRole::Admin, Color::Amber],
 ]);
 
+it('shows guests a sign in button on the home page', function (): void {
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('Sign in')
+        ->assertSee(route('filament.site.auth.login'), false);
+});
+
+it('shows each role its available entries on the home page', function (UserRole $role, array $entries): void {
+    $user = User::factory()->create([
+        'role' => $role,
+    ]);
+
+    $response = $this->actingAs($user)->get('/');
+
+    $response->assertOk();
+
+    foreach ($entries as [$label, $url]) {
+        $response
+            ->assertSee($label)
+            ->assertSee($url, false);
+    }
+
+    $response
+        ->assertSee('Sign out')
+        ->assertSee(route('filament.site.auth.logout'), false);
+})->with([
+    'users see their profile entry' => [UserRole::User, [
+        ['My profile', '/profile'],
+    ]],
+    'operators see their panel and profile entries' => [UserRole::Operator, [
+        ['Operator panel', '/operator'],
+        ['My profile', '/profile'],
+    ]],
+    'admins see all available entries' => [UserRole::Admin, [
+        ['Admin panel', '/admin'],
+        ['Operator panel', '/operator'],
+        ['My profile', '/profile'],
+    ]],
+]);
+
 it('redirects guests from protected panels to the shared login page', function (string $path): void {
     $this->get($path)
         ->assertRedirect('/login');
