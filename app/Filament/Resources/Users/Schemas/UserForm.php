@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use App\Enums\UserRole;
+use App\Models\User;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -42,15 +43,12 @@ class UserForm
                                 UserRole::User->value => UserRole::User->getLabel(),
                                 UserRole::Operator->value => UserRole::Operator->getLabel(),
                             ])
-                            ->visible(fn (string $operation): bool => $operation === 'create')
-                            ->dehydrated(fn (string $operation): bool => $operation === 'create')
+                            ->visible(fn (string $operation, ?User $record): bool => $operation === 'create' || $record?->role !== UserRole::Admin)
                             ->native(false)
-                            ->rules([
-                                Rule::in([
-                                    UserRole::User->value,
-                                    UserRole::Operator->value,
-                                ]),
-                            ]),
+                            ->rules([Rule::in([
+                                UserRole::User->value,
+                                UserRole::Operator->value,
+                            ])]),
                     ]),
             ]);
     }
