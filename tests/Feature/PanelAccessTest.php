@@ -102,12 +102,12 @@ it('logs out from the operator panel and redirects guests to shared login', func
         ->assertRedirect('/login');
 });
 
-it('uses Filament default profile content width', function (): void {
+it('uses the configured profile content width', function (): void {
     $panel = Filament::getPanel('site');
     $profilePage = $panel->getProfilePage();
 
     expect($profilePage)->toBe(EditProfile::class)
-        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
+        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::FourExtraLarge);
 });
 
 it('allows every role to access the shared profile page', function (UserRole $role): void {
@@ -117,7 +117,8 @@ it('allows every role to access the shared profile page', function (UserRole $ro
 
     $this->actingAs($user)
         ->get('/profile')
-        ->assertOk();
+        ->assertOk()
+        ->assertSee('My profile');
 })->with([
     UserRole::User,
     UserRole::Operator,

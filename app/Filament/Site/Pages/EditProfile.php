@@ -10,6 +10,11 @@ use Illuminate\Support\Arr;
 
 class EditProfile extends BaseEditProfile
 {
+    public static function getLabel(): string
+    {
+        return 'My profile';
+    }
+
     public function getMaxContentWidth(): Width
     {
         return Width::FourExtraLarge;
