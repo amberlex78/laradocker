@@ -2,8 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\RedirectGuestsToSiteLogin;
 use Filament\Actions\Action;
-use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -27,14 +27,26 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->globalSearch(false)
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->globalSearch(false)
             ->colors([
                 'primary' => Color::Amber,
             ])
             ->userMenuItems([
+                'profile' => fn (Action $action): Action => $action
+                    ->label(fn (): string => filament()->getUserName(filament()->auth()->user()))
+                    ->url(fn (): ?string => filament()->getPanel('site')->getProfileUrl())
+                    ->icon(Heroicon::OutlinedUserCircle)
+                    ->sort(-2),
+                Action::make('email')
+                    ->label(fn (): string => filament()->auth()->user()->email)
+                    ->disabled()
+                    ->sort(-1),
+                Action::make('operator-panel')
+                    ->label('Operator panel')
+                    ->url(fn (): ?string => filament()->getPanel('operator')->getUrl())
+                    ->icon(Heroicon::OutlinedSquares2x2),
                 Action::make('public-site')
                     ->label('Public site')
                     ->url('/')
@@ -63,7 +75,7 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
-                Authenticate::class,
+                RedirectGuestsToSiteLogin::class,
             ]);
     }
 }

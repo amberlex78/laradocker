@@ -15,7 +15,10 @@ it('registers the public site user menu item before sign out', function () {
     $panel = Filament::getPanel('admin');
     $items = $panel->getUserMenuItems();
 
-    expect(array_keys($items))->toContain('public-site')
+    expect(array_keys($items))->toContain('operator-panel')
+        ->and($items['operator-panel']->getLabel())->toBe('Operator panel')
+        ->and($items['operator-panel']->getUrl())->toBe(Filament::getPanel('operator')->getUrl())
+        ->and(array_keys($items))->toContain('public-site')
         ->and($items['public-site']->getLabel())->toBe('Public site')
         ->and($items['public-site']->getUrl())->toBe('/')
         ->and($items['public-site']->shouldOpenUrlInNewTab())->toBeTrue();

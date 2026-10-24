@@ -1,8 +1,13 @@
 <?php
 
 use App\Enums\UserRole;
+use App\Filament\Site\Pages\EditProfile;
 use App\Models\User;
+use Filament\Auth\Http\Responses\Contracts\LoginResponse;
+use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
 use Filament\Facades\Filament;
+use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 
 it('restricts panel access by user role', function (UserRole $role, string $panelId, bool $canAccess): void {
     $user = User::factory()->make([
@@ -11,12 +16,31 @@ it('restricts panel access by user role', function (UserRole $role, string $pane
 
     expect($user->canAccessPanel(Filament::getPanel($panelId)))->toBe($canAccess);
 })->with([
+    'user can access site panel' => [UserRole::User, 'site', true],
+    'admin can access site panel' => [UserRole::Admin, 'site', true],
+    'operator can access site panel' => [UserRole::Operator, 'site', true],
     'admin can access admin panel' => [UserRole::Admin, 'admin', true],
     'operator cannot access admin panel' => [UserRole::Operator, 'admin', false],
     'user cannot access admin panel' => [UserRole::User, 'admin', false],
     'operator can access operator panel' => [UserRole::Operator, 'operator', true],
     'admin can access operator panel' => [UserRole::Admin, 'operator', true],
     'user cannot access operator panel' => [UserRole::User, 'operator', false],
+]);
+
+it('assigns panel colors to user roles', function (UserRole $role, array $color): void {
+    expect($role->getColor())->toBe($color);
+})->with([
+    'user uses site green' => [UserRole::User, Color::Green],
+    'operator uses operator blue' => [UserRole::Operator, Color::Blue],
+    'admin uses admin amber' => [UserRole::Admin, Color::Amber],
+]);
+
+it('redirects guests from protected panels to the shared login page', function (string $path): void {
+    $this->get($path)
+        ->assertRedirect('/login');
+})->with([
+    '/admin',
+    '/operator',
 ]);
 
 it('forbids an operator from the admin dashboard', function (): void {
@@ -37,4 +61,108 @@ it('allows an operator to access the operator dashboard', function (): void {
     $this->actingAs($operator)
         ->get('/operator')
         ->assertOk();
+});
+
+it('redirects each role to its own destination after shared login', function (UserRole $role, string $destination): void {
+    $user = User::factory()->create([
+        'role' => $role,
+    ]);
+
+    $this->actingAs($user);
+    Filament::setCurrentPanel('site');
+    session()->put('url.intended', '/admin');
+
+    $response = app(LoginResponse::class)->toResponse(request());
+
+    expect($response->getTargetUrl())->toBe(url($destination));
+})->with([
+    'admin goes to admin panel' => [UserRole::Admin, '/admin'],
+    'operator goes to operator panel' => [UserRole::Operator, '/operator'],
+    'user goes to landing page' => [UserRole::User, '/'],
+]);
+
+it('always redirects logout to shared login', function (): void {
+    Filament::setCurrentPanel('admin');
+
+    $response = app(LogoutResponse::class)->toResponse(request());
+
+    expect($response->getTargetUrl())->toBe(route('filament.site.auth.login'));
+});
+
+it('logs out from the operator panel and redirects guests to shared login', function (): void {
+    $operator = User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+
+    $this->actingAs($operator)
+        ->post('/operator/logout')
+        ->assertRedirect('/login');
+
+    $this->get('/operator')
+        ->assertRedirect('/login');
+});
+
+it('uses Filament default profile content width', function (): void {
+    $panel = Filament::getPanel('site');
+    $profilePage = $panel->getProfilePage();
+
+    expect($profilePage)->toBe(EditProfile::class)
+        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
+});
+
+it('allows every role to access the shared profile page', function (UserRole $role): void {
+    $user = User::factory()->create([
+        'role' => $role,
+    ]);
+
+    $this->actingAs($user)
+        ->get('/profile')
+        ->assertOk();
+})->with([
+    UserRole::User,
+    UserRole::Operator,
+    UserRole::Admin,
+]);
+
+it('shows both panel links to admins in the profile menu', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('site');
+
+    $items = Filament::getPanel('site')->getUserMenuItems();
+
+    expect($items)->toHaveKeys(['admin-panel', 'operator-panel'])
+        ->and($items['admin-panel']->getUrl())->toBe(Filament::getPanel('admin')->getUrl())
+        ->and($items['operator-panel']->getUrl())->toBe(Filament::getPanel('operator')->getUrl());
+});
+
+it('shows only the operator panel link to operators in the profile menu', function (): void {
+    $operator = User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+
+    $this->actingAs($operator);
+    Filament::setCurrentPanel('site');
+
+    $items = Filament::getPanel('site')->getUserMenuItems();
+
+    expect($items)->toHaveKey('operator-panel')
+        ->and($items)->not->toHaveKey('admin-panel');
+});
+
+it('shows admins a link to the admin panel from the operator menu', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('operator');
+
+    $items = Filament::getPanel('operator')->getUserMenuItems();
+
+    expect($items)->toHaveKey('admin-panel')
+        ->and($items['admin-panel']->getUrl())->toBe(Filament::getPanel('admin')->getUrl());
 });

@@ -2,6 +2,7 @@
 
 namespace App\Enums;
 
+use Filament\Support\Colors\Color;
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;
 
@@ -16,12 +17,12 @@ enum UserRole: string implements HasColor, HasLabel
         return ucfirst($this->value);
     }
 
-    public function getColor(): string
+    public function getColor(): string|array|null
     {
         return match ($this) {
-            self::User => 'gray',
-            self::Operator => 'info',
-            self::Admin => 'danger',
+            self::User => Color::Green,
+            self::Operator => Color::Blue,
+            self::Admin => Color::Amber,
         };
     }
 
