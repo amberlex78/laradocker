@@ -37,14 +37,12 @@ class UserForm
                             ->maxLength(255),
                         Select::make('role')
                             ->required()
+                            ->native(false)
                             ->enum(UserRole::class)
                             ->options([
                                 UserRole::User->value => UserRole::User->getLabel(),
                                 UserRole::Operator->value => UserRole::Operator->getLabel(),
                             ])
-                            ->visible(fn (string $operation): bool => $operation === 'create')
-                            ->dehydrated(fn (string $operation): bool => $operation === 'create')
-                            ->native(false)
                             ->rules([
                                 Rule::in([
                                     UserRole::User->value,

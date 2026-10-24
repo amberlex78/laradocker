@@ -25,7 +25,6 @@ class UsersTable
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('email')
-                    ->label('Email address')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('role')
@@ -38,19 +37,6 @@ class UsersTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                SelectFilter::make('role')
-                    ->options(function (): array {
-                        $actor = Filament::auth()->user();
-
-                        return $actor instanceof User
-                            ? UserRole::options($actor->role)
-                            : [];
-                    }),
-                TernaryFilter::make('email_verified_at')
-                    ->label('Email verified')
-                    ->nullable(),
             ])
             ->recordActions([
                 ViewAction::make(),

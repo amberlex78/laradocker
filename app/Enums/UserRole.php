@@ -30,23 +30,6 @@ enum UserRole: string implements HasColor, HasLabel
         return $this === self::Admin;
     }
 
-    /**
-     * Get role options visible to an actor.
-     *
-     * @return array<string, string>
-     */
-    public static function options(?self $actorRole = null): array
-    {
-        $roles = match ($actorRole) {
-            null, self::Admin => self::cases(),
-            default => [],
-        };
-
-        return collect($roles)
-            ->mapWithKeys(fn (self $role): array => [$role->value => $role->getLabel()])
-            ->all();
-    }
-
     public function canManage(self $targetRole): bool
     {
         return $this === self::Admin
