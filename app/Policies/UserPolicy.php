@@ -9,8 +9,6 @@ class UserPolicy
 {
     /**
      * Determine whether the user can access the user management resource.
-     *
-     * Only administrators and developers can access the admin panel.
      */
     public function viewAny(User $user): bool
     {
@@ -19,22 +17,16 @@ class UserPolicy
 
     /**
      * Determine whether the user can view the target user.
-     *
-     * Administrators cannot see developers, while developers can view all users.
      */
     public function view(User $user, User $model): bool
     {
-        return match ($user->role) {
-            UserRole::Admin => $model->role !== UserRole::Developer,
-            UserRole::Developer => true,
-            default => false,
-        };
+        return $user->role === UserRole::Admin;
     }
 
     /**
      * Determine whether the user can create a user account.
      *
-     * The form separately limits which roles the current user can assign.
+     * The form limits assignments to user and operator roles.
      */
     public function create(User $user): bool
     {
@@ -44,8 +36,8 @@ class UserPolicy
     /**
      * Determine whether the user can update the target user.
      *
-     * Developers can update every user. Administrators can update users and
-     * operators, as well as their own administrator account.
+     * Administrators can update users and operators, as well as their own
+     * administrator account.
      */
     public function update(User $user, User $model): bool
     {
@@ -58,12 +50,12 @@ class UserPolicy
     /**
      * Determine whether the user can delete the target user.
      *
-     * Developers can delete every user. Administrators cannot delete another
-     * administrator account.
+     * Administrators cannot delete administrator accounts or themselves.
      */
     public function delete(User $user, User $model): bool
     {
-        return $user->role->canManage($model->role);
+        return ! $model->is($user)
+            && $user->role->canManage($model->role);
     }
 
     /**

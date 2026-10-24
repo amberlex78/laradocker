@@ -9,40 +9,33 @@ use function Pest\Laravel\actingAs;
 it('assigns a distinct color to each user role', function () {
     expect(UserRole::User->getColor())->toBe('gray')
         ->and(UserRole::Operator->getColor())->toBe('info')
-        ->and(UserRole::Admin->getColor())->toBe('danger')
-        ->and(UserRole::Developer->getColor())->toBe('success');
+        ->and(UserRole::Admin->getColor())->toBe('danger');
 });
 
-it('limits role filter options to roles visible to the actor', function () {
+it('provides all roles to administrators in role filters', function () {
     expect(UserRole::options(UserRole::Admin))->toBe([
         UserRole::User->value => 'User',
         UserRole::Operator->value => 'Operator',
         UserRole::Admin->value => 'Admin',
     ])
-        ->and(UserRole::options(UserRole::Developer))->toBe(UserRole::options());
+        ->and(UserRole::options())->toBe(UserRole::options(UserRole::Admin));
 });
 
-it('allows admin and developer users to access the admin panel', function (UserRole $role) {
+it('allows administrators to access the admin panel', function () {
     $user = User::factory()->create([
-        'role' => $role,
+        'role' => UserRole::Admin,
     ]);
 
     expect($user->canAccessPanel(Filament::getPanel('admin')))->toBeTrue();
-})->with([
-    'admin' => UserRole::Admin,
-    'developer' => UserRole::Developer,
-]);
+});
 
-it('allows admin and developer roles to access the admin panel route', function (UserRole $role) {
+it('allows administrators to access the admin panel route', function () {
     actingAs(User::factory()->create([
-        'role' => $role,
+        'role' => UserRole::Admin,
     ]));
 
     $this->get('/admin')->assertOk();
-})->with([
-    'admin' => UserRole::Admin,
-    'developer' => UserRole::Developer,
-]);
+});
 
 it('denies user and operator users access to the admin panel', function (UserRole $role) {
     $user = User::factory()->create([

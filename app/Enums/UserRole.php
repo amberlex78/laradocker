@@ -10,7 +10,6 @@ enum UserRole: string implements HasColor, HasLabel
     case User = 'user';
     case Operator = 'operator';
     case Admin = 'admin';
-    case Developer = 'developer';
 
     public function getLabel(): string
     {
@@ -23,13 +22,12 @@ enum UserRole: string implements HasColor, HasLabel
             self::User => 'gray',
             self::Operator => 'info',
             self::Admin => 'danger',
-            self::Developer => 'success',
         };
     }
 
     public function canAccessAdminPanel(): bool
     {
-        return in_array($this, [self::Admin, self::Developer], true);
+        return $this === self::Admin;
     }
 
     /**
@@ -40,8 +38,7 @@ enum UserRole: string implements HasColor, HasLabel
     public static function options(?self $actorRole = null): array
     {
         $roles = match ($actorRole) {
-            null, self::Developer => self::cases(),
-            self::Admin => [self::User, self::Operator, self::Admin],
+            null, self::Admin => self::cases(),
             default => [],
         };
 
@@ -52,7 +49,7 @@ enum UserRole: string implements HasColor, HasLabel
 
     public function canManage(self $targetRole): bool
     {
-        return $this === self::Developer
-            || ($this === self::Admin && in_array($targetRole, [self::User, self::Operator], true));
+        return $this === self::Admin
+            && in_array($targetRole, [self::User, self::Operator], true);
     }
 }

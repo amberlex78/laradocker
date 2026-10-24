@@ -31,45 +31,16 @@ it('can list users', function () {
         ->assertCanSeeTableRecords($users);
 });
 
-it('does not show developers to administrators', function () {
-    $developer = User::factory()->create([
-        'role' => UserRole::Developer,
-    ]);
+it('allows administrators to see users of every role', function () {
     $operator = User::factory()->create([
         'role' => UserRole::Operator,
     ]);
+    $anotherAdmin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
 
     Livewire::test(ListUsers::class)
-        ->assertCanSeeTableRecords([$operator])
-        ->assertCanNotSeeTableRecords([$developer]);
-});
-
-it('allows developers to manage users of every role', function () {
-    $developer = User::factory()->create([
-        'role' => UserRole::Developer,
-    ]);
-    $anotherDeveloper = User::factory()->create([
-        'role' => UserRole::Developer,
-    ]);
-    actingAs($developer);
-
-    Livewire::test(ListUsers::class)
-        ->assertCanSeeTableRecords([$anotherDeveloper]);
-
-    Livewire::test(EditUser::class, [
-        'record' => $developer->id,
-    ])
-        ->fillForm(['name' => 'Updated Developer'])
-        ->call('save')
-        ->assertHasNoFormErrors();
-
-    expect($developer->refresh()->name)->toBe('Updated Developer')
-        ->and(UserResource::canEdit($developer))->toBeTrue()
-        ->and(UserResource::canDelete($developer))->toBeTrue()
-        ->and(UserResource::canEdit($anotherDeveloper))->toBeTrue()
-        ->and(UserResource::canDelete($anotherDeveloper))->toBeTrue()
-        ->and(UserResource::canEdit($this->admin))->toBeTrue()
-        ->and(UserResource::canDelete($this->admin))->toBeTrue();
+        ->assertCanSeeTableRecords([$operator, $anotherAdmin]);
 });
 
 it('shows other administrators as read-only and allows editing your own record', function () {
@@ -77,7 +48,8 @@ it('shows other administrators as read-only and allows editing your own record',
         'role' => UserRole::Admin,
     ]);
 
-    expect(UserResource::canDelete($anotherAdmin))->toBeFalse();
+    expect(UserResource::canDelete($anotherAdmin))->toBeFalse()
+        ->and(UserResource::canDelete($this->admin))->toBeFalse();
 
     Livewire::test(ViewUser::class, [
         'record' => $anotherAdmin->id,
@@ -92,7 +64,6 @@ it('shows other administrators as read-only and allows editing your own record',
         'record' => $this->admin->id,
     ])
         ->assertFormFieldEnabled('name')
-        ->assertFormFieldDisabled('role')
         ->fillForm(['name' => 'Updated Admin'])
         ->call('save')
         ->assertHasNoFormErrors()
@@ -102,39 +73,35 @@ it('shows other administrators as read-only and allows editing your own record',
         ->and($this->admin->role)->toBe(UserRole::Admin);
 });
 
-it('does not allow administrators to create privileged roles', function () {
+it('does not allow administrators to create administrator users', function () {
     Livewire::test(CreateUser::class)
         ->fillForm([
-            'name' => 'Privileged User',
-            'email' => 'privileged@example.com',
-            'role' => UserRole::Developer->value,
+            'name' => 'Second Admin',
+            'email' => 'second-admin@example.com',
+            'role' => UserRole::Admin->value,
             'password' => 'password123',
         ])
         ->call('create')
         ->assertHasFormErrors(['role' => 'in']);
+
+    assertDatabaseMissing(User::class, [
+        'email' => 'second-admin@example.com',
+    ]);
 });
 
-it('allows developers to create developer users', function () {
-    $developer = User::factory()->create([
-        'role' => UserRole::Developer,
+it('does not change an existing user role while editing the user', function () {
+    $user = User::factory()->create([
+        'role' => UserRole::User,
     ]);
-    actingAs($developer);
 
-    Livewire::test(CreateUser::class)
-        ->fillForm([
-            'name' => 'Another Developer',
-            'email' => 'another-developer@example.com',
-            'role' => UserRole::Developer->value,
-            'password' => 'password123',
-        ])
-        ->call('create')
-        ->assertHasNoFormErrors()
-        ->assertNotified();
+    Livewire::test(EditUser::class, [
+        'record' => $user->id,
+    ])
+        ->fillForm(['role' => UserRole::Operator->value])
+        ->call('save')
+        ->assertHasNoFormErrors();
 
-    assertDatabaseHas(User::class, [
-        'email' => 'another-developer@example.com',
-        'role' => UserRole::Developer->value,
-    ]);
+    expect($user->refresh()->role)->toBe(UserRole::User);
 });
 
 it('can render create user page', function () {

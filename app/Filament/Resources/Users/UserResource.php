@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Users;
 
-use App\Enums\UserRole;
 use App\Filament\Resources\Users\Pages\CreateUser;
 use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
@@ -11,7 +10,6 @@ use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Tables\UsersTable;
 use App\Models\User;
 use BackedEnum;
-use Filament\Facades\Filament;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
@@ -34,20 +32,11 @@ class UserResource extends Resource
     }
 
     /**
-     * Hide developers from administrators throughout the resource.
-     *
      * @return Builder<User>
      */
     public static function getEloquentQuery(): Builder
     {
-        $query = parent::getEloquentQuery();
-        $actor = Filament::auth()->user();
-
-        if ($actor instanceof User && $actor->role === UserRole::Admin) {
-            $query->where('role', '!=', UserRole::Developer->value);
-        }
-
-        return $query;
+        return parent::getEloquentQuery();
     }
 
     public static function infolist(Schema $schema): Schema

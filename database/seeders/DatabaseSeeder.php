@@ -32,11 +32,6 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@example.com',
                 'role' => UserRole::Admin,
             ],
-            [
-                'name' => 'Test Developer',
-                'email' => 'developer@example.com',
-                'role' => UserRole::Developer,
-            ],
         ];
 
         foreach ($accounts as $account) {
