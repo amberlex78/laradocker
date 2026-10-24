@@ -11,6 +11,7 @@ use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Tables\UsersTable;
 use App\Models\User;
 use BackedEnum;
+use Filament\Facades\Filament;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Grid;
@@ -40,10 +41,10 @@ class UserResource extends Resource
      */
     public static function getEloquentQuery(): Builder
     {
-        $query = User::query();
-        $user = auth()->user();
+        $query = parent::getEloquentQuery();
+        $actor = Filament::auth()->user();
 
-        if ($user instanceof User && $user->role === UserRole::Admin) {
+        if ($actor instanceof User && $actor->role === UserRole::Admin) {
             $query->where('role', '!=', UserRole::Developer->value);
         }
 
