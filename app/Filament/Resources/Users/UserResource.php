@@ -14,7 +14,6 @@ use BackedEnum;
 use Filament\Facades\Filament;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
-use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -55,30 +54,19 @@ class UserResource extends Resource
     {
         return $schema
             ->components([
-                Section::make()
+                Section::make(fn (User $record): string => $record->name)
+                    ->description(fn (User $record): string => $record->email)
+                    ->icon(Heroicon::OutlinedUserCircle)
                     ->schema([
-                        Grid::make(1)
-                            ->schema([
-                                TextEntry::make('name')
-                                    ->hiddenLabel()
-                                    ->icon(Heroicon::OutlinedUserCircle)
-                                    ->size('lg')
-                                    ->weight('bold'),
-                                TextEntry::make('email')
-                                    ->hiddenLabel()
-                                    ->color('gray'),
-                            ]),
-                        Grid::make(2)
-                            ->schema([
-                                TextEntry::make('role')
-                                    ->badge(),
-                                TextEntry::make('created_at')
-                                    ->dateTime(),
-                                TextEntry::make('updated_at')
-                                    ->dateTime(),
-                            ]),
+                        TextEntry::make('role')
+                            ->badge()
+                            ->columnSpanFull(),
+                        TextEntry::make('created_at')
+                            ->dateTime(),
+                        TextEntry::make('updated_at')
+                            ->dateTime(),
                     ])
-                    ->columns(1),
+                    ->columns(2),
             ]);
     }
 
