@@ -29,4 +29,9 @@ enum UserRole: string implements HasColor, HasLabel
     {
         return $this === self::Admin;
     }
+
+    public function canAccessOperatorPanel(): bool
+    {
+        return in_array($this, [self::Operator, self::Admin], true);
+    }
 }
