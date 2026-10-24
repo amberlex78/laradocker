@@ -42,21 +42,21 @@
     "semantic_hash": ""
   },
   "app/Models/User.php": {
-    "mtime": 1792866240.4271317,
-    "seen": 1792868349.055691,
-    "ast_hash": "072a8c5b5ba41b6d6cb4af3bc6878807",
+    "mtime": 1792871098.3623347,
+    "seen": 1792878377.2263043,
+    "ast_hash": "13383006ccee205bd0c93e3a493367b6",
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
-    "mtime": 1792787786.7865088,
-    "seen": 1792790861.8944125,
-    "ast_hash": "183c0dbbb438655ed74bc8bb2657dcd9",
+    "mtime": 1792874688.9570532,
+    "seen": 1792878377.2263052,
+    "ast_hash": "63b533b6ee5e75794daa316108ecc79a",
     "semantic_hash": ""
   },
   "app/Providers/Filament/AdminPanelProvider.php": {
-    "mtime": 1792778090.149128,
-    "seen": 1792782818.0236218,
-    "ast_hash": "62f3aa0a9b5f896e47ea922ba809d3d2",
+    "mtime": 1792878138.1404347,
+    "seen": 1792878377.226306,
+    "ast_hash": "27b9a8984ef47ec102d51ce99f10bf2a",
     "semantic_hash": ""
   },
   "artisan": {
@@ -66,15 +66,15 @@
     "semantic_hash": ""
   },
   "bootstrap/app.php": {
-    "mtime": 1792034868.0,
-    "seen": 1792782818.0236247,
-    "ast_hash": "d649649bd49673a6cc6b98c428f51e3a",
+    "mtime": 1792873847.659516,
+    "seen": 1792878377.2263095,
+    "ast_hash": "80eb3b387f49c91fc3ddc6c5a7714f57",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
-    "mtime": 1792866272.2098775,
-    "seen": 1792868349.055697,
-    "ast_hash": "ebdbbdc25b01848d0b092657f2506537",
+    "mtime": 1792871118.669804,
+    "seen": 1792878377.2263107,
+    "ast_hash": "bbd865719ea1655c73c92863ca5b8286",
     "semantic_hash": ""
   },
   "composer.json": {
@@ -216,9 +216,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/AdminPanelTest.php": {
-    "mtime": 1792790819.8331158,
-    "seen": 1792790861.8944569,
-    "ast_hash": "541fcd47188ffda33da174234bd80ff7",
+    "mtime": 1792875801.7518878,
+    "seen": 1792878377.226339,
+    "ast_hash": "fa248c14e67339c0b46d80fd606d81f5",
     "semantic_hash": ""
   },
   "tests/Feature/ExampleTest.php": {
@@ -276,9 +276,9 @@
     "semantic_hash": ""
   },
   "app/Enums/UserRole.php": {
-    "mtime": 1792866282.2144835,
-    "seen": 1792868349.055674,
-    "ast_hash": "3bb2bcf65b8d86f812e8d1a86054ef94",
+    "mtime": 1792875175.5057666,
+    "seen": 1792878377.2262816,
+    "ast_hash": "77e53f42ab440fa1f27a48583cc7f533",
     "semantic_hash": ""
   },
   "database/migrations/2026_10_23_212633_add_role_to_users_table.php": {
@@ -306,15 +306,45 @@
     "semantic_hash": ""
   },
   "app/Providers/Filament/OperatorPanelProvider.php": {
-    "mtime": 1792868156.1848054,
-    "seen": 1792868349.0556943,
-    "ast_hash": "34fdeaa3d4823c304d72f4aeadac51e8",
+    "mtime": 1792877911.1019893,
+    "seen": 1792878377.226307,
+    "ast_hash": "8403f0348110eb74aa7d799586bd07d9",
     "semantic_hash": ""
   },
   "tests/Feature/PanelAccessTest.php": {
-    "mtime": 1792866282.2144835,
-    "seen": 1792868349.0557208,
-    "ast_hash": "229e20a9c07bd78de5ed807bd8784ef3",
+    "mtime": 1792877911.1019893,
+    "seen": 1792878377.2263422,
+    "ast_hash": "e1ed9cf766797a072dcc7c9cdcd3bc1a",
+    "semantic_hash": ""
+  },
+  "app/Filament/Site/Pages/EditProfile.php": {
+    "mtime": 1792877536.3997514,
+    "seen": 1792878377.2262988,
+    "ast_hash": "a80bf0a77a435971e2390b56c2f8fcc0",
+    "semantic_hash": ""
+  },
+  "app/Http/Middleware/RedirectGuestsToSiteLogin.php": {
+    "mtime": 1792873841.836473,
+    "seen": 1792878377.2263012,
+    "ast_hash": "6969f5c72509e27424b62a2d03331a9d",
+    "semantic_hash": ""
+  },
+  "app/Http/Responses/FilamentLoginResponse.php": {
+    "mtime": 1792874677.202338,
+    "seen": 1792878377.2263024,
+    "ast_hash": "aafd9baa3c9b67c75996da6964008acf",
+    "semantic_hash": ""
+  },
+  "app/Http/Responses/FilamentLogoutResponse.php": {
+    "mtime": 1792874678.8353598,
+    "seen": 1792878377.2263033,
+    "ast_hash": "75c67363f2581bb4657c36ceb4dd93fb",
+    "semantic_hash": ""
+  },
+  "app/Providers/Filament/SitePanelProvider.php": {
+    "mtime": 1792878308.6402354,
+    "seen": 1792878377.2263076,
+    "ast_hash": "6d58557706fcd3a538c094bed12f9c88",
     "semantic_hash": ""
   }
 }
