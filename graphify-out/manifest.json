@@ -306,9 +306,9 @@
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
-    "mtime": 1792937376.8298156,
-    "seen": 1792937397.77086,
-    "ast_hash": "b2a364a5bcc1812c3174b820c0db67ce",
+    "mtime": 1792938002.200712,
+    "seen": 1792938030.851236,
+    "ast_hash": "6153d31ffd8be41a78d13657e0a475df",
     "semantic_hash": ""
   },
   "app/Http/Middleware/RedirectGuestsToSiteLogin.php": {

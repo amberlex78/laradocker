@@ -1,22 +1,22 @@
 # Graph Report - la-filament  (2026-10-25)
 
 ## Corpus Check
-- 65 files · ~10,834 words
+- 65 files · ~10,831 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 12 file(s) not represented in the graph (top: (none) 8, .example 1, .neon 1)
 
 ## Summary
-- 453 nodes · 666 edges · 30 communities (14 shown, 16 thin omitted)
+- 452 nodes · 665 edges · 30 communities (14 shown, 16 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d2aa0983`
+- Built from commit: `83aa72b7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- require-dev
+- scripts
 - User
 - package.json
 - composer.json
@@ -63,9 +63,9 @@
 
 ## Communities (30 total, 16 thin omitted)
 
-### Community 0 - "require-dev"
-Cohesion: 0.17
-Nodes (12): require-dev, fakerphp/faker, larastan/larastan, laravel/boost, laravel/pail, laravel/pao, laravel/pint, laravel/sail (+4 more)
+### Community 0 - "scripts"
+Cohesion: 0.15
+Nodes (13): scripts, ci:check, dev, lint, lint:check, post-autoload-dump, post-create-project-cmd, post-root-package-install (+5 more)
 
 ### Community 1 - "User"
 Cohesion: 0.07
@@ -92,7 +92,7 @@ Cohesion: 0.11
 Nodes (10): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+2 more)
 
 ### Community 7 - "scripts"
-Cohesion: 0.07
+Cohesion: 0.08
 Nodes (3): TerminateOtherSessions, UserForm, EditProfile
 
 ### Community 8 - "UserFactory.php"
@@ -101,7 +101,7 @@ Nodes (4): FilamentLoginResponse, FilamentLogoutResponse, AppServiceProvider, {c
 
 ### Community 10 - "composer.json"
 Cohesion: 0.04
-Nodes (47): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+39 more)
+Nodes (46): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+38 more)
 
 ### Community 12 - "SystemOverview"
 Cohesion: 0.31
@@ -121,7 +121,7 @@ Nodes (12): ActiveSessions, {closure#1}(), {closure#2}(), {closure#3}(), {closur
 
 ## Knowledge Gaps
 - **10 isolated node(s):** `User`, `Operator`, `Admin`, `concurrently`, `tailwindcss` (+5 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 200 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 199 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
