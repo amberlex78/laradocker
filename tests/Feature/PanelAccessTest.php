@@ -158,7 +158,12 @@ it('allows every role to access the shared profile page', function (UserRole $ro
     $this->actingAs($user)
         ->get('/profile')
         ->assertOk()
-        ->assertSee('My profile');
+        ->assertSee('My profile')
+        ->assertSee('Manage your account')
+        ->assertSee('Profile information')
+        ->assertSee('Update password')
+        ->assertDontSee('fi-fo-field-has-inline-label')
+        ->assertSee('style="--col-span-default: span 2 / span 2;"', false);
 })->with([
     UserRole::User,
     UserRole::Operator,
