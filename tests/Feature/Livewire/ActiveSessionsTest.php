@@ -5,6 +5,7 @@ use App\Livewire\ActiveSessions;
 use App\Models\User;
 use App\Models\UserSession;
 use Filament\Facades\Filament;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
 use function Pest\Laravel\actingAs;
@@ -85,6 +86,64 @@ it('renders active sessions for the authenticated user with device details', fun
         ->assertDontSee('203.0.113.13');
 });
 
+it('uses the active Filament guard for session display and termination', function (): void {
+    config([
+        'auth.guards.site_test' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    ]);
+
+    $defaultUser = User::factory()->create([
+        'password' => Hash::make('default-password'),
+    ]);
+    $panelUser = User::factory()->create([
+        'password' => Hash::make('panel-password'),
+    ]);
+
+    actingAs($defaultUser, 'web');
+    Filament::getPanel('site')->authGuard('site_test');
+    Filament::setCurrentPanel('site');
+    Filament::auth()->login($panelUser);
+    $currentSessionId = session()->getId();
+
+    $currentSession = UserSession::create([
+        'id' => $currentSessionId,
+        'user_id' => $panelUser->getKey(),
+        'ip_address' => '203.0.113.20',
+        'payload' => '',
+        'last_activity' => now()->timestamp,
+    ]);
+    $otherPanelSession = UserSession::create([
+        'id' => 'other-panel-session-id',
+        'user_id' => $panelUser->getKey(),
+        'ip_address' => '203.0.113.21',
+        'payload' => '',
+        'last_activity' => now()->timestamp,
+    ]);
+    $defaultSession = UserSession::create([
+        'id' => 'default-guard-session-id',
+        'user_id' => $defaultUser->getKey(),
+        'ip_address' => '203.0.113.22',
+        'payload' => '',
+        'last_activity' => now()->timestamp,
+    ]);
+
+    Livewire::test(ActiveSessions::class)
+        ->assertSee('203.0.113.20')
+        ->assertSee('203.0.113.21')
+        ->assertDontSee('203.0.113.22');
+
+    Livewire::test(EditProfile::class)
+        ->set('terminateSessions.currentPassword', 'panel-password')
+        ->call('terminateOtherSessions')
+        ->assertNotified('Other sessions terminated');
+
+    expect(UserSession::query()->find($currentSession->getKey()))->not->toBeNull()
+        ->and(UserSession::query()->find($otherPanelSession->getKey()))->toBeNull()
+        ->and(UserSession::query()->find($defaultSession->getKey()))->not->toBeNull();
+});
+
 it('renders active sessions on the profile page', function (): void {
     $user = User::factory()->create();
 
@@ -130,6 +189,7 @@ it('does not terminate sessions when the current password is invalid', function 
 
 it('terminates other sessions after the current password is confirmed', function (): void {
     $user = User::factory()->create();
+    $otherUser = User::factory()->create();
 
     actingAs($user);
     Filament::setCurrentPanel('site');
@@ -147,6 +207,12 @@ it('terminates other sessions after the current password is confirmed', function
         'payload' => '',
         'last_activity' => now()->timestamp,
     ]);
+    $otherUserSession = UserSession::create([
+        'id' => 'other-user-session-id',
+        'user_id' => $otherUser->getKey(),
+        'payload' => '',
+        'last_activity' => now()->timestamp,
+    ]);
 
     Livewire::test(EditProfile::class)
         ->set('terminateSessions.currentPassword', 'password')
@@ -157,7 +223,8 @@ it('terminates other sessions after the current password is confirmed', function
         ->and(session()->get('password_hash_'.Filament::getAuthGuard()))
         ->toBe(Auth::user()->getAuthPassword())
         ->and(UserSession::query()->find($currentSession->getKey()))->not->toBeNull()
-        ->and(UserSession::query()->find($otherSession->getKey()))->toBeNull();
+        ->and(UserSession::query()->find($otherSession->getKey()))->toBeNull()
+        ->and(UserSession::query()->find($otherUserSession->getKey()))->not->toBeNull();
 
     $this->get('/profile')->assertOk();
 });
