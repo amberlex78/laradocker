@@ -17,7 +17,7 @@ enum UserRole: string implements HasColor, HasLabel
         return ucfirst($this->value);
     }
 
-    public function getColor(): string|array|null
+    public function getColor(): array
     {
         return match ($this) {
             self::User => Color::Green,

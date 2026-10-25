@@ -18,6 +18,9 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * @extends resource<User>
+ */
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
