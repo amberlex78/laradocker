@@ -166,7 +166,8 @@ it('allows every role to access the shared profile page', function (UserRole $ro
         ->assertSee('fi-fieldset', false)
         ->assertSee('Password')
         ->assertSee('New password')
-        ->assertDontSee('Current password')
+        ->assertSee('Active sessions')
+        ->assertSee('Terminate other sessions')
         ->assertDontSee('Confirm new password')
         ->assertDontSee('Update password')
         ->assertDontSee('fi-fo-field-has-inline-label');
@@ -258,7 +259,6 @@ it('hides conditional password fields after saving a password change', function 
             'password' => null,
             'passwordConfirmation' => null,
         ])
-        ->assertDontSee('Current password')
         ->assertDontSee('Confirm new password');
 });
 
