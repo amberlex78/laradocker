@@ -43,7 +43,8 @@ it('renders user totals and the current browser environment on the admin dashboa
             '3',
         ])
         ->assertSee('Your system')
-        ->assertSee('GNU/Linux')
+        ->assertSee('Linux')
+        ->assertDontSee('GNU/Linux')
         ->assertSee('Desktop / Chrome');
 });
 

@@ -74,7 +74,7 @@ class SystemOverview extends StatsOverviewWidget
             str_contains($userAgent, 'Android') => 'Android',
             str_contains($userAgent, 'Windows') => 'Windows',
             str_contains($userAgent, 'Macintosh'), str_contains($userAgent, 'Mac OS X') => 'macOS',
-            str_contains($userAgent, 'Linux') => 'GNU/Linux',
+            str_contains($userAgent, 'Linux') => 'Linux',
             default => 'Unknown OS',
         };
     }
