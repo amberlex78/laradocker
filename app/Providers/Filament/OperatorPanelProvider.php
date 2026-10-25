@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Enums\UserRole;
+use App\Filament\Widgets\SystemOverview;
 use App\Http\Middleware\RedirectGuestsToSiteLogin;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -13,8 +14,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Icons\Heroicon;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -61,8 +60,7 @@ class OperatorPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Operator/Widgets'), for: 'App\Filament\Operator\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                SystemOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,
