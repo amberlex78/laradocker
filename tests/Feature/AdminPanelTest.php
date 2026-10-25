@@ -1,8 +1,10 @@
 <?php
 
 use App\Enums\UserRole;
+use App\Filament\Resources\Users\Pages\ListUsers;
 use App\Models\User;
 use Filament\Facades\Filament;
+use Livewire\Livewire;
 
 use function Pest\Laravel\actingAs;
 
@@ -28,4 +30,16 @@ it('registers the public site user menu item before sign out', function () {
     $logoutIndex = array_search('logout', $keys, true);
 
     expect($publicSiteIndex)->toBeLessThan($logoutIndex);
+});
+
+it('does not offer mass deletion for users', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(ListUsers::class)
+        ->assertTableBulkActionsExistInOrder([]);
 });
