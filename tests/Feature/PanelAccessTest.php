@@ -147,7 +147,7 @@ it('uses the configured profile content width', function (): void {
     $profilePage = $panel->getProfilePage();
 
     expect($profilePage)->toBe(EditProfile::class)
-        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::FourExtraLarge);
+        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
 });
 
 it('allows every role to access the shared profile page', function (UserRole $role): void {

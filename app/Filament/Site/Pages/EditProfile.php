@@ -17,7 +17,7 @@ class EditProfile extends BaseEditProfile
 
     public function getMaxContentWidth(): Width
     {
-        return Width::FourExtraLarge;
+        return Width::SevenExtraLarge;
     }
 
     public function content(Schema $schema): Schema
