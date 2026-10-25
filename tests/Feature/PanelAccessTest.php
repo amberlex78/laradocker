@@ -212,6 +212,30 @@ it('saves profile details without changing the password when password fields are
     expect($user->refresh()->name)->toBe('Updated name');
 });
 
+it('allows an admin to update their own details through the profile', function (): void {
+    $admin = User::factory()->create([
+        'name' => 'Original admin name',
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('site');
+
+    Livewire::test(EditProfile::class)
+        ->fillForm([
+            'name' => 'Updated admin name',
+            'email' => $admin->email,
+            'password' => null,
+            'passwordConfirmation' => null,
+            'currentPassword' => null,
+        ])
+        ->call('save')
+        ->assertHasNoFormErrors();
+
+    expect($admin->refresh()->name)->toBe('Updated admin name')
+        ->and($admin->role)->toBe(UserRole::Admin);
+});
+
 it('hides conditional password fields after saving a password change', function (): void {
     $user = User::factory()->create([
         'name' => 'Original name',
