@@ -22,13 +22,21 @@ class UserSession extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'sessions';
-
     protected $primaryKey = 'id';
 
     public $incrementing = false;
 
     protected $keyType = 'string';
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->setTable((string) config('session.table'));
+        $this->setConnection(config('session.connection') === null
+            ? null
+            : (string) config('session.connection'));
+    }
 
     /**
      * @return BelongsTo<User, $this>

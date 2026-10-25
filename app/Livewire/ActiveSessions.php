@@ -4,15 +4,20 @@ namespace App\Livewire;
 
 use App\Models\UserSession;
 use App\Services\DeviceDetectionService;
+use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
 
 class ActiveSessions extends TableWidget
 {
     protected static bool $isDiscovered = false;
+
+    public static function canView(): bool
+    {
+        return Filament::auth()->check();
+    }
 
     public function table(Table $table): Table
     {
@@ -20,7 +25,7 @@ class ActiveSessions extends TableWidget
             ->heading(null)
             ->description(null)
             ->query(fn (): Builder => UserSession::query()
-                ->where('user_id', Auth::id())
+                ->where('user_id', Filament::auth()->id())
                 ->active())
             ->columns([
                 TextColumn::make('device')

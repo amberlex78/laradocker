@@ -9,6 +9,25 @@ use Livewire\Livewire;
 
 use function Pest\Laravel\actingAs;
 
+it('forbids guests from rendering active sessions', function (): void {
+    Filament::setCurrentPanel('site');
+
+    Livewire::test(ActiveSessions::class)
+        ->assertForbidden();
+});
+
+it('uses configured session storage metadata', function (): void {
+    config([
+        'session.table' => 'custom_sessions',
+        'session.connection' => 'custom_connection',
+    ]);
+
+    $session = new UserSession;
+
+    expect($session->getTable())->toBe('custom_sessions')
+        ->and($session->getConnectionName())->toBe('custom_connection');
+});
+
 it('renders active sessions for the authenticated user with device details', function (): void {
     $user = User::factory()->create();
     $otherUser = User::factory()->create();

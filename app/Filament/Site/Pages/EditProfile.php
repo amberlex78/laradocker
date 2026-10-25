@@ -2,14 +2,15 @@
 
 namespace App\Filament\Site\Pages;
 
+use App\Actions\Auth\TerminateOtherSessions;
 use App\Livewire\ActiveSessions;
-use App\Models\UserSession;
 use Filament\Actions\Action;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Form;
 use Filament\Schemas\Components\Grid;
@@ -19,8 +20,10 @@ use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 
+/**
+ * @property-read Schema $terminateSessionsForm
+ */
 class EditProfile extends BaseEditProfile
 {
     /**
@@ -66,31 +69,7 @@ class EditProfile extends BaseEditProfile
                     ->description('Devices currently signed in to your account.')
                     ->icon(Heroicon::OutlinedComputerDesktop)
                     ->schema([
-                        Form::make([
-                            Grid::make(2)
-                                ->schema([
-                                    TextInput::make('currentPassword')
-                                        ->label('Current password')
-                                        ->password()
-                                        ->revealable()
-                                        ->autocomplete('current-password')
-                                        ->placeholder('Confirm your current password')
-                                        ->required()
-                                        ->rule('current_password:web'),
-                                    Actions::make([
-                                        Action::make('terminateOtherSessionsButton')
-                                            ->label('Terminate other sessions')
-                                            ->color('danger')
-                                            ->icon('heroicon-o-arrow-right-on-rectangle')
-                                            ->submit('terminate-sessions-form'),
-                                    ])
-                                        ->fullWidth()
-                                        ->verticalAlignment('end'),
-                                ]),
-                        ])
-                            ->id('terminate-sessions-form')
-                            ->statePath('terminateSessions')
-                            ->livewireSubmitHandler('terminateOtherSessions'),
+                        EmbeddedSchema::make('terminateSessionsForm'),
                         Livewire::make(ActiveSessions::class),
                     ]),
             ]);
@@ -121,25 +100,43 @@ class EditProfile extends BaseEditProfile
             ]);
     }
 
-    public function terminateOtherSessions(): void
+    public function terminateSessionsForm(Schema $schema): Schema
     {
-        /** @var Form $terminationForm */
-        $terminationForm = $this->getSchema('content')->getComponent('terminateSessions');
-        $data = $terminationForm->getChildSchemas()['default']->getState();
-        $currentPassword = $data['currentPassword'];
-        $currentSessionId = session()->getId();
-        $userId = Auth::id();
+        return $schema
+            ->statePath('terminateSessions')
+            ->components([
+                Form::make([
+                    Grid::make(2)
+                        ->schema([
+                            TextInput::make('currentPassword')
+                                ->label('Current password')
+                                ->password()
+                                ->revealable()
+                                ->autocomplete('current-password')
+                                ->placeholder('Confirm your current password')
+                                ->required()
+                                ->rule('current_password:'.Filament::getAuthGuard()),
+                            Actions::make([
+                                Action::make('terminateOtherSessionsButton')
+                                    ->label('Terminate other sessions')
+                                    ->color('danger')
+                                    ->icon('heroicon-o-arrow-right-on-rectangle')
+                                    ->submit('terminate-sessions-form'),
+                            ])
+                                ->fullWidth()
+                                ->verticalAlignment('end'),
+                        ]),
+                ])
+                    ->id('terminate-sessions-form')
+                    ->livewireSubmitHandler('terminateOtherSessions'),
+            ]);
+    }
 
-        Auth::logoutOtherDevices($currentPassword);
+    public function terminateOtherSessions(TerminateOtherSessions $terminateOtherSessions): void
+    {
+        $data = $this->terminateSessionsForm->getState();
 
-        session()->put([
-            'password_hash_'.Filament::getAuthGuard() => Auth::user()->getAuthPassword(),
-        ]);
-
-        UserSession::query()
-            ->where('user_id', $userId)
-            ->whereKeyNot($currentSessionId)
-            ->delete();
+        $terminateOtherSessions->handle($data['currentPassword']);
 
         $this->terminateSessions['currentPassword'] = '';
 
