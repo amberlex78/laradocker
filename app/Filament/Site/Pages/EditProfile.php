@@ -13,7 +13,6 @@ use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Form;
-use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Livewire;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -106,27 +105,25 @@ class EditProfile extends BaseEditProfile
             ->statePath('terminateSessions')
             ->components([
                 Form::make([
-                    Grid::make(2)
-                        ->schema([
-                            TextInput::make('currentPassword')
-                                ->label('Current password')
-                                ->password()
-                                ->revealable()
-                                ->autocomplete('current-password')
-                                ->placeholder('Confirm your current password')
-                                ->required()
-                                ->rule('current_password:'.Filament::getAuthGuard()),
-                            Actions::make([
-                                Action::make('terminateOtherSessionsButton')
-                                    ->label('Terminate other sessions')
-                                    ->color('danger')
-                                    ->icon('heroicon-o-arrow-right-on-rectangle')
-                                    ->submit('terminate-sessions-form'),
-                            ])
-                                ->fullWidth()
-                                ->verticalAlignment('end'),
-                        ]),
+                    TextInput::make('currentPassword')
+                        ->label('Current password')
+                        ->password()
+                        ->revealable()
+                        ->autocomplete('current-password')
+                        ->placeholder('Confirm your current password')
+                        ->currentPassword(guard: Filament::getAuthGuard())
+                        ->required(),
+                    Actions::make([
+                        Action::make('terminateOtherSessionsButton')
+                            ->label('Terminate other sessions')
+                            ->color('danger')
+                            ->icon('heroicon-o-arrow-right-on-rectangle')
+                            ->submit('terminate-sessions-form'),
+                    ])
+                        ->fullWidth()
+                        ->verticalAlignment('end'),
                 ])
+                    ->columns(2)
                     ->id('terminate-sessions-form')
                     ->livewireSubmitHandler('terminateOtherSessions'),
             ]);
