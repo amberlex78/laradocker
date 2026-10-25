@@ -8,6 +8,7 @@ use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
+use Livewire\Livewire;
 
 it('restricts panel access by user role', function (UserRole $role, string $panelId, bool $canAccess): void {
     $user = User::factory()->make([
@@ -160,15 +161,82 @@ it('allows every role to access the shared profile page', function (UserRole $ro
         ->assertOk()
         ->assertSee('My profile')
         ->assertSee('Manage your account')
+        ->assertSee('Account information')
         ->assertSee('Profile information')
-        ->assertSee('Update password')
-        ->assertDontSee('fi-fo-field-has-inline-label')
-        ->assertSee('style="--col-span-default: span 2 / span 2;"', false);
+        ->assertSee('fi-fieldset', false)
+        ->assertSee('Password')
+        ->assertSee('New password')
+        ->assertDontSee('Current password')
+        ->assertDontSee('Confirm new password')
+        ->assertDontSee('Update password')
+        ->assertDontSee('fi-fo-field-has-inline-label');
 })->with([
     UserRole::User,
     UserRole::Operator,
     UserRole::Admin,
 ]);
+
+it('reveals conditional password fields when a new password is entered', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    Livewire::test(EditProfile::class)
+        ->fillForm([
+            'password' => 'NewPassword123!',
+        ])
+        ->assertSee('Current password')
+        ->assertSee('Confirm new password');
+});
+
+it('saves profile details without changing the password when password fields are empty', function (): void {
+    $user = User::factory()->create([
+        'name' => 'Original name',
+    ]);
+
+    $this->actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    Livewire::test(EditProfile::class)
+        ->fillForm([
+            'name' => 'Updated name',
+            'email' => $user->email,
+            'password' => null,
+            'passwordConfirmation' => null,
+            'currentPassword' => null,
+        ])
+        ->call('save')
+        ->assertHasNoFormErrors();
+
+    expect($user->refresh()->name)->toBe('Updated name');
+});
+
+it('hides conditional password fields after saving a password change', function (): void {
+    $user = User::factory()->create([
+        'name' => 'Original name',
+    ]);
+
+    $this->actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    Livewire::test(EditProfile::class)
+        ->fillForm([
+            'name' => 'Updated name',
+            'email' => $user->email,
+            'currentPassword' => 'password',
+            'password' => 'NewPassword123!',
+            'passwordConfirmation' => 'NewPassword123!',
+        ])
+        ->call('save')
+        ->assertHasNoFormErrors()
+        ->assertFormSet([
+            'password' => null,
+            'passwordConfirmation' => null,
+        ])
+        ->assertDontSee('Current password')
+        ->assertDontSee('Confirm new password');
+});
 
 it('shows both panel links to admins in the profile menu', function (): void {
     $admin = User::factory()->create([

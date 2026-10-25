@@ -3,9 +3,8 @@
 namespace App\Filament\Site\Pages;
 
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
-use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
 use Illuminate\Support\Arr;
@@ -51,34 +50,22 @@ class EditProfile extends BaseEditProfile
     {
         return $schema
             ->components([
-                Grid::make([
-                    'default' => 1,
-                    'lg' => 2,
-                ])
+                Section::make('Account information')
+                    ->description('Update your profile information and password.')
+                    ->columns(2)
                     ->schema([
-                        Section::make('Profile information')
-                            ->description('Update your profile information and email address.')
+                        Fieldset::make('Profile information')
+                            ->columns(1)
                             ->schema([
-                                Grid::make([
-                                    'default' => 1,
-                                    'sm' => 2,
-                                ])->schema([
-                                    $this->getNameFormComponent(),
-                                    $this->getEmailFormComponent(),
-                                ]),
+                                $this->getNameFormComponent(),
+                                $this->getEmailFormComponent(),
                             ]),
-                        Section::make('Update password')
-                            ->description('Use a strong, unique password to keep your account secure.')
+                        Fieldset::make('Password')
+                            ->columns(1)
                             ->schema([
                                 $this->getCurrentPasswordFormComponent(),
-                                Grid::make([
-                                    'default' => 1,
-                                    'sm' => 2,
-                                ])->schema([
-                                    $this->getPasswordFormComponent()
-                                        ->columnSpan(fn (Get $get): int => filled($get('password')) ? 1 : 2),
-                                    $this->getPasswordConfirmationFormComponent(),
-                                ]),
+                                $this->getPasswordFormComponent(),
+                                $this->getPasswordConfirmationFormComponent(),
                             ]),
                     ]),
             ]);
