@@ -47,7 +47,10 @@ class SitePanelProvider extends PanelProvider
                     ->label('Admin panel')
                     ->url(fn (): ?string => filament()->getPanel('admin')->getUrl())
                     ->icon(Heroicon::OutlinedSquares2x2)
-                    ->visible(fn (): bool => filament()->auth()->user()->role === UserRole::Admin),
+                    ->visible(fn (): bool => in_array(filament()->auth()->user()->role, [
+                        UserRole::Admin,
+                        UserRole::Developer,
+                    ], true)),
                 Action::make('operator-panel')
                     ->label('Operator panel')
                     ->url(fn (): ?string => filament()->getPanel('operator')->getUrl())
@@ -55,6 +58,7 @@ class SitePanelProvider extends PanelProvider
                     ->visible(fn (): bool => in_array(filament()->auth()->user()->role, [
                         UserRole::Admin,
                         UserRole::Operator,
+                        UserRole::Developer,
                     ], true)),
                 Action::make('public-site')
                     ->label('Public site')

@@ -11,6 +11,7 @@ enum UserRole: string implements HasColor, HasLabel
     case User = 'user';
     case Operator = 'operator';
     case Admin = 'admin';
+    case Developer = 'developer';
 
     public function getLabel(): string
     {
@@ -23,16 +24,17 @@ enum UserRole: string implements HasColor, HasLabel
             self::User => Color::Green,
             self::Operator => Color::Blue,
             self::Admin => Color::Amber,
+            self::Developer => Color::Purple,
         };
     }
 
     public function canAccessAdminPanel(): bool
     {
-        return $this === self::Admin;
+        return in_array($this, [self::Admin, self::Developer], true);
     }
 
     public function canAccessOperatorPanel(): bool
     {
-        return in_array($this, [self::Operator, self::Admin], true);
+        return in_array($this, [self::Operator, self::Admin, self::Developer], true);
     }
 }

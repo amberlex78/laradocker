@@ -20,11 +20,14 @@ it('restricts panel access by user role', function (UserRole $role, string $pane
     'user can access site panel' => [UserRole::User, 'site', true],
     'admin can access site panel' => [UserRole::Admin, 'site', true],
     'operator can access site panel' => [UserRole::Operator, 'site', true],
+    'developer can access site panel' => [UserRole::Developer, 'site', true],
     'admin can access admin panel' => [UserRole::Admin, 'admin', true],
+    'developer can access admin panel' => [UserRole::Developer, 'admin', true],
     'operator cannot access admin panel' => [UserRole::Operator, 'admin', false],
     'user cannot access admin panel' => [UserRole::User, 'admin', false],
     'operator can access operator panel' => [UserRole::Operator, 'operator', true],
     'admin can access operator panel' => [UserRole::Admin, 'operator', true],
+    'developer can access operator panel' => [UserRole::Developer, 'operator', true],
     'user cannot access operator panel' => [UserRole::User, 'operator', false],
 ]);
 
@@ -34,6 +37,7 @@ it('assigns panel colors to user roles', function (UserRole $role, array $color)
     'user uses site green' => [UserRole::User, Color::Green],
     'operator uses operator blue' => [UserRole::Operator, Color::Blue],
     'admin uses admin amber' => [UserRole::Admin, Color::Amber],
+    'developer uses developer purple' => [UserRole::Developer, Color::Purple],
 ]);
 
 it('shows guests a sign in button on the home page', function (): void {
@@ -70,6 +74,11 @@ it('shows each role its available entries on the home page', function (UserRole 
         ['My profile', '/profile'],
     ]],
     'admins see all available entries' => [UserRole::Admin, [
+        ['Admin panel', '/admin'],
+        ['Operator panel', '/operator'],
+        ['My profile', '/profile'],
+    ]],
+    'developers see all available entries' => [UserRole::Developer, [
         ['Admin panel', '/admin'],
         ['Operator panel', '/operator'],
         ['My profile', '/profile'],
@@ -118,6 +127,7 @@ it('redirects each role to its own destination after shared login', function (Us
     expect($response->getTargetUrl())->toBe(url($destination));
 })->with([
     'admin goes to admin panel' => [UserRole::Admin, '/admin'],
+    'developer goes to admin panel' => [UserRole::Developer, '/admin'],
     'operator goes to operator panel' => [UserRole::Operator, '/operator'],
     'user goes to landing page' => [UserRole::User, '/'],
 ]);
@@ -175,6 +185,7 @@ it('allows every role to access the shared profile page', function (UserRole $ro
     UserRole::User,
     UserRole::Operator,
     UserRole::Admin,
+    UserRole::Developer,
 ]);
 
 it('reveals conditional password fields when a new password is entered', function (): void {
@@ -303,4 +314,23 @@ it('shows admins a link to the admin panel from the operator menu', function ():
 
     expect($items)->toHaveKey('admin-panel')
         ->and($items['admin-panel']->getUrl())->toBe(Filament::getPanel('admin')->getUrl());
+});
+
+it('shows developers links to both panels from profile and operator menus', function (): void {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    $this->actingAs($developer);
+
+    Filament::setCurrentPanel('site');
+    $siteItems = Filament::getPanel('site')->getUserMenuItems();
+    expect($siteItems)->toHaveKeys(['admin-panel', 'operator-panel'])
+        ->and($siteItems['admin-panel']->getUrl())->toBe(Filament::getPanel('admin')->getUrl())
+        ->and($siteItems['operator-panel']->getUrl())->toBe(Filament::getPanel('operator')->getUrl());
+
+    Filament::setCurrentPanel('operator');
+    $operatorItems = Filament::getPanel('operator')->getUserMenuItems();
+    expect($operatorItems)->toHaveKey('admin-panel')
+        ->and($operatorItems['admin-panel']->getUrl())->toBe(Filament::getPanel('admin')->getUrl());
 });

@@ -14,7 +14,7 @@ class FilamentLoginResponse implements LoginResponse
         $user = Filament::auth()->user();
 
         $url = match ($user->role) {
-            UserRole::Admin => Filament::getPanel('admin')->getUrl(),
+            UserRole::Admin, UserRole::Developer => Filament::getPanel('admin')->getUrl(),
             UserRole::Operator => Filament::getPanel('operator')->getUrl(),
             UserRole::User => route('home'),
         };

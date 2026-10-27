@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use App\Enums\UserRole;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -39,15 +40,37 @@ class UserForm
                             ->required()
                             ->native(false)
                             ->enum(UserRole::class)
-                            ->options([
-                                UserRole::User->value => UserRole::User->getLabel(),
-                                UserRole::Operator->value => UserRole::Operator->getLabel(),
-                            ])
+                            ->options(function (): array {
+                                $currentUser = Filament::auth()->user();
+
+                                if ($currentUser?->role === UserRole::Developer) {
+                                    return [
+                                        UserRole::User->value => UserRole::User->getLabel(),
+                                        UserRole::Operator->value => UserRole::Operator->getLabel(),
+                                        UserRole::Admin->value => UserRole::Admin->getLabel(),
+                                        UserRole::Developer->value => UserRole::Developer->getLabel(),
+                                    ];
+                                }
+
+                                return [
+                                    UserRole::User->value => UserRole::User->getLabel(),
+                                    UserRole::Operator->value => UserRole::Operator->getLabel(),
+                                ];
+                            })
                             ->rules([
-                                Rule::in([
-                                    UserRole::User->value,
-                                    UserRole::Operator->value,
-                                ]),
+                                fn () => Rule::in(
+                                    Filament::auth()->user()?->role === UserRole::Developer
+                                        ? [
+                                            UserRole::User->value,
+                                            UserRole::Operator->value,
+                                            UserRole::Admin->value,
+                                            UserRole::Developer->value,
+                                        ]
+                                        : [
+                                            UserRole::User->value,
+                                            UserRole::Operator->value,
+                                        ],
+                                ),
                             ]),
                     ]),
             ]);

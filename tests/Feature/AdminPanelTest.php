@@ -2,6 +2,7 @@
 
 use App\Enums\UserRole;
 use App\Filament\Resources\Users\Pages\CreateUser;
+use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
 use App\Filament\Resources\Users\Pages\ViewUser;
 use App\Filament\Resources\Users\UserResource;
@@ -138,4 +139,125 @@ it('does not allow creating an administrator through user management', function 
         ->assertNoRedirect();
 
     expect(User::query()->where('email', $email)->exists())->toBeFalse();
+});
+
+it('hides developer records from administrators in user management', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $developer = User::factory()->create([
+        'name' => 'Hidden Developer',
+        'email' => 'stealth@example.com',
+        'role' => UserRole::Developer,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    expect(UserResource::canView($developer))->toBeFalse()
+        ->and(UserResource::canEdit($developer))->toBeFalse()
+        ->and(UserResource::canDelete($developer))->toBeFalse();
+
+    $this->get(route('filament.admin.resources.users.view', ['record' => $developer]))
+        ->assertNotFound();
+
+    $this->get(route('filament.admin.resources.users.edit', ['record' => $developer]))
+        ->assertNotFound();
+
+    Livewire::test(ListUsers::class)
+        ->assertCanNotSeeTableRecords([$developer])
+        ->searchTable('stealth')
+        ->assertCanNotSeeTableRecords([$developer]);
+});
+
+it('allows developers to view, edit, and delete administrators', function (): void {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    $administrator = User::factory()->create([
+        'name' => 'Existing Admin',
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($developer);
+    Filament::setCurrentPanel('admin');
+
+    expect(UserResource::canView($administrator))->toBeTrue()
+        ->and(UserResource::canEdit($administrator))->toBeTrue()
+        ->and(UserResource::canDelete($administrator))->toBeTrue();
+
+    $this->get(route('filament.admin.resources.users.view', ['record' => $administrator]))
+        ->assertOk();
+
+    $this->get(route('filament.admin.resources.users.edit', ['record' => $administrator]))
+        ->assertOk();
+
+    Livewire::test(ListUsers::class)
+        ->assertCanSeeTableRecords([$administrator])
+        ->assertTableActionVisible('view', $administrator)
+        ->assertTableActionVisible('edit', $administrator)
+        ->assertTableActionVisible('delete', $administrator);
+
+    Livewire::test(EditUser::class, ['record' => $administrator->getKey()])
+        ->fillForm([
+            'name' => 'Updated Admin Name',
+        ])
+        ->call('save')
+        ->assertHasNoFormErrors();
+
+    expect($administrator->refresh()->name)->toBe('Updated Admin Name');
+});
+
+it('allows developers to create administrators through user management', function (): void {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    $email = fake()->unique()->safeEmail();
+
+    $this->actingAs($developer);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(CreateUser::class)
+        ->fillForm([
+            'name' => 'New Administrator',
+            'email' => $email,
+            'password' => 'Password123!',
+            'role' => UserRole::Admin->value,
+        ])
+        ->call('create')
+        ->assertHasNoFormErrors();
+
+    $created = User::query()->where('email', $email)->first();
+    expect($created)->not->toBeNull()
+        ->and($created->role)->toBe(UserRole::Admin);
+});
+
+it('prevents developers from deleting themselves', function (): void {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    $this->actingAs($developer);
+    Filament::setCurrentPanel('admin');
+
+    expect(UserResource::canDelete($developer))->toBeFalse();
+
+    Livewire::test(ListUsers::class)
+        ->assertTableActionHidden('delete', $developer);
+});
+
+it('authorizes full permissions for developers in user policy', function (): void {
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+    $administrator = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    expect(Gate::forUser($developer)->allows('viewAny', User::class))->toBeTrue()
+        ->and(Gate::forUser($developer)->allows('view', $administrator))->toBeTrue()
+        ->and(Gate::forUser($developer)->allows('create', User::class))->toBeTrue()
+        ->and(Gate::forUser($developer)->allows('update', $administrator))->toBeTrue()
+        ->and(Gate::forUser($developer)->allows('delete', $administrator))->toBeTrue()
+        ->and(Gate::forUser($developer)->allows('delete', $developer))->toBeFalse();
 });

@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Enums\UserRole;
 use App\Models\User;
+use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
@@ -20,8 +21,15 @@ class SystemOverview extends StatsOverviewWidget
      */
     protected function getStats(): array
     {
-        $counts = User::query()
-            ->toBase()
+        $isDeveloper = Filament::auth()->user()?->role === UserRole::Developer;
+
+        $query = User::query()->toBase();
+
+        if (! $isDeveloper) {
+            $query->where('role', '!=', UserRole::Developer->value);
+        }
+
+        $counts = $query
             ->selectRaw('COUNT(*) as total')
             ->selectRaw(
                 'SUM(CASE WHEN role = ? THEN 1 ELSE 0 END) as administrators',

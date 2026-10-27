@@ -61,3 +61,42 @@ it('is also used on the operator dashboard', function (): void {
     expect(Filament::getPanel('operator')->getWidgets())
         ->toContain(SystemOverview::class);
 });
+
+it('excludes developer counts from total users when viewed by administrators', function (): void {
+    User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+    User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    actingAs($admin);
+    get('/admin')
+        ->assertOk()
+        ->assertSeeInOrder([
+            'Total users',
+            '3',
+            'Administrators',
+            '1',
+            'Operators',
+            '1',
+        ]);
+
+    actingAs($developer);
+    get('/admin')
+        ->assertOk()
+        ->assertSeeInOrder([
+            'Total users',
+            '4',
+            'Administrators',
+            '1',
+            'Operators',
+            '1',
+        ]);
+});

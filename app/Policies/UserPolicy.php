@@ -12,7 +12,7 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->role === UserRole::Admin;
+        return in_array($user->role, [UserRole::Admin, UserRole::Developer], true);
     }
 
     /**
@@ -20,7 +20,12 @@ class UserPolicy
      */
     public function view(User $user, User $model): bool
     {
-        return $user->role === UserRole::Admin;
+        if ($user->role === UserRole::Developer) {
+            return true;
+        }
+
+        return $user->role === UserRole::Admin
+            && $model->role !== UserRole::Developer;
     }
 
     /**
@@ -28,7 +33,7 @@ class UserPolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === UserRole::Admin;
+        return in_array($user->role, [UserRole::Admin, UserRole::Developer], true);
     }
 
     /**
@@ -36,8 +41,13 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
+        if ($user->role === UserRole::Developer) {
+            return true;
+        }
+
         return $user->role === UserRole::Admin
-            && $model->role !== UserRole::Admin;
+            && $model->role !== UserRole::Admin
+            && $model->role !== UserRole::Developer;
     }
 
     /**
@@ -45,8 +55,13 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
+        if ($user->role === UserRole::Developer) {
+            return $user->id !== $model->id;
+        }
+
         return $user->role === UserRole::Admin
-            && $model->role !== UserRole::Admin;
+            && $model->role !== UserRole::Admin
+            && $model->role !== UserRole::Developer;
     }
 
     /**
