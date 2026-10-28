@@ -16,6 +16,6 @@ it('seeds one test account for each user role', function () {
             'user@example.com' => UserRole::User->value,
             'operator@example.com' => UserRole::Operator->value,
             'admin@example.com' => UserRole::Admin->value,
-            'dev@example.com' => UserRole::Developer->value,
+            'developer@example.com' => UserRole::Developer->value,
         ]);
 });

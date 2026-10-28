@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Test Developer',
-                'email' => 'dev@example.com',
+                'email' => 'developer@example.com',
                 'role' => UserRole::Developer,
             ],
         ];
