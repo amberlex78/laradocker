@@ -1,0 +1,61 @@
+# Тимчасовий незашифрований production-доступ через IP-адресу та порт.
+# Відкрийте у firewall порт 8081, але залиште Docker upstream 18080 приватним.
+
+server {
+    listen 8081;
+    listen [::]:8081;
+
+    server_name _;
+
+    charset utf-8;
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-Frame-Options SAMEORIGIN always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+
+    proxy_http_version 1.1;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location = /favicon.ico {
+        access_log off;
+        log_not_found off;
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location = /robots.txt {
+        access_log off;
+        log_not_found off;
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location ~* \.(?:css|js|jpg|jpeg|gif|png|svg|ico|webp|woff|woff2|ttf)$ {
+        proxy_pass http://127.0.0.1:18080;
+        proxy_hide_header Cache-Control;
+        proxy_hide_header Expires;
+        expires 7d;
+        add_header Cache-Control "public, immutable" always;
+        add_header X-Content-Type-Options nosniff always;
+        add_header X-Frame-Options SAMEORIGIN always;
+        add_header Referrer-Policy strict-origin-when-cross-origin always;
+    }
+
+    location = /index.php {
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:18080;
+    }
+
+    location ~ \.php$ {
+        return 404;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}

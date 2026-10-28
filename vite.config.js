@@ -18,6 +18,13 @@ export default defineConfig({
     ]),
     server: {
         cors: true,
+        host: '0.0.0.0',
+        port: Number(process.env.VITE_PORT ?? 5173),
+        strictPort: true,
+        hmr: {
+            host: process.env.VITE_HMR_HOST ?? 'localhost',
+            clientPort: Number(process.env.VITE_HMR_PORT ?? process.env.VITE_PORT ?? 5173),
+        },
         watch: {
             ignored: [
                 '**/.agents/**',
