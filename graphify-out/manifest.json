@@ -168,9 +168,9 @@
     "semantic_hash": "b0603b9fa0a27473971da76bb0c42ee1"
   },
   "database/seeders/DatabaseSeeder.php": {
-    "mtime": 1793139060.9020593,
-    "seen": 1793179321.1440399,
-    "ast_hash": "040a18fb5eb62366e96b2c35c74ef5f7",
+    "mtime": 1793179464.2556558,
+    "seen": 1793213049.1536236,
+    "ast_hash": "7a75d403db003b3621a05ddce925663e",
     "semantic_hash": ""
   },
   "package.json": {
@@ -204,8 +204,8 @@
     "semantic_hash": "c2bd9cec429df5f0f51f60594a8d7085"
   },
   "tests/Feature/AdminPanelTest.php": {
-    "mtime": 1793139182.6711476,
-    "seen": 1793179321.1440504,
+    "mtime": 1793183691.1276295,
+    "seen": 1793213049.1536324,
     "ast_hash": "11d4da64c7461fe4732f16a733f2c194",
     "semantic_hash": ""
   },
@@ -234,10 +234,10 @@
     "semantic_hash": "2bc41f1156dead26b2a3082f9634b041"
   },
   "vite.config.js": {
-    "mtime": 1792907762.6487048,
-    "seen": 1792926416.1915705,
-    "ast_hash": "24609a71c331ee996eeb57319dbc1884",
-    "semantic_hash": "24609a71c331ee996eeb57319dbc1884"
+    "mtime": 1793211556.3202612,
+    "seen": 1793213049.1536417,
+    "ast_hash": "a303c3e0e078cb0c7b2083346df1b24c",
+    "semantic_hash": ""
   },
   ".github/dependabot.yml": {
     "mtime": 1792034868.0,
@@ -276,16 +276,16 @@
     "semantic_hash": "b3b2c864243d4f34034e82bf93c4a7ac"
   },
   "tests/Feature/DatabaseSeederTest.php": {
-    "mtime": 1793139067.4493868,
-    "seen": 1793179321.1440523,
-    "ast_hash": "6b632ac311f2f824b4d47671c835a42a",
+    "mtime": 1793179464.3816574,
+    "seen": 1793213049.1536334,
+    "ast_hash": "6ff222e09c6b31e8face979631da92ac",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Pages/ViewUser.php": {
-    "mtime": 1792925335.193547,
-    "seen": 1792926416.1914983,
-    "ast_hash": "cd0a69125768fc1bdab9dfc0bb597a33",
-    "semantic_hash": "cd0a69125768fc1bdab9dfc0bb597a33"
+    "mtime": 1793184491.6539235,
+    "seen": 1793213049.153586,
+    "ast_hash": "abee889be642e0fefe5ff19c21071df5",
+    "semantic_hash": ""
   },
   "database/migrations/2026_10_24_084738_migrate_developer_users_to_admins.php": {
     "mtime": 1792831692.0906856,
@@ -411,6 +411,60 @@
     "mtime": 1792937376.8300428,
     "seen": 1792937397.7709615,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "docker/php/entrypoint.sh": {
+    "mtime": 1790090268.5948045,
+    "seen": 1793213049.1536248,
+    "ast_hash": "97f40eb444592f06209e61889ffbcdcb",
+    "semantic_hash": ""
+  },
+  "docker-compose.dev.yml": {
+    "mtime": 1792061979.3019729,
+    "seen": 1793213049.1536446,
+    "ast_hash": "d9bbd14737e31a353e72c02524a431e2",
+    "semantic_hash": ""
+  },
+  "docker-compose.prod.yml": {
+    "mtime": 1790090268.593757,
+    "seen": 1793213049.1536453,
+    "ast_hash": "c1ccead68dcb728fbae5a5a641617e91",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1790090268.5939665,
+    "seen": 1793213049.153646,
+    "ast_hash": "d9e92669e7c0b7451ed449a761a87146",
+    "semantic_hash": ""
+  },
+  "docs/architecture.md": {
+    "mtime": 1790941388.8334749,
+    "seen": 1793213049.153647,
+    "ast_hash": "8b11f93bec47584c11f8b0fb2e6c6736",
+    "semantic_hash": ""
+  },
+  "docs/cloudflare.md": {
+    "mtime": 1790941388.8334749,
+    "seen": 1793213049.1536474,
+    "ast_hash": "23223d65036ec50e36bc89493c6f1ca3",
+    "semantic_hash": ""
+  },
+  "docs/deployment.md": {
+    "mtime": 1793211905.1387622,
+    "seen": 1793213049.1536481,
+    "ast_hash": "f44e107b0d19e166089d8b37422dc2f7",
+    "semantic_hash": ""
+  },
+  "docs/development.md": {
+    "mtime": 1793211888.492835,
+    "seen": 1793213049.1536489,
+    "ast_hash": "084df17319096c7d88e0e1ac0548a9b8",
+    "semantic_hash": ""
+  },
+  "docs/operations.md": {
+    "mtime": 1790941388.8336916,
+    "seen": 1793213049.1536493,
+    "ast_hash": "ac15650540017f3d375fd358a5b74a59",
     "semantic_hash": ""
   }
 }

@@ -1,22 +1,22 @@
 # Graph Report - la-filament  (2026-10-28)
 
 ## Corpus Check
-- 65 files · ~11,383 words
+- 71 files · ~15,397 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 12 file(s) not represented in the graph (top: (none) 8, .example 1, .neon 1)
+- Unclassified: 30 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 3)
 
 ## Summary
-- 462 nodes · 686 edges · 30 communities (14 shown, 16 thin omitted)
+- 518 nodes · 747 edges · 33 communities (16 shown, 17 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f0f51671`
+- Built from commit: `6389904e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- require-dev
+- Розгортання на Ubuntu VPS
 - User
 - package.json
 - composer.json
@@ -33,6 +33,9 @@
 - artisan
 - Feature/ExampleTest.php
 - ActiveSessions.php
+- Експлуатація production-середовища
+- scripts
+- entrypoint.sh
 
 ## God Nodes (most connected - your core abstractions)
 1. `UserRole` - 49 edges
@@ -43,8 +46,8 @@
 6. `scripts` - 13 edges
 7. `require-dev` - 12 edges
 8. `DeviceDetectionService` - 10 edges
-9. `SystemOverview` - 9 edges
-10. `UserPolicy` - 9 edges
+9. `Розгортання на Ubuntu VPS` - 10 edges
+10. `SystemOverview` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `{closure#1}()` --references_constant--> `UserRole`  [EXTRACTED]
@@ -61,11 +64,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (30 total, 16 thin omitted)
+## Communities (33 total, 17 thin omitted)
 
-### Community 0 - "require-dev"
-Cohesion: 0.17
-Nodes (12): require-dev, fakerphp/faker, larastan/larastan, laravel/boost, laravel/pail, laravel/pao, laravel/pint, laravel/sail (+4 more)
+### Community 0 - "Розгортання на Ubuntu VPS"
+Cohesion: 0.06
+Nodes (33): Compose-файли, Docker-архітектура, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту, Cloudflare networks і client IP (+25 more)
 
 ### Community 1 - "User"
 Cohesion: 0.07
@@ -80,7 +83,7 @@ Cohesion: 0.07
 Nodes (29): UserRole, Admin, Developer, Operator, User, {closure#1}(), {closure#10}(), {closure#11}() (+21 more)
 
 ### Community 4 - "OperatorPanelProvider.php"
-Cohesion: 0.09
+Cohesion: 0.08
 Nodes (8): CreateUser, EditUser, ListUsers, ViewUser, UsersTable, {closure#1}(), {closure#2}(), UserResource
 
 ### Community 5 - "Illuminate\Database\Schema\Blueprint"
@@ -101,7 +104,7 @@ Nodes (4): FilamentLoginResponse, FilamentLogoutResponse, AppServiceProvider, {c
 
 ### Community 10 - "composer.json"
 Cohesion: 0.04
-Nodes (47): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+39 more)
+Nodes (46): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+38 more)
 
 ### Community 12 - "SystemOverview"
 Cohesion: 0.31
@@ -119,25 +122,33 @@ Nodes (4): Answer, Outcome, Q: Зробити кастомний Dashboard у с
 Cohesion: 0.08
 Nodes (12): ActiveSessions, {closure#1}(), {closure#2}(), {closure#3}(), {closure#4}(), {closure#5}(), UserSession, DeviceDetectionService (+4 more)
 
+### Community 30 - "Експлуатація production-середовища"
+Cohesion: 0.14
+Nodes (14): 1. Конфігурація Docker Compose, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Видалення одного проєкту, Відновлення MariaDB (+6 more)
+
+### Community 31 - "scripts"
+Cohesion: 0.15
+Nodes (13): scripts, ci:check, dev, lint, lint:check, post-autoload-dump, post-create-project-cmd, post-root-package-install (+5 more)
+
 ## Knowledge Gaps
 - **11 isolated node(s):** `User`, `Operator`, `Admin`, `Developer`, `concurrently` (+6 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 203 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 246 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `UserRole` connect `composer.json` to `User`, `package.json`, `OperatorPanelProvider.php`, `scripts`, `UserFactory.php`, `SystemOverviewTest.php`?**
-  _High betweenness centrality (0.149) - this node is a cross-community bridge._
+  _High betweenness centrality (0.117) - this node is a cross-community bridge._
 - **What connects `User`, `Operator`, `Admin` to the rest of the system?**
   _11 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
+  _Cohesion score 0.05689900426742532 - nodes in this community are weakly interconnected._
+- **Why does `User` connect `User` to `package.json`, `composer.json`, `OperatorPanelProvider.php`, `SystemOverviewTest.php`, `ActiveSessions.php`?**
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **Should `User` be split into smaller, more focused modules?**
-  _Cohesion score 0.06553911205073996 - nodes in this community are weakly interconnected._
-- **Why does `User` connect `User` to `composer.json`, `SystemOverviewTest.php`, `OperatorPanelProvider.php`, `ActiveSessions.php`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.07801418439716312 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06755260243632337 - nodes in this community are weakly interconnected._
 - **Why does `EditProfile` connect `scripts` to `package.json`, `composer.json`, `ActiveSessions.php`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **Should `composer.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.06956521739130435 - nodes in this community are weakly interconnected._
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+- **Should `package.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.07678075855689177 - nodes in this community are weakly interconnected._
