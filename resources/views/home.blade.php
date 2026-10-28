@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-default-theme="system">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,34 +13,25 @@
 
         <script data-theme-init>
             (() => {
-                const applyTheme = () => {
-                    const savedTheme =
-                        localStorage.getItem('filament:theme:mode') ??
-                        localStorage.getItem('color-theme') ??
-                        localStorage.getItem('theme');
-                    const defaultTheme = document.documentElement.dataset.defaultTheme ?? 'system';
-                    const effectiveTheme = savedTheme ?? defaultTheme;
-                    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    const shouldUseDark =
-                        effectiveTheme === 'dark' ||
-                        (effectiveTheme === 'system' && systemPrefersDark);
+                const loadDarkMode = () => {
+                    const theme = localStorage.getItem('filament:theme:mode') ?? 'system';
+                    const isDark =
+                        theme === 'dark' ||
+                        (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-                    document.documentElement.classList.toggle('dark', shouldUseDark);
+                    document.documentElement.classList.toggle('dark', isDark);
                 };
 
-                applyTheme();
+                loadDarkMode();
 
                 window.toggleSiteTheme = () => {
-                    const isDark = document.documentElement.classList.contains('dark');
-                    const nextTheme = isDark ? 'light' : 'dark';
+                    const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
 
                     localStorage.setItem('filament:theme:mode', nextTheme);
-                    localStorage.setItem('theme', nextTheme);
-                    localStorage.setItem('color-theme', nextTheme);
-                    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+                    loadDarkMode();
                 };
 
-                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', loadDarkMode);
             })();
         </script>
 
