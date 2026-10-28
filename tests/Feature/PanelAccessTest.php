@@ -73,14 +73,11 @@ it('shows each role its available entries on the home page', function (UserRole 
         ['Operator panel', '/operator'],
         ['My profile', '/profile'],
     ]],
-    'admins see all available entries' => [UserRole::Admin, [
+    'admins see their panel and profile entries' => [UserRole::Admin, [
         ['Admin panel', '/admin'],
-        ['Operator panel', '/operator'],
         ['My profile', '/profile'],
     ]],
-    'developers see all available entries' => [UserRole::Developer, [
-        ['Admin panel', '/admin'],
-        ['Operator panel', '/operator'],
+    'developers see their profile entry' => [UserRole::Developer, [
         ['My profile', '/profile'],
     ]],
 ]);
