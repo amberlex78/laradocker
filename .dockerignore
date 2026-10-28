@@ -1,0 +1,36 @@
+.git
+.gitignore
+
+# Never send environment files or private credentials to the Docker daemon.
+.env*
+*.pem
+*.key
+
+# Dependencies are installed inside the build stages for reproducibility.
+node_modules/
+vendor/
+
+# Generated and local-only project state.
+graphify-out/
+.agents/
+.codex/
+.github/
+.pi/
+.superpowers/
+.zed/
+.phpunit.cache/
+.phpunit.result.cache
+public/build/
+public/hot
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+docker/nginx/logs/
+
+# Editor and OS files.
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
