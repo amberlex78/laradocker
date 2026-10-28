@@ -6,6 +6,8 @@
 
 Стек: Laravel 13, PHP-FPM 8.5, Nginx, MariaDB, Node.js/Vite і Composer.
 
+Для адміністративної панелі проєкт використовує Filament.
+
 ## Вимоги
 
 - Git;
