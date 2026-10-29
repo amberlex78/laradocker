@@ -66,10 +66,10 @@
     "semantic_hash": "e66bb13691f6184c762c196427d8e685"
   },
   "bootstrap/app.php": {
-    "mtime": 1792873847.659516,
-    "seen": 1792926416.1915271,
+    "mtime": 1793308190.3495128,
+    "seen": 1793308207.0291572,
     "ast_hash": "80eb3b387f49c91fc3ddc6c5a7714f57",
-    "semantic_hash": "80eb3b387f49c91fc3ddc6c5a7714f57"
+    "semantic_hash": ""
   },
   "bootstrap/providers.php": {
     "mtime": 1792871118.669804,
@@ -84,8 +84,8 @@
     "semantic_hash": ""
   },
   "config/app.php": {
-    "mtime": 1792034868.0,
-    "seen": 1792926416.1915302,
+    "mtime": 1793308108.1610987,
+    "seen": 1793308123.8675222,
     "ast_hash": "e2660cb4518ec799b540ad0b3b2982f3",
     "semantic_hash": "e2660cb4518ec799b540ad0b3b2982f3"
   },
@@ -483,6 +483,18 @@
     "mtime": 1793305904.3431,
     "seen": 1793306424.7246754,
     "ast_hash": "97f40eb444592f06209e61889ffbcdcb",
+    "semantic_hash": ""
+  },
+  "config/trustedproxy.php": {
+    "mtime": 1793308108.3090994,
+    "seen": 1793308123.8675313,
+    "ast_hash": "b161054c668fe659987a1b62810b4604",
+    "semantic_hash": ""
+  },
+  "tests/Feature/ProxySchemeTest.php": {
+    "mtime": 1793308108.6101007,
+    "seen": 1793308123.8675528,
+    "ast_hash": "1ed1f104e90a2abc5a177b460702977b",
     "semantic_hash": ""
   }
 }
