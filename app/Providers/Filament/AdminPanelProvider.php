@@ -27,8 +27,8 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->brandLogo(asset('images/laradocker-logo.svg'))
-            ->darkModeBrandLogo(asset('images/laradocker-logo-dark.svg'))
+            ->brandLogo(fn (): string => asset('images/laradocker-logo.svg'))
+            ->darkModeBrandLogo(fn (): string => asset('images/laradocker-logo-dark.svg'))
             ->brandLogoHeight('2.5rem')
             ->globalSearch(false)
             ->colors([

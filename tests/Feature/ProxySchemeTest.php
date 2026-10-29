@@ -10,7 +10,11 @@ it('generates secure URLs behind a trusted reverse proxy', function (): void {
 
     $response
         ->assertOk()
+        ->assertSee('https://laradocker.top/images/laradocker-logo.svg', false)
+        ->assertSee('https://laradocker.top/images/laradocker-logo-dark.svg', false)
         ->assertSee('https://laradocker.top/js/filament/forms/components/text-input/password-reveal.js', false)
+        ->assertDontSee('http://laradocker.top/images/laradocker-logo.svg', false)
+        ->assertDontSee('http://laradocker.top/images/laradocker-logo-dark.svg', false)
         ->assertDontSee('http://laradocker.top/js/filament/', false)
         ->assertDontSee('http://laradocker.top/livewire-', false);
 

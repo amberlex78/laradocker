@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-10-29)
 
 ## Corpus Check
-- 74 files · ~17,442 words
+- 74 files · ~17,474 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 31 file(s) not represented in the graph (top: (none) 14, .example 6, .ini 4)
 
 ## Summary
-- 532 nodes · 763 edges · 35 communities (16 shown, 19 thin omitted)
+- 538 nodes · 769 edges · 40 communities (21 shown, 19 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ef554f96`
+- Built from commit: `11176622`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -25,7 +25,7 @@
 - UserForm.php
 - scripts
 - UserFactory.php
-- composer.json
+- scripts
 - SystemOverviewTest.php
 - SystemOverview
 - Pest.php
@@ -36,6 +36,11 @@
 - Експлуатація production-середовища
 - require-dev
 - entrypoint.sh
+- composer.json
+- require
+- config
+- psr-4
+- extra
 
 ## God Nodes (most connected - your core abstractions)
 1. `UserRole` - 49 edges
@@ -64,7 +69,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (35 total, 19 thin omitted)
+## Communities (40 total, 19 thin omitted)
 
 ### Community 0 - "Розгортання на Ubuntu VPS"
 Cohesion: 0.05
@@ -75,8 +80,8 @@ Cohesion: 0.07
 Nodes (5): User, UserPolicy, UserFactory, DatabaseSeeder, {closure#2}()
 
 ### Community 2 - "package.json"
-Cohesion: 0.07
-Nodes (7): RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#1}(), {closure#1}(), OperatorPanelProvider, {closure#4}(), SitePanelProvider
+Cohesion: 0.06
+Nodes (7): RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#3}(), {closure#3}(), OperatorPanelProvider, {closure#6}(), SitePanelProvider
 
 ### Community 3 - "composer.json"
 Cohesion: 0.07
@@ -102,9 +107,9 @@ Nodes (3): TerminateOtherSessions, UserForm, EditProfile
 Cohesion: 0.16
 Nodes (4): FilamentLoginResponse, FilamentLogoutResponse, AppServiceProvider, {closure#1}()
 
-### Community 10 - "composer.json"
-Cohesion: 0.04
-Nodes (47): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+39 more)
+### Community 10 - "scripts"
+Cohesion: 0.15
+Nodes (13): scripts, ci:check, dev, lint, lint:check, post-autoload-dump, post-create-project-cmd, post-root-package-install (+5 more)
 
 ### Community 12 - "SystemOverview"
 Cohesion: 0.31
@@ -130,31 +135,51 @@ Nodes (14): 1. Конфігурація Docker Compose, 2. Контейнери 
 Cohesion: 0.17
 Nodes (12): require-dev, fakerphp/faker, larastan/larastan, laravel/boost, laravel/pail, laravel/pao, laravel/pint, laravel/sail (+4 more)
 
+### Community 35 - "composer.json"
+Cohesion: 0.17
+Nodes (11): autoload-dev, psr-4, description, keywords, license, minimum-stability, name, prefer-stable (+3 more)
+
+### Community 36 - "require"
+Cohesion: 0.25
+Nodes (8): require, filament/filament, laravel/framework, laravel/tinker, livewire/blaze, livewire/livewire, matomo/device-detector, php
+
+### Community 37 - "config"
+Cohesion: 0.29
+Nodes (7): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, preferred-install, sort-packages
+
+### Community 38 - "psr-4"
+Cohesion: 0.40
+Nodes (5): autoload, psr-4, App\\, Database\\Factories\\, Database\\Seeders\\
+
+### Community 39 - "extra"
+Cohesion: 0.67
+Nodes (3): extra, laravel, dont-discover
+
 ## Knowledge Gaps
 - **11 isolated node(s):** `User`, `Operator`, `Admin`, `Developer`, `concurrently` (+6 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 258 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 264 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Work-memory lessons
 
 **Preferred sources** — corroborated by past sessions; start here.
-- `AdminPanelProvider.php` (2× useful, score=1.799570691)
+- `AdminPanelProvider.php` (2× useful, score=1.799570691) _(code changed — re-verify)_
 - `Filament\Pages\Dashboard` (2× useful, score=1.799570691)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `UserRole` connect `composer.json` to `User`, `package.json`, `OperatorPanelProvider.php`, `scripts`, `UserFactory.php`, `SystemOverviewTest.php`?**
-  _High betweenness centrality (0.116) - this node is a cross-community bridge._
+  _High betweenness centrality (0.118) - this node is a cross-community bridge._
 - **What connects `User`, `Operator`, `Admin` to the rest of the system?**
   _11 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
   _Cohesion score 0.052854122621564484 - nodes in this community are weakly interconnected._
-- **Why does `User` connect `User` to `composer.json`, `SystemOverviewTest.php`, `OperatorPanelProvider.php`, `ActiveSessions.php`?**
-  _High betweenness centrality (0.060) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `package.json`, `composer.json`, `OperatorPanelProvider.php`, `SystemOverviewTest.php`, `ActiveSessions.php`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Should `User` be split into smaller, more focused modules?**
-  _Cohesion score 0.06553911205073996 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06755260243632337 - nodes in this community are weakly interconnected._
 - **Why does `EditProfile` connect `scripts` to `package.json`, `composer.json`, `ActiveSessions.php`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.0693815987933635 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05827067669172932 - nodes in this community are weakly interconnected._

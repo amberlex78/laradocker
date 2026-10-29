@@ -54,9 +54,9 @@
     "semantic_hash": "63b533b6ee5e75794daa316108ecc79a"
   },
   "app/Providers/Filament/AdminPanelProvider.php": {
-    "mtime": 1793263338.586109,
-    "seen": 1793295349.5814242,
-    "ast_hash": "d004b0c85b3b8d4c74b0949de8f9908c",
+    "mtime": 1793309248.8702207,
+    "seen": 1793309287.0634391,
+    "ast_hash": "495586c1ec29e8e71941c4b23bd72b89",
     "semantic_hash": ""
   },
   "artisan": {
@@ -294,9 +294,9 @@
     "semantic_hash": "ba2f8934e00708fe152ac09d69db1d7b"
   },
   "app/Providers/Filament/OperatorPanelProvider.php": {
-    "mtime": 1793263338.732112,
-    "seen": 1793295349.5814257,
-    "ast_hash": "e6943f44f81fce8ffc863a5ad197cb13",
+    "mtime": 1793309249.0192199,
+    "seen": 1793309287.063441,
+    "ast_hash": "58f1e00f89c7acfb966bb1b170d2689c",
     "semantic_hash": ""
   },
   "tests/Feature/PanelAccessTest.php": {
@@ -330,9 +330,9 @@
     "semantic_hash": "75c67363f2581bb4657c36ceb4dd93fb"
   },
   "app/Providers/Filament/SitePanelProvider.php": {
-    "mtime": 1793262267.1395183,
-    "seen": 1793295349.5814276,
-    "ast_hash": "db67914d91ca3580f31cb2beaa190421",
+    "mtime": 1793309248.6632214,
+    "seen": 1793309287.0634422,
+    "ast_hash": "01e4032f93ca7902ee0e03c24f8b3f89",
     "semantic_hash": ""
   },
   "app/Filament/Widgets/SystemOverview.php": {
@@ -492,9 +492,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/ProxySchemeTest.php": {
-    "mtime": 1793308108.6101007,
-    "seen": 1793308123.8675528,
-    "ast_hash": "1ed1f104e90a2abc5a177b460702977b",
+    "mtime": 1793309236.959269,
+    "seen": 1793309287.063476,
+    "ast_hash": "09fd686cdae2112106e0c59f2e0d4268",
     "semantic_hash": ""
   }
 }
