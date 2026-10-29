@@ -31,6 +31,7 @@ class OperatorPanelProvider extends PanelProvider
             ->globalSearch(false)
             ->colors([
                 'primary' => Color::Blue,
+                'gray' => Color::Slate,
             ])
             ->userMenuItems([
                 'profile' => fn (Action $action): Action => $action

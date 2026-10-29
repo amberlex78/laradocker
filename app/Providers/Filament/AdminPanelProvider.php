@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->globalSearch(false)
             ->colors([
                 'primary' => Color::Amber,
+                'gray' => Color::Stone,
             ])
             ->userMenuItems([
                 'profile' => fn (Action $action): Action => $action

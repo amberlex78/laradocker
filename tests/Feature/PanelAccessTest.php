@@ -107,7 +107,9 @@ it('allows an operator to access the operator dashboard', function (): void {
 
     $this->actingAs($operator)
         ->get('/operator')
-        ->assertOk();
+        ->assertOk()
+        ->assertSee('--primary-500:'.Color::Blue[500], false)
+        ->assertSee('--gray-900:'.Color::Slate[900], false);
 });
 
 it('redirects each role to its own destination after shared login', function (UserRole $role, string $destination): void {
@@ -158,7 +160,7 @@ it('uses the configured profile content width', function (): void {
         ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
 });
 
-it('allows every role to access the shared profile page', function (UserRole $role): void {
+it('allows every role to access the shared profile page', function (UserRole $role, array $primaryColor, array $grayColor): void {
     $user = User::factory()->create([
         'role' => $role,
     ]);
@@ -171,6 +173,8 @@ it('allows every role to access the shared profile page', function (UserRole $ro
         ->assertSee('Account information')
         ->assertSee('Profile information')
         ->assertSee('fi-fieldset', false)
+        ->assertSee('--primary-500:'.$primaryColor[500], false)
+        ->assertSee('--gray-900:'.$grayColor[900], false)
         ->assertSee('Password')
         ->assertSee('New password')
         ->assertSee('Active sessions')
@@ -179,10 +183,10 @@ it('allows every role to access the shared profile page', function (UserRole $ro
         ->assertDontSee('Update password')
         ->assertDontSee('fi-fo-field-has-inline-label');
 })->with([
-    UserRole::User,
-    UserRole::Operator,
-    UserRole::Admin,
-    UserRole::Developer,
+    'user sees green and emerald' => [UserRole::User, Color::Green, Color::Emerald],
+    'operator sees blue and slate' => [UserRole::Operator, Color::Blue, Color::Slate],
+    'admin sees amber and stone' => [UserRole::Admin, Color::Amber, Color::Stone],
+    'developer sees amber and stone' => [UserRole::Developer, Color::Amber, Color::Stone],
 ]);
 
 it('reveals conditional password fields when a new password is entered', function (): void {
