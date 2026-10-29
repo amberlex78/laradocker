@@ -1,17 +1,17 @@
-# Graph Report - laradocker  (2026-10-28)
+# Graph Report - laradocker  (2026-10-29)
 
 ## Corpus Check
-- 71 files · ~15,397 words
+- 72 files · ~17,330 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 30 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 3)
+- Unclassified: 31 file(s) not represented in the graph (top: (none) 15, .example 6, .conf 3)
 
 ## Summary
-- 518 nodes · 747 edges · 33 communities (16 shown, 17 thin omitted)
+- 529 nodes · 762 edges · 34 communities (17 shown, 17 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6389904e`
+- Built from commit: `622a7047`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,6 +36,7 @@
 - Експлуатація production-середовища
 - scripts
 - entrypoint.sh
+- Розгортання на Ubuntu VPS
 
 ## God Nodes (most connected - your core abstractions)
 1. `UserRole` - 49 edges
@@ -64,19 +65,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 17 thin omitted)
+## Communities (34 total, 17 thin omitted)
 
 ### Community 0 - "Розгортання на Ubuntu VPS"
-Cohesion: 0.06
-Nodes (33): Compose-файли, Docker-архітектура, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту, Cloudflare networks і client IP (+25 more)
+Cohesion: 0.07
+Nodes (28): Compose-файли, Docker-архітектура, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту, Cloudflare networks і client IP (+20 more)
 
 ### Community 1 - "User"
 Cohesion: 0.07
 Nodes (5): User, UserPolicy, UserFactory, DatabaseSeeder, {closure#2}()
 
 ### Community 2 - "package.json"
-Cohesion: 0.08
-Nodes (7): RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#1}(), {closure#1}(), OperatorPanelProvider, {closure#1}(), SitePanelProvider
+Cohesion: 0.07
+Nodes (7): RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#1}(), {closure#1}(), OperatorPanelProvider, {closure#4}(), SitePanelProvider
 
 ### Community 3 - "composer.json"
 Cohesion: 0.07
@@ -130,9 +131,13 @@ Nodes (14): 1. Конфігурація Docker Compose, 2. Контейнери 
 Cohesion: 0.15
 Nodes (13): scripts, ci:check, dev, lint, lint:check, post-autoload-dump, post-create-project-cmd, post-root-package-install (+5 more)
 
+### Community 33 - "Розгортання на Ubuntu VPS"
+Cohesion: 0.20
+Nodes (10): Вибір публічного доступу, Вимоги, Домен і звичайний HTTPS, Доступ без домену, Клонування та production-конфігурація, Кілька проєктів на одному VPS, Наступні кроки, Перевірка приватного Docker stack (+2 more)
+
 ## Knowledge Gaps
 - **11 isolated node(s):** `User`, `Operator`, `Admin`, `Developer`, `concurrently` (+6 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 246 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 255 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -143,12 +148,12 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `User`, `Operator`, `Admin` to the rest of the system?**
   _11 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
-  _Cohesion score 0.05689900426742532 - nodes in this community are weakly interconnected._
-- **Why does `User` connect `User` to `package.json`, `composer.json`, `OperatorPanelProvider.php`, `SystemOverviewTest.php`, `ActiveSessions.php`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
+  _Cohesion score 0.07130124777183601 - nodes in this community are weakly interconnected._
+- **Why does `User` connect `User` to `composer.json`, `SystemOverviewTest.php`, `OperatorPanelProvider.php`, `ActiveSessions.php`?**
+  _High betweenness centrality (0.061) - this node is a cross-community bridge._
 - **Should `User` be split into smaller, more focused modules?**
-  _Cohesion score 0.06755260243632337 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06553911205073996 - nodes in this community are weakly interconnected._
 - **Why does `EditProfile` connect `scripts` to `package.json`, `composer.json`, `ActiveSessions.php`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.07678075855689177 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0693815987933635 - nodes in this community are weakly interconnected._
