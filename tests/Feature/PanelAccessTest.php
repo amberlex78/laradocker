@@ -44,7 +44,16 @@ it('shows guests a sign in button on the home page', function (): void {
     $this->get('/')
         ->assertOk()
         ->assertSee('Sign in')
+        ->assertSee(asset('images/laradocker-logo.svg'), false)
+        ->assertSee(asset('images/laradocker-logo-dark.svg'), false)
         ->assertSee(route('filament.site.auth.login'), false);
+});
+
+it('links the login logo to the home page', function (): void {
+    $this->get('/login')
+        ->assertOk()
+        ->assertSee('href="'.route('home').'"', false)
+        ->assertSee('LaraDocker');
 });
 
 it('shows each role its available entries on the home page', function (UserRole $role, array $entries): void {

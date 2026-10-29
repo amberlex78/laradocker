@@ -28,6 +28,10 @@ class SitePanelProvider extends PanelProvider
         return $panel
             ->id('site')
             ->path('')
+            ->homeUrl(fn (): string => route('home'))
+            ->brandLogo(asset('images/laradocker-logo.svg'))
+            ->darkModeBrandLogo(asset('images/laradocker-logo-dark.svg'))
+            ->brandLogoHeight('2.5rem')
             ->login()
             ->profile(EditProfile::class, isSimple: false)
             ->navigation(false)

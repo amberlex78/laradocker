@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="color-scheme" content="light dark">
 
-        <title>{{ config('app.name', 'LaFilament') }} — Docker-ready Laravel &amp; Filament starter</title>
+        <title>{{ config('app.name', 'LaraDocker') }} — Docker-ready Laravel &amp; Filament starter</title>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -39,8 +39,7 @@
     </head>
     <body class="min-h-screen bg-gray-50 text-gray-950 antialiased selection:bg-green-600 selection:text-white dark:bg-gray-950 dark:text-white">
         @php
-            $appName = config('app.name', 'LaFilament');
-            $appInitial = mb_strtoupper(mb_substr($appName, 0, 1));
+            $appName = config('app.name', 'LaraDocker');
             $repositoryUrl = 'https://github.com/amberlex78/laradocker';
         @endphp
 
@@ -65,12 +64,16 @@
         <header class="border-b border-gray-200 bg-white/90 backdrop-blur-sm dark:border-white/10 dark:bg-gray-900/90">
             <nav class="mx-auto flex max-w-7xl min-w-0 flex-wrap items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 lg:px-8" aria-label="Main navigation">
                 <a href="{{ route('home') }}" class="flex min-w-48 flex-1 items-center gap-2.5 sm:gap-3">
-                    <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-green-500 to-green-700 text-lg font-bold text-white shadow-sm shadow-green-600/20">
-                        {{ $appInitial }}
-                    </span>
-                    <span class="truncate text-lg font-semibold tracking-tight text-gray-950 sm:text-xl dark:text-white">
-                        {{ $appName }}
-                    </span>
+                    <img
+                        src="{{ asset('images/laradocker-logo.svg') }}"
+                        alt="{{ $appName }}"
+                        class="h-10 w-auto dark:hidden"
+                    >
+                    <img
+                        src="{{ asset('images/laradocker-logo-dark.svg') }}"
+                        alt="{{ $appName }}"
+                        class="hidden h-10 w-auto dark:block"
+                    >
                 </a>
 
                 <div class="flex shrink-0 items-center gap-1.5 sm:gap-2">

@@ -28,6 +28,9 @@ class OperatorPanelProvider extends PanelProvider
         return $panel
             ->id('operator')
             ->path('operator')
+            ->brandLogo(asset('images/laradocker-logo.svg'))
+            ->darkModeBrandLogo(asset('images/laradocker-logo-dark.svg'))
+            ->brandLogoHeight('2.5rem')
             ->globalSearch(false)
             ->colors([
                 'primary' => Color::Blue,
