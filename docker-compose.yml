@@ -14,7 +14,7 @@ services:
     image: *app-image
     build:
       context: .
-      dockerfile: docker/php/Dockerfile
+      dockerfile: docker/Dockerfile
       target: dev
       args:
         APP_UID: ${APP_UID:-1000}
@@ -37,7 +37,7 @@ services:
     image: *nginx-image
     build:
       context: .
-      dockerfile: docker/php/Dockerfile
+      dockerfile: docker/Dockerfile
       target: nginx-dev
     networks:
       - frontend

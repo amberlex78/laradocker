@@ -33,10 +33,12 @@ production-команди не повинні використовувати о�
         mariadb:3306
 ```
 
-- `app` — PHP-FPM із кодом Laravel. `docker/php/Dockerfile` має окремі `dev` і
-  `prod` stages. PHP-FPM слухає порт `9000` лише всередині Docker-мережі.
+- `app` — PHP-FPM із кодом Laravel. Канонічний multi-stage Dockerfile —
+  `docker/Dockerfile`; він має окремі `dev` і `prod` stages. PHP-FPM слухає
+  порт `9000` лише всередині Docker-мережі.
 - `nginx` — віддає `public/` і передає PHP-запити до `app:9000`. Усередині
-  контейнера завжди слухає `8080`.
+  контейнера завжди слухає `8080`. Конфігурація контейнера зберігається в
+  `docker/nginx/container/`, а приклади конфігурації host Nginx — у `host/`.
 - `mariadb` — зберігає дані в named volume `mariadb-data` і всередині Compose
   доступна як `mariadb:3306`.
 - `node` — існує лише в development і запускає Vite на внутрішньому порту
@@ -48,6 +50,11 @@ Production PHP image збирає frontend у Node stage, встановлює C
 та оновлює Filament assets під час build. Production Nginx image використовує
 той самий Dockerfile і копіює повний каталог `public/` із production PHP stage.
 Тому на VPS не потрібні host-каталоги `node_modules/` і `vendor/`.
+
+PHP-конфігурація має спільний шар у `docker/php/common/` і додає режим
+development або production у відповідному stage. Спільний шар містить базові
+налаштування PHP, PHP-FPM та entrypoint; environment-specific шари визначають
+режим перевірки timestamp для OPcache.
 
 ## Мережі
 

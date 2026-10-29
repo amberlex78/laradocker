@@ -1,9 +1,9 @@
 # Graph Report - laradocker  (2026-10-29)
 
 ## Corpus Check
-- 72 files · ~17,330 words
+- 72 files · ~17,391 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 31 file(s) not represented in the graph (top: (none) 15, .example 6, .conf 3)
+- Unclassified: 31 file(s) not represented in the graph (top: (none) 14, .example 6, .ini 4)
 
 ## Summary
 - 529 nodes · 762 edges · 34 communities (17 shown, 17 thin omitted)
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `622a7047`
+- Built from commit: `4dc4cf25`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -139,6 +139,12 @@ Nodes (10): Вибір публічного доступу, Вимоги, Дом
 - **11 isolated node(s):** `User`, `Operator`, `Admin`, `Developer`, `concurrently` (+6 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 255 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+
+## Work-memory lessons
+
+**Preferred sources** — corroborated by past sessions; start here.
+- `AdminPanelProvider.php` (2× useful, score=1.799570691)
+- `Filament\Pages\Dashboard` (2× useful, score=1.799570691)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

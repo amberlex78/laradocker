@@ -49,8 +49,8 @@ FROM nginx:1.30.4-alpine AS nginx-base
 RUN mkdir -p /var/www/html /var/cache/nginx /var/log/nginx \
     && chown -R nginx:nginx /var/www/html /var/cache/nginx /var/log/nginx
 
-COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx/container/nginx.conf /etc/nginx/nginx.conf
+COPY docker/nginx/container/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
 RUN nginx -t \
     && chown -R nginx:nginx \
@@ -107,9 +107,9 @@ COPY --from=composer-bin /usr/bin/composer /usr/local/bin/composer
 
 RUN rm -f /usr/local/etc/php-fpm.d/www.conf
 
-COPY docker/php/conf.d/ /usr/local/etc/php/conf.d/
-COPY docker/php/php-fpm.d/www.conf /usr/local/etc/php-fpm.d/www.conf
-COPY --chown=app:app docker/php/entrypoint.sh /usr/local/bin/laravel-entrypoint
+COPY docker/php/common/conf.d/ /usr/local/etc/php/conf.d/
+COPY docker/php/common/php-fpm.d/www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY --chown=app:app docker/php/common/entrypoint.sh /usr/local/bin/laravel-entrypoint
 
 RUN chmod 755 /usr/local/bin/laravel-entrypoint
 
@@ -157,6 +157,7 @@ ENV APP_ENV=local \
 
 COPY --from=vendor-dev --chown=app:app /var/www/html/vendor /var/www/html/vendor
 COPY --chown=app:app . .
+COPY docker/php/development/conf.d/ /usr/local/etc/php/conf.d/
 
 RUN composer dump-autoload --no-interaction --no-scripts \
     && php artisan package:discover --ansi
@@ -176,6 +177,7 @@ ENV APP_ENV=production \
 COPY --from=vendor-prod --chown=app:app /var/www/html/vendor /var/www/html/vendor
 COPY --chown=app:app . .
 COPY --from=frontend-builder --chown=app:app /var/www/html/public/build /var/www/html/public/build
+COPY docker/php/production/conf.d/ /usr/local/etc/php/conf.d/
 
 RUN composer dump-autoload --no-dev --no-interaction --no-scripts --classmap-authoritative \
     && php artisan package:discover --ansi \
