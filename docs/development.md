@@ -22,7 +22,7 @@ make --version
 Клонуйте starter у каталог із назвою нового застосунку:
 
 ```bash
-git clone https://github.com/amberlex78/la-filament.git my-project
+git clone https://github.com/amberlex78/laradocker.git my-project
 cd my-project
 cp .env.example .env
 ```
