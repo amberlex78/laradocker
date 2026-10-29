@@ -37,9 +37,8 @@ services:
     image: *nginx-image
     build:
       context: .
-      dockerfile: docker/nginx/Dockerfile
-      args:
-        NODE_IMAGE: node:24-bookworm-slim
+      dockerfile: docker/php/Dockerfile
+      target: nginx-dev
     networks:
       - frontend
     depends_on:

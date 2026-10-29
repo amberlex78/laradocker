@@ -44,10 +44,10 @@ production-команди не повинні використовувати о�
 - `composer` — tools profile для встановлення PHP-залежностей у development.
 - `adminer` — локальний web-інтерфейс до MariaDB; у production не запускається.
 
-Production Nginx image збирає frontend у Node stage і копіює готовий каталог
-`public/` у runtime image. Production PHP image встановлює Composer-залежності
-під час build. Тому на VPS не потрібні host-каталоги `node_modules/` і
-`vendor/`.
+Production PHP image збирає frontend у Node stage, встановлює Composer-залежності
+та оновлює Filament assets під час build. Production Nginx image використовує
+той самий Dockerfile і копіює повний каталог `public/` із production PHP stage.
+Тому на VPS не потрібні host-каталоги `node_modules/` і `vendor/`.
 
 ## Мережі
 

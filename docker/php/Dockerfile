@@ -40,6 +40,41 @@ COPY . .
 RUN npm run build
 
 # ──────────────────────────────────────────────────────────────────────────────
+# SHARED NGINX RUNTIME
+# ──────────────────────────────────────────────────────────────────────────────
+# Shared unprivileged Nginx runtime. Development overlays the document root
+# with a read-only bind mount, while production adds its built public files.
+FROM nginx:1.30.4-alpine AS nginx-base
+
+RUN mkdir -p /var/www/html /var/cache/nginx /var/log/nginx \
+    && chown -R nginx:nginx /var/www/html /var/cache/nginx /var/log/nginx
+
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+
+RUN nginx -t \
+    && chown -R nginx:nginx \
+        /tmp/nginx.pid \
+        /tmp/client_temp \
+        /tmp/proxy_temp \
+        /tmp/fastcgi_temp \
+        /tmp/uwsgi_temp \
+        /tmp/scgi_temp
+
+EXPOSE 8080
+
+USER nginx
+
+CMD ["nginx", "-g", "daemon off;"]
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DEVELOPMENT NGINX IMAGE
+# ──────────────────────────────────────────────────────────────────────────────
+# Development mounts the checkout at runtime, so this stage intentionally has
+# no embedded public directory.
+FROM nginx-base AS nginx-dev
+
+# ──────────────────────────────────────────────────────────────────────────────
 # SHARED PHP-FPM RUNTIME
 # ──────────────────────────────────────────────────────────────────────────────
 # Shared PHP-FPM runtime: system libraries, non-root user and Laravel runtime files.
@@ -143,7 +178,17 @@ COPY --chown=app:app . .
 COPY --from=frontend-builder --chown=app:app /var/www/html/public/build /var/www/html/public/build
 
 RUN composer dump-autoload --no-dev --no-interaction --no-scripts --classmap-authoritative \
-    && php artisan package:discover --ansi
+    && php artisan package:discover --ansi \
+    && php artisan filament:upgrade
 
 ENTRYPOINT ["/usr/local/bin/laravel-entrypoint"]
 CMD ["php-fpm", "-F"]
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PRODUCTION NGINX IMAGE
+# ──────────────────────────────────────────────────────────────────────────────
+# Serve the complete production public directory, including Filament assets
+# refreshed in the prod stage above.
+FROM nginx-base AS nginx-prod
+
+COPY --from=prod --chown=nginx:nginx /var/www/html/public /var/www/html/public

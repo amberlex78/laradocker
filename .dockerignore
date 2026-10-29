@@ -20,6 +20,7 @@ graphify-out/
 .zed/
 .phpunit.cache/
 .phpunit.result.cache
+bootstrap/cache/*.php
 public/build/
 public/hot
 storage/logs/
