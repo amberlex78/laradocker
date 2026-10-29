@@ -12,6 +12,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -27,8 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->brandLogo(fn (): string => asset('images/laradocker-logo.svg'))
-            ->darkModeBrandLogo(fn (): string => asset('images/laradocker-logo-dark.svg'))
+            ->brandLogo(fn (): View => view('components.brand-logo'))
             ->brandLogoHeight('2.5rem')
             ->globalSearch(false)
             ->colors([

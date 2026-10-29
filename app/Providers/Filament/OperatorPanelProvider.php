@@ -14,6 +14,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -28,8 +29,7 @@ class OperatorPanelProvider extends PanelProvider
         return $panel
             ->id('operator')
             ->path('operator')
-            ->brandLogo(fn (): string => asset('images/laradocker-logo.svg'))
-            ->darkModeBrandLogo(fn (): string => asset('images/laradocker-logo-dark.svg'))
+            ->brandLogo(fn (): View => view('components.brand-logo'))
             ->brandLogoHeight('2.5rem')
             ->globalSearch(false)
             ->colors([

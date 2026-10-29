@@ -50,11 +50,41 @@ it('shows guests a sign in button on the home page', function (): void {
 });
 
 it('links the login logo to the home page', function (): void {
-    $this->get('/login')
+    $response = $this->get('/login');
+
+    $response
         ->assertOk()
         ->assertSee('href="'.route('home').'"', false)
-        ->assertSee('LaraDocker');
+        ->assertSee('<svg', false)
+        ->assertSee('width="210"', false)
+        ->assertSee('height="40"', false)
+        ->assertSee('viewBox="0 0 210 40"', false)
+        ->assertSee('role="img"', false)
+        ->assertSee('aria-label="LaraDocker logo"', false)
+        ->assertSee('focusable="false"', false)
+        ->assertSee('style="height:100%; width:auto;"', false)
+        ->assertSee('fill="currentColor"', false)
+        ->assertDontSee('images/laradocker-logo.svg', false)
+        ->assertDontSee('images/laradocker-logo-dark.svg', false);
 });
+
+it('renders the inline logo in protected panels', function (string $path, UserRole $role): void {
+    $user = User::factory()->create([
+        'role' => $role,
+    ]);
+
+    $this->actingAs($user)
+        ->get($path)
+        ->assertOk()
+        ->assertSee('<svg', false)
+        ->assertSee('aria-label="LaraDocker logo"', false)
+        ->assertSee('fill="currentColor"', false)
+        ->assertDontSee('/images/laradocker-logo.svg', false)
+        ->assertDontSee('/images/laradocker-logo-dark.svg', false);
+})->with([
+    'admin panel' => ['/admin', UserRole::Admin],
+    'operator panel' => ['/operator', UserRole::Operator],
+]);
 
 it('shows each role its available entries on the home page', function (UserRole $role, array $entries): void {
     $user = User::factory()->create([

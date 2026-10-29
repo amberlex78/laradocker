@@ -14,6 +14,7 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentColor;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -29,8 +30,7 @@ class SitePanelProvider extends PanelProvider
             ->id('site')
             ->path('')
             ->homeUrl(fn (): string => route('home'))
-            ->brandLogo(fn (): string => asset('images/laradocker-logo.svg'))
-            ->darkModeBrandLogo(fn (): string => asset('images/laradocker-logo-dark.svg'))
+            ->brandLogo(fn (): View => view('components.brand-logo'))
             ->brandLogoHeight('2.5rem')
             ->login()
             ->profile(EditProfile::class, isSimple: false)

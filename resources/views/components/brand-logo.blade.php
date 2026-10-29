@@ -1,0 +1,15 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="210"
+    height="40"
+    viewBox="0 0 210 40"
+    role="img"
+    aria-label="LaraDocker logo"
+    focusable="false"
+    style="height:100%; width:auto;"
+>
+    <rect x="2" y="2" width="36" height="36" rx="10" fill="#22c55e"/>
+    <path d="M10 10v19h9" fill="none" stroke="#052e16" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+    <path d="M19 10h3.5c5 0 8.5 3.8 8.5 9.5S27.5 29 22.5 29H19V10Z" fill="none" stroke="#052e16" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+    <text x="50" y="27" fill="currentColor" font-family="Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.7">LaraDocker</text>
+</svg>
