@@ -209,7 +209,8 @@
                                 <pre class="overflow-x-auto p-5 text-sm leading-7 text-gray-800 dark:text-gray-200"><code><span class="text-green-600 dark:text-green-400">$</span> cp .env.example .env
 <span class="text-green-600 dark:text-green-400">$</span> make install
 <span class="text-green-600 dark:text-green-400">$</span> make up
-<span class="text-green-600 dark:text-green-400">$</span> make migrate</code></pre>
+<span class="text-green-600 dark:text-green-400">$</span> make migrate</code>
+<span class="text-green-600 dark:text-green-400">$</span> make db:seed</code></pre>
                             </div>
 
                             <div class="grid gap-3 sm:grid-cols-2">
