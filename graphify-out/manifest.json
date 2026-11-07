@@ -66,9 +66,9 @@
     "semantic_hash": "e66bb13691f6184c762c196427d8e685"
   },
   "bootstrap/app.php": {
-    "mtime": 1793308190.3495128,
-    "seen": 1793308207.0291572,
-    "ast_hash": "80eb3b387f49c91fc3ddc6c5a7714f57",
+    "mtime": 1794041270.3783522,
+    "seen": 1794042430.1385946,
+    "ast_hash": "cf2c41f78d49093dd5699cb460da8fdd",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
@@ -462,9 +462,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793219641.8349338,
-    "seen": 1793295349.581485,
-    "ast_hash": "b4c753be5a6d666e6eda382c7ad95373",
+    "mtime": 1794038536.1313903,
+    "seen": 1794042430.1386383,
+    "ast_hash": "b825884299449e52158af576208fcd68",
     "semantic_hash": ""
   },
   "public/images/laradocker-logo-dark.svg": {
@@ -485,16 +485,10 @@
     "ast_hash": "97f40eb444592f06209e61889ffbcdcb",
     "semantic_hash": ""
   },
-  "config/trustedproxy.php": {
-    "mtime": 1793308108.3090994,
-    "seen": 1793308123.8675313,
-    "ast_hash": "b161054c668fe659987a1b62810b4604",
-    "semantic_hash": ""
-  },
   "tests/Feature/ProxySchemeTest.php": {
-    "mtime": 1793310526.1349723,
-    "seen": 1794038484.3520892,
-    "ast_hash": "fe69053cc25834194a4e9aca6f1bf7e2",
+    "mtime": 1794039574.458258,
+    "seen": 1794042430.1386304,
+    "ast_hash": "209962ea928a39c8977ceb96e22eec01",
     "semantic_hash": ""
   },
   "resources/views/components/brand-logo.blade.php": {
