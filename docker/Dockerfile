@@ -50,7 +50,7 @@ RUN mkdir -p /var/www/html /var/cache/nginx /var/log/nginx \
     && chown -R nginx:nginx /var/www/html /var/cache/nginx /var/log/nginx
 
 COPY docker/nginx/container/nginx.conf /etc/nginx/nginx.conf
-COPY docker/nginx/container/conf.d/default.conf /etc/nginx/conf.d/default.conf
+RUN rm -f /etc/nginx/conf.d/default.conf
 
 RUN nginx -t \
     && chown -R nginx:nginx \
@@ -73,6 +73,10 @@ CMD ["nginx", "-g", "daemon off;"]
 # Development mounts the checkout at runtime, so this stage intentionally has
 # no embedded public directory.
 FROM nginx-base AS nginx-dev
+
+COPY docker/nginx/container/conf.d/dev.conf /etc/nginx/conf.d/default.conf
+
+RUN nginx -t
 
 # ──────────────────────────────────────────────────────────────────────────────
 # SHARED PHP-FPM RUNTIME
@@ -192,5 +196,9 @@ CMD ["php-fpm", "-F"]
 # Serve the complete production public directory, including Filament assets
 # refreshed in the prod stage above.
 FROM nginx-base AS nginx-prod
+
+COPY docker/nginx/container/conf.d/prod.conf /etc/nginx/conf.d/default.conf
+
+RUN nginx -t
 
 COPY --from=prod --chown=nginx:nginx /var/www/html/public /var/www/html/public

@@ -24,3 +24,20 @@ it('generates secure URLs behind a trusted reverse proxy', function (): void {
     expect($response->getContent())
         ->toMatch('/data-update-uri="https:\/\/laradocker\.top\/livewire-[^"]+\/update"/');
 });
+
+it('generates local URLs when the container receives no forwarded headers', function (): void {
+    $response = $this->withServerVariables([
+        'REMOTE_ADDR' => '127.0.0.1',
+    ])->withHeaders([
+        'Host' => 'localhost:8000',
+    ])->get('/login');
+
+    $response
+        ->assertOk()
+        ->assertSee('http://localhost:8000/js/filament/forms/components/text-input/password-reveal.js', false)
+        ->assertDontSee('/http:/', false)
+        ->assertDontSee('http://localhost/livewire-', false);
+
+    expect($response->getContent())
+        ->toMatch('/data-update-uri="http:\/\/localhost:8000\/livewire-[^"]+\/update"/');
+});
