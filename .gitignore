@@ -9,6 +9,10 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/docker/nginx/certs/*
+!/docker/nginx/certs/cloudflare/
+/docker/nginx/certs/cloudflare/*
+!/docker/nginx/certs/cloudflare/.gitkeep
 /vendor
 .env
 .env.prod

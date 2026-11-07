@@ -56,6 +56,27 @@ development або production у відповідному stage. Спільни�
 налаштування PHP, PHP-FPM та entrypoint; environment-specific шари визначають
 режим перевірки timestamp для OPcache.
 
+## Nginx і forwarded headers
+
+Docker Nginx має окремі конфігурації для середовищ:
+
+- `docker/nginx/container/conf.d/dev.conf` не передає до PHP порожні
+  `X-Forwarded-*` параметри. Тому прямий локальний запит без reverse proxy
+  залишається звичайним HTTP-запитом, а необов'язковий зовнішній Nginx із
+  `docker/nginx/host/dev.conf.example` додає повний набір forwarding headers
+  однаково для всіх location.
+- `docker/nginx/container/conf.d/prod.conf` явно передає до PHP заголовки,
+  які надійшли від системного Nginx. Production host-шаблони встановлюють
+  `Host`, `X-Forwarded-For`, `X-Forwarded-Host`, `X-Forwarded-Port` і
+  `X-Forwarded-Proto`.
+
+Laravel довіряє лише безпосередньому Docker proxy через
+`TRUSTED_PROXIES=REMOTE_ADDR`. Явне налаштування `trustProxies` у
+`bootstrap/app.php` читає це runtime environment value і дозволяє саме ці
+чотири forwarded headers. Такий поділ не дає локальному dev-конфігу
+передавати порожні значення в Laravel і водночас зберігає HTTPS-метадані у
+production за системним Nginx або Cloudflare.
+
 ## Мережі
 
 Compose створює окремі мережі для кожного `COMPOSE_PROJECT_NAME`:
@@ -126,6 +147,16 @@ https://example.com:443
 VPS без домену використовує той самий приватний upstream, але системний Nginx
 слухає окремий публічний HTTP-порт. Це тимчасовий незашифрований маршрут для
 демо або тестування.
+
+Для production із зовнішнім reverse proxy повний ланцюжок має вигляд:
+
+```text
+Cloudflare або браузер
+    -> системний Nginx (TLS, client IP, forwarding headers)
+    -> Docker Nginx:${PROD_HTTP_PORT}
+    -> PHP-FPM app:9000
+    -> Laravel request URL
+```
 
 Практичні кроки дивіться в [локальній розробці](development.md) та
 [розгортанні на Ubuntu VPS](deployment.md).

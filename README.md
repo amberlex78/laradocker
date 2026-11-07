@@ -25,7 +25,7 @@ cp .env.example .env
 make install
 make up
 make migrate
-make db:seed
+make db-seed
 ```
 
 Після запуску доступні:

@@ -5,6 +5,7 @@
 .env*
 *.pem
 *.key
+*.crt
 
 # Dependencies are installed inside the build stages for reproducibility.
 node_modules/

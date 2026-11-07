@@ -1,8 +1,9 @@
 # Необов'язкова інтеграція Cloudflare
 
-Cloudflare замінює тільки DNS/TLS-частину базового deployment. Docker stack,
-`.env.prod`, приватний `PROD_HTTP_PORT` і system Nginx залишаються такими
-самими.
+Cloudflare змінює DNS/TLS-рівень базового deployment. Docker stack, `.env.prod`,
+приватний `PROD_HTTP_PORT` і роль system Nginx залишаються такими самими, але
+system Nginx використовує окрему конфігурацію з Origin Certificate, перевіркою
+Cloudflare source network і нормалізацією forwarding headers.
 
 Використовуйте цей варіант, якщо потрібні Cloudflare Proxy, CDN, WAF або інші
 edge-функції. Для звичайного домену без Cloudflare використовуйте
@@ -74,6 +75,10 @@ Origin Certificate довіряє Cloudflare, але не звичайний б�
 
 ## Nginx reverse proxy
 
+Шаблон сумісний із системним Nginx 1.24 на Ubuntu і використовує форму
+`listen 443 ssl http2`. Версія Nginx усередині Docker-контейнера є окремою і не
+визначає синтаксис цього host-конфіга.
+
 Скопіюйте окремий шаблон:
 
 ```bash
@@ -135,7 +140,13 @@ Request проходить так:
     -> Laravel
 ```
 
-Системний Nginx нормалізує forwarding chain і передає перевірену адресу.
+Системний Nginx нормалізує forwarding chain і передає перевірену адресу,
+hostname, HTTPS-схему та порт через `X-Real-IP`, `X-Forwarded-For`,
+`X-Forwarded-Host`, `X-Forwarded-Port` і `X-Forwarded-Proto`. Контейнерний
+production Nginx передає ці вхідні значення далі до PHP-FPM. Container
+development Nginx має окремий конфіг і не передає порожні forwarding headers,
+які не були встановлені локальним клієнтом.
+
 Laravel довіряє лише безпосередньому Docker proxy, тому в `.env.prod`
 залишається:
 
