@@ -90,13 +90,6 @@ make prod-optimize
 
 ## Резервна копія MariaDB
 
-Створіть захищений каталог поза Git checkout:
-
-```bash
-mkdir -p ~/backups/project-a
-chmod 700 ~/backups/project-a
-```
-
 Перевірте checkout, безпечні значення з `.env.prod`, фактичні імена
 контейнерів і host binding. `grep` навмисно не виводить passwords:
 
@@ -119,23 +112,29 @@ docker compose --env-file .env.prod \
 Nginx має публікувати саме `127.0.0.1:PROD_HTTP_PORT->8080/tcp`. Якщо stack ще
 не запущений, перевірте ці значення до запуску й повторіть `ps` після нього.
 
-Створіть logical dump без публікації MariaDB на host:
+Створіть стиснутий logical dump без публікації MariaDB на host:
 
 ```bash
-docker compose --env-file .env.prod \
-    -f docker-compose.yml \
-    -f docker-compose.prod.yml \
-    exec -T mariadb \
-    sh -lc 'mariadb-dump --single-transaction -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"' \
-    > ~/backups/project-a/database.sql
-chmod 600 ~/backups/project-a/database.sql
+make prod-db-backup
 ```
 
-Перевірте, що файл існує, не порожній і починається як SQL dump:
+Ціль сама створює каталог `~/backups/<COMPOSE_PROJECT_NAME>` з правами `700`,
+записує `database-YYYYMMDD-HHMMSS.sql.gz` з правами `600`, перевіряє, що dump
+не порожній, завершений і що архів читається. Пароль береться зі змінних
+середовища контейнера MariaDB й не потрапляє в команду на host. Після
+успішного backup залишаються лише 14 найновіших файлів.
+
+Змінити каталог або кількість копій можна параметрами:
 
 ```bash
-test -s ~/backups/project-a/database.sql
-sed -n '1,10p' ~/backups/project-a/database.sql
+make prod-db-backup BACKUP_DIR=/srv/backups/project-a BACKUP_KEEP=30
+```
+
+Для регулярного backup використайте cron користувача, який керує checkout,
+наприклад щодня о 03:15:
+
+```cron
+15 3 * * * cd /path/to/project && make prod-db-backup >> ~/db-backup.log 2>&1
 ```
 
 Зберігайте копію за межами VPS. Backup, який ніколи не перевіряли
@@ -158,13 +157,11 @@ sed -n '1,10p' ~/backups/project-a/database.sql
 Після явної перевірки цілі:
 
 ```bash
-docker compose --env-file .env.prod \
-    -f docker-compose.yml \
-    -f docker-compose.prod.yml \
-    exec -T mariadb \
-    sh -lc 'mariadb -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"' \
-    < ~/backups/project-a/database.sql
+make prod-db-restore FILE=~/backups/project-a/database-20260101-031500.sql.gz CONFIRM=yes
 ```
+
+Ціль приймає `.sql` і `.sql.gz`. Без `CONFIRM=yes` вона нічого не виконує. Перед
+відновленням вона автоматично створює додатковий backup поточної бази.
 
 Після restore:
 

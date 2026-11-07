@@ -45,7 +45,8 @@ TEST_PHP_EXEC := $(DOCKER_DEV) exec $(TEST_ENV) app
         test pint composer npm vite shell-php shell-node shell-mariadb \
         prod-build prod-up prod-down \
         prod-ps prod-logs prod-laravel-logs prod-stats \
-        prod-migrate prod-migrate-fresh prod-seed prod-optimize deploy
+        prod-migrate prod-migrate-fresh prod-seed prod-optimize \
+        prod-db-backup prod-db-restore deploy
 
 help: ## Show available commands
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) \
@@ -196,6 +197,41 @@ prod-seed: ## Run production seeders explicitly
 
 prod-optimize: ## Cache production configuration, routes, and views
 	$(DOCKER_PROD) exec -T app php artisan optimize
+
+## DATABASE BACKUP
+
+# BACKUP_DIR defaults to ~/backups/<COMPOSE_PROJECT_NAME> (outside the checkout).
+# BACKUP_KEEP is the number of newest dumps retained after each backup.
+prod-db-backup: config-prod ## Create a compressed MariaDB dump in ~/backups/<project> (BACKUP_DIR, BACKUP_KEEP=14)
+	@set -eu; \
+	project=$$(grep -E '^COMPOSE_PROJECT_NAME=' .env.prod | tail -n 1 | cut -d= -f2- | tr -d '"'); \
+	dir="$${BACKUP_DIR:-$$HOME/backups/$${project:-laravel-app}}"; \
+	keep="$${BACKUP_KEEP:-14}"; \
+	umask 077; \
+	mkdir -p "$$dir"; chmod 700 "$$dir"; \
+	file="$$dir/database-$$(date +%Y%m%d-%H%M%S).sql"; \
+	trap 'rm -f "$$file"' EXIT; \
+	$(DOCKER_PROD) exec -T mariadb sh -c 'MYSQL_PWD="$$MARIADB_PASSWORD" exec mariadb-dump --single-transaction -u"$$MARIADB_USER" "$$MARIADB_DATABASE"' > "$$file"; \
+	test -s "$$file" || { echo "Backup failed: dump is empty." >&2; exit 1; }; \
+	tail -n 1 "$$file" | grep -q 'Dump completed' || { echo "Backup failed: dump is incomplete." >&2; exit 1; }; \
+	gzip -9 "$$file"; \
+	gzip -t "$$file.gz"; \
+	trap - EXIT; \
+	chmod 600 "$$file.gz"; \
+	ls -1t "$$dir"/database-*.sql.gz | tail -n +$$((keep + 1)) | xargs -r rm -f --; \
+	echo "Backup created: $$file.gz"
+
+prod-db-restore: config-prod ## Restore MariaDB from a dump: make prod-db-restore FILE=path/to/database.sql.gz CONFIRM=yes
+	@test -n "$(FILE)" || { echo "Usage: make prod-db-restore FILE=path/to/database.sql[.gz] CONFIRM=yes" >&2; exit 1; }
+	@test -f "$(FILE)" || { echo "File not found: $(FILE)" >&2; exit 1; }
+	@test "$(CONFIRM)" = "yes" || { echo "Restore overwrites the production database. Re-run with CONFIRM=yes." >&2; exit 1; }
+	@echo "Creating a safety backup before restore..."
+	$(MAKE) prod-db-backup BACKUP_KEEP=999999
+	@case "$(FILE)" in \
+		*.gz) gunzip -c "$(FILE)" ;; \
+		*) cat "$(FILE)" ;; \
+	esac | $(DOCKER_PROD) exec -T mariadb sh -c 'MYSQL_PWD="$$MARIADB_PASSWORD" exec mariadb -u"$$MARIADB_USER" "$$MARIADB_DATABASE"'
+	@echo "Restore completed. Run make prod-migrate, make prod-optimize and make prod-ps."
 
 ## DEPLOYMENT
 
