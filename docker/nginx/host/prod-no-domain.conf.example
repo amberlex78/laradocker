@@ -35,12 +35,24 @@ server {
         proxy_pass http://127.0.0.1:18080;
     }
 
+    # Vite-файли мають хеш в імені, тому їх безпечно кешувати назавжди.
+    location ^~ /build/ {
+        proxy_pass http://127.0.0.1:18080;
+        proxy_hide_header Cache-Control;
+        proxy_hide_header Expires;
+        expires 1y;
+        add_header Cache-Control "public, immutable" always;
+        add_header X-Content-Type-Options nosniff always;
+        add_header X-Frame-Options SAMEORIGIN always;
+        add_header Referrer-Policy strict-origin-when-cross-origin always;
+    }
+
     location ~* \.(?:css|js|jpg|jpeg|gif|png|svg|ico|webp|woff|woff2|ttf)$ {
         proxy_pass http://127.0.0.1:18080;
         proxy_hide_header Cache-Control;
         proxy_hide_header Expires;
         expires 7d;
-        add_header Cache-Control "public, immutable" always;
+        add_header Cache-Control "public" always;
         add_header X-Content-Type-Options nosniff always;
         add_header X-Frame-Options SAMEORIGIN always;
         add_header Referrer-Policy strict-origin-when-cross-origin always;
