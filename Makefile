@@ -209,7 +209,7 @@ prod-db-backup: config-prod ## Create a compressed MariaDB dump in ~/backups/<pr
 	keep="$${BACKUP_KEEP:-14}"; \
 	umask 077; \
 	mkdir -p "$$dir"; chmod 700 "$$dir"; \
-	file="$$dir/database-$$(date +%Y%m%d-%H%M%S).sql"; \
+	file="$$dir/database-$$(date -u +%Y%m%d-%H%M%SZ).sql"; \
 	trap 'rm -f "$$file"' EXIT; \
 	$(DOCKER_PROD) exec -T mariadb sh -c 'MYSQL_PWD="$$MARIADB_PASSWORD" exec mariadb-dump --single-transaction -u"$$MARIADB_USER" "$$MARIADB_DATABASE"' > "$$file"; \
 	test -s "$$file" || { echo "Backup failed: dump is empty." >&2; exit 1; }; \

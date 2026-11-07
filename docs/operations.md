@@ -119,7 +119,7 @@ make prod-db-backup
 ```
 
 Ціль сама створює каталог `~/backups/<COMPOSE_PROJECT_NAME>` з правами `700`,
-записує `database-YYYYMMDD-HHMMSS.sql.gz` з правами `600`, перевіряє, що dump
+записує `database-YYYYMMDD-HHMMSSZ.sql.gz` (час у UTC, тому `Z` у кінці) з правами `600`, перевіряє, що dump
 не порожній, завершений і що архів читається. Пароль береться зі змінних
 середовища контейнера MariaDB й не потрапляє в команду на host. Після
 успішного backup залишаються лише 14 найновіших файлів.
@@ -157,7 +157,7 @@ make prod-db-backup BACKUP_DIR=/srv/backups/project-a BACKUP_KEEP=30
 Після явної перевірки цілі:
 
 ```bash
-make prod-db-restore FILE=~/backups/project-a/database-20260101-031500.sql.gz CONFIRM=yes
+make prod-db-restore FILE=~/backups/project-a/database-20260101-031500Z.sql.gz CONFIRM=yes
 ```
 
 Ціль приймає `.sql` і `.sql.gz`. Без `CONFIRM=yes` вона нічого не виконує. Перед
