@@ -66,8 +66,8 @@
     "semantic_hash": "e66bb13691f6184c762c196427d8e685"
   },
   "bootstrap/app.php": {
-    "mtime": 1794041270.3783522,
-    "seen": 1794042430.1385946,
+    "mtime": 1794047206.6050224,
+    "seen": 1794049716.41506,
     "ast_hash": "cf2c41f78d49093dd5699cb460da8fdd",
     "semantic_hash": ""
   },
@@ -432,15 +432,15 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1793305919.018003,
-    "seen": 1793306424.7246985,
-    "ast_hash": "fb4fb41f3e558c62927a47311e640dc1",
+    "mtime": 1794047482.2677853,
+    "seen": 1794049716.4151332,
+    "ast_hash": "e1906e8805e832f290b0e85d6179c663",
     "semantic_hash": ""
   },
   "docs/cloudflare.md": {
-    "mtime": 1790941388.8334749,
-    "seen": 1793213049.1536474,
-    "ast_hash": "23223d65036ec50e36bc89493c6f1ca3",
+    "mtime": 1794047183.3036869,
+    "seen": 1794049716.4151347,
+    "ast_hash": "994fbf9b7897a5e1c8eb60cfdbb1171e",
     "semantic_hash": ""
   },
   "docs/deployment.md": {
@@ -462,9 +462,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794038536.1313903,
-    "seen": 1794042430.1386383,
-    "ast_hash": "b825884299449e52158af576208fcd68",
+    "mtime": 1794047020.04123,
+    "seen": 1794049716.415127,
+    "ast_hash": "2c4d0475a85100a88850329febc726cc",
     "semantic_hash": ""
   },
   "public/images/laradocker-logo-dark.svg": {
@@ -486,9 +486,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/ProxySchemeTest.php": {
-    "mtime": 1794039574.458258,
-    "seen": 1794042430.1386304,
-    "ast_hash": "209962ea928a39c8977ceb96e22eec01",
+    "mtime": 1794047206.7590249,
+    "seen": 1794049716.4151142,
+    "ast_hash": "a5f5e766dfb775a6e64a2119195144f9",
     "semantic_hash": ""
   },
   "resources/views/components/brand-logo.blade.php": {

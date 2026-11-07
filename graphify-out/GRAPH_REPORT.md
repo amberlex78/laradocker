@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-11-07)
 
 ## Corpus Check
-- 74 files · ~17,653 words
+- 74 files · ~17,886 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 32 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 4)
 
 ## Summary
-- 539 nodes · 779 edges · 40 communities (21 shown, 19 thin omitted)
+- 540 nodes · 780 edges · 40 communities (21 shown, 19 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8ebad5c8`
+- Built from commit: `d0e184b0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -73,7 +73,7 @@
 
 ### Community 0 - "Розгортання на Ubuntu VPS"
 Cohesion: 0.05
-Nodes (38): Compose-файли, Docker-архітектура, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту, Cloudflare networks і client IP (+30 more)
+Nodes (39): Compose-файли, Docker-архітектура, Nginx і forwarded headers, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту (+31 more)
 
 ### Community 1 - "User"
 Cohesion: 0.07
@@ -157,7 +157,7 @@ Nodes (3): extra, laravel, dont-discover
 
 ## Knowledge Gaps
 - **11 isolated node(s):** `User`, `Operator`, `Admin`, `Developer`, `concurrently` (+6 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 259 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 260 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Work-memory lessons
@@ -174,7 +174,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `User`, `Operator`, `Admin` to the rest of the system?**
   _11 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
-  _Cohesion score 0.052854122621564484 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.051515151515151514 - nodes in this community are weakly interconnected._
 - **Why does `User` connect `User` to `package.json`, `composer.json`, `UserResource.php`, `SystemOverviewTest.php`, `ActiveSessions.php`?**
   _High betweenness centrality (0.060) - this node is a cross-community bridge._
 - **Should `User` be split into smaller, more focused modules?**
