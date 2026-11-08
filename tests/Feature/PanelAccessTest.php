@@ -222,7 +222,7 @@ it('allows every role to access the shared profile page', function (UserRole $ro
         ->assertDontSee('Update password')
         ->assertDontSee('fi-fo-field-has-inline-label');
 })->with([
-    'user sees green and emerald' => [UserRole::User, Color::Green, Color::Emerald],
+    'user sees green and gray' => [UserRole::User, Color::Green, Color::Gray],
     'operator sees blue and slate' => [UserRole::Operator, Color::Blue, Color::Slate],
     'admin sees amber and stone' => [UserRole::Admin, Color::Amber, Color::Stone],
     'developer sees amber and stone' => [UserRole::Developer, Color::Amber, Color::Stone],
