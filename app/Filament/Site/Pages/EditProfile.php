@@ -2,18 +2,10 @@
 
 namespace App\Filament\Site\Pages;
 
-use App\Actions\Auth\TerminateOtherSessions;
 use App\Livewire\ActiveSessions;
 use App\Livewire\LoginHistory;
-use Filament\Actions\Action;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
-use Filament\Facades\Filament;
-use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
-use Filament\Schemas\Components\Actions;
-use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Fieldset;
-use Filament\Schemas\Components\Form;
 use Filament\Schemas\Components\Livewire;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -21,18 +13,8 @@ use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Arr;
 
-/**
- * @property-read Schema $terminateSessionsForm
- */
 class EditProfile extends BaseEditProfile
 {
-    /**
-     * @var array{currentPassword: string}
-     */
-    public array $terminateSessions = [
-        'currentPassword' => '',
-    ];
-
     public static function getLabel(): string
     {
         return 'My profile';
@@ -69,7 +51,6 @@ class EditProfile extends BaseEditProfile
                     ->description('Devices currently signed in to your account.')
                     ->icon(Heroicon::OutlinedComputerDesktop)
                     ->schema([
-                        EmbeddedSchema::make('terminateSessionsForm'),
                         Livewire::make(ActiveSessions::class),
                     ]),
                 Section::make('Sign-in history')
@@ -104,49 +85,5 @@ class EditProfile extends BaseEditProfile
                             ]),
                     ]),
             ]);
-    }
-
-    public function terminateSessionsForm(Schema $schema): Schema
-    {
-        return $schema
-            ->statePath('terminateSessions')
-            ->components([
-                Form::make([
-                    TextInput::make('currentPassword')
-                        ->label('Current password')
-                        ->password()
-                        ->revealable()
-                        ->autocomplete('current-password')
-                        ->placeholder('Confirm your current password')
-                        ->currentPassword(guard: Filament::getAuthGuard())
-                        ->required(),
-                    Actions::make([
-                        Action::make('terminateOtherSessionsButton')
-                            ->label('Terminate other sessions')
-                            ->color('danger')
-                            ->icon('heroicon-o-arrow-right-on-rectangle')
-                            ->submit('terminate-sessions-form'),
-                    ])
-                        ->fullWidth()
-                        ->verticalAlignment('end'),
-                ])
-                    ->columns(2)
-                    ->id('terminate-sessions-form')
-                    ->livewireSubmitHandler('terminateOtherSessions'),
-            ]);
-    }
-
-    public function terminateOtherSessions(TerminateOtherSessions $terminateOtherSessions): void
-    {
-        $data = $this->terminateSessionsForm->getState();
-
-        $terminateOtherSessions->handle($data['currentPassword']);
-
-        $this->terminateSessions['currentPassword'] = '';
-
-        Notification::make()
-            ->title('Other sessions terminated')
-            ->success()
-            ->send();
     }
 }

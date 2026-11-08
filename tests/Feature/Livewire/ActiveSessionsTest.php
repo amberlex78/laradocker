@@ -2,11 +2,11 @@
 
 use App\Enums\LoginSessionEndReason;
 use App\Enums\LoginSessionStatus;
-use App\Filament\Site\Pages\EditProfile;
 use App\Livewire\ActiveSessions;
 use App\Livewire\LoginHistory;
 use App\Models\LoginSession;
 use App\Models\User;
+use Filament\Actions\Testing\TestAction;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Illuminate\Support\Carbon;
@@ -58,6 +58,16 @@ it('renders active sessions for the authenticated user with device details', fun
         ->assertDontSee('203.0.113.14');
 });
 
+it('makes the terminate other sessions table action available to authenticated users', function (): void {
+    actingAs(User::factory()->create());
+    Filament::setCurrentPanel('site');
+
+    Livewire::test(ActiveSessions::class)
+        ->assertActionExists(TestAction::make('terminateOtherSessions')->table())
+        ->assertActionVisible(TestAction::make('terminateOtherSessions')->table())
+        ->assertActionHasLabel(TestAction::make('terminateOtherSessions')->table(), 'Terminate other sessions');
+});
+
 it('uses the active Filament guard for session display and termination', function (): void {
     config([
         'auth.guards.site_test' => [
@@ -90,9 +100,11 @@ it('uses the active Filament guard for session display and termination', functio
         ->assertSee('203.0.113.21')
         ->assertDontSee('203.0.113.22');
 
-    Livewire::test(EditProfile::class)
-        ->set('terminateSessions.currentPassword', 'panel-password')
-        ->call('terminateOtherSessions')
+    Livewire::test(ActiveSessions::class)
+        ->callAction(
+            TestAction::make('terminateOtherSessions')->table(),
+            data: ['currentPassword' => 'panel-password'],
+        )
         ->assertNotified('Other sessions terminated');
 
     expect($currentSession->refresh()->logged_out_at)->toBeNull()
@@ -109,9 +121,8 @@ it('renders active sessions on the profile page', function (): void {
         ->assertOk()
         ->assertSee('Active sessions')
         ->assertSee('Devices currently signed in to your account.')
-        ->assertSee('Current password')
         ->assertSee('Terminate other sessions')
-        ->assertSee('wire:submit="terminateOtherSessions"', false);
+        ->assertDontSee('wire:submit="terminateOtherSessions"', false);
 });
 
 it('does not terminate sessions when the current password is invalid', function (): void {
@@ -123,10 +134,12 @@ it('does not terminate sessions when the current password is invalid', function 
     LoginSession::factory()->for($user)->create(['session_id' => session()->getId()]);
     LoginSession::factory()->for($user)->create();
 
-    Livewire::test(EditProfile::class)
-        ->set('terminateSessions.currentPassword', 'wrong-password')
-        ->call('terminateOtherSessions')
-        ->assertHasErrors(['terminateSessions.currentPassword'])
+    Livewire::test(ActiveSessions::class)
+        ->callAction(
+            TestAction::make('terminateOtherSessions')->table(),
+            data: ['currentPassword' => 'wrong-password'],
+        )
+        ->assertHasErrors()
         ->assertNotNotified();
 
     expect(LoginSession::query()->whereBelongsTo($user)->whereNull('logged_out_at')->count())->toBe(2);
@@ -152,9 +165,11 @@ it('terminates other sessions after the current password is confirmed', function
         ]);
     }
 
-    Livewire::test(EditProfile::class)
-        ->set('terminateSessions.currentPassword', 'password')
-        ->call('terminateOtherSessions')
+    Livewire::test(ActiveSessions::class)
+        ->callAction(
+            TestAction::make('terminateOtherSessions')->table(),
+            data: ['currentPassword' => 'password'],
+        )
         ->assertNotified('Other sessions terminated');
 
     expect(Auth::check())->toBeTrue()

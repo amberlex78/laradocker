@@ -2,9 +2,14 @@
 
 namespace App\Livewire;
 
+use App\Actions\Auth\TerminateOtherSessions;
 use App\Models\LoginSession;
 use App\Services\DeviceDetectionService;
+use Filament\Actions\Action;
 use Filament\Facades\Filament;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
+use Filament\Support\Enums\Width;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
@@ -27,6 +32,31 @@ class ActiveSessions extends TableWidget
             ->query(fn (): Builder => LoginSession::query()
                 ->where('user_id', Filament::auth()->id())
                 ->active())
+            ->headerActions([
+                Action::make('terminateOtherSessions')
+                    ->label('Terminate other sessions')
+                    ->color('danger')
+                    ->icon('heroicon-o-arrow-right-on-rectangle')
+                    ->modalWidth(Width::Small)
+                    ->schema([
+                        TextInput::make('currentPassword')
+                            ->label('Current password')
+                            ->password()
+                            ->revealable()
+                            ->autocomplete('current-password')
+                            ->placeholder('Confirm your current password')
+                            ->currentPassword(guard: Filament::getAuthGuard())
+                            ->required(),
+                    ])
+                    ->action(function (array $data, TerminateOtherSessions $terminateOtherSessions): void {
+                        $terminateOtherSessions->handle($data['currentPassword']);
+
+                        Notification::make()
+                            ->title('Other sessions terminated')
+                            ->success()
+                            ->send();
+                    }),
+            ])
             ->columns([
                 TextColumn::make('device')
                     ->label('Device')
