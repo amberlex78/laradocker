@@ -236,7 +236,11 @@ it('resolves login session status with the documented precedence', function (): 
         ->and($expired->resolveStatus())->toBe(LoginSessionStatus::Expired)
         ->and($current->resolveStatus())->toBe(LoginSessionStatus::Current)
         ->and($active->resolveStatus())->toBe(LoginSessionStatus::Active)
-        ->and(LoginSessionStatus::Expired->getColor())->toBe(Color::Amber);
+        ->and(LoginSessionStatus::Current->getColor())->toBe(Color::Green)
+        ->and(LoginSessionStatus::Active->getColor())->toBe(Color::Green)
+        ->and(LoginSessionStatus::Expired->getColor())->toBe(Color::Amber)
+        ->and(LoginSessionStatus::SignedOut->getColor())->toBe(Color::Gray)
+        ->and(LoginSessionStatus::Terminated->getColor())->toBe(Color::Red);
 });
 
 it('renders the sign-in history section on the profile page', function (): void {

@@ -28,10 +28,10 @@ enum LoginSessionStatus: string implements HasColor, HasLabel
     public function getColor(): string|array
     {
         return match ($this) {
-            self::Current, self::Active => 'success',
-            self::Terminated => 'danger',
+            self::Current, self::Active => Color::Green,
+            self::Terminated => Color::Red,
             self::Expired => Color::Amber,
-            self::SignedOut => 'gray',
+            self::SignedOut => Color::Gray,
         };
     }
 
