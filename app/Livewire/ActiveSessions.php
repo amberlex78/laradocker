@@ -4,8 +4,8 @@ namespace App\Livewire;
 
 use App\Actions\Auth\TerminateOtherSessions;
 use App\Enums\LoginSessionStatus;
+use App\Filament\Tables\Columns\DeviceColumn;
 use App\Models\LoginSession;
-use App\Services\DeviceDetectionService;
 use App\Services\LoginSessionStatusContext;
 use App\Services\LoginSessionStatusResolver;
 use Filament\Actions\Action;
@@ -64,21 +64,7 @@ class ActiveSessions extends TableWidget
                     }),
             ])
             ->columns([
-                TextColumn::make('device')
-                    ->label('Device')
-                    ->state(function (
-                        LoginSession $record,
-                        DeviceDetectionService $deviceDetectionService,
-                    ): string {
-                        $details = $deviceDetectionService->detect($record->user_agent);
-
-                        return $details['client'].' / '.$details['operatingSystem'];
-                    })
-                    ->description(fn (
-                        LoginSession $record,
-                        DeviceDetectionService $deviceDetectionService,
-                    ): string => $deviceDetectionService->detect($record->user_agent)['device'])
-                    ->wrap(),
+                DeviceColumn::make(),
                 TextColumn::make('current')
                     ->label('')
                     ->state(fn (LoginSession $record): ?LoginSessionStatus => $resolver->resolveStatus($record, $context) === LoginSessionStatus::Current

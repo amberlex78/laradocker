@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Enums\LoginSessionStatus;
+use App\Filament\Tables\Columns\DeviceColumn;
 use App\Models\LoginSession;
-use App\Services\DeviceDetectionService;
 use App\Services\LoginSessionStatusContext;
 use App\Services\LoginSessionStatusResolver;
 use Filament\Facades\Filament;
@@ -36,21 +36,7 @@ class LoginHistory extends TableWidget
             ->query(fn (): Builder => LoginSession::query()
                 ->where('user_id', Filament::auth()->id()))
             ->columns([
-                TextColumn::make('device')
-                    ->label('Device')
-                    ->state(function (
-                        LoginSession $record,
-                        DeviceDetectionService $deviceDetectionService,
-                    ): string {
-                        $details = $deviceDetectionService->detect($record->user_agent);
-
-                        return $details['client'].' / '.$details['operatingSystem'];
-                    })
-                    ->description(fn (
-                        LoginSession $record,
-                        DeviceDetectionService $deviceDetectionService,
-                    ): string => $deviceDetectionService->detect($record->user_agent)['device'])
-                    ->wrap(),
+                DeviceColumn::make(),
                 TextColumn::make('ip_address')
                     ->label('IP address')
                     ->placeholder('Unknown'),
