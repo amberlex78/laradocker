@@ -57,11 +57,12 @@ class LoginHistory extends TableWidget
                     ->state(fn (LoginSession $record): string => self::statusOf($record))
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'Active' => 'success',
+                        'Current session', 'Active' => 'success',
                         'Terminated' => 'danger',
                         default => 'gray',
                     })
                     ->tooltip(fn (LoginSession $record): string => match (self::statusOf($record)) {
+                        'Current session' => 'This is your current session.',
                         'Active' => 'This session is still signed in.',
                         'Signed out' => 'You signed out of this session.',
                         'Terminated' => 'Ended remotely with "Terminate other sessions".',
@@ -87,6 +88,7 @@ class LoginHistory extends TableWidget
             $record->end_reason === LoginSessionEndReason::Terminated => 'Terminated',
             $record->logged_out_at !== null => 'Signed out',
             $record->last_seen_at->lt(now()->subMinutes((int) config('session.lifetime'))) => 'Expired',
+            $record->isCurrent() => 'Current session',
             default => 'Active',
         };
     }

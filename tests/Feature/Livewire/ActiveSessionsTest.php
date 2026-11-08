@@ -173,6 +173,10 @@ it('renders login history with all statuses for the authenticated user only', fu
     actingAs($user);
     Filament::setCurrentPanel('site');
 
+    LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+        'ip_address' => '203.0.113.29',
+    ]);
     LoginSession::factory()->for($user)->create(['ip_address' => '203.0.113.30']);
     LoginSession::factory()->for($user)->expired()->create(['ip_address' => '203.0.113.31']);
     LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.32']);
@@ -183,11 +187,13 @@ it('renders login history with all statuses for the authenticated user only', fu
     LoginSession::factory()->for($otherUser)->create(['ip_address' => '203.0.113.34']);
 
     Livewire::test(LoginHistory::class)
+        ->assertSee('203.0.113.29')
         ->assertSee('203.0.113.30')
         ->assertSee('203.0.113.31')
         ->assertSee('203.0.113.32')
         ->assertSee('203.0.113.33')
         ->assertDontSee('203.0.113.34')
+        ->assertSee('Current session')
         ->assertSee('Active')
         ->assertSee('Expired')
         ->assertSee('Signed out')
