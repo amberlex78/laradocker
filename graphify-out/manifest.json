@@ -306,9 +306,9 @@
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
-    "mtime": 1794123112.272229,
-    "seen": 1794126682.4676187,
-    "ast_hash": "966c870a87e55354ccc5684350371b90",
+    "mtime": 1794132628.6630616,
+    "seen": 1794135870.4924579,
+    "ast_hash": "8c96d8426edb08f63d928f035a4c4304",
     "semantic_hash": ""
   },
   "app/Http/Middleware/RedirectGuestsToSiteLogin.php": {
@@ -372,9 +372,9 @@
     "semantic_hash": ""
   },
   "app/Livewire/ActiveSessions.php": {
-    "mtime": 1794092221.4509654,
-    "seen": 1794126682.4676588,
-    "ast_hash": "19a6a4c98a8cb07fe57d2e13d1041372",
+    "mtime": 1794135419.74629,
+    "seen": 1794135870.4924688,
+    "ast_hash": "7b09883d9245265de8f40fee9c89d910",
     "semantic_hash": ""
   },
   "app/Services/DeviceDetectionService.php": {
@@ -384,9 +384,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/Livewire/ActiveSessionsTest.php": {
-    "mtime": 1794126313.7107716,
-    "seen": 1794126682.467814,
-    "ast_hash": "86f7d20eb0a2b161e8297807fff23548",
+    "mtime": 1794134928.6310394,
+    "seen": 1794135870.4925096,
+    "ast_hash": "9eeb3aa364d78f5595948ad3be6d3dfd",
     "semantic_hash": ""
   },
   "tests/Unit/Services/DeviceDetectionServiceTest.php": {
@@ -516,21 +516,21 @@
     "semantic_hash": ""
   },
   "app/Listeners/RecordLogout.php": {
-    "mtime": 1794092271.3159215,
-    "seen": 1794126682.4676547,
-    "ast_hash": "d0513842e6e7f93f7c478ef06e211f6c",
+    "mtime": 1794133939.9873426,
+    "seen": 1794135870.4924672,
+    "ast_hash": "9f7a7bfb7dc79cfe1742f73545f94a68",
     "semantic_hash": ""
   },
   "app/Livewire/LoginHistory.php": {
-    "mtime": 1794126305.719514,
-    "seen": 1794126682.467662,
-    "ast_hash": "473606bbd586bf6f6bfa78b087b5571f",
+    "mtime": 1794134928.4949725,
+    "seen": 1794135870.4924695,
+    "ast_hash": "d8f4be85517b35a6a1078a84d4d3fd8c",
     "semantic_hash": ""
   },
   "app/Models/LoginSession.php": {
-    "mtime": 1794092190.7044685,
-    "seen": 1794126682.4676654,
-    "ast_hash": "3dc43dd7988d4570d23988ccab88ac58",
+    "mtime": 1794134638.965668,
+    "seen": 1794135870.4924703,
+    "ast_hash": "667c63ddba7c63f981bd188425bd6fa1",
     "semantic_hash": ""
   },
   "database/factories/LoginSessionFactory.php": {
@@ -546,9 +546,33 @@
     "semantic_hash": ""
   },
   "tests/Feature/LoginSessionTrackingTest.php": {
-    "mtime": 1794092254.7164059,
-    "seen": 1794126682.467817,
-    "ast_hash": "1ade268b1c48961e44a1a74422754594",
+    "mtime": 1794133888.882552,
+    "seen": 1794135870.4925106,
+    "ast_hash": "84cd3c6d21d83736f1833ddea339d72c",
+    "semantic_hash": ""
+  },
+  "app/Actions/Auth/EndLoginSession.php": {
+    "mtime": 1794133859.6187081,
+    "seen": 1794135870.4924283,
+    "ast_hash": "9e67cf2df40f55970ca6f6464fa75936",
+    "semantic_hash": ""
+  },
+  "app/Enums/LoginSessionStatus.php": {
+    "mtime": 1794135446.4162366,
+    "seen": 1794135870.4924438,
+    "ast_hash": "ee6436f61dfa5921c9356bf8e735e30a",
+    "semantic_hash": ""
+  },
+  "app/Services/LoginSessionStatusContext.php": {
+    "mtime": 1794135191.0587962,
+    "seen": 1794135870.4924774,
+    "ast_hash": "d32d2568b522875bb2331bc855359d3c",
+    "semantic_hash": ""
+  },
+  "app/Services/LoginSessionStatusResolver.php": {
+    "mtime": 1794135191.1658342,
+    "seen": 1794135870.4924781,
+    "ast_hash": "9eeb6e3bf838048dd4116d4a61579982",
     "semantic_hash": ""
   }
 }
