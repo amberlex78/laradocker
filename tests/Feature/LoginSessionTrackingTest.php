@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\Auth\EndLoginSession;
 use App\Enums\LoginSessionEndReason;
 use App\Models\LoginSession;
 use App\Models\User;
@@ -28,6 +29,39 @@ it('closes the login session on logout', function (): void {
 
     expect($loginSession->logged_out_at)->not->toBeNull()
         ->and($loginSession->end_reason)->toBe(LoginSessionEndReason::LoggedOut);
+});
+
+it('ends only the login session identified by the current session token', function (): void {
+    $user = User::factory()->create();
+    $currentSession = LoginSession::factory()->for($user)->create();
+    $otherSession = LoginSession::factory()->for($user)->create();
+
+    session()->put(LoginSession::SESSION_KEY, $currentSession->getKey());
+
+    app(EndLoginSession::class)->handle();
+
+    expect($currentSession->refresh()->logged_out_at)->not->toBeNull()
+        ->and($currentSession->end_reason)->toBe(LoginSessionEndReason::LoggedOut)
+        ->and($otherSession->refresh()->logged_out_at)->toBeNull()
+        ->and(session()->has(LoginSession::SESSION_KEY))->toBeFalse();
+});
+
+it('does not overwrite an already-ended login session', function (): void {
+    $user = User::factory()->create();
+    $endedAt = now()->subMinute();
+    $loginSession = LoginSession::factory()->for($user)->ended()->create([
+        'logged_out_at' => $endedAt,
+        'end_reason' => LoginSessionEndReason::Terminated,
+    ]);
+    $originalLoggedOutAt = $loginSession->getRawOriginal('logged_out_at');
+
+    session()->put(LoginSession::SESSION_KEY, $loginSession->getKey());
+
+    app(EndLoginSession::class)->handle();
+
+    expect($loginSession->refresh()->getRawOriginal('logged_out_at'))->toBe($originalLoggedOutAt)
+        ->and($loginSession->end_reason)->toBe(LoginSessionEndReason::Terminated)
+        ->and(session()->has(LoginSession::SESSION_KEY))->toBeFalse();
 });
 
 it('lazily creates a login session for already authenticated requests', function (): void {
