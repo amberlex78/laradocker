@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Enums\UserRole;
 use App\Filament\Widgets\SystemOverview;
 use App\Http\Middleware\RedirectGuestsToSiteLogin;
+use App\Http\Middleware\TrackLoginSession;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -82,6 +83,7 @@ class OperatorPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 RedirectGuestsToSiteLogin::class,
+                TrackLoginSession::class,
             ]);
     }
 }

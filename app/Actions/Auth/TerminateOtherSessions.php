@@ -2,9 +2,11 @@
 
 namespace App\Actions\Auth;
 
-use App\Models\UserSession;
+use App\Enums\LoginSessionEndReason;
+use App\Models\LoginSession;
 use Filament\Facades\Filament;
 use Illuminate\Auth\SessionGuard;
+use Illuminate\Support\Facades\DB;
 use LogicException;
 
 class TerminateOtherSessions
@@ -29,9 +31,24 @@ class TerminateOtherSessions
             'password_hash_'.Filament::getAuthGuard() => $user->getAuthPassword(),
         ]);
 
-        UserSession::query()
+        $currentLoginSessionId = session()->get(LoginSession::SESSION_KEY);
+
+        LoginSession::query()
+            ->whereBelongsTo($user)
+            ->whereNull('logged_out_at')
+            ->when($currentLoginSessionId !== null, fn ($query) => $query->whereKeyNot($currentLoginSessionId))
+            ->where(fn ($query) => $query
+                ->whereNull('session_id')
+                ->orWhere('session_id', '!=', session()->getId()))
+            ->update([
+                'logged_out_at' => now(),
+                'end_reason' => LoginSessionEndReason::Terminated,
+            ]);
+
+        DB::connection(config('session.connection'))
+            ->table((string) config('session.table'))
             ->where('user_id', $user->getAuthIdentifier())
-            ->whereKeyNot(session()->getId())
+            ->where('id', '!=', session()->getId())
             ->delete();
     }
 }

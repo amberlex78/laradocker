@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Http\Middleware\RedirectGuestsToSiteLogin;
+use App\Http\Middleware\TrackLoginSession;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -75,6 +76,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 RedirectGuestsToSiteLogin::class,
+                TrackLoginSession::class,
             ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Enums\UserRole;
 use App\Filament\Site\Pages\EditProfile;
+use App\Http\Middleware\TrackLoginSession;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -100,6 +101,7 @@ class SitePanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                TrackLoginSession::class,
             ]);
     }
 }

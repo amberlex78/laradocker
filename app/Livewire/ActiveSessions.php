@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\UserSession;
+use App\Models\LoginSession;
 use App\Services\DeviceDetectionService;
 use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
@@ -24,14 +24,14 @@ class ActiveSessions extends TableWidget
         return $table
             ->heading(null)
             ->description(null)
-            ->query(fn (): Builder => UserSession::query()
+            ->query(fn (): Builder => LoginSession::query()
                 ->where('user_id', Filament::auth()->id())
                 ->active())
             ->columns([
                 TextColumn::make('device')
                     ->label('Device')
                     ->state(function (
-                        UserSession $record,
+                        LoginSession $record,
                         DeviceDetectionService $deviceDetectionService,
                     ): string {
                         $details = $deviceDetectionService->detect($record->user_agent);
@@ -39,13 +39,13 @@ class ActiveSessions extends TableWidget
                         return $details['client'].' / '.$details['operatingSystem'];
                     })
                     ->description(fn (
-                        UserSession $record,
+                        LoginSession $record,
                         DeviceDetectionService $deviceDetectionService,
                     ): string => $deviceDetectionService->detect($record->user_agent)['device'])
                     ->wrap(),
                 TextColumn::make('current')
                     ->label('')
-                    ->state(fn (UserSession $record): ?string => $record->getKey() === session()->getId()
+                    ->state(fn (LoginSession $record): ?string => $record->isCurrent()
                         ? 'Current'
                         : null)
                     ->badge()
@@ -53,12 +53,12 @@ class ActiveSessions extends TableWidget
                 TextColumn::make('ip_address')
                     ->label('IP address')
                     ->placeholder('Unknown'),
-                TextColumn::make('last_activity')
+                TextColumn::make('last_seen_at')
                     ->label('Last activity')
-                    ->state(fn (UserSession $record): mixed => $record->lastActivityAt())
+                    ->state(fn (LoginSession $record): mixed => $record->last_seen_at)
                     ->dateTime(),
             ])
-            ->defaultSort('last_activity', 'desc')
+            ->defaultSort('last_seen_at', 'desc')
             ->paginated(false)
             ->recordUrl(null)
             ->emptyStateHeading('No active sessions');
