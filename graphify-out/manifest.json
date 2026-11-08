@@ -66,9 +66,9 @@
     "semantic_hash": "e66bb13691f6184c762c196427d8e685"
   },
   "bootstrap/app.php": {
-    "mtime": 1794047206.6050224,
-    "seen": 1794049716.41506,
-    "ast_hash": "cf2c41f78d49093dd5699cb460da8fdd",
+    "mtime": 1794137789.058252,
+    "seen": 1794138124.5861242,
+    "ast_hash": "1fe9e1c58cb50317de9b0dcae1d90476",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
@@ -84,8 +84,8 @@
     "semantic_hash": ""
   },
   "config/app.php": {
-    "mtime": 1794089841.3284461,
-    "seen": 1794126682.4677072,
+    "mtime": 1794137789.2172606,
+    "seen": 1794138124.586127,
     "ast_hash": "d79d87880f9a42f7946b665877c54e72",
     "semantic_hash": ""
   },
@@ -300,9 +300,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/PanelAccessTest.php": {
-    "mtime": 1793310619.7596366,
-    "seen": 1794038484.3520882,
-    "ast_hash": "a12383b8545c9c864579488653385406",
+    "mtime": 1794137194.8280368,
+    "seen": 1794138124.5861573,
+    "ast_hash": "ac93aeef0c3c0a2e198aeb7d67d3c9f6",
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
@@ -573,6 +573,12 @@
     "mtime": 1794135191.1658342,
     "seen": 1794135870.4924781,
     "ast_hash": "9eeb6e3bf838048dd4116d4a61579982",
+    "semantic_hash": ""
+  },
+  "config/trustedproxy.php": {
+    "mtime": 1794137789.3572679,
+    "seen": 1794138124.5861359,
+    "ast_hash": "643522ccc07c67e3e125ebfc9d3eb6df",
     "semantic_hash": ""
   }
 }

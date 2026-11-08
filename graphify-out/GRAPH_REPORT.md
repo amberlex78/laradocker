@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-11-08)
 
 ## Corpus Check
-- 87 files · ~19,221 words
+- 88 files · ~19,231 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 32 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 4)
 
 ## Summary
-- 623 nodes · 959 edges · 51 communities (26 shown, 25 thin omitted)
+- 624 nodes · 959 edges · 52 communities (26 shown, 26 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5267f336`
+- Built from commit: `04acb06f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -79,7 +79,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (51 total, 25 thin omitted)
+## Communities (52 total, 26 thin omitted)
 
 ### Community 0 - "Розгортання на Ubuntu VPS"
 Cohesion: 0.05
@@ -187,8 +187,8 @@ Nodes (3): extra, laravel, dont-discover
 
 ## Knowledge Gaps
 - **18 isolated node(s):** `LoggedOut`, `Terminated`, `Current`, `Active`, `Expired` (+13 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 292 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **25 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 293 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Work-memory lessons
 
@@ -200,7 +200,7 @@ Nodes (3): extra, laravel, dont-discover
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `UserRole` connect `composer.json` to `User`, `package.json`, `UserResource.php`, `UserForm.php`, `UserFactory.php`, `ActiveSessionsTest.php`?**
-  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **What connects `LoggedOut`, `Terminated`, `Current` to the rest of the system?**
   _18 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
