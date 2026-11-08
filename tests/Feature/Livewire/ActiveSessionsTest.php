@@ -6,6 +6,8 @@ use App\Livewire\ActiveSessions;
 use App\Livewire\LoginHistory;
 use App\Models\LoginSession;
 use App\Models\User;
+use App\Services\LoginSessionStatusContext;
+use App\Services\LoginSessionStatusResolver;
 use Filament\Actions\Testing\TestAction;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
@@ -222,40 +224,57 @@ it('renders login history with all statuses for the authenticated user only', fu
 it('resolves login session status with the documented precedence', function (): void {
     $user = User::factory()->create();
     $now = Carbon::create(2026, 11, 8, 12);
-    Carbon::setTestNow($now);
-    config(['session.lifetime' => 30]);
+    $context = new LoginSessionStatusContext(
+        currentLoginJournalId: 'current-journal-id',
+        currentHttpSessionId: 'current-http-session-id',
+        inactivityThreshold: $now->copy()->subMinutes(30),
+    );
+    $resolver = new LoginSessionStatusResolver;
 
     $terminated = LoginSession::factory()->for($user)->create([
-        'session_id' => session()->getId(),
+        'session_id' => 'current-http-session-id',
         'last_seen_at' => $now->copy()->subMinutes(31),
         'logged_out_at' => $now,
         'end_reason' => LoginSessionEndReason::Terminated,
     ]);
     $signedOut = LoginSession::factory()->for($user)->create([
-        'session_id' => session()->getId(),
+        'session_id' => 'current-http-session-id',
         'last_seen_at' => $now->copy()->subMinutes(31),
         'logged_out_at' => $now,
         'end_reason' => LoginSessionEndReason::LoggedOut,
     ]);
     $expired = LoginSession::factory()->for($user)->create([
-        'session_id' => session()->getId(),
+        'session_id' => 'current-http-session-id',
         'last_seen_at' => $now->copy()->subMinutes(31),
     ]);
     $current = LoginSession::factory()->for($user)->create([
-        'session_id' => session()->getId(),
+        'id' => 'current-journal-id',
     ]);
     $active = LoginSession::factory()->for($user)->create();
 
-    expect($terminated->resolveStatus())->toBe(LoginSessionStatus::Terminated)
-        ->and($signedOut->resolveStatus())->toBe(LoginSessionStatus::SignedOut)
-        ->and($expired->resolveStatus())->toBe(LoginSessionStatus::Expired)
-        ->and($current->resolveStatus())->toBe(LoginSessionStatus::Current)
-        ->and($active->resolveStatus())->toBe(LoginSessionStatus::Active)
+    expect($resolver->resolveStatus($terminated, $context))->toBe(LoginSessionStatus::Terminated)
+        ->and($resolver->resolveStatus($signedOut, $context))->toBe(LoginSessionStatus::SignedOut)
+        ->and($resolver->resolveStatus($expired, $context))->toBe(LoginSessionStatus::Expired)
+        ->and($resolver->resolveStatus($current, $context))->toBe(LoginSessionStatus::Current)
+        ->and($resolver->resolveStatus($active, $context))->toBe(LoginSessionStatus::Active)
         ->and(LoginSessionStatus::Current->getColor())->toBe(Color::Green)
         ->and(LoginSessionStatus::Active->getColor())->toBe(Color::Green)
         ->and(LoginSessionStatus::Expired->getColor())->toBe(Color::Amber)
         ->and(LoginSessionStatus::SignedOut->getColor())->toBe(Color::Gray)
         ->and(LoginSessionStatus::Terminated->getColor())->toBe(Color::Red);
+});
+
+it('captures the current request values in the login session status context', function (): void {
+    $now = Carbon::create(2026, 11, 8, 12);
+    $this->travelTo($now);
+    config(['session.lifetime' => 30]);
+    session()->put(LoginSession::SESSION_KEY, 12345);
+
+    $context = LoginSessionStatusContext::fromCurrentRequest();
+
+    expect($context->currentLoginJournalId)->toBe('12345')
+        ->and($context->currentHttpSessionId)->toBe(session()->getId())
+        ->and($context->inactivityThreshold->equalTo($now->copy()->subMinutes(30)))->toBeTrue();
 });
 
 it('renders the sign-in history section on the profile page', function (): void {

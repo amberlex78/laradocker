@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\LoginSessionEndReason;
-use App\Enums\LoginSessionStatus;
 use Database\Factories\LoginSessionFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Scope;
@@ -82,25 +81,5 @@ class LoginSession extends Model
         return $query
             ->whereNull('logged_out_at')
             ->where('last_seen_at', '>=', now()->subMinutes((int) config('session.lifetime')));
-    }
-
-    /**
-     * Whether this entry belongs to the request's current HTTP session.
-     */
-    public function isCurrent(): bool
-    {
-        return $this->getKey() === session()->get(self::SESSION_KEY)
-            || ($this->session_id !== null && $this->session_id === session()->getId());
-    }
-
-    public function resolveStatus(): LoginSessionStatus
-    {
-        return match (true) {
-            $this->end_reason === LoginSessionEndReason::Terminated => LoginSessionStatus::Terminated,
-            $this->logged_out_at !== null => LoginSessionStatus::SignedOut,
-            $this->last_seen_at->lt(now()->subMinutes((int) config('session.lifetime'))) => LoginSessionStatus::Expired,
-            $this->isCurrent() => LoginSessionStatus::Current,
-            default => LoginSessionStatus::Active,
-        };
     }
 }

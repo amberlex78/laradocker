@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Enums\LoginSessionStatus;
 use App\Models\LoginSession;
 use App\Services\DeviceDetectionService;
+use App\Services\LoginSessionStatusContext;
+use App\Services\LoginSessionStatusResolver;
 use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\PaginationMode;
@@ -25,6 +27,9 @@ class LoginHistory extends TableWidget
 
     public function table(Table $table): Table
     {
+        $context = LoginSessionStatusContext::fromCurrentRequest();
+        $resolver = new LoginSessionStatusResolver;
+
         return $table
             ->heading(null)
             ->description(null)
@@ -54,10 +59,10 @@ class LoginHistory extends TableWidget
                     ->dateTime(self::DISPLAY_DATE_TIME_FORMAT),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->state(fn (LoginSession $record): LoginSessionStatus => $record->resolveStatus())
+                    ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
                     ->badge()
-                    ->tooltip(fn (LoginSession $record): string => $record->resolveStatus()->getTooltip())
-                    ->description(fn (LoginSession $record): ?string => match ($record->resolveStatus()) {
+                    ->tooltip(fn (LoginSession $record): string => $resolver->resolveStatus($record, $context)->getTooltip())
+                    ->description(fn (LoginSession $record): ?string => match ($resolver->resolveStatus($record, $context)) {
                         LoginSessionStatus::Terminated, LoginSessionStatus::SignedOut => $record->logged_out_at?->format(self::DISPLAY_DATE_TIME_FORMAT),
                         LoginSessionStatus::Expired => $record->last_seen_at->format(self::DISPLAY_DATE_TIME_FORMAT),
                         default => null,

@@ -3,8 +3,11 @@
 namespace App\Livewire;
 
 use App\Actions\Auth\TerminateOtherSessions;
+use App\Enums\LoginSessionStatus;
 use App\Models\LoginSession;
 use App\Services\DeviceDetectionService;
+use App\Services\LoginSessionStatusContext;
+use App\Services\LoginSessionStatusResolver;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
@@ -26,6 +29,9 @@ class ActiveSessions extends TableWidget
 
     public function table(Table $table): Table
     {
+        $context = LoginSessionStatusContext::fromCurrentRequest();
+        $resolver = new LoginSessionStatusResolver;
+
         return $table
             ->heading(null)
             ->description(null)
@@ -75,11 +81,10 @@ class ActiveSessions extends TableWidget
                     ->wrap(),
                 TextColumn::make('current')
                     ->label('')
-                    ->state(fn (LoginSession $record): ?string => $record->isCurrent()
-                        ? 'Current'
+                    ->state(fn (LoginSession $record): ?LoginSessionStatus => $resolver->resolveStatus($record, $context) === LoginSessionStatus::Current
+                        ? LoginSessionStatus::Current
                         : null)
-                    ->badge()
-                    ->color('success'),
+                    ->badge(),
                 TextColumn::make('ip_address')
                     ->label('IP address')
                     ->placeholder('Unknown'),

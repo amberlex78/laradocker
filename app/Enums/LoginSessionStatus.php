@@ -25,7 +25,7 @@ enum LoginSessionStatus: string implements HasColor, HasLabel
         };
     }
 
-    public function getColor(): string|array
+    public function getColor(): array
     {
         return match ($this) {
             self::Current, self::Active => Color::Green,
