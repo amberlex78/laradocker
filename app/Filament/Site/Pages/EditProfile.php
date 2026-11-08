@@ -4,6 +4,7 @@ namespace App\Filament\Site\Pages;
 
 use App\Actions\Auth\TerminateOtherSessions;
 use App\Livewire\ActiveSessions;
+use App\Livewire\LoginHistory;
 use Filament\Actions\Action;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
 use Filament\Facades\Filament;
@@ -70,6 +71,12 @@ class EditProfile extends BaseEditProfile
                     ->schema([
                         EmbeddedSchema::make('terminateSessionsForm'),
                         Livewire::make(ActiveSessions::class),
+                    ]),
+                Section::make('Sign-in history')
+                    ->description('Recent successful sign-ins to your account.')
+                    ->icon(Heroicon::OutlinedClock)
+                    ->schema([
+                        Livewire::make(LoginHistory::class),
                     ]),
             ]);
     }

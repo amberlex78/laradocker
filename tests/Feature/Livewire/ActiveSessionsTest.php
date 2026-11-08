@@ -2,6 +2,7 @@
 
 use App\Filament\Site\Pages\EditProfile;
 use App\Livewire\ActiveSessions;
+use App\Livewire\LoginHistory;
 use App\Models\LoginSession;
 use App\Models\User;
 use Filament\Facades\Filament;
@@ -163,4 +164,41 @@ it('terminates other sessions after the current password is confirmed', function
         ->and(DB::table(config('session.table'))->where('id', 'other-user-session-id')->exists())->toBeTrue();
 
     $this->get('/profile')->assertOk();
+});
+
+it('renders login history with all statuses for the authenticated user only', function (): void {
+    $user = User::factory()->create();
+    $otherUser = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    LoginSession::factory()->for($user)->create(['ip_address' => '203.0.113.30']);
+    LoginSession::factory()->for($user)->expired()->create(['ip_address' => '203.0.113.31']);
+    LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.32']);
+    LoginSession::factory()->for($user)->ended()->create([
+        'ip_address' => '203.0.113.33',
+        'end_reason' => 'terminated',
+    ]);
+    LoginSession::factory()->for($otherUser)->create(['ip_address' => '203.0.113.34']);
+
+    Livewire::test(LoginHistory::class)
+        ->assertSee('203.0.113.30')
+        ->assertSee('203.0.113.31')
+        ->assertSee('203.0.113.32')
+        ->assertSee('203.0.113.33')
+        ->assertDontSee('203.0.113.34')
+        ->assertSee('Active')
+        ->assertSee('Expired')
+        ->assertSee('Signed out')
+        ->assertSee('Terminated');
+});
+
+it('renders the sign-in history section on the profile page', function (): void {
+    actingAs(User::factory()->create());
+
+    $this->get('/profile')
+        ->assertOk()
+        ->assertSee('Sign-in history')
+        ->assertSee('Recent successful sign-ins to your account.');
 });
