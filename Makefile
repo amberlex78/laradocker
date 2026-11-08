@@ -42,7 +42,7 @@ TEST_PHP_EXEC := $(DOCKER_DEV) exec $(TEST_ENV) app
 .PHONY: help config-dev config-prod validate \
         install build up down ps logs env \
         stats clear tinker artisan migrate migrate-fresh db-seed \
-        test pint composer npm vite shell-php shell-node shell-mariadb \
+        test pint phpstan composer npm vite shell-php shell-node shell-mariadb \
         prod-build prod-up prod-down \
         prod-ps prod-logs prod-laravel-logs prod-stats \
         prod-migrate prod-migrate-fresh prod-seed prod-optimize \
@@ -130,6 +130,9 @@ test: ## Run the Laravel test suite, optionally narrowed with CMD="tests/Feature
 
 pint: ## Run Laravel Pint
 	$(PHP_EXEC) ./vendor/bin/pint
+
+phpstan: ## Run PHPStan static analysis
+	$(PHP_EXEC) ./vendor/bin/phpstan analyse --memory-limit=1G
 
 ## DEPENDENCIES & FRONTEND
 
