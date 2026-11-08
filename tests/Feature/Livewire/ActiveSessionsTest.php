@@ -1,11 +1,15 @@
 <?php
 
+use App\Enums\LoginSessionEndReason;
+use App\Enums\LoginSessionStatus;
 use App\Filament\Site\Pages\EditProfile;
 use App\Livewire\ActiveSessions;
 use App\Livewire\LoginHistory;
 use App\Models\LoginSession;
 use App\Models\User;
 use Filament\Facades\Filament;
+use Filament\Support\Colors\Color;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
@@ -198,6 +202,41 @@ it('renders login history with all statuses for the authenticated user only', fu
         ->assertSee('Expired')
         ->assertSee('Signed out')
         ->assertSee('Terminated');
+});
+
+it('resolves login session status with the documented precedence', function (): void {
+    $user = User::factory()->create();
+    $now = Carbon::create(2026, 11, 8, 12);
+    Carbon::setTestNow($now);
+    config(['session.lifetime' => 30]);
+
+    $terminated = LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+        'last_seen_at' => $now->copy()->subMinutes(31),
+        'logged_out_at' => $now,
+        'end_reason' => LoginSessionEndReason::Terminated,
+    ]);
+    $signedOut = LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+        'last_seen_at' => $now->copy()->subMinutes(31),
+        'logged_out_at' => $now,
+        'end_reason' => LoginSessionEndReason::LoggedOut,
+    ]);
+    $expired = LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+        'last_seen_at' => $now->copy()->subMinutes(31),
+    ]);
+    $current = LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+    ]);
+    $active = LoginSession::factory()->for($user)->create();
+
+    expect($terminated->resolveStatus())->toBe(LoginSessionStatus::Terminated)
+        ->and($signedOut->resolveStatus())->toBe(LoginSessionStatus::SignedOut)
+        ->and($expired->resolveStatus())->toBe(LoginSessionStatus::Expired)
+        ->and($current->resolveStatus())->toBe(LoginSessionStatus::Current)
+        ->and($active->resolveStatus())->toBe(LoginSessionStatus::Active)
+        ->and(LoginSessionStatus::Expired->getColor())->toBe(Color::Amber);
 });
 
 it('renders the sign-in history section on the profile page', function (): void {
