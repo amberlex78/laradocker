@@ -8,7 +8,22 @@ use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
+use Filament\Support\Facades\FilamentColor;
 use Livewire\Livewire;
+
+it('resolves site panel colors after a session user becomes available', function (): void {
+    Filament::setCurrentPanel('site');
+    Filament::bootCurrentPanel();
+
+    $admin = User::factory()->make([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin);
+
+    expect(FilamentColor::getColor('primary'))->toBe(Color::Amber)
+        ->and(FilamentColor::getColor('gray'))->toBe(Color::Stone);
+});
 
 it('restricts panel access by user role', function (UserRole $role, string $panelId, bool $canAccess): void {
     $user = User::factory()->make([

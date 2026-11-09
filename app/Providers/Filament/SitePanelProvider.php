@@ -13,6 +13,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Facades\FilamentColor;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -35,21 +36,26 @@ class SitePanelProvider extends PanelProvider
             ->login()
             ->discoverPages(in: app_path('Filament/Site/Pages'), for: 'App\\Filament\\Site\\Pages')
             ->profile(EditProfile::class, isSimple: false)
-            ->colors(fn (): array => match (filament()->auth()->user()?->role) {
-                UserRole::Admin, UserRole::Developer => [
-                    'primary' => Color::Amber,
-                    'gray' => Color::Stone,
-                ],
-                UserRole::Operator => [
-                    'primary' => Color::Blue,
-                    'gray' => Color::Slate,
-                ],
-                default => [
-                    'primary' => Color::Green,
-                    'gray' => Color::Gray,
-                ],
-            })
+            ->colors([
+                'primary' => Color::Green,
+                'gray' => Color::Gray,
+            ])
             ->bootUsing(function (Panel $panel): void {
+                FilamentColor::register(fn (): array => match (filament()->auth()->user()?->role) {
+                    null, UserRole::User => [
+                        'primary' => Color::Green,
+                        'gray' => Color::Gray,
+                    ],
+                    UserRole::Operator => [
+                        'primary' => Color::Blue,
+                        'gray' => Color::Slate,
+                    ],
+                    UserRole::Admin, UserRole::Developer => [
+                        'primary' => Color::Amber,
+                        'gray' => Color::Stone,
+                    ],
+                });
+
                 $panel->navigationItems(EditProfile::getNavigationItems());
             })
             ->userMenuItems([
