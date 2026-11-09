@@ -2,8 +2,8 @@
 
 use App\Enums\LoginSessionEndReason;
 use App\Enums\LoginSessionStatus;
-use App\Livewire\ActiveSessions;
-use App\Livewire\LoginHistory;
+use App\Livewire\ActiveSessionsTable;
+use App\Livewire\LoginHistoryTable;
 use App\Models\LoginSession;
 use App\Models\User;
 use App\Services\LoginSessionStatusContext;
@@ -21,7 +21,7 @@ use function Pest\Laravel\actingAs;
 it('forbids guests from rendering active sessions', function (): void {
     Filament::setCurrentPanel('site');
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->assertForbidden();
 });
 
@@ -48,7 +48,7 @@ it('renders active sessions for the authenticated user with device details', fun
     LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.14']);
     LoginSession::factory()->for($otherUser)->create(['ip_address' => '203.0.113.13']);
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->assertSee('Chrome 149.0 / GNU/Linux')
         ->assertSee('Desktop')
         ->assertSee('Safari 17.0')
@@ -64,7 +64,7 @@ it('makes the terminate other sessions table action available to authenticated u
     actingAs(User::factory()->create());
     Filament::setCurrentPanel('site');
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->assertActionExists(TestAction::make('terminateOtherSessions')->table())
         ->assertActionVisible(TestAction::make('terminateOtherSessions')->table())
         ->assertActionHasLabel(TestAction::make('terminateOtherSessions')->table(), 'Terminate other sessions');
@@ -97,12 +97,12 @@ it('uses the active Filament guard for session display and termination', functio
     $otherPanelSession = LoginSession::factory()->for($panelUser)->create(['ip_address' => '203.0.113.21']);
     $defaultSession = LoginSession::factory()->for($defaultUser)->create(['ip_address' => '203.0.113.22']);
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->assertSee('203.0.113.20')
         ->assertSee('203.0.113.21')
         ->assertDontSee('203.0.113.22');
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->callAction(
             TestAction::make('terminateOtherSessions')->table(),
             data: ['currentPassword' => 'panel-password'],
@@ -136,7 +136,7 @@ it('does not terminate sessions when the current password is invalid', function 
     LoginSession::factory()->for($user)->create(['session_id' => session()->getId()]);
     LoginSession::factory()->for($user)->create();
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->callAction(
             TestAction::make('terminateOtherSessions')->table(),
             data: ['currentPassword' => 'wrong-password'],
@@ -167,7 +167,7 @@ it('terminates other sessions after the current password is confirmed', function
         ]);
     }
 
-    Livewire::test(ActiveSessions::class)
+    Livewire::test(ActiveSessionsTable::class)
         ->callAction(
             TestAction::make('terminateOtherSessions')->table(),
             data: ['currentPassword' => 'password'],
@@ -207,7 +207,7 @@ it('renders login history with all statuses for the authenticated user only', fu
     ]);
     LoginSession::factory()->for($otherUser)->create(['ip_address' => '203.0.113.34']);
 
-    Livewire::test(LoginHistory::class)
+    Livewire::test(LoginHistoryTable::class)
         ->assertSee('203.0.113.29')
         ->assertSee('203.0.113.30')
         ->assertSee('203.0.113.31')
@@ -277,7 +277,7 @@ it('captures the current request values in the login session status context', fu
         ->and($context->inactivityThreshold->equalTo($now->copy()->subMinutes(30)))->toBeTrue();
 });
 
-it('renders the sign-in history page', function (): void {
+it('renders the session history page', function (): void {
     actingAs(User::factory()->create());
 
     $this->get('/history')

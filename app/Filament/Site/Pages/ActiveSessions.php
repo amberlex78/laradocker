@@ -2,7 +2,7 @@
 
 namespace App\Filament\Site\Pages;
 
-use App\Livewire\ActiveSessions as ActiveSessionsWidget;
+use App\Livewire\ActiveSessionsTable;
 use BackedEnum;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Livewire;
@@ -21,8 +21,6 @@ class ActiveSessions extends Page
 
     protected static ?string $title = 'Active sessions';
 
-    protected string $view = 'filament.site.pages.active-sessions';
-
     public function getSubheading(): string
     {
         return 'Devices currently signed in to your account.';
@@ -32,7 +30,7 @@ class ActiveSessions extends Page
     {
         return $schema
             ->components([
-                Livewire::make(ActiveSessionsWidget::class),
+                Livewire::make(ActiveSessionsTable::class),
             ]);
     }
 }

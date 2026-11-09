@@ -14,7 +14,7 @@ use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
 
-class LoginHistory extends TableWidget
+class LoginHistoryTable extends TableWidget
 {
     private const DISPLAY_DATE_TIME_FORMAT = 'M j, Y H:i:s';
 

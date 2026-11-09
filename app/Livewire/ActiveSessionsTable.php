@@ -18,7 +18,7 @@ use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
 
-class ActiveSessions extends TableWidget
+class ActiveSessionsTable extends TableWidget
 {
     protected static bool $isDiscovered = false;
 

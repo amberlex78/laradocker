@@ -2,14 +2,14 @@
 
 namespace App\Filament\Site\Pages;
 
-use App\Livewire\LoginHistory;
+use App\Livewire\LoginHistoryTable;
 use BackedEnum;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Livewire;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 
-class SignInHistory extends Page
+class SessionHistory extends Page
 {
     protected static ?string $slug = 'history';
 
@@ -21,8 +21,6 @@ class SignInHistory extends Page
 
     protected static ?string $title = 'Session history';
 
-    protected string $view = 'filament.site.pages.sign-in-history';
-
     public function getSubheading(): string
     {
         return 'Review your login sessions, including active, signed-out, expired, and terminated sessions.';
@@ -32,7 +30,7 @@ class SignInHistory extends Page
     {
         return $schema
             ->components([
-                Livewire::make(LoginHistory::class),
+                Livewire::make(LoginHistoryTable::class),
             ]);
     }
 }

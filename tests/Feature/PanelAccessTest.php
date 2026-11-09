@@ -214,7 +214,7 @@ it('uses the configured profile content width', function (): void {
         ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
 });
 
-it('separates sign-in history into its own site page', function (): void {
+it('separates session history into its own site page', function (): void {
     $user = User::factory()->create();
 
     $this->actingAs($user)
