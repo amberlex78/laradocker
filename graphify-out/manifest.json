@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "app/Livewire/LoginHistoryTable.php": {
-    "mtime": 1794195058.7048762,
-    "seen": 1794196395.827211,
-    "ast_hash": "50eaa99d8c5a4d8910b28b3b1b52065d",
+    "mtime": 1794197416.297887,
+    "seen": 1794197601.6024237,
+    "ast_hash": "6c9f8c1cf40ddb7b264848d7970d5186",
     "semantic_hash": ""
   }
 }
