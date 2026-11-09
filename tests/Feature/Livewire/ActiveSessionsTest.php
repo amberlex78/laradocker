@@ -114,12 +114,12 @@ it('uses the active Filament guard for session display and termination', functio
         ->and($defaultSession->refresh()->logged_out_at)->toBeNull();
 });
 
-it('renders active sessions on the profile page', function (): void {
+it('renders the active sessions page', function (): void {
     $user = User::factory()->create();
 
     actingAs($user);
 
-    $this->get('/profile')
+    $this->get('/sessions')
         ->assertOk()
         ->assertSee('Active sessions')
         ->assertSee('Devices currently signed in to your account.')
@@ -277,11 +277,11 @@ it('captures the current request values in the login session status context', fu
         ->and($context->inactivityThreshold->equalTo($now->copy()->subMinutes(30)))->toBeTrue();
 });
 
-it('renders the sign-in history section on the profile page', function (): void {
+it('renders the sign-in history page', function (): void {
     actingAs(User::factory()->create());
 
-    $this->get('/profile')
+    $this->get('/history')
         ->assertOk()
-        ->assertSee('Sign-in history')
-        ->assertSee('Recent successful sign-ins to your account.');
+        ->assertSee('Session history')
+        ->assertSee('Review your login sessions, including active, signed-out, expired, and terminated sessions.');
 });

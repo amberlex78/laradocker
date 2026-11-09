@@ -199,6 +199,46 @@ it('uses the configured profile content width', function (): void {
         ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
 });
 
+it('separates sign-in history into its own site page', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get('/profile')
+        ->assertOk()
+        ->assertDontSee('Review your login sessions, including active, signed-out, expired, and terminated sessions.');
+
+    $this->actingAs($user)
+        ->get('/history')
+        ->assertOk()
+        ->assertSee('Session history')
+        ->assertSee('Review your login sessions, including active, signed-out, expired, and terminated sessions.')
+        ->assertSee('My profile')
+        ->assertSee('/profile', false)
+        ->assertSee('/history', false);
+
+    expect(Filament::getPanel('site')->hasNavigation())->toBeTrue();
+});
+
+it('separates active sessions into its own site page', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get('/profile')
+        ->assertOk()
+        ->assertDontSee('Devices currently signed in to your account.');
+
+    $this->actingAs($user)
+        ->get('/sessions')
+        ->assertOk()
+        ->assertSee('Active sessions')
+        ->assertSee('Devices currently signed in to your account.')
+        ->assertSee('My profile')
+        ->assertSee('Session history')
+        ->assertSee('/profile', false)
+        ->assertSee('/sessions', false)
+        ->assertSee('/history', false);
+});
+
 it('allows every role to access the shared profile page', function (UserRole $role, array $primaryColor, array $grayColor): void {
     $user = User::factory()->create([
         'role' => $role,
@@ -216,8 +256,6 @@ it('allows every role to access the shared profile page', function (UserRole $ro
         ->assertSee('--gray-900:'.$grayColor[900], false)
         ->assertSee('Password')
         ->assertSee('New password')
-        ->assertSee('Active sessions')
-        ->assertSee('Terminate other sessions')
         ->assertDontSee('Confirm new password')
         ->assertDontSee('Update password')
         ->assertDontSee('fi-fo-field-has-inline-label');

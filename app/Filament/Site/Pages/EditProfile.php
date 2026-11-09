@@ -2,15 +2,11 @@
 
 namespace App\Filament\Site\Pages;
 
-use App\Livewire\ActiveSessions;
-use App\Livewire\LoginHistory;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
 use Filament\Schemas\Components\Fieldset;
-use Filament\Schemas\Components\Livewire;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
-use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Arr;
 
 class EditProfile extends BaseEditProfile
@@ -47,18 +43,6 @@ class EditProfile extends BaseEditProfile
             ->components([
                 $this->getFormContentComponent(),
                 ...Arr::wrap($this->getMultiFactorAuthenticationContentComponent()),
-                Section::make('Active sessions')
-                    ->description('Devices currently signed in to your account.')
-                    ->icon(Heroicon::OutlinedComputerDesktop)
-                    ->schema([
-                        Livewire::make(ActiveSessions::class),
-                    ]),
-                Section::make('Sign-in history')
-                    ->description('Recent successful sign-ins to your account.')
-                    ->icon(Heroicon::OutlinedClock)
-                    ->schema([
-                        Livewire::make(LoginHistory::class),
-                    ]),
             ]);
     }
 

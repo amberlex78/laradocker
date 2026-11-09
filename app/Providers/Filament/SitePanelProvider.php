@@ -10,6 +10,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -34,8 +35,17 @@ class SitePanelProvider extends PanelProvider
             ->brandLogo(fn (): View => view('components.brand-logo'))
             ->brandLogoHeight('2.5rem')
             ->login()
+            ->discoverPages(in: app_path('Filament/Site/Pages'), for: 'App\\Filament\\Site\\Pages')
             ->profile(EditProfile::class, isSimple: false)
-            ->navigation(false)
+            ->navigation()
+            ->navigationItems([
+                NavigationItem::make('My profile')
+                    ->key('site-profile')
+                    ->icon(Heroicon::OutlinedUserCircle)
+                    ->url(fn (): ?string => filament()->getPanel('site')->getProfileUrl())
+                    ->isActiveWhen(fn (): bool => request()->routeIs('filament.site.auth.profile'))
+                    ->sort(-3),
+            ])
             ->colors([
                 'primary' => Color::Green,
                 'gray' => Color::Gray,
