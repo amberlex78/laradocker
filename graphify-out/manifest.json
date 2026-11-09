@@ -378,9 +378,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/Livewire/ActiveSessionsTest.php": {
-    "mtime": 1794191438.8920746,
-    "seen": 1794192143.3185906,
-    "ast_hash": "426dbbc2df2d6bacb68e0c39ebda565b",
+    "mtime": 1794195053.6626577,
+    "seen": 1794196395.8272595,
+    "ast_hash": "46ca7e19e6a747bce3bc1977844849c0",
     "semantic_hash": ""
   },
   "tests/Unit/Services/DeviceDetectionServiceTest.php": {
@@ -576,9 +576,9 @@
     "semantic_hash": ""
   },
   "app/Filament/Tables/Columns/DeviceColumn.php": {
-    "mtime": 1794139335.970857,
-    "seen": 1794186935.7367673,
-    "ast_hash": "9663f8690dfe95484386b9edde2d3622",
+    "mtime": 1794193616.0203981,
+    "seen": 1794196395.8272018,
+    "ast_hash": "34be946ebac77bfc8542eb75e10bff62",
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/SessionHistory.php": {
@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "app/Livewire/LoginHistoryTable.php": {
-    "mtime": 1794191438.5220687,
-    "seen": 1794192143.3185093,
-    "ast_hash": "182395840f855b80d6259c227ecdb0ab",
+    "mtime": 1794195058.7048762,
+    "seen": 1794196395.827211,
+    "ast_hash": "50eaa99d8c5a4d8910b28b3b1b52065d",
     "semantic_hash": ""
   }
 }
