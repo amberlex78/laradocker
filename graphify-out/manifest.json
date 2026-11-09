@@ -300,15 +300,15 @@
     "semantic_hash": ""
   },
   "tests/Feature/PanelAccessTest.php": {
-    "mtime": 1794186046.8176007,
-    "seen": 1794186935.7368453,
-    "ast_hash": "6ec4526a3bb66d3b46cdd70cdf196a87",
+    "mtime": 1794190772.0081763,
+    "seen": 1794192143.3185933,
+    "ast_hash": "0fa0623cccc51065a4188e0b3d693d9f",
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
-    "mtime": 1794186093.77858,
-    "seen": 1794186935.736764,
-    "ast_hash": "575ed41ca6bcea23d9d27a91d1648d35",
+    "mtime": 1794188087.049023,
+    "seen": 1794192143.3184824,
+    "ast_hash": "f739b7cc1559fd86015e6848c71d2d60",
     "semantic_hash": ""
   },
   "app/Http/Middleware/RedirectGuestsToSiteLogin.php": {
@@ -330,9 +330,9 @@
     "semantic_hash": "75c67363f2581bb4657c36ceb4dd93fb"
   },
   "app/Providers/Filament/SitePanelProvider.php": {
-    "mtime": 1794186333.684595,
-    "seen": 1794186935.7367897,
-    "ast_hash": "d7eb360fdf740cc1342d2a68f2e069c9",
+    "mtime": 1794190193.363504,
+    "seen": 1794192143.3185248,
+    "ast_hash": "76ab8107d5fd1e4fa26d0c7ed0158a1e",
     "semantic_hash": ""
   },
   "app/Filament/Widgets/SystemOverview.php": {
@@ -371,12 +371,6 @@
     "ast_hash": "6cf9161392f6ac21accd15d6055e0c0e",
     "semantic_hash": ""
   },
-  "app/Livewire/ActiveSessions.php": {
-    "mtime": 1794139336.075857,
-    "seen": 1794186935.7367795,
-    "ast_hash": "75a5958d1077c1e5b779203ba162ac55",
-    "semantic_hash": ""
-  },
   "app/Services/DeviceDetectionService.php": {
     "mtime": 1792931839.0007412,
     "seen": 1792935734.7173405,
@@ -384,9 +378,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/Livewire/ActiveSessionsTest.php": {
-    "mtime": 1794186046.9396007,
-    "seen": 1794186935.736843,
-    "ast_hash": "59057699bfe33eb8fdfa4c69ca26fce3",
+    "mtime": 1794191438.8920746,
+    "seen": 1794192143.3185906,
+    "ast_hash": "426dbbc2df2d6bacb68e0c39ebda565b",
     "semantic_hash": ""
   },
   "tests/Unit/Services/DeviceDetectionServiceTest.php": {
@@ -521,12 +515,6 @@
     "ast_hash": "9f7a7bfb7dc79cfe1742f73545f94a68",
     "semantic_hash": ""
   },
-  "app/Livewire/LoginHistory.php": {
-    "mtime": 1794139336.2358572,
-    "seen": 1794186935.736781,
-    "ast_hash": "6b4b36b576f47efdb7082703d6a6c982",
-    "semantic_hash": ""
-  },
   "app/Models/LoginSession.php": {
     "mtime": 1794134638.965668,
     "seen": 1794135870.4924703,
@@ -582,15 +570,9 @@
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/ActiveSessions.php": {
-    "mtime": 1794186272.3055747,
-    "seen": 1794186935.7367609,
-    "ast_hash": "7fdf3246f6a289363d1c6f92903c50a3",
-    "semantic_hash": ""
-  },
-  "app/Filament/Site/Pages/SignInHistory.php": {
-    "mtime": 1794186093.9945798,
-    "seen": 1794186935.7367656,
-    "ast_hash": "a74c02d8117810d1fabfb96bdfa60ed7",
+    "mtime": 1794191438.6240704,
+    "seen": 1794192143.3184779,
+    "ast_hash": "011c1bdbcc0c615582ce631fe74c5951",
     "semantic_hash": ""
   },
   "app/Filament/Tables/Columns/DeviceColumn.php": {
@@ -599,16 +581,22 @@
     "ast_hash": "9663f8690dfe95484386b9edde2d3622",
     "semantic_hash": ""
   },
-  "resources/views/filament/site/pages/active-sessions.blade.php": {
-    "mtime": 1794186093.67458,
-    "seen": 1794186935.7368326,
-    "ast_hash": "3b6cc5a0af6a7963c057d8e1e62cb645",
+  "app/Filament/Site/Pages/SessionHistory.php": {
+    "mtime": 1794191438.7520723,
+    "seen": 1794192143.3184855,
+    "ast_hash": "e60df11842de1d6568ca959b1c115575",
     "semantic_hash": ""
   },
-  "resources/views/filament/site/pages/sign-in-history.blade.php": {
-    "mtime": 1794184705.413883,
-    "seen": 1794186935.7368338,
-    "ast_hash": "3b6cc5a0af6a7963c057d8e1e62cb645",
+  "app/Livewire/ActiveSessionsTable.php": {
+    "mtime": 1794191438.416067,
+    "seen": 1794192143.3185074,
+    "ast_hash": "fdafabb891215542e633591a6e9e3bf2",
+    "semantic_hash": ""
+  },
+  "app/Livewire/LoginHistoryTable.php": {
+    "mtime": 1794191438.5220687,
+    "seen": 1794192143.3185093,
+    "ast_hash": "182395840f855b80d6259c227ecdb0ab",
     "semantic_hash": ""
   }
 }
