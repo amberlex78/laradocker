@@ -187,38 +187,54 @@ it('terminates other sessions after the current password is confirmed', function
     $this->get('/profile')->assertOk();
 });
 
-it('renders login history with all statuses for the authenticated user only', function (): void {
+it('renders only historical login sessions for the authenticated user', function (): void {
     $user = User::factory()->create();
     $otherUser = User::factory()->create();
 
     actingAs($user);
     Filament::setCurrentPanel('site');
 
-    LoginSession::factory()->for($user)->create([
+    $currentSession = LoginSession::factory()->for($user)->create([
         'session_id' => session()->getId(),
         'ip_address' => '203.0.113.29',
     ]);
-    LoginSession::factory()->for($user)->create(['ip_address' => '203.0.113.30']);
-    LoginSession::factory()->for($user)->expired()->create(['ip_address' => '203.0.113.31']);
-    LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.32']);
-    LoginSession::factory()->for($user)->ended()->create([
+    $activeSession = LoginSession::factory()->for($user)->create(['ip_address' => '203.0.113.30']);
+    $expiredSession = LoginSession::factory()->for($user)->expired()->create(['ip_address' => '203.0.113.31']);
+    $signedOutSession = LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.32']);
+    $terminatedSession = LoginSession::factory()->for($user)->ended()->create([
         'ip_address' => '203.0.113.33',
         'end_reason' => 'terminated',
     ]);
-    LoginSession::factory()->for($otherUser)->create(['ip_address' => '203.0.113.34']);
+    $otherUserSession = LoginSession::factory()->for($otherUser)->ended()->create(['ip_address' => '203.0.113.34']);
 
     Livewire::test(LoginHistoryTable::class)
-        ->assertSee('203.0.113.29')
-        ->assertSee('203.0.113.30')
-        ->assertSee('203.0.113.31')
-        ->assertSee('203.0.113.32')
-        ->assertSee('203.0.113.33')
-        ->assertDontSee('203.0.113.34')
-        ->assertSee('Current session')
-        ->assertSee('Active')
-        ->assertSee('Expired')
-        ->assertSee('Signed out')
-        ->assertSee('Terminated');
+        ->assertCanSeeTableRecords([$expiredSession, $signedOutSession, $terminatedSession])
+        ->assertCanNotSeeTableRecords([$currentSession, $activeSession, $otherUserSession]);
+});
+
+it('filters login history by its computed historical status', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $expiredSession = LoginSession::factory()->for($user)->expired()->create();
+    $signedOutSession = LoginSession::factory()->for($user)->ended()->create();
+    $terminatedSession = LoginSession::factory()->for($user)->ended()->create([
+        'end_reason' => 'terminated',
+        'logged_out_at' => null,
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->filterTable('status', LoginSessionStatus::Expired)
+        ->assertCanSeeTableRecords([$expiredSession])
+        ->assertCanNotSeeTableRecords([$signedOutSession, $terminatedSession])
+        ->filterTable('status', LoginSessionStatus::SignedOut)
+        ->assertCanSeeTableRecords([$signedOutSession])
+        ->assertCanNotSeeTableRecords([$expiredSession, $terminatedSession])
+        ->filterTable('status', LoginSessionStatus::Terminated)
+        ->assertCanSeeTableRecords([$terminatedSession])
+        ->assertCanNotSeeTableRecords([$expiredSession, $signedOutSession]);
 });
 
 it('resolves login session status with the documented precedence', function (): void {
