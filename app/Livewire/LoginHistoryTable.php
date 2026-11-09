@@ -89,10 +89,15 @@ class LoginHistoryTable extends TableWidget
                     ->label('Status')
                     ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
                     ->badge()
-                    ->tooltip(fn (LoginSession $record): string => $resolver->resolveStatus($record, $context)->getTooltip())
-                    ->description(fn (LoginSession $record): ?string => match ($resolver->resolveStatus($record, $context)) {
-                        LoginSessionStatus::Terminated, LoginSessionStatus::SignedOut => $record->logged_out_at?->format(self::DISPLAY_DATE_TIME_FORMAT),
-                        LoginSessionStatus::Expired => $record->last_seen_at->format(self::DISPLAY_DATE_TIME_FORMAT),
+                    ->tooltip(fn (LoginSessionStatus $state): string => $state->getTooltip())
+                    ->description(fn (LoginSession $record, LoginSessionStatus $state): ?string => match ($state) {
+                        LoginSessionStatus::Terminated, 
+                        LoginSessionStatus::SignedOut => $record->logged_out_at?->format(
+                            self::DISPLAY_DATE_TIME_FORMAT
+                        ),
+                        LoginSessionStatus::Expired => $record->last_seen_at->format(
+                            self::DISPLAY_DATE_TIME_FORMAT
+                        ),
                         default => null,
                     }),
             ])
