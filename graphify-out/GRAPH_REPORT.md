@@ -1,17 +1,17 @@
-# Graph Report - laradocker  (2026-11-08)
+# Graph Report - laradocker  (2026-11-09)
 
 ## Corpus Check
-- 88 files · ~19,231 words
+- 93 files · ~19,494 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 32 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 4)
 
 ## Summary
-- 624 nodes · 959 edges · 52 communities (26 shown, 26 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.85)
+- 641 nodes · 984 edges · 57 communities (25 shown, 32 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 12 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `04acb06f`
+- Built from commit: `52fe48db`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -37,31 +37,34 @@
 - composer.json
 - entrypoint.sh
 - TerminateOtherSessions.php
-- ActiveSessions.php
+- Livewire/ActiveSessions.php
 - UserResource.php
 - UserForm.php
 - Filament\Tables\Table
-- LoginSessionStatusContext
+- LoginHistory.php
 - require-dev
+- ActiveSessionsTest.php
 - DeviceDetectionService
 - LoginSessionStatus
 - require
 - config
-- LoginHistory.php
+- Filament\Facades\Filament
 - ListUsers
 - psr-4
 - extra
+- Pages/ActiveSessions.php
+- LoginSessionStatusContext
 
 ## God Nodes (most connected - your core abstractions)
 1. `UserRole` - 50 edges
 2. `User` - 33 edges
-3. `LoginSession` - 29 edges
+3. `LoginSession` - 28 edges
 4. `LoginSessionStatus` - 19 edges
 5. `UserResource` - 14 edges
-6. `DeviceDetectionService` - 13 edges
-7. `scripts` - 13 edges
-8. `require-dev` - 12 edges
-9. `EditProfile` - 11 edges
+6. `scripts` - 13 edges
+7. `require-dev` - 12 edges
+8. `EditProfile` - 11 edges
+9. `DeviceDetectionService` - 10 edges
 10. `Розгортання на Ubuntu VPS` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -79,14 +82,14 @@
 ## Import Cycles
 - None detected.
 
-## Communities (52 total, 26 thin omitted)
+## Communities (57 total, 32 thin omitted)
 
 ### Community 0 - "Розгортання на Ubuntu VPS"
 Cohesion: 0.05
 Nodes (39): Compose-файли, Docker-архітектура, Nginx і forwarded headers, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту (+31 more)
 
 ### Community 1 - "User"
-Cohesion: 0.05
+Cohesion: 0.06
 Nodes (6): User, UserPolicy, LoginSessionFactory, UserFactory, DatabaseSeeder, {closure#2}()
 
 ### Community 2 - "package.json"
@@ -94,7 +97,7 @@ Cohesion: 0.06
 Nodes (10): RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), OperatorPanelProvider, {closure#2}() (+2 more)
 
 ### Community 3 - "composer.json"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (30): UserRole, Admin, Developer, Operator, User, {closure#1}(), {closure#10}(), {closure#11}() (+22 more)
 
 ### Community 5 - "Illuminate\Database\Schema\Blueprint"
@@ -102,20 +105,16 @@ Cohesion: 0.07
 Nodes (28): dependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite, vite-plus, optionalDependencies (+20 more)
 
 ### Community 6 - "UserForm.php"
-Cohesion: 0.12
+Cohesion: 0.10
 Nodes (11): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+3 more)
 
 ### Community 8 - "UserFactory.php"
-Cohesion: 0.13
+Cohesion: 0.16
 Nodes (4): FilamentLoginResponse, FilamentLogoutResponse, AppServiceProvider, {closure#1}()
 
 ### Community 10 - "scripts"
 Cohesion: 0.15
 Nodes (13): scripts, ci:check, dev, lint, lint:check, post-autoload-dump, post-create-project-cmd, post-root-package-install (+5 more)
-
-### Community 11 - "ActiveSessionsTest.php"
-Cohesion: 0.08
-Nodes (3): EndLoginSession, SystemOverview, RecordLogout
 
 ### Community 12 - "StartLoginSession"
 Cohesion: 0.13
@@ -130,8 +129,8 @@ Cohesion: 0.40
 Nodes (4): Answer, Outcome, Q: Зробити кастомний Dashboard у стилі карток замість стандартного Filament Dashboard, Source Nodes
 
 ### Community 28 - "LoginSession"
-Cohesion: 0.23
-Nodes (5): {closure#5}(), {closure#4}(), {closure#5}(), {closure#6}(), LoginSession
+Cohesion: 0.20
+Nodes (5): {closure#3}(), {closure#2}(), {closure#3}(), {closure#4}(), LoginSession
 
 ### Community 30 - "Експлуатація production-середовища"
 Cohesion: 0.14
@@ -145,25 +144,25 @@ Nodes (11): autoload-dev, psr-4, description, keywords, license, minimum-stabili
 Cohesion: 0.20
 Nodes (3): LoginSessionEndReason, LoggedOut, Terminated
 
-### Community 35 - "ActiveSessions.php"
-Cohesion: 0.31
-Nodes (4): TerminateOtherSessions, ActiveSessions, {closure#2}(), {closure#6}()
+### Community 35 - "Livewire/ActiveSessions.php"
+Cohesion: 0.24
+Nodes (5): TerminateOtherSessions, {closure#1}(), {closure#2}(), {closure#4}(), {closure#1}()
 
 ### Community 36 - "UserResource.php"
-Cohesion: 0.19
+Cohesion: 0.21
 Nodes (4): CreateUser, {closure#1}(), {closure#2}(), UserResource
 
-### Community 39 - "LoginSessionStatusContext"
-Cohesion: 0.19
-Nodes (5): LoginHistory, LoginSessionStatusContext, LoginSessionStatusResolver, {closure#10}(), {closure#9}()
+### Community 39 - "LoginHistory.php"
+Cohesion: 0.17
+Nodes (4): DeviceColumn, ActiveSessions, LoginHistory, {closure#10}()
 
 ### Community 41 - "require-dev"
 Cohesion: 0.17
 Nodes (12): require-dev, fakerphp/faker, larastan/larastan, laravel/boost, laravel/pail, laravel/pao, laravel/pint, laravel/sail (+4 more)
 
 ### Community 43 - "DeviceDetectionService"
-Cohesion: 0.33
-Nodes (8): {closure#3}(), {closure#4}(), {closure#2}(), {closure#3}(), DeviceDetectionService, {closure#1}(), {closure#2}(), {closure#3}()
+Cohesion: 0.39
+Nodes (6): {closure#1}(), {closure#2}(), DeviceDetectionService, {closure#1}(), {closure#2}(), {closure#3}()
 
 ### Community 44 - "LoginSessionStatus"
 Cohesion: 0.22
@@ -187,8 +186,8 @@ Nodes (3): extra, laravel, dont-discover
 
 ## Knowledge Gaps
 - **18 isolated node(s):** `LoggedOut`, `Terminated`, `Current`, `Active`, `Expired` (+13 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 293 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 301 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Work-memory lessons
 
@@ -199,17 +198,17 @@ Nodes (3): extra, laravel, dont-discover
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `UserRole` connect `composer.json` to `User`, `package.json`, `UserResource.php`, `UserForm.php`, `UserFactory.php`, `ActiveSessionsTest.php`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
+- **Why does `UserRole` connect `composer.json` to `User`, `package.json`, `UserResource.php`, `UserForm.php`, `UserFactory.php`, `Filament\Facades\Filament`?**
+  _High betweenness centrality (0.091) - this node is a cross-community bridge._
 - **What connects `LoggedOut`, `Terminated`, `Current` to the rest of the system?**
   _18 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
   _Cohesion score 0.051515151515151514 - nodes in this community are weakly interconnected._
-- **Why does `User` connect `User` to `package.json`, `composer.json`, `UserResource.php`, `ActiveSessionsTest.php`, `ActiveSessionsTest.php`, `LoginSession`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `package.json`, `composer.json`, `UserResource.php`, `ActiveSessionsTest.php`, `ActiveSessionsTest.php`, `Filament\Facades\Filament`?**
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Should `User` be split into smaller, more focused modules?**
-  _Cohesion score 0.05297532656023222 - nodes in this community are weakly interconnected._
-- **Why does `LoginSession` connect `LoginSession` to `User`, `TerminateOtherSessions.php`, `ActiveSessions.php`, `LoginSessionStatusContext`, `ActiveSessionsTest.php`, `DeviceDetectionService`, `StartLoginSession`, `ActiveSessionsTest.php`, `LoginHistory.php`?**
-  _High betweenness centrality (0.060) - this node is a cross-community bridge._
+  _Cohesion score 0.05505279034690799 - nodes in this community are weakly interconnected._
+- **Why does `LoginSession` connect `LoginSession` to `User`, `TerminateOtherSessions.php`, `Livewire/ActiveSessions.php`, `LoginHistory.php`, `ActiveSessionsTest.php`, `DeviceDetectionService`, `StartLoginSession`, `ActiveSessionsTest.php`, `LoginSessionStatusContext`?**
+  _High betweenness centrality (0.068) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.058469945355191254 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05961426066627703 - nodes in this community are weakly interconnected._

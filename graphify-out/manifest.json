@@ -234,8 +234,8 @@
     "semantic_hash": "2bc41f1156dead26b2a3082f9634b041"
   },
   "vite.config.js": {
-    "mtime": 1793211556.3202612,
-    "seen": 1793213049.1536417,
+    "mtime": 1794179577.2060742,
+    "seen": 1794186935.7368534,
     "ast_hash": "a303c3e0e078cb0c7b2083346df1b24c",
     "semantic_hash": ""
   },
@@ -300,15 +300,15 @@
     "semantic_hash": ""
   },
   "tests/Feature/PanelAccessTest.php": {
-    "mtime": 1794137194.8280368,
-    "seen": 1794138124.5861573,
-    "ast_hash": "ac93aeef0c3c0a2e198aeb7d67d3c9f6",
+    "mtime": 1794186046.8176007,
+    "seen": 1794186935.7368453,
+    "ast_hash": "6ec4526a3bb66d3b46cdd70cdf196a87",
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
-    "mtime": 1794132628.6630616,
-    "seen": 1794135870.4924579,
-    "ast_hash": "8c96d8426edb08f63d928f035a4c4304",
+    "mtime": 1794186093.77858,
+    "seen": 1794186935.736764,
+    "ast_hash": "575ed41ca6bcea23d9d27a91d1648d35",
     "semantic_hash": ""
   },
   "app/Http/Middleware/RedirectGuestsToSiteLogin.php": {
@@ -330,9 +330,9 @@
     "semantic_hash": "75c67363f2581bb4657c36ceb4dd93fb"
   },
   "app/Providers/Filament/SitePanelProvider.php": {
-    "mtime": 1794092271.861283,
-    "seen": 1794126682.467686,
-    "ast_hash": "724b480a5f9d6f9f1e59a4d97826bbdd",
+    "mtime": 1794186333.684595,
+    "seen": 1794186935.7367897,
+    "ast_hash": "d7eb360fdf740cc1342d2a68f2e069c9",
     "semantic_hash": ""
   },
   "app/Filament/Widgets/SystemOverview.php": {
@@ -372,9 +372,9 @@
     "semantic_hash": ""
   },
   "app/Livewire/ActiveSessions.php": {
-    "mtime": 1794135419.74629,
-    "seen": 1794135870.4924688,
-    "ast_hash": "7b09883d9245265de8f40fee9c89d910",
+    "mtime": 1794139336.075857,
+    "seen": 1794186935.7367795,
+    "ast_hash": "75a5958d1077c1e5b779203ba162ac55",
     "semantic_hash": ""
   },
   "app/Services/DeviceDetectionService.php": {
@@ -384,9 +384,9 @@
     "semantic_hash": ""
   },
   "tests/Feature/Livewire/ActiveSessionsTest.php": {
-    "mtime": 1794134928.6310394,
-    "seen": 1794135870.4925096,
-    "ast_hash": "9eeb3aa364d78f5595948ad3be6d3dfd",
+    "mtime": 1794186046.9396007,
+    "seen": 1794186935.736843,
+    "ast_hash": "59057699bfe33eb8fdfa4c69ca26fce3",
     "semantic_hash": ""
   },
   "tests/Unit/Services/DeviceDetectionServiceTest.php": {
@@ -522,9 +522,9 @@
     "semantic_hash": ""
   },
   "app/Livewire/LoginHistory.php": {
-    "mtime": 1794134928.4949725,
-    "seen": 1794135870.4924695,
-    "ast_hash": "d8f4be85517b35a6a1078a84d4d3fd8c",
+    "mtime": 1794139336.2358572,
+    "seen": 1794186935.736781,
+    "ast_hash": "6b4b36b576f47efdb7082703d6a6c982",
     "semantic_hash": ""
   },
   "app/Models/LoginSession.php": {
@@ -579,6 +579,36 @@
     "mtime": 1794137789.3572679,
     "seen": 1794138124.5861359,
     "ast_hash": "643522ccc07c67e3e125ebfc9d3eb6df",
+    "semantic_hash": ""
+  },
+  "app/Filament/Site/Pages/ActiveSessions.php": {
+    "mtime": 1794186272.3055747,
+    "seen": 1794186935.7367609,
+    "ast_hash": "7fdf3246f6a289363d1c6f92903c50a3",
+    "semantic_hash": ""
+  },
+  "app/Filament/Site/Pages/SignInHistory.php": {
+    "mtime": 1794186093.9945798,
+    "seen": 1794186935.7367656,
+    "ast_hash": "a74c02d8117810d1fabfb96bdfa60ed7",
+    "semantic_hash": ""
+  },
+  "app/Filament/Tables/Columns/DeviceColumn.php": {
+    "mtime": 1794139335.970857,
+    "seen": 1794186935.7367673,
+    "ast_hash": "9663f8690dfe95484386b9edde2d3622",
+    "semantic_hash": ""
+  },
+  "resources/views/filament/site/pages/active-sessions.blade.php": {
+    "mtime": 1794186093.67458,
+    "seen": 1794186935.7368326,
+    "ast_hash": "3b6cc5a0af6a7963c057d8e1e62cb645",
+    "semantic_hash": ""
+  },
+  "resources/views/filament/site/pages/sign-in-history.blade.php": {
+    "mtime": 1794184705.413883,
+    "seen": 1794186935.7368338,
+    "ast_hash": "3b6cc5a0af6a7963c057d8e1e62cb645",
     "semantic_hash": ""
   }
 }
