@@ -1,6 +1,8 @@
 <?php
 
 use App\Enums\UserRole;
+use App\Filament\Widgets\DeveloperAccountWidget;
+use App\Filament\Widgets\DeveloperFilamentInfoWidget;
 use App\Filament\Widgets\SystemOverview;
 use App\Models\User;
 use Filament\Facades\Filament;
@@ -48,13 +50,36 @@ it('renders user totals and the current browser environment on the admin dashboa
         ->assertSee('Desktop / Chrome');
 });
 
-it('replaces the default admin dashboard widgets', function (): void {
+it('registers the admin dashboard widgets', function (): void {
     $widgets = Filament::getPanel('admin')->getWidgets();
 
     expect($widgets)
         ->toContain(SystemOverview::class)
+        ->toContain(DeveloperAccountWidget::class)
+        ->toContain(DeveloperFilamentInfoWidget::class)
         ->and(in_array(AccountWidget::class, $widgets, true))->toBeFalse()
         ->and(in_array(FilamentInfoWidget::class, $widgets, true))->toBeFalse();
+});
+
+it('shows account and Filament information widgets only to developers', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    actingAs($admin);
+    get('/admin')
+        ->assertOk()
+        ->assertDontSee('fi-account-widget', false)
+        ->assertDontSee('fi-filament-info-widget', false);
+
+    actingAs($developer);
+    get('/admin')
+        ->assertOk()
+        ->assertSee('fi-account-widget', false)
+        ->assertSee('fi-filament-info-widget', false);
 });
 
 it('is also used on the operator dashboard', function (): void {

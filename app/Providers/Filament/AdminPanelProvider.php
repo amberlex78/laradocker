@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\DeveloperAccountWidget;
+use App\Filament\Widgets\DeveloperFilamentInfoWidget;
 use App\Http\Middleware\RedirectGuestsToSiteLogin;
 use App\Http\Middleware\TrackLoginSession;
 use Filament\Actions\Action;
@@ -62,7 +64,10 @@ class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
-            ->widgets([])
+            ->widgets([
+                DeveloperAccountWidget::class,
+                DeveloperFilamentInfoWidget::class,
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
