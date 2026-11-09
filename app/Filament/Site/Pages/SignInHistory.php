@@ -17,7 +17,7 @@ class SignInHistory extends Page
 
     protected static ?string $navigationLabel = 'Session history';
 
-    protected static ?int $navigationSort = -1;
+    protected static ?int $navigationSort = 30;
 
     protected static ?string $title = 'Session history';
 

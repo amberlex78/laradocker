@@ -17,7 +17,7 @@ class ActiveSessions extends Page
 
     protected static ?string $navigationLabel = 'Active sessions';
 
-    protected static ?int $navigationSort = -2;
+    protected static ?int $navigationSort = 20;
 
     protected static ?string $title = 'Active sessions';
 

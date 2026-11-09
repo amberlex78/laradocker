@@ -2,15 +2,23 @@
 
 namespace App\Filament\Site\Pages;
 
+use BackedEnum;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
+use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Arr;
 
 class EditProfile extends BaseEditProfile
 {
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserCircle;
+
+    protected static ?string $navigationLabel = 'My profile';
+
+    protected static ?int $navigationSort = 10;
+
     public static function getLabel(): string
     {
         return 'My profile';

@@ -10,11 +10,9 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Support\Facades\FilamentColor;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -37,34 +35,22 @@ class SitePanelProvider extends PanelProvider
             ->login()
             ->discoverPages(in: app_path('Filament/Site/Pages'), for: 'App\\Filament\\Site\\Pages')
             ->profile(EditProfile::class, isSimple: false)
-            ->navigation()
-            ->navigationItems([
-                NavigationItem::make('My profile')
-                    ->key('site-profile')
-                    ->icon(Heroicon::OutlinedUserCircle)
-                    ->url(fn (): ?string => filament()->getPanel('site')->getProfileUrl())
-                    ->isActiveWhen(fn (): bool => request()->routeIs('filament.site.auth.profile'))
-                    ->sort(-3),
-            ])
-            ->colors([
-                'primary' => Color::Green,
-                'gray' => Color::Gray,
-            ])
-            ->bootUsing(function (): void {
-                FilamentColor::register(fn (): array => match (filament()->auth()->user()?->role) {
-                    UserRole::Admin, UserRole::Developer => [
-                        'primary' => Color::Amber,
-                        'gray' => Color::Stone,
-                    ],
-                    UserRole::Operator => [
-                        'primary' => Color::Blue,
-                        'gray' => Color::Slate,
-                    ],
-                    default => [
-                        'primary' => Color::Green,
-                        'gray' => Color::Gray,
-                    ],
-                });
+            ->colors(fn (): array => match (filament()->auth()->user()?->role) {
+                UserRole::Admin, UserRole::Developer => [
+                    'primary' => Color::Amber,
+                    'gray' => Color::Stone,
+                ],
+                UserRole::Operator => [
+                    'primary' => Color::Blue,
+                    'gray' => Color::Slate,
+                ],
+                default => [
+                    'primary' => Color::Green,
+                    'gray' => Color::Gray,
+                ],
+            })
+            ->bootUsing(function (Panel $panel): void {
+                $panel->navigationItems(EditProfile::getNavigationItems());
             })
             ->userMenuItems([
                 'profile' => fn (Action $action): Action => $action
@@ -80,19 +66,12 @@ class SitePanelProvider extends PanelProvider
                     ->label('Admin panel')
                     ->url(fn (): ?string => filament()->getPanel('admin')->getUrl())
                     ->icon(Heroicon::OutlinedSquares2x2)
-                    ->visible(fn (): bool => in_array(filament()->auth()->user()->role, [
-                        UserRole::Admin,
-                        UserRole::Developer,
-                    ], true)),
+                    ->visible(fn (): bool => filament()->auth()->user()->role->canAccessAdminPanel()),
                 Action::make('operator-panel')
                     ->label('Operator panel')
                     ->url(fn (): ?string => filament()->getPanel('operator')->getUrl())
                     ->icon(Heroicon::OutlinedSquares2x2)
-                    ->visible(fn (): bool => in_array(filament()->auth()->user()->role, [
-                        UserRole::Admin,
-                        UserRole::Operator,
-                        UserRole::Developer,
-                    ], true)),
+                    ->visible(fn (): bool => filament()->auth()->user()->role->canAccessOperatorPanel()),
                 Action::make('public-site')
                     ->label('Public site')
                     ->url('/')
