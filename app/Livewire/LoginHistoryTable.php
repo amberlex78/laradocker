@@ -50,12 +50,13 @@ class LoginHistoryTable extends TableWidget
             ->filters([
                 SelectFilter::make('device')
                     ->label('Device')
-                    ->options([
-                        'Desktop' => 'Desktop',
-                        'Smartphone' => 'Smartphone',
-                        'Tablet' => 'Tablet',
-                        'Unknown' => 'Unknown',
-                    ]),
+                    ->options(fn (): array => LoginSession::query()
+                        ->where('user_id', Filament::auth()->id())
+                        ->whereNotNull('device')
+                        ->distinct()
+                        ->orderBy('device')
+                        ->pluck('device', 'device')
+                        ->all()),
                 SelectFilter::make('operating_system')
                     ->label('Operating system')
                     ->options(fn (): array => LoginSession::query()

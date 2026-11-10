@@ -263,6 +263,21 @@ it('filters login history by device and operating system', function (): void {
         ->assertCanNotSeeTableRecords([$desktopSession]);
 });
 
+it('builds the device filter options from stored session values', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    LoginSession::factory()->for($user)->create([
+        'device' => 'Phablet',
+        'operating_system' => 'Android',
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->assertSee('Phablet');
+});
+
 it('sorts login history by its sortable columns', function (): void {
     $user = User::factory()->create();
 
