@@ -111,6 +111,11 @@ class LoginHistoryTable extends TableWidget
                     ->label('Status')
                     ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
                     ->badge()
+                    ->sortable(query: function (Builder $query, string $direction): void {
+                        $direction = $direction === 'desc' ? 'desc' : 'asc';
+
+                        $query->orderByRaw("COALESCE(logged_out_at, last_seen_at) {$direction}");
+                    })
                     ->tooltip(fn (LoginSessionStatus $state): string => $state->getTooltip())
                     ->description(function (LoginSession $record, LoginSessionStatus $state) use ($dateTimeFormat): ?string {
                         return match ($state) {

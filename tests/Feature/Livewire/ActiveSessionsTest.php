@@ -375,6 +375,27 @@ it('sorts login history by its sortable columns', function (): void {
         ->assertCanSeeTableRecords([$newerSession, $olderSession], inOrder: true);
 });
 
+it('sorts login history by the status date after applying a status filter', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $olderExpiredSession = LoginSession::factory()->for($user)->expired()->create([
+        'logged_in_at' => now()->subDay(),
+        'last_seen_at' => now()->subMinutes((int) config('session.lifetime') + 60),
+    ]);
+    $newerExpiredSession = LoginSession::factory()->for($user)->expired()->create([
+        'logged_in_at' => now()->subHours(2),
+        'last_seen_at' => now()->subMinutes((int) config('session.lifetime') + 30),
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->filterTable('status', LoginSessionStatus::Expired)
+        ->sortTable('status', 'asc')
+        ->assertCanSeeTableRecords([$olderExpiredSession, $newerExpiredSession], inOrder: true);
+});
+
 it('resolves login session status with the documented precedence', function (): void {
     $user = User::factory()->create();
     $now = Carbon::create(2026, 11, 8, 12);
