@@ -20,6 +20,9 @@ use Illuminate\Support\Carbon;
  * @property string|null $session_id
  * @property string|null $ip_address
  * @property string|null $user_agent
+ * @property string|null $client
+ * @property string|null $operating_system
+ * @property string|null $device
  * @property Carbon $logged_in_at
  * @property Carbon $last_seen_at
  * @property Carbon|null $logged_out_at
@@ -31,6 +34,9 @@ use Illuminate\Support\Carbon;
     'session_id',
     'ip_address',
     'user_agent',
+    'client',
+    'operating_system',
+    'device',
     'logged_in_at',
     'last_seen_at',
     'logged_out_at',

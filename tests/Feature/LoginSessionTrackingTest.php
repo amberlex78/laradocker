@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use function Pest\Laravel\actingAs;
 
+const QUETTA_USER_AGENT = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36';
+
 it('records a login session with a session token on login', function (): void {
     $user = User::factory()->create();
 
@@ -17,6 +19,23 @@ it('records a login session with a session token on login', function (): void {
 
     expect(session()->get(LoginSession::SESSION_KEY))->toBe($loginSession->getKey())
         ->and($loginSession->logged_out_at)->toBeNull();
+});
+
+it('stores browser details from client hints when tracking a login session', function (): void {
+    $user = User::factory()->create();
+
+    $this->withHeaders([
+        'User-Agent' => QUETTA_USER_AGENT,
+        'Sec-CH-UA' => '"Chromium";v="148", "Quetta";v="148", "Not/A)Brand";v="99"',
+        'Sec-CH-UA-Mobile' => '?1',
+        'Sec-CH-UA-Platform' => '"Android"',
+    ])->actingAs($user)->get('/profile')->assertOk();
+
+    $loginSession = LoginSession::query()->whereBelongsTo($user)->sole();
+
+    expect($loginSession->client)->toBe('Quetta 148.0')
+        ->and($loginSession->operating_system)->toBe('Android')
+        ->and($loginSession->device)->toBe('Smartphone');
 });
 
 it('closes the login session on logout', function (): void {

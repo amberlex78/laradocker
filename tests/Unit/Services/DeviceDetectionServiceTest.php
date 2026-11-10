@@ -29,6 +29,24 @@ it('detects an iphone safari user agent', function (): void {
     ]);
 });
 
+it('detects Quetta from browser client hints', function (): void {
+    $details = (new DeviceDetectionService)->detect(
+        'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 '
+            .'(KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36',
+        [
+            'HTTP_SEC_CH_UA' => '"Chromium";v="148", "Quetta";v="148", "Not/A)Brand";v="99"',
+            'HTTP_SEC_CH_UA_MOBILE' => '?1',
+            'HTTP_SEC_CH_UA_PLATFORM' => '"Android"',
+        ],
+    );
+
+    expect($details)->toBe([
+        'client' => 'Quetta 148.0',
+        'operatingSystem' => 'Android',
+        'device' => 'Smartphone',
+    ]);
+});
+
 it('normalizes an unknown user agent', function (): void {
     expect((new DeviceDetectionService)->detect(null))->toBe([
         'client' => 'Unknown',

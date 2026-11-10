@@ -11,14 +11,27 @@ final class DeviceColumn
     public static function make(): TextColumn
     {
         $detectedDevices = [];
-        $detect = function (
+        $detect = static function (
             LoginSession $record,
             DeviceDetectionService $deviceDetectionService,
         ) use (&$detectedDevices): array {
-            $userAgent = $record->user_agent;
-            $cacheKey = $userAgent ?? '';
+            $cacheKey = $record->getKey();
 
-            return $detectedDevices[$cacheKey] ??= $deviceDetectionService->detect($userAgent);
+            if (isset($detectedDevices[$cacheKey])) {
+                return $detectedDevices[$cacheKey];
+            }
+
+            if ($record->client !== null
+                && $record->operating_system !== null
+                && $record->device !== null) {
+                return $detectedDevices[$cacheKey] = [
+                    'client' => $record->client,
+                    'operatingSystem' => $record->operating_system,
+                    'device' => $record->device,
+                ];
+            }
+
+            return $detectedDevices[$cacheKey] = $deviceDetectionService->detect($record->user_agent);
         };
 
         return TextColumn::make('device')
@@ -31,10 +44,12 @@ final class DeviceColumn
 
                 return $details['client'].' / '.$details['operatingSystem'];
             })
-            ->description(fn (
+            ->description(function (
                 LoginSession $record,
                 DeviceDetectionService $deviceDetectionService,
-            ): string => $detect($record, $deviceDetectionService)['device'])
+            ) use ($detect): string {
+                return $detect($record, $deviceDetectionService)['device'];
+            })
             ->wrap();
     }
 }
