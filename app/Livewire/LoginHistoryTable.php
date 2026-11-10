@@ -103,7 +103,7 @@ class LoginHistoryTable extends TableWidget
                     ->sortable(),
                 TextColumn::make('logged_in_at')
                     ->label('Signed in at')
-                    ->dateTime(self::DISPLAY_DATE_TIME_FORMAT)
+                    ->dateTime()
                     ->sortable(),
                 TextColumn::make('status')
                     ->label('Status')
