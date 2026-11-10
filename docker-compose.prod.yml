@@ -17,4 +17,6 @@ services:
     restart: unless-stopped
 
   mariadb:
+    ports:
+      - "127.0.0.1:${DB_FORWARD_PORT:-13306}:3306"
     restart: unless-stopped
