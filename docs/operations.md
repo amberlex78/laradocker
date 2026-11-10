@@ -108,11 +108,13 @@ docker compose --env-file .env.prod \
     sh -lc 'printf "Database: %s\n" "$MARIADB_DATABASE"'
 ```
 
-У `ps` ім'я контейнера має починатися з потрібного `COMPOSE_PROJECT_NAME`, а
-Nginx має публікувати саме `127.0.0.1:PROD_HTTP_PORT->8080/tcp`. Якщо stack ще
-не запущений, перевірте ці значення до запуску й повторіть `ps` після нього.
+У `ps` ім'я контейнера має починатися з потрібного `COMPOSE_PROJECT_NAME`, Nginx
+має публікувати саме `127.0.0.1:PROD_HTTP_PORT->8080/tcp`, а MariaDB —
+`127.0.0.1:DB_FORWARD_PORT->3306/tcp`. Якщо stack ще не запущений, перевірте
+ці значення до запуску й повторіть `ps` після нього.
 
-Створіть стиснутий logical dump без публікації MariaDB на host:
+Створіть стиснутий logical dump через внутрішній Docker-канал, не використовуючи
+host-порт MariaDB:
 
 ```bash
 make prod-db-backup

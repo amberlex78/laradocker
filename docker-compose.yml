@@ -65,6 +65,7 @@ services:
       - mariadb-data:/var/lib/mysql
     networks:
       - backend
+      - db-publish
     healthcheck:
       test: ["CMD-SHELL", "healthcheck.sh --connect --innodb_initialized"]
       interval: 10s
@@ -88,6 +89,7 @@ networks:
   frontend:
   backend:
     internal: true
+  db-publish:
 
 volumes:
   mariadb-data:

@@ -151,8 +151,9 @@ host-facing порти.
 
 ## Production-образ локально
 
-Production stack не монтує source code, не запускає Vite й не публікує
-MariaDB. Для перевірки image використовуйте окремий Compose project:
+Production stack не монтує source code і не запускає Vite. MariaDB публікується
+лише на loopback-адресі host через `DB_FORWARD_PORT`; для локальної перевірки
+image використовуйте окремий Compose project:
 
 ```bash
 cp .env.prod.example .env.prod

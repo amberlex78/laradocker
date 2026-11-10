@@ -84,6 +84,9 @@ Compose створює окремі мережі для кожного `COMPOSE_
 - `frontend` з'єднує Docker Nginx із PHP-FPM;
 - `backend` з'єднує PHP-FPM із MariaDB і має `internal: true`, тому база даних
   не використовує цю мережу для зовнішнього доступу;
+- `db-publish` підключена лише до MariaDB і потрібна для host-порту
+  `DB_FORWARD_PORT`; вона не підключена до `app`, Nginx або Adminer. Це
+  звичайна bridge network, тому MariaDB може мати вихідний трафік через неї;
 - `adminer` існує лише в development і дає Adminer доступ до MariaDB без
   підключення бази до `frontend`.
 
@@ -108,6 +111,10 @@ Host-порти потрібні лише для входу з операцій�
 У production змінна `PROD_HTTP_PORT` публікує Docker Nginx тільки на
 `127.0.0.1`, наприклад `127.0.0.1:18080`. Цей порт є приватним upstream для
 системного Nginx, а не публічною адресою застосунку.
+
+У production `DB_FORWARD_PORT` публікує MariaDB тільки на loopback-адресі VPS,
+наприклад `127.0.0.1:13306`. Цей порт призначений для SSH-тунелю з локального
+клієнта на кшталт DBeaver і не повинен відкриватися у firewall.
 
 ## Дані та файлові системи
 
