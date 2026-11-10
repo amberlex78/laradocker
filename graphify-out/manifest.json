@@ -594,10 +594,10 @@
     "semantic_hash": "fdafabb891215542e633591a6e9e3bf2"
   },
   "app/Livewire/LoginHistoryTable.php": {
-    "mtime": 1794321920.295327,
-    "seen": 1794322867.06196,
-    "ast_hash": "b07055e7deae8313738bf6b2e6f1c0cf",
-    "semantic_hash": "b07055e7deae8313738bf6b2e6f1c0cf"
+    "mtime": 1794324495.8668795,
+    "seen": 1794325004.15319,
+    "ast_hash": "81c3e4df702839d0ca1634ed8c1b245e",
+    "semantic_hash": ""
   },
   "app/Filament/Widgets/DeveloperAccountWidget.php": {
     "mtime": 1794200343.2498927,
