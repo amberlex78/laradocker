@@ -48,6 +48,23 @@ class LoginHistoryTable extends TableWidget
                         });
                 }))
             ->filters([
+                SelectFilter::make('device')
+                    ->label('Device')
+                    ->options([
+                        'Desktop' => 'Desktop',
+                        'Smartphone' => 'Smartphone',
+                        'Tablet' => 'Tablet',
+                        'Unknown' => 'Unknown',
+                    ]),
+                SelectFilter::make('operating_system')
+                    ->label('Operating system')
+                    ->options(fn (): array => LoginSession::query()
+                        ->where('user_id', Filament::auth()->id())
+                        ->whereNotNull('operating_system')
+                        ->distinct()
+                        ->orderBy('operating_system')
+                        ->pluck('operating_system', 'operating_system')
+                        ->all()),
                 SelectFilter::make('status')
                     ->options([
                         LoginSessionStatus::Expired->value => LoginSessionStatus::Expired->getLabel(),
@@ -106,7 +123,7 @@ class LoginHistoryTable extends TableWidget
             ->defaultSort('logged_in_at', 'desc')
             ->paginationMode(PaginationMode::Default)
             ->paginated([5, 10, 25, 50])
-            ->defaultPaginationPageOption(10)
+            ->defaultPaginationPageOption(5)
             ->recordUrl(null)
             ->emptyStateHeading('No sign-ins yet');
     }

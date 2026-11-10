@@ -237,6 +237,32 @@ it('filters login history by its computed historical status', function (): void 
         ->assertCanNotSeeTableRecords([$expiredSession, $signedOutSession]);
 });
 
+it('filters login history by device and operating system', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $desktopSession = LoginSession::factory()->for($user)->ended()->create([
+        'device' => 'Desktop',
+        'operating_system' => 'GNU/Linux',
+    ]);
+    $smartphoneSession = LoginSession::factory()->for($user)->ended()->create([
+        'device' => 'Smartphone',
+        'operating_system' => 'iOS',
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->filterTable('device', 'Desktop')
+        ->assertCanSeeTableRecords([$desktopSession])
+        ->assertCanNotSeeTableRecords([$smartphoneSession]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->filterTable('operating_system', 'iOS')
+        ->assertCanSeeTableRecords([$smartphoneSession])
+        ->assertCanNotSeeTableRecords([$desktopSession]);
+});
+
 it('sorts login history by its sortable columns', function (): void {
     $user = User::factory()->create();
 
