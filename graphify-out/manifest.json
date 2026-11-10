@@ -373,21 +373,21 @@
   },
   "app/Services/DeviceDetectionService.php": {
     "mtime": 1794311263.5861104,
-    "seen": 1794320090.1062696,
+    "seen": 1794322867.0621176,
     "ast_hash": "bae13afb67afff5fc2de1874ad35ef36",
-    "semantic_hash": ""
+    "semantic_hash": "bae13afb67afff5fc2de1874ad35ef36"
   },
   "tests/Feature/Livewire/ActiveSessionsTest.php": {
-    "mtime": 1794308272.6534898,
-    "seen": 1794320090.1063805,
-    "ast_hash": "46ca7e19e6a747bce3bc1977844849c0",
-    "semantic_hash": "46ca7e19e6a747bce3bc1977844849c0"
+    "mtime": 1794322806.7842598,
+    "seen": 1794322867.0630333,
+    "ast_hash": "5b8621ed227c589e34f22bac33f6eedd",
+    "semantic_hash": "5b8621ed227c589e34f22bac33f6eedd"
   },
   "tests/Unit/Services/DeviceDetectionServiceTest.php": {
     "mtime": 1794311263.7421122,
-    "seen": 1794320090.1063988,
+    "seen": 1794322867.0631626,
     "ast_hash": "f6333aa4db058200f744053774659c80",
-    "semantic_hash": ""
+    "semantic_hash": "f6333aa4db058200f744053774659c80"
   },
   "app/Actions/Auth/TerminateOtherSessions.php": {
     "mtime": 1794092216.823042,
@@ -487,9 +487,9 @@
   },
   "app/Actions/Auth/StartLoginSession.php": {
     "mtime": 1794311109.3790574,
-    "seen": 1794320090.1061356,
+    "seen": 1794322867.0612304,
     "ast_hash": "8487656cb9d40d37ff1e3bd8fe9cfa18",
-    "semantic_hash": ""
+    "semantic_hash": "8487656cb9d40d37ff1e3bd8fe9cfa18"
   },
   "app/Enums/LoginSessionEndReason.php": {
     "mtime": 1794092190.6894689,
@@ -517,15 +517,15 @@
   },
   "app/Models/LoginSession.php": {
     "mtime": 1794311109.493059,
-    "seen": 1794320090.1062503,
+    "seen": 1794322867.0619628,
     "ast_hash": "0e8522b71beeb47e928afdc355c0a4ab",
-    "semantic_hash": ""
+    "semantic_hash": "0e8522b71beeb47e928afdc355c0a4ab"
   },
   "database/factories/LoginSessionFactory.php": {
     "mtime": 1794311175.6619842,
-    "seen": 1794320090.1063168,
+    "seen": 1794322867.0625122,
     "ast_hash": "e6afad45c9ff8162d5fabb8400bbc7ae",
-    "semantic_hash": ""
+    "semantic_hash": "e6afad45c9ff8162d5fabb8400bbc7ae"
   },
   "database/migrations/2026_11_08_005607_create_login_sessions_table.php": {
     "mtime": 1794092190.6984687,
@@ -535,9 +535,9 @@
   },
   "tests/Feature/LoginSessionTrackingTest.php": {
     "mtime": 1794311263.8701138,
-    "seen": 1794320090.1063833,
+    "seen": 1794322867.0630352,
     "ast_hash": "aa1778bc13d4adb45d48c0e30ca72b26",
-    "semantic_hash": ""
+    "semantic_hash": "aa1778bc13d4adb45d48c0e30ca72b26"
   },
   "app/Actions/Auth/EndLoginSession.php": {
     "mtime": 1794133859.6187081,
@@ -576,10 +576,10 @@
     "semantic_hash": "011c1bdbcc0c615582ce631fe74c5951"
   },
   "app/Filament/Tables/Columns/DeviceColumn.php": {
-    "mtime": 1794311242.822854,
-    "seen": 1794320090.106209,
-    "ast_hash": "9ea47a5354c7f60713da1d663319eec1",
-    "semantic_hash": ""
+    "mtime": 1794322829.2493057,
+    "seen": 1794322867.0616655,
+    "ast_hash": "c5e2c1c7ce8211515dda0d9b545cc89e",
+    "semantic_hash": "c5e2c1c7ce8211515dda0d9b545cc89e"
   },
   "app/Filament/Site/Pages/SessionHistory.php": {
     "mtime": 1794191438.7520723,
@@ -594,10 +594,10 @@
     "semantic_hash": "fdafabb891215542e633591a6e9e3bf2"
   },
   "app/Livewire/LoginHistoryTable.php": {
-    "mtime": 1794311310.9126735,
-    "seen": 1794320090.1062474,
-    "ast_hash": "6c9f8c1cf40ddb7b264848d7970d5186",
-    "semantic_hash": "6c9f8c1cf40ddb7b264848d7970d5186"
+    "mtime": 1794321920.295327,
+    "seen": 1794322867.06196,
+    "ast_hash": "b07055e7deae8313738bf6b2e6f1c0cf",
+    "semantic_hash": "b07055e7deae8313738bf6b2e6f1c0cf"
   },
   "app/Filament/Widgets/DeveloperAccountWidget.php": {
     "mtime": 1794200343.2498927,
@@ -613,8 +613,8 @@
   },
   "database/migrations/2026_11_10_134436_add_device_details_to_login_sessions_table.php": {
     "mtime": 1794311109.6210608,
-    "seen": 1794320090.1063383,
+    "seen": 1794322867.0626864,
     "ast_hash": "5a1a27c376deeeb5cf4e8ec5d911bd81",
-    "semantic_hash": ""
+    "semantic_hash": "5a1a27c376deeeb5cf4e8ec5d911bd81"
   }
 }

@@ -37,12 +37,18 @@ it('renders active sessions for the authenticated user with device details', fun
         'ip_address' => '203.0.113.10',
         'user_agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
             .'(KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36',
+        'client' => 'Chrome 149.0',
+        'operating_system' => 'GNU/Linux',
+        'device' => 'Desktop',
     ]);
     LoginSession::factory()->for($user)->create([
         'ip_address' => '203.0.113.11',
         'user_agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) '
             .'AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 '
             .'Mobile/15E148 Safari/604.1',
+        'client' => 'Safari 17.0',
+        'operating_system' => 'iOS',
+        'device' => 'Smartphone',
     ]);
     LoginSession::factory()->for($user)->expired()->create(['ip_address' => '203.0.113.12']);
     LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.14']);
@@ -58,6 +64,27 @@ it('renders active sessions for the authenticated user with device details', fun
         ->assertDontSee('203.0.113.12')
         ->assertDontSee('203.0.113.13')
         ->assertDontSee('203.0.113.14');
+});
+
+it('uses stored device details instead of parsing user agents in the table', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+        'user_agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+            .'(KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36',
+        'client' => null,
+        'operating_system' => null,
+        'device' => null,
+    ]);
+
+    Livewire::test(ActiveSessionsTable::class)
+        ->assertSee('Unknown / Unknown')
+        ->assertSee('Unknown')
+        ->assertDontSee('Chrome 149.0 / GNU/Linux');
 });
 
 it('makes the terminate other sessions table action available to authenticated users', function (): void {
