@@ -237,6 +237,28 @@ it('filters login history by its computed historical status', function (): void 
         ->assertCanNotSeeTableRecords([$expiredSession, $signedOutSession]);
 });
 
+it('sorts login history by its sortable columns', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $olderSession = LoginSession::factory()->for($user)->ended()->create([
+        'ip_address' => '203.0.113.20',
+        'logged_in_at' => now()->subDay(),
+    ]);
+    $newerSession = LoginSession::factory()->for($user)->ended()->create([
+        'ip_address' => '203.0.113.10',
+        'logged_in_at' => now()->subHour(),
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->sortTable('logged_in_at', 'asc')
+        ->assertCanSeeTableRecords([$olderSession, $newerSession], inOrder: true)
+        ->sortTable('ip_address', 'asc')
+        ->assertCanSeeTableRecords([$newerSession, $olderSession], inOrder: true);
+});
+
 it('resolves login session status with the documented precedence', function (): void {
     $user = User::factory()->create();
     $now = Carbon::create(2026, 11, 8, 12);

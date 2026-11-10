@@ -81,17 +81,19 @@ class LoginHistoryTable extends TableWidget
                 DeviceColumn::make(),
                 TextColumn::make('ip_address')
                     ->label('IP address')
-                    ->placeholder('Unknown'),
+                    ->placeholder('Unknown')
+                    ->sortable(),
                 TextColumn::make('logged_in_at')
                     ->label('Signed in at')
-                    ->dateTime(self::DISPLAY_DATE_TIME_FORMAT),
+                    ->dateTime(self::DISPLAY_DATE_TIME_FORMAT)
+                    ->sortable(),
                 TextColumn::make('status')
                     ->label('Status')
                     ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
                     ->badge()
                     ->tooltip(fn (LoginSessionStatus $state): string => $state->getTooltip())
                     ->description(fn (LoginSession $record, LoginSessionStatus $state): ?string => match ($state) {
-                        LoginSessionStatus::Terminated, 
+                        LoginSessionStatus::Terminated,
                         LoginSessionStatus::SignedOut => $record->logged_out_at?->format(
                             self::DISPLAY_DATE_TIME_FORMAT
                         ),
