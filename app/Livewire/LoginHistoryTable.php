@@ -18,8 +18,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class LoginHistoryTable extends TableWidget
 {
-    private const DISPLAY_DATE_TIME_FORMAT = 'M j, Y H:i:s';
-
     protected static bool $isDiscovered = false;
 
     public static function canView(): bool
@@ -31,6 +29,10 @@ class LoginHistoryTable extends TableWidget
     {
         $context = LoginSessionStatusContext::fromCurrentRequest();
         $resolver = new LoginSessionStatusResolver;
+        $dateTimeFormat = config(
+            'date_formats.date_time.'.app()->getLocale(),
+            config('date_formats.date_time.'.config('date_formats.default_locale')),
+        );
 
         return $table
             ->heading(null)
@@ -110,15 +112,13 @@ class LoginHistoryTable extends TableWidget
                     ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
                     ->badge()
                     ->tooltip(fn (LoginSessionStatus $state): string => $state->getTooltip())
-                    ->description(fn (LoginSession $record, LoginSessionStatus $state): ?string => match ($state) {
-                        LoginSessionStatus::Terminated,
-                        LoginSessionStatus::SignedOut => $record->logged_out_at?->format(
-                            self::DISPLAY_DATE_TIME_FORMAT
-                        ),
-                        LoginSessionStatus::Expired => $record->last_seen_at->format(
-                            self::DISPLAY_DATE_TIME_FORMAT
-                        ),
-                        default => null,
+                    ->description(function (LoginSession $record, LoginSessionStatus $state) use ($dateTimeFormat): ?string {
+                        return match ($state) {
+                            LoginSessionStatus::Terminated,
+                            LoginSessionStatus::SignedOut => $record->logged_out_at?->translatedFormat($dateTimeFormat),
+                            LoginSessionStatus::Expired => $record->last_seen_at->translatedFormat($dateTimeFormat),
+                            default => null,
+                        };
                     }),
             ])
             ->defaultSort('logged_in_at', 'desc')

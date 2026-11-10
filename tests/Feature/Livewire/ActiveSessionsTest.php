@@ -87,6 +87,54 @@ it('uses stored device details instead of parsing user agents in the table', fun
         ->assertDontSee('Chrome 149.0 / GNU/Linux');
 });
 
+it('uses the locale-specific global date-time format in session tables', function (): void {
+    $user = User::factory()->create();
+    $displayedAt = Carbon::create(2026, 11, 10, 12, 22);
+
+    $this->travelTo($displayedAt);
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $session = LoginSession::factory()->for($user)->ended()->create([
+        'session_id' => session()->getId(),
+        'logged_in_at' => $displayedAt,
+        'logged_out_at' => $displayedAt->copy()->addMinutes(8),
+    ]);
+    LoginSession::factory()->for($user)->create([
+        'last_seen_at' => $displayedAt,
+    ]);
+
+    app()->setLocale('en');
+    $englishActive = Livewire::test(ActiveSessionsTable::class);
+    $englishActiveTable = $englishActive->instance()->getTable();
+    $englishHistoryTable = Livewire::test(LoginHistoryTable::class)->instance()->getTable();
+
+    expect($englishActiveTable->getDefaultDateTimeDisplayFormat())
+        ->toBe(config('date_formats.date_time.en'))
+        ->and($englishHistoryTable->getDefaultDateTimeDisplayFormat())
+        ->toBe(config('date_formats.date_time.en'));
+    $englishActive->assertSee('Nov 10, 2026 12:22:00');
+
+    $englishDateTimeFormat = $englishActiveTable->getDefaultDateTimeDisplayFormat();
+
+    app()->setLocale('uk');
+    $ukrainianActiveTable = Livewire::test(ActiveSessionsTable::class)->instance()->getTable();
+    $ukrainianHistory = Livewire::test(LoginHistoryTable::class);
+
+    expect($ukrainianActiveTable->getDefaultDateTimeDisplayFormat())
+        ->toBe(config('date_formats.date_time.uk'))
+        ->not->toBe($englishDateTimeFormat)
+        ->and($ukrainianHistory->instance()->getTable()->getDefaultDateTimeDisplayFormat())
+        ->toBe(config('date_formats.date_time.uk'));
+    Livewire::test(ActiveSessionsTable::class)
+        ->assertSee('10 листопада 2026, 12:22:00');
+
+    $ukrainianHistory
+        ->assertCanSeeTableRecords([$session])
+        ->assertSee('10 листопада 2026, 12:30:00');
+});
+
 it('makes the terminate other sessions table action available to authenticated users', function (): void {
     actingAs(User::factory()->create());
     Filament::setCurrentPanel('site');

@@ -7,6 +7,7 @@ use App\Http\Responses\FilamentLogoutResponse;
 use Carbon\CarbonImmutable;
 use Filament\Auth\Http\Responses\Contracts\LoginResponse;
 use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
+use Filament\Tables\Table;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -37,6 +38,13 @@ class AppServiceProvider extends ServiceProvider
     protected function configureDefaults(): void
     {
         Date::use(CarbonImmutable::class);
+
+        Table::configureUsing(function (Table $table): void {
+            $table->defaultDateTimeDisplayFormat(fn (): string => config(
+                'date_formats.date_time.'.app()->getLocale(),
+                config('date_formats.date_time.'.config('date_formats.default_locale')),
+            ));
+        });
 
         DB::prohibitDestructiveCommands(
             app()->isProduction(),
