@@ -45,6 +45,20 @@
         "intelephense"
       ],
       "format_on_save": "off"
+    },
+    "Blade": {
+      "language_servers": [
+        "intelephense",
+        "tailwindcss-language-server"
+      ],
+      "format_on_save": "off"
+    },
+    "CSS": {
+      "language_servers": [
+        "tailwindcss-intellisense-css",
+        "!vscode-css-language-server",
+        "..."
+      ]
     }
   },
 
@@ -74,6 +88,22 @@
             "undefinedMethods": true,
             "undefinedProperties": true
           }
+        }
+      }
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "includeLanguages": {
+          "php": "html",
+          "blade": "html"
+        },
+        "experimental": {
+          "classRegex": [
+            "class=\"([^\"]*)\"",
+            "class='([^']*)'",
+            "class=\\\"([^\\\"]*)\\\"",
+            "@class\\(\\[([^\\]]*)\\]\\)"
+          ]
         }
       }
     }
