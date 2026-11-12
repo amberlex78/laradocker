@@ -29,7 +29,8 @@ yarn-error.log
 /.idea
 /.nova
 /.vscode
-/.zed
+/.zed/*
+!/.zed/settings.json
 /.agents
 /.amp
 /.claude

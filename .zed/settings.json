@@ -1,0 +1,81 @@
+// Folder-specific settings for this Laravel project
+{
+  "context_servers": {
+    "laravel-boost": {
+      "command": "php",
+      "args": [
+        "artisan",
+        "boost:mcp"
+      ]
+    }
+  },
+
+  "file_scan_exclusions": [
+    "...",
+    "**/.git/**",
+    "**/.worktrees/**",
+    "**/node_modules/**",
+    "**/vendor/**",
+    "**/storage/framework/**",
+    "**/storage/logs/**",
+    "**/storage/pail/**",
+    "**/bootstrap/cache/**",
+    "**/public/build/**",
+    "**/public/hot",
+    "**/public/storage/**",
+    "**/public/css/filament/**",
+    "**/public/js/filament/**",
+    "**/public/fonts/filament/**",
+    "**/docker/nginx/logs/**",
+    "**/.phpunit.cache/**",
+    "**/.phpunit.result.cache",
+    "**/.vitest/**",
+    "**/coverage/**"
+  ],
+
+  "file_types": {
+    "Blade": [
+      "*.blade.php"
+    ]
+  },
+
+  "languages": {
+    "PHP": {
+      "language_servers": [
+        "intelephense"
+      ],
+      "format_on_save": "off"
+    }
+  },
+
+  "lsp": {
+    "intelephense": {
+      "settings": {
+        "intelephense": {
+          "environment": {
+            "phpVersion": "8.5"
+          },
+          "format": {
+            "enable": false
+          },
+          "files": {
+            "exclude": [
+              "**/.git/**",
+              "**/.zed/**",
+              "**/.worktrees/**",
+              "**/node_modules/**",
+              "**/vendor/bin/**",
+              "**/storage/**",
+              "**/bootstrap/cache/**"
+            ]
+          },
+          "diagnostics": {
+            "undefinedTypes": true,
+            "undefinedMethods": true,
+            "undefinedProperties": true
+          }
+        }
+      }
+    }
+  }
+}
