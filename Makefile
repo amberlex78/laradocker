@@ -16,6 +16,7 @@ PHP_EXEC := $(DOCKER_DEV) exec app
 
 TEST_ENV := \
 	-e APP_ENV=testing \
+	-e APP_LOCALE=en \
 	-e APP_MAINTENANCE_DRIVER=file \
 	-e BCRYPT_ROUNDS=4 \
 	-e BROADCAST_CONNECTION=null \

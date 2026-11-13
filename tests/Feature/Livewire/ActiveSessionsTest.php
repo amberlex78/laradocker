@@ -105,34 +105,40 @@ it('uses the locale-specific global date-time format in session tables', functio
         'last_seen_at' => $displayedAt,
     ]);
 
-    app()->setLocale('en');
-    $englishActive = Livewire::test(ActiveSessionsTable::class);
-    $englishActiveTable = $englishActive->instance()->getTable();
-    $englishHistoryTable = Livewire::test(LoginHistoryTable::class)->instance()->getTable();
+    $originalLocale = app()->getLocale();
 
-    expect($englishActiveTable->getDefaultDateTimeDisplayFormat())
-        ->toBe(config('date_formats.date_time.en'))
-        ->and($englishHistoryTable->getDefaultDateTimeDisplayFormat())
-        ->toBe(config('date_formats.date_time.en'));
-    $englishActive->assertSee('Nov 10, 2026 12:22:00');
+    try {
+        app()->setLocale('en');
+        $englishActive = Livewire::test(ActiveSessionsTable::class);
+        $englishActiveTable = $englishActive->instance()->getTable();
+        $englishHistoryTable = Livewire::test(LoginHistoryTable::class)->instance()->getTable();
 
-    $englishDateTimeFormat = $englishActiveTable->getDefaultDateTimeDisplayFormat();
+        expect($englishActiveTable->getDefaultDateTimeDisplayFormat())
+            ->toBe(config('date_formats.date_time.en'))
+            ->and($englishHistoryTable->getDefaultDateTimeDisplayFormat())
+            ->toBe(config('date_formats.date_time.en'));
+        $englishActive->assertSee('Nov 10, 2026 12:22:00');
 
-    app()->setLocale('uk');
-    $ukrainianActiveTable = Livewire::test(ActiveSessionsTable::class)->instance()->getTable();
-    $ukrainianHistory = Livewire::test(LoginHistoryTable::class);
+        $englishDateTimeFormat = $englishActiveTable->getDefaultDateTimeDisplayFormat();
 
-    expect($ukrainianActiveTable->getDefaultDateTimeDisplayFormat())
-        ->toBe(config('date_formats.date_time.uk'))
-        ->not->toBe($englishDateTimeFormat)
-        ->and($ukrainianHistory->instance()->getTable()->getDefaultDateTimeDisplayFormat())
-        ->toBe(config('date_formats.date_time.uk'));
-    Livewire::test(ActiveSessionsTable::class)
-        ->assertSee('10 листопада 2026, 12:22:00');
+        app()->setLocale('uk');
+        $ukrainianActiveTable = Livewire::test(ActiveSessionsTable::class)->instance()->getTable();
+        $ukrainianHistory = Livewire::test(LoginHistoryTable::class);
 
-    $ukrainianHistory
-        ->assertCanSeeTableRecords([$session])
-        ->assertSee('10 листопада 2026, 12:30:00');
+        expect($ukrainianActiveTable->getDefaultDateTimeDisplayFormat())
+            ->toBe(config('date_formats.date_time.uk'))
+            ->not->toBe($englishDateTimeFormat)
+            ->and($ukrainianHistory->instance()->getTable()->getDefaultDateTimeDisplayFormat())
+            ->toBe(config('date_formats.date_time.uk'));
+        Livewire::test(ActiveSessionsTable::class)
+            ->assertSee('10 листопада 2026, 12:22:00');
+
+        $ukrainianHistory
+            ->assertCanSeeTableRecords([$session])
+            ->assertSee('10 листопада 2026, 12:30:00');
+    } finally {
+        app()->setLocale($originalLocale);
+    }
 });
 
 it('makes the terminate other sessions table action available to authenticated users', function (): void {

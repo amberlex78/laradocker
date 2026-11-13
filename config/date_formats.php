@@ -5,6 +5,6 @@ return [
 
     'date_time' => [
         'en' => 'M j, Y H:i:s',
-        'uk' => 'j M Y, H:i:s',
+        'uk' => 'j F Y, H:i:s',
     ],
 ];
