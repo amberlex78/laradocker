@@ -51,6 +51,7 @@ make up              # запустити development stack
 make down            # зупинити його без видалення даних
 make ps              # стан контейнерів
 make logs            # логи development stack
+make laravel-logs    # Laravel-логи development через Pail
 make test            # тести
 make pint            # форматування PHP
 make artisan CMD="about"

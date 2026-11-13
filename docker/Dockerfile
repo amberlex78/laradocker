@@ -14,6 +14,7 @@ RUN apt-get update \
     && docker-php-ext-install -j"$(nproc)" \
         intl \
         mbstring \
+        pcntl \
         pdo_mysql \
         zip \
     && rm -rf /var/lib/apt/lists/*

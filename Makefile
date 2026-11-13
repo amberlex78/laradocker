@@ -41,6 +41,7 @@ TEST_PHP_EXEC := $(DOCKER_DEV) exec $(TEST_ENV) app
 
 .PHONY: help config-dev config-prod validate \
         install build up down ps logs env \
+        laravel-logs \
         stats clear tinker artisan migrate migrate-fresh db-seed \
         test pint phpstan composer npm vite shell-php shell-node shell-mariadb \
         prod-build prod-up prod-down \
@@ -90,6 +91,9 @@ ps: ## Show development container status
 
 logs: ## Follow development service logs
 	$(DOCKER_DEV) logs -f --tail=100
+
+laravel-logs: ## Follow development Laravel logs via Pail
+	$(PHP_EXEC) php artisan pail -v
 
 env: ## Show environment variables for dev services
 	@for service in app node mariadb; do \
@@ -182,7 +186,7 @@ prod-logs: ## Follow production service logs
 	$(DOCKER_PROD) logs -f --tail=100
 
 prod-laravel-logs: ## Follow Laravel application log
-	$(DOCKER_PROD) exec -T app sh -lc 'tail -n 100 -f storage/logs/laravel.log'
+	$(DOCKER_PROD) exec -T app sh -lc 'tail -n 100 -F storage/logs/laravel.log'
 
 prod-stats: ## Show live resource usage for the production Compose project
 	$(DOCKER_PROD) stats

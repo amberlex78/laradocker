@@ -78,9 +78,14 @@ make up
 make down
 make ps
 make logs
+make laravel-logs
 make stats
 make vite
 ```
+
+`make logs` показує логи всіх development-сервісів Docker Compose.
+`make laravel-logs` показує лише Laravel-логи через Pail; для фільтрів або
+іншого рівня деталізації можна використати `make artisan CMD="pail --help"`.
 
 Laravel і база даних:
 
