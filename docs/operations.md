@@ -25,8 +25,9 @@ make prod-laravel-logs
 ```
 
 `make prod-logs` показує логи всіх production-сервісів, а
-`make prod-laravel-logs` — лише Laravel log-файл. Production image не містить
-dev-залежності, тому Pail використовується локально через `make laravel-logs`.
+`make prod-laravel-logs` — Laravel log-файл усередині `app`-контейнера.
+Production image не містить dev-залежності, тому Pail використовується
+локально через `make laravel-logs`.
 
 Поточне використання CPU та пам'яті:
 
