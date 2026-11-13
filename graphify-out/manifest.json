@@ -90,10 +90,10 @@
     "semantic_hash": "d79d87880f9a42f7946b665877c54e72"
   },
   "config/auth.php": {
-    "mtime": 1792034868.0,
-    "seen": 1792926416.1915317,
-    "ast_hash": "26354511ab860b301f2a3554bc388b91",
-    "semantic_hash": "26354511ab860b301f2a3554bc388b91"
+    "mtime": 1794583837.6929374,
+    "seen": 1794587229.6816318,
+    "ast_hash": "8ad2ae686bb554e6f77a6ecae2908898",
+    "semantic_hash": ""
   },
   "config/cache.php": {
     "mtime": 1792034868.0,
@@ -408,21 +408,21 @@
     "semantic_hash": ""
   },
   "docker-compose.prod.yml": {
-    "mtime": 1793302595.64837,
-    "seen": 1793306424.7246969,
-    "ast_hash": "6c2d16b0c5bf648e6d8265294d3feb09",
+    "mtime": 1794336273.6908185,
+    "seen": 1794587229.681752,
+    "ast_hash": "8d91cea9c15160a242bf8380a11f892c",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
-    "mtime": 1793305893.1744132,
-    "seen": 1793306424.7246978,
-    "ast_hash": "d59ed5893d6214e5b50160a19e14e7fc",
+    "mtime": 1794341261.2450523,
+    "seen": 1794587229.6817548,
+    "ast_hash": "09968543e403c72a6dc7c9a596e7af28",
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794047482.2677853,
-    "seen": 1794049716.4151332,
-    "ast_hash": "e1906e8805e832f290b0e85d6179c663",
+    "mtime": 1794341281.4451067,
+    "seen": 1794587229.6817575,
+    "ast_hash": "a22de02cf3fde324c5f4e8f7c14f304c",
     "semantic_hash": ""
   },
   "docs/cloudflare.md": {
@@ -438,15 +438,15 @@
     "semantic_hash": ""
   },
   "docs/development.md": {
-    "mtime": 1793295276.4653795,
-    "seen": 1793295349.5814943,
-    "ast_hash": "359ec183c29c4089de06be1f0c6a9605",
+    "mtime": 1794341261.4522376,
+    "seen": 1794587229.6817648,
+    "ast_hash": "a5467ad657a3494a331a965ee947b261",
     "semantic_hash": ""
   },
   "docs/operations.md": {
-    "mtime": 1794089893.695583,
-    "seen": 1794126682.467877,
-    "ast_hash": "0cad0c14c0cae9563050dad7428186ca",
+    "mtime": 1794341281.560107,
+    "seen": 1794587229.6817708,
+    "ast_hash": "e14b020baf0ecd73636d13775fdf9bb1",
     "semantic_hash": ""
   },
   "README.md": {
@@ -622,5 +622,17 @@
     "seen": 1794328547.975325,
     "ast_hash": "8a9277f5a215409e7fc6afccb2f0c65d",
     "semantic_hash": "8a9277f5a215409e7fc6afccb2f0c65d"
+  },
+  "tests/Feature/RememberMeTest.php": {
+    "mtime": 1794583921.5841248,
+    "seen": 1794587229.681726,
+    "ast_hash": "7eec73dba5a1c0f3875805682dbd7a86",
+    "semantic_hash": ""
+  },
+  "docs/docker-networking-patterns.md": {
+    "mtime": 1794343414.482808,
+    "seen": 1794587229.6817677,
+    "ast_hash": "e41526ccbfb524a12c08c21811410656",
+    "semantic_hash": ""
   }
 }
