@@ -27,15 +27,15 @@ it('sets the remember me cookie to expire after two weeks', function (): void {
     $expectedExpiration = now()->addDays(14)->timestamp;
 
     $guard = Auth::guard('web');
-    
+
     if (! $guard instanceof SessionGuard) {
         throw new LogicException('The web guard must use the session driver.');
     }
-    
+
     $guard->login($user, remember: true);
-    
+
     $cookie = Cookie::queued($guard->getRecallerName());
-    
+
     expect($cookie)->not->toBeNull()
         ->and($cookie->getExpiresTime())->toBe($expectedExpiration);
 });
