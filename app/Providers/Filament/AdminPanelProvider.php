@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Site\Pages\ViewProfile;
 use App\Filament\Widgets\DeveloperAccountWidget;
 use App\Filament\Widgets\DeveloperFilamentInfoWidget;
 use App\Http\Middleware\RedirectGuestsToSiteLogin;
@@ -41,7 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => fn (Action $action): Action => $action
                     ->label(fn (): string => filament()->getUserName(filament()->auth()->user()))
-                    ->url(fn (): ?string => filament()->getPanel('site')->getProfileUrl())
+                    ->url(fn (): string => ViewProfile::getUrl(panel: 'site'))
                     ->icon(Heroicon::OutlinedUserCircle)
                     ->sort(-2),
                 Action::make('email')

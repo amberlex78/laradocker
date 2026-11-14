@@ -46,6 +46,7 @@
         @auth
             @php
                 $user = auth()->user();
+                $profileUrl = route('filament.site.pages.profile');
 
                 $ctaDestination = match ($user->role) {
                     \App\Enums\UserRole::Admin => [
@@ -96,7 +97,7 @@
 
                     @auth
                         <a
-                            href="{{ filament()->getPanel('site')->getProfileUrl() }}"
+                            href="{{ $profileUrl }}"
                             class="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-gray-950 dark:text-gray-200 dark:hover:bg-white/5 dark:hover:text-white sm:px-3"
                         >
                             <x-filament::icon icon="heroicon-o-user-circle" class="size-4 text-green-600 dark:text-green-400" />
@@ -145,7 +146,7 @@
                         <div class="mt-8 flex flex-wrap items-center gap-3">
                             @auth
                                 <a
-                                    href="{{ filament()->getPanel('site')->getProfileUrl() }}"
+                                    href="{{ $profileUrl }}"
                                     class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm shadow-green-600/20 transition hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500 dark:focus:ring-offset-gray-950"
                                 >
                                     <x-filament::icon icon="heroicon-o-arrow-right" class="size-4" />
@@ -377,7 +378,7 @@
                                 </a>
                             @else
                                 <a
-                                    href="{{ filament()->getPanel('site')->getProfileUrl() }}"
+                                    href="{{ $profileUrl }}"
                                     class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg border border-white/60 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/30"
                                 >
                                     <x-filament::icon icon="heroicon-o-arrow-right" class="size-4" />

@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Enums\UserRole;
 use App\Filament\Site\Pages\EditProfile;
+use App\Filament\Site\Pages\ViewProfile;
 use App\Http\Middleware\TrackLoginSession;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
@@ -56,12 +57,11 @@ class SitePanelProvider extends PanelProvider
                     ],
                 });
 
-                $panel->navigationItems(EditProfile::getNavigationItems());
             })
             ->userMenuItems([
                 'profile' => fn (Action $action): Action => $action
                     ->label(fn (): string => filament()->getUserName(filament()->auth()->user()))
-                    ->url(fn (): ?string => filament()->getPanel('site')->getProfileUrl())
+                    ->url(fn (): string => ViewProfile::getUrl())
                     ->icon(Heroicon::OutlinedUserCircle)
                     ->sort(-2),
                 Action::make('email')

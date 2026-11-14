@@ -13,6 +13,8 @@ use Illuminate\Support\Arr;
 
 class EditProfile extends BaseEditProfile
 {
+    protected static ?string $slug = 'profile/edit';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserCircle;
 
     protected static ?string $navigationLabel = 'My profile';

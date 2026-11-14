@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Enums\UserRole;
+use App\Filament\Site\Pages\ViewProfile;
 use App\Filament\Widgets\SystemOverview;
 use App\Http\Middleware\RedirectGuestsToSiteLogin;
 use App\Http\Middleware\TrackLoginSession;
@@ -40,7 +41,7 @@ class OperatorPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => fn (Action $action): Action => $action
                     ->label(fn (): string => filament()->getUserName(filament()->auth()->user()))
-                    ->url(fn (): ?string => filament()->getPanel('site')->getProfileUrl())
+                    ->url(fn (): string => ViewProfile::getUrl(panel: 'site'))
                     ->icon(Heroicon::OutlinedUserCircle)
                     ->sort(-2),
                 Action::make('email')

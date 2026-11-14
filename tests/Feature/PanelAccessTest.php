@@ -2,6 +2,7 @@
 
 use App\Enums\UserRole;
 use App\Filament\Site\Pages\EditProfile;
+use App\Filament\Site\Pages\ViewProfile;
 use App\Models\User;
 use Filament\Auth\Http\Responses\Contracts\LoginResponse;
 use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
@@ -137,6 +138,42 @@ it('shows each role its available entries on the home page', function (UserRole 
     ]],
 ]);
 
+it('shows the current user profile and links to its edit page', function (): void {
+    $user = User::factory()->create([
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
+        'role' => UserRole::User,
+    ]);
+
+    $this->actingAs($user)
+        ->get('/profile')
+        ->assertOk()
+        ->assertSee('My profile')
+        ->assertSee('Ada Lovelace')
+        ->assertSee('ada@example.com')
+        ->assertSee('Edit profile')
+        ->assertSee(ViewProfile::getUrl(), false);
+
+    $this->actingAs($user)
+        ->get('/profile/edit')
+        ->assertOk()
+        ->assertSee('Manage your account');
+
+    expect(Filament::getPanel('site')->getProfileUrl())->toBe(EditProfile::getUrl());
+});
+
+it('registers the profile page once in the site navigation', function (): void {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)->get('/profile')->assertOk();
+
+    $profileItems = collect(Filament::getNavigation())
+        ->flatMap(fn ($group) => $group->getItems())
+        ->filter(fn ($item): bool => $item->getLabel() === 'My profile');
+
+    expect($profileItems)->toHaveCount(1);
+});
+
 it('redirects guests from protected panels to the shared login page', function (string $path): void {
     $this->get($path)
         ->assertRedirect('/login');
@@ -263,13 +300,13 @@ it('separates active sessions into its own site page', function (): void {
         ->assertSee('/history', false);
 });
 
-it('allows every role to access the shared profile page', function (UserRole $role, array $primaryColor, array $grayColor): void {
+it('allows every role to access the shared profile edit page', function (UserRole $role, array $primaryColor, array $grayColor): void {
     $user = User::factory()->create([
         'role' => $role,
     ]);
 
     $this->actingAs($user)
-        ->get('/profile')
+        ->get('/profile/edit')
         ->assertOk()
         ->assertSee('My profile')
         ->assertSee('Manage your account')
