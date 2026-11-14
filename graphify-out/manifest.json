@@ -78,8 +78,8 @@
     "semantic_hash": "bbd865719ea1655c73c92863ca5b8286"
   },
   "composer.json": {
-    "mtime": 1793056296.8044255,
-    "seen": 1794201054.3485634,
+    "mtime": 1794608172.5470824,
+    "seen": 1794636284.293518,
     "ast_hash": "1c4b8448ff038e6fee253096433058ca",
     "semantic_hash": "1c4b8448ff038e6fee253096433058ca"
   },
@@ -239,18 +239,6 @@
     "ast_hash": "a303c3e0e078cb0c7b2083346df1b24c",
     "semantic_hash": "a303c3e0e078cb0c7b2083346df1b24c"
   },
-  ".github/dependabot.yml": {
-    "mtime": 1792034868.0,
-    "seen": 1792782818.0237231,
-    "ast_hash": "2d1dafbc9ecfd469752dbd29e997d413",
-    "semantic_hash": ""
-  },
-  ".github/workflows/tests.yml": {
-    "mtime": 1792739666.241421,
-    "seen": 1792782818.023724,
-    "ast_hash": "db4c7aa2a5976ba1b5d76946abba9e45",
-    "semantic_hash": ""
-  },
   "public/robots.txt": {
     "mtime": 1792034868.0,
     "seen": 1792782818.0237253,
@@ -378,10 +366,10 @@
     "semantic_hash": "bae13afb67afff5fc2de1874ad35ef36"
   },
   "tests/Feature/Livewire/ActiveSessionsTest.php": {
-    "mtime": 1794328156.3007982,
-    "seen": 1794328547.976233,
-    "ast_hash": "6845288a4982932e33eedf6ab736b6d1",
-    "semantic_hash": "6845288a4982932e33eedf6ab736b6d1"
+    "mtime": 1794605614.9896586,
+    "seen": 1794636284.2935646,
+    "ast_hash": "23e60624bc32571690bae120a44be00f",
+    "semantic_hash": ""
   },
   "tests/Unit/Services/DeviceDetectionServiceTest.php": {
     "mtime": 1794311263.7421122,
@@ -408,8 +396,8 @@
     "semantic_hash": ""
   },
   "docker-compose.prod.yml": {
-    "mtime": 1794336273.6908185,
-    "seen": 1794587229.681752,
+    "mtime": 1794591301.240344,
+    "seen": 1794636284.2935843,
     "ast_hash": "8d91cea9c15160a242bf8380a11f892c",
     "semantic_hash": ""
   },
@@ -438,21 +426,21 @@
     "semantic_hash": ""
   },
   "docs/development.md": {
-    "mtime": 1794341261.4522376,
-    "seen": 1794587229.6817648,
-    "ast_hash": "a5467ad657a3494a331a965ee947b261",
+    "mtime": 1794588137.8866928,
+    "seen": 1794636284.29359,
+    "ast_hash": "5113f2fb59e99e09e268efce859724e2",
     "semantic_hash": ""
   },
   "docs/operations.md": {
-    "mtime": 1794341281.560107,
-    "seen": 1794587229.6817708,
-    "ast_hash": "e14b020baf0ecd73636d13775fdf9bb1",
+    "mtime": 1794591301.4943473,
+    "seen": 1794636284.293593,
+    "ast_hash": "69b673ed31a517936238c9ba6311b580",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794047020.04123,
-    "seen": 1794049716.415127,
-    "ast_hash": "2c4d0475a85100a88850329febc726cc",
+    "mtime": 1794588137.7786825,
+    "seen": 1794636284.2935817,
+    "ast_hash": "22538b92c883457078cf3d14876d04e5",
     "semantic_hash": ""
   },
   "public/images/laradocker-logo-dark.svg": {
@@ -618,10 +606,10 @@
     "semantic_hash": "5a1a27c376deeeb5cf4e8ec5d911bd81"
   },
   "config/date_formats.php": {
-    "mtime": 1794327281.106538,
-    "seen": 1794328547.975325,
-    "ast_hash": "8a9277f5a215409e7fc6afccb2f0c65d",
-    "semantic_hash": "8a9277f5a215409e7fc6afccb2f0c65d"
+    "mtime": 1794605497.7085106,
+    "seen": 1794636284.293526,
+    "ast_hash": "135c149f5be1f4528c9152db64731da9",
+    "semantic_hash": ""
   },
   "tests/Feature/RememberMeTest.php": {
     "mtime": 1794583921.5841248,
@@ -633,6 +621,12 @@
     "mtime": 1794343414.482808,
     "seen": 1794587229.6817677,
     "ast_hash": "e41526ccbfb524a12c08c21811410656",
+    "semantic_hash": ""
+  },
+  ".github/workflows/code-quality.yml": {
+    "mtime": 1794609759.9999573,
+    "seen": 1794636284.2935793,
+    "ast_hash": "855ff6a1f4c5354ce18c5111a382212c",
     "semantic_hash": ""
   }
 }
