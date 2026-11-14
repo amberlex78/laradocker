@@ -9,6 +9,7 @@ use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentColor;
+use Illuminate\Http\RedirectResponse;
 use Livewire\Livewire;
 
 it('resolves site panel colors after a session user becomes available', function (): void {
@@ -177,6 +178,10 @@ it('redirects each role to its own destination after shared login', function (Us
 
     $response = app(LoginResponse::class)->toResponse(request());
 
+    if (! $response instanceof RedirectResponse) {
+        throw new LogicException('The login response must be a redirect response.');
+    }
+
     expect($response->getTargetUrl())->toBe(url($destination));
 })->with([
     'admin goes to admin panel' => [UserRole::Admin, '/admin'],
@@ -189,6 +194,10 @@ it('always redirects logout to shared login', function (): void {
     Filament::setCurrentPanel('admin');
 
     $response = app(LogoutResponse::class)->toResponse(request());
+
+    if (! $response instanceof RedirectResponse) {
+        throw new LogicException('The login response must be a redirect response.');
+    }
 
     expect($response->getTargetUrl())->toBe(route('filament.site.auth.login'));
 });

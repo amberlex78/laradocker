@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
@@ -25,10 +26,16 @@ it('sets the remember me cookie to expire after two weeks', function (): void {
     $user = User::factory()->create();
     $expectedExpiration = now()->addDays(14)->timestamp;
 
-    Auth::guard('web')->login($user, remember: true);
-
-    $cookie = Cookie::queued(Auth::guard('web')->getRecallerName());
-
+    $guard = Auth::guard('web');
+    
+    if (! $guard instanceof SessionGuard) {
+        throw new LogicException('The web guard must use the session driver.');
+    }
+    
+    $guard->login($user, remember: true);
+    
+    $cookie = Cookie::queued($guard->getRecallerName());
+    
     expect($cookie)->not->toBeNull()
         ->and($cookie->getExpiresTime())->toBe($expectedExpiration);
 });
