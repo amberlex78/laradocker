@@ -9,6 +9,7 @@ use Filament\Facades\Filament;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -45,31 +46,35 @@ class ViewProfile extends Page
 
         return $schema
             ->components([
-                Section::make($user->name)
-                    ->description($user->email)
-                    ->icon(Heroicon::OutlinedUserCircle)
-                    ->schema([
-                        TextEntry::make('name')
-                            ->label('Name')
-                            ->state($user->name),
-                        TextEntry::make('email')
-                            ->label('Email')
-                            ->state($user->email),
-                        TextEntry::make('role')
-                            ->label('Role')
-                            ->badge()
-                            ->state($user->role),
-                        TextEntry::make('created_at')
-                            ->label('Member since')
-                            ->dateTime()
-                            ->state($user->created_at),
-                    ])
-                    ->columns(2),
-                Actions::make([
-                    Action::make('edit')
-                        ->label('Edit profile')
-                        ->icon(Heroicon::OutlinedPencilSquare)
-                        ->url(EditProfile::getUrl()),
+                Grid::make([
+                    'default' => 1,
+                    'lg' => 2,
+                ])->schema([
+                    Section::make($user->name)
+                        ->description($user->email)
+                        ->icon(Heroicon::OutlinedUserCircle)
+                        ->inlineLabel()
+                        ->schema([
+                            TextEntry::make('name')
+                                ->label('Name')
+                                ->state($user->name),
+                            TextEntry::make('email')
+                                ->label('Email')
+                                ->state($user->email),
+                            TextEntry::make('role')
+                                ->label('Role')
+                                ->badge()
+                                ->state($user->role),
+                            TextEntry::make('created_at')
+                                ->dateTime()
+                                ->state($user->created_at),
+                            Actions::make([
+                                Action::make('edit')
+                                    ->label('Edit profile')
+                                    ->icon(Heroicon::OutlinedPencilSquare)
+                                    ->url(EditProfile::getUrl()),
+                            ]),
+                        ]),
                 ]),
             ]);
     }
