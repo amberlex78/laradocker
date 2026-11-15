@@ -296,6 +296,25 @@ it('renders only historical login sessions for the authenticated user', function
         ->assertCanNotSeeTableRecords([$currentSession, $activeSession, $otherUserSession]);
 });
 
+it('renders device models in session history', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $session = LoginSession::factory()->for($user)->ended()->create([
+        'client' => 'Safari 17.0',
+        'operating_system' => 'iOS',
+        'device' => 'Smartphone',
+        'device_model' => 'iPhone',
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->assertCanSeeTableRecords([$session])
+        ->assertSee('Safari 17.0 / iOS')
+        ->assertSee('Smartphone · iPhone');
+});
+
 it('filters login history by its computed historical status', function (): void {
     $user = User::factory()->create();
 
