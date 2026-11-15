@@ -38,7 +38,7 @@ class EditProfile extends BaseEditProfile
 
     public function getMaxContentWidth(): Width
     {
-        return Width::SevenExtraLarge;
+        return Width::ThreeExtraLarge;
     }
 
     public function defaultForm(Schema $schema): Schema
@@ -62,7 +62,7 @@ class EditProfile extends BaseEditProfile
             ->components([
                 Section::make('Account information')
                     ->description('Update your profile information and password.')
-                    ->columns(2)
+                    ->columns(1)
                     ->schema([
                         Fieldset::make('Profile information')
                             ->columns(1)

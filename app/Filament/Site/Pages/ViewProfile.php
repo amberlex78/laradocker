@@ -11,6 +11,7 @@ use Filament\Pages\Page;
 use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
 
 class ViewProfile extends Page
@@ -38,6 +39,11 @@ class ViewProfile extends Page
         return 'View your account details and manage your profile settings.';
     }
 
+    public function getMaxContentWidth(): Width
+    {
+        return Width::ThreeExtraLarge;
+    }
+
     public function content(Schema $schema): Schema
     {
         /** @var User $user */
@@ -47,6 +53,7 @@ class ViewProfile extends Page
             ->components([
                 Section::make($user->name)
                     ->description($user->email)
+                    ->columns(1)
                     ->icon(Heroicon::OutlinedUserCircle)
                     ->schema([
                         TextEntry::make('name')

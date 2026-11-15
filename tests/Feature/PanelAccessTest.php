@@ -257,7 +257,7 @@ it('uses the configured profile content width', function (): void {
     $profilePage = $panel->getProfilePage();
 
     expect($profilePage)->toBe(EditProfile::class)
-        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::SevenExtraLarge);
+        ->and((new $profilePage)->getMaxContentWidth())->toBe(Width::ThreeExtraLarge);
 });
 
 it('separates session history into its own site page', function (): void {
