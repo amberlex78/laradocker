@@ -4,12 +4,10 @@ namespace App\Filament\Site\Pages;
 
 use BackedEnum;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
-use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
-use Illuminate\Support\Arr;
 
 class EditProfile extends BaseEditProfile
 {
@@ -28,7 +26,7 @@ class EditProfile extends BaseEditProfile
 
     public function getHeading(): string
     {
-        return 'Manage your account';
+        return 'My profile';
     }
 
     public function getSubheading(): string
@@ -41,21 +39,6 @@ class EditProfile extends BaseEditProfile
         return Width::ThreeExtraLarge;
     }
 
-    public function defaultForm(Schema $schema): Schema
-    {
-        return parent::defaultForm($schema)
-            ->inlineLabel(false);
-    }
-
-    public function content(Schema $schema): Schema
-    {
-        return $schema
-            ->components([
-                $this->getFormContentComponent(),
-                ...Arr::wrap($this->getMultiFactorAuthenticationContentComponent()),
-            ]);
-    }
-
     public function form(Schema $schema): Schema
     {
         return $schema
@@ -65,20 +48,13 @@ class EditProfile extends BaseEditProfile
                     ->columns(1)
                     ->icon(Heroicon::OutlinedPencilSquare)
                     ->schema([
-                        Fieldset::make('Profile information')
-                            ->columns(1)
-                            ->schema([
-                                $this->getNameFormComponent(),
-                                $this->getEmailFormComponent(),
-                            ]),
-                        Fieldset::make('Password')
-                            ->columns(1)
-                            ->schema([
-                                $this->getCurrentPasswordFormComponent(),
-                                $this->getPasswordFormComponent(),
-                                $this->getPasswordConfirmationFormComponent(),
-                            ]),
-                    ]),
+                        $this->getNameFormComponent(),
+                        $this->getEmailFormComponent(),
+                        $this->getCurrentPasswordFormComponent(),
+                        $this->getPasswordFormComponent(),
+                        $this->getPasswordConfirmationFormComponent(),
+                    ])
+                    ->inlineLabel(),
             ]);
     }
 }
