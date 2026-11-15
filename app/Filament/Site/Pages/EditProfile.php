@@ -60,9 +60,10 @@ class EditProfile extends BaseEditProfile
     {
         return $schema
             ->components([
-                Section::make('Account information')
-                    ->description('Update your profile information and password.')
+                Section::make(fn (): string => filament()->auth()->user()->name)
+                    ->description(fn (): string => filament()->auth()->user()->email)
                     ->columns(1)
+                    ->icon(Heroicon::OutlinedPencilSquare)
                     ->schema([
                         Fieldset::make('Profile information')
                             ->columns(1)

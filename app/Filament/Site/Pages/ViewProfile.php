@@ -36,7 +36,7 @@ class ViewProfile extends Page
 
     public function getSubheading(): string
     {
-        return 'View your account details and manage your profile settings.';
+        return 'View your account details.';
     }
 
     public function getMaxContentWidth(): Width
