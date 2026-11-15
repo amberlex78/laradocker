@@ -13,7 +13,13 @@ final class DeviceColumn
             ->label('Device')
             ->state(fn (LoginSession $record): string => ($record->client ?? 'Unknown')
                 .' / '.($record->operating_system ?? 'Unknown'))
-            ->description(fn (LoginSession $record): string => $record->device ?? 'Unknown')
+            ->description(function (LoginSession $record): string {
+                $device = $record->device ?? 'Unknown';
+
+                return $record->device_model === null
+                    ? $device
+                    : $device.' · '.$record->device_model;
+            })
             ->wrap();
     }
 }

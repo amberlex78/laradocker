@@ -12,6 +12,7 @@ it('detects browser operating system and device from a user agent', function ():
         'client' => 'Chrome 149.0',
         'operatingSystem' => 'GNU/Linux',
         'device' => 'Desktop',
+        'model' => null,
     ]);
 });
 
@@ -26,6 +27,7 @@ it('detects an iphone safari user agent', function (): void {
         'client' => 'Safari 17.0',
         'operatingSystem' => 'iOS',
         'device' => 'Smartphone',
+        'model' => 'iPhone',
     ]);
 });
 
@@ -37,6 +39,7 @@ it('detects Quetta from browser client hints', function (): void {
             'HTTP_SEC_CH_UA' => '"Chromium";v="148", "Quetta";v="148", "Not/A)Brand";v="99"',
             'HTTP_SEC_CH_UA_MOBILE' => '?1',
             'HTTP_SEC_CH_UA_PLATFORM' => '"Android"',
+            'HTTP_SEC_CH_UA_MODEL' => '"SM-S918B"',
         ],
     );
 
@@ -44,6 +47,7 @@ it('detects Quetta from browser client hints', function (): void {
         'client' => 'Quetta 148.0',
         'operatingSystem' => 'Android',
         'device' => 'Smartphone',
+        'model' => 'Galaxy S23 Ultra',
     ]);
 });
 
@@ -52,5 +56,6 @@ it('normalizes an unknown user agent', function (): void {
         'client' => 'Unknown',
         'operatingSystem' => 'Unknown',
         'device' => 'Unknown',
+        'model' => null,
     ]);
 });

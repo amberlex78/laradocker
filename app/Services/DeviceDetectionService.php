@@ -10,13 +10,14 @@ final class DeviceDetectionService
 {
     /**
      * @param  array<string, mixed>  $headers
-     * @return array{client: string, operatingSystem: string, device: string}
+     * @return array{client: string, operatingSystem: string, device: string, model: string|null}
      */
     public function detect(?string $userAgent, array $headers = []): array
     {
+        $clientHints = ClientHints::factory($headers);
         $detector = new DeviceDetector(
             $userAgent ?? '',
-            ClientHints::factory($headers),
+            $clientHints,
         );
         $detector->parse();
 
@@ -26,20 +27,27 @@ final class DeviceDetectionService
         $version = $this->normalize($detector->getClient('version'), '');
         $operatingSystem = $this->normalize($detector->getOs('name'), 'Unknown');
         $device = $this->normalize($detector->getDeviceName(), 'Unknown');
+        $model = $this->normalizeNullable($detector->getModel());
 
         return [
             'client' => trim($client.' '.$version),
             'operatingSystem' => $operatingSystem,
             'device' => Str::title($device),
+            'model' => $model,
         ];
     }
 
-    private function normalize(mixed $value, string $fallback): string
+    private function normalizeNullable(mixed $value): ?string
     {
         return is_string($value)
             && $value !== ''
             && $value !== DeviceDetector::UNKNOWN
             ? $value
-            : $fallback;
+            : null;
+    }
+
+    private function normalize(mixed $value, string $fallback): string
+    {
+        return $this->normalizeNullable($value) ?? $fallback;
     }
 }

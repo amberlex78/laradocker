@@ -29,13 +29,15 @@ it('stores browser details from client hints when tracking a login session', fun
         'Sec-CH-UA' => '"Chromium";v="148", "Quetta";v="148", "Not/A)Brand";v="99"',
         'Sec-CH-UA-Mobile' => '?1',
         'Sec-CH-UA-Platform' => '"Android"',
+        'Sec-CH-UA-Model' => '"SM-S918B"',
     ])->actingAs($user)->get('/profile')->assertOk();
 
     $loginSession = LoginSession::query()->whereBelongsTo($user)->sole();
 
     expect($loginSession->client)->toBe('Quetta 148.0')
         ->and($loginSession->operating_system)->toBe('Android')
-        ->and($loginSession->device)->toBe('Smartphone');
+        ->and($loginSession->device)->toBe('Smartphone')
+        ->and($loginSession->device_model)->toBe('Galaxy S23 Ultra');
 });
 
 it('closes the login session on logout', function (): void {

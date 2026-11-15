@@ -27,6 +27,7 @@ class LoginSessionFactory extends Factory
             'client' => null,
             'operating_system' => null,
             'device' => null,
+            'device_model' => null,
             'logged_in_at' => now(),
             'last_seen_at' => now(),
             'logged_out_at' => null,

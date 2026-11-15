@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('client')->nullable()->after('user_agent');
             $table->string('operating_system')->nullable()->after('client');
             $table->string('device')->nullable()->after('operating_system');
+            $table->string('device_model')->nullable()->after('device');
         });
     }
 
@@ -24,7 +25,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('login_sessions', function (Blueprint $table): void {
-            $table->dropColumn(['client', 'operating_system', 'device']);
+            $table->dropColumn(['client', 'operating_system', 'device', 'device_model']);
         });
     }
 };

@@ -50,6 +50,7 @@ it('renders active sessions for the authenticated user with device details', fun
         'client' => 'Safari 17.0',
         'operating_system' => 'iOS',
         'device' => 'Smartphone',
+        'device_model' => 'iPhone',
     ]);
     LoginSession::factory()->for($user)->expired()->create(['ip_address' => '203.0.113.12']);
     LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.14']);
@@ -59,6 +60,7 @@ it('renders active sessions for the authenticated user with device details', fun
         ->assertSee('Chrome 149.0 / GNU/Linux')
         ->assertSee('Desktop')
         ->assertSee('Safari 17.0')
+        ->assertSee('Smartphone · iPhone')
         ->assertSee('203.0.113.10')
         ->assertSee('203.0.113.11')
         ->assertSee('Current')

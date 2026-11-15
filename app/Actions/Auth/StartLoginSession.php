@@ -27,6 +27,7 @@ class StartLoginSession
             'client' => $device['client'],
             'operating_system' => $device['operatingSystem'],
             'device' => $device['device'],
+            'device_model' => $device['model'],
             'logged_in_at' => now(),
             'last_seen_at' => now(),
         ]);

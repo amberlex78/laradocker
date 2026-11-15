@@ -23,6 +23,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $client
  * @property string|null $operating_system
  * @property string|null $device
+ * @property string|null $device_model
  * @property Carbon $logged_in_at
  * @property Carbon $last_seen_at
  * @property Carbon|null $logged_out_at
@@ -37,6 +38,7 @@ use Illuminate\Support\Carbon;
     'client',
     'operating_system',
     'device',
+    'device_model',
     'logged_in_at',
     'last_seen_at',
     'logged_out_at',
