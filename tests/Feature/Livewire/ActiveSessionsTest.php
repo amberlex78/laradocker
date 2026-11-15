@@ -349,14 +349,21 @@ it('filters login history by device and operating system', function (): void {
     $desktopSession = LoginSession::factory()->for($user)->ended()->create([
         'device' => 'Desktop',
         'operating_system' => 'GNU/Linux',
+        'device_model' => 'ThinkPad T14',
     ]);
     $smartphoneSession = LoginSession::factory()->for($user)->ended()->create([
         'device' => 'Smartphone',
         'operating_system' => 'iOS',
+        'device_model' => 'iPhone',
     ]);
 
     Livewire::test(LoginHistoryTable::class)
         ->filterTable('device', 'Desktop')
+        ->assertCanSeeTableRecords([$desktopSession])
+        ->assertCanNotSeeTableRecords([$smartphoneSession]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->filterTable('device_model', 'ThinkPad T14')
         ->assertCanSeeTableRecords([$desktopSession])
         ->assertCanNotSeeTableRecords([$smartphoneSession]);
 

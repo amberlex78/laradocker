@@ -59,6 +59,15 @@ class LoginHistoryTable extends TableWidget
                         ->orderBy('device')
                         ->pluck('device', 'device')
                         ->all()),
+                SelectFilter::make('device_model')
+                    ->label('Device model')
+                    ->options(fn (): array => LoginSession::query()
+                        ->where('user_id', Filament::auth()->id())
+                        ->whereNotNull('device_model')
+                        ->distinct()
+                        ->orderBy('device_model')
+                        ->pluck('device_model', 'device_model')
+                        ->all()),
                 SelectFilter::make('operating_system')
                     ->label('Operating system')
                     ->options(fn (): array => LoginSession::query()
