@@ -70,8 +70,7 @@ class ViewProfile extends Page
                             ->dateTime()
                             ->state($user->created_at),
                     ])
-                    ->inlineLabel()
-                    ->columns(1),
+                    ->inlineLabel(),
                 Actions::make([
                     Action::make('edit')
                         ->label('Edit profile')
