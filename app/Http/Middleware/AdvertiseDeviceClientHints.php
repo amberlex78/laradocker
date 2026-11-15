@@ -12,8 +12,8 @@ class AdvertiseDeviceClientHints
     {
         $response = $next($request);
 
-        $response->headers->set('Accept-CH', 'Sec-CH-UA-Model');
-        $response->headers->set('Permissions-Policy', 'ch-ua-model=(self)');
+        $response->headers->set('Accept-CH', 'Sec-CH-UA-Model, Sec-CH-UA-Form-Factors');
+        $response->headers->set('Permissions-Policy', 'ch-ua-model=(self), ch-ua-form-factors=(self)');
 
         return $response;
     }
