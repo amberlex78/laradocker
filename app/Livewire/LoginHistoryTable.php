@@ -138,7 +138,7 @@ class LoginHistoryTable extends TableWidget
             ->defaultSort('logged_in_at', 'desc')
             ->paginationMode(PaginationMode::Default)
             ->paginated([5, 10, 25, 50])
-            ->defaultPaginationPageOption(5)
+            ->defaultPaginationPageOption(10)
             ->recordUrl(null)
             ->emptyStateHeading('No sign-ins yet');
     }

@@ -76,6 +76,28 @@ it('allows sorting the verified column in the user list', function (): void {
         ->assertTableColumnExists('email_verified_at', fn ($column): bool => $column->isSortable());
 });
 
+it('sorts users by creation date with newest users first by default', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+        'created_at' => now()->subDays(3),
+        'updated_at' => now()->subDays(3),
+    ]);
+    $olderUser = User::factory()->create([
+        'created_at' => now()->subDays(2),
+        'updated_at' => now()->subDays(2),
+    ]);
+    $newerUser = User::factory()->create([
+        'created_at' => now()->subDay(),
+        'updated_at' => now()->subDay(),
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(ListUsers::class)
+        ->assertCanSeeTableRecords([$newerUser, $olderUser, $admin], inOrder: true);
+});
+
 it('allows viewing but not editing or deleting administrator records', function (): void {
     $actingAdmin = User::factory()->create([
         'role' => UserRole::Admin,
