@@ -28,12 +28,12 @@
             color="gray"
             :href="ViewProfile::getUrl(panel: 'site')"
             :icon="Heroicon::OutlinedUserCircle"
-            labeled-from="sm"
+            labeled-from="xl"
+            tooltip="My profile"
             tag="a"
         >
             My profile
         </x-filament::button>
-
         <form
             action="{{ filament()->getLogoutUrl() }}"
             method="post"
@@ -45,7 +45,7 @@
                 color="gray"
                 :icon="Heroicon::ArrowLeftEndOnRectangle"
                 :icon-alias="PanelsIconAlias::WIDGETS_ACCOUNT_LOGOUT_BUTTON"
-                labeled-from="sm"
+                labeled-from="xl"
                 tag="button"
                 type="submit"
             >
