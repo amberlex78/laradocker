@@ -76,6 +76,25 @@ it('allows sorting the verified column in the user list', function (): void {
         ->assertTableColumnExists('email_verified_at', fn ($column): bool => $column->isSortable());
 });
 
+it('filters users by email verification status', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $verifiedUser = User::factory()->create();
+    $unverifiedUser = User::factory()->unverified()->create();
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(ListUsers::class)
+        ->filterTable('email_verified_at', true)
+        ->assertCanSeeTableRecords([$admin, $verifiedUser])
+        ->assertCanNotSeeTableRecords([$unverifiedUser])
+        ->filterTable('email_verified_at', false)
+        ->assertCanSeeTableRecords([$unverifiedUser])
+        ->assertCanNotSeeTableRecords([$admin, $verifiedUser]);
+});
+
 it('sorts users by creation date with newest users first by default', function (): void {
     $admin = User::factory()->create([
         'role' => UserRole::Admin,

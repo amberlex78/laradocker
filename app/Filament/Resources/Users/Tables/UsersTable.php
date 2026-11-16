@@ -7,6 +7,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class UsersTable
@@ -14,6 +15,13 @@ class UsersTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->filters([
+                TernaryFilter::make('email_verified_at')
+                    ->label('Verified')
+                    ->nullable()
+                    ->trueLabel('Verified')
+                    ->falseLabel('Unverified'),
+            ])
             ->columns([
                 TextColumn::make('name')
                     ->searchable()
