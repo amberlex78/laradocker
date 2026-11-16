@@ -34,6 +34,7 @@
         >
             My profile
         </x-filament::button>
+
         <form
             action="{{ filament()->getLogoutUrl() }}"
             method="post"
