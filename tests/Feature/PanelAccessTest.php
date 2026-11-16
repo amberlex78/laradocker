@@ -157,7 +157,7 @@ it('shows the current user profile and links to its edit page', function (): voi
     $this->actingAs($user)
         ->get('/profile/edit')
         ->assertOk()
-        ->assertSee('Manage your account');
+        ->assertSee('My profile');
 
     expect(Filament::getPanel('site')->getProfileUrl())->toBe(EditProfile::getUrl());
 });
@@ -302,6 +302,8 @@ it('separates active sessions into its own site page', function (): void {
 
 it('allows every role to access the shared profile edit page', function (UserRole $role, array $primaryColor, array $grayColor): void {
     $user = User::factory()->create([
+        'name' => 'Ada Lovelace',
+        'email' => 'ada@example.com',
         'role' => $role,
     ]);
 
@@ -309,17 +311,19 @@ it('allows every role to access the shared profile edit page', function (UserRol
         ->get('/profile/edit')
         ->assertOk()
         ->assertSee('My profile')
-        ->assertSee('Manage your account')
-        ->assertSee('Account information')
-        ->assertSee('Profile information')
-        ->assertSee('fi-fieldset', false)
+        ->assertSee('Update your profile details and keep your password secure.')
+        ->assertSee('Ada Lovelace')
+        ->assertSee('ada@example.com')
+        ->assertSee('Name')
+        ->assertSee('Email')
+        ->assertSee('New password')
         ->assertSee('--primary-500:'.$primaryColor[500], false)
         ->assertSee('--gray-900:'.$grayColor[900], false)
-        ->assertSee('Password')
-        ->assertSee('New password')
         ->assertDontSee('Confirm new password')
-        ->assertDontSee('Update password')
-        ->assertDontSee('fi-fo-field-has-inline-label');
+        ->assertDontSee('Manage your account')
+        ->assertDontSee('Account information')
+        ->assertDontSee('Profile information')
+        ->assertDontSee('fi-fieldset', false);
 })->with([
     'user sees green and gray' => [UserRole::User, Color::Green, Color::Gray],
     'operator sees blue and slate' => [UserRole::Operator, Color::Blue, Color::Slate],
