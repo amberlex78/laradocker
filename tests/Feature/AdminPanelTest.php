@@ -49,6 +49,33 @@ it('does not offer mass deletion for users', function (): void {
         ->assertTableBulkActionsExistInOrder([]);
 });
 
+it('renders verified and unverified statuses in the user list', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $verifiedUser = User::factory()->create();
+    $unverifiedUser = User::factory()->unverified()->create();
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(ListUsers::class)
+        ->assertTableColumnStateSet('email_verified_at', 'Verified', record: $verifiedUser)
+        ->assertTableColumnStateSet('email_verified_at', 'Unverified', record: $unverifiedUser);
+});
+
+it('allows sorting the verified column in the user list', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(ListUsers::class)
+        ->assertTableColumnExists('email_verified_at', fn ($column): bool => $column->isSortable());
+});
+
 it('allows viewing but not editing or deleting administrator records', function (): void {
     $actingAdmin = User::factory()->create([
         'role' => UserRole::Admin,

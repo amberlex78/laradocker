@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Tables;
 
+use App\Models\User;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -20,6 +21,12 @@ class UsersTable
                 TextColumn::make('email')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('email_verified_at')
+                    ->label('Verified')
+                    ->sortable()
+                    ->state(fn (User $record): string => $record->email_verified_at ? 'Verified' : 'Unverified')
+                    ->badge()
+                    ->color(fn (string $state): string => $state === 'Verified' ? 'success' : 'gray'),
                 TextColumn::make('role')
                     ->badge()
                     ->sortable(),
