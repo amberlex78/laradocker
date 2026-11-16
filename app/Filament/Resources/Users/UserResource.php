@@ -58,15 +58,20 @@ class UserResource extends Resource
                     ->description(fn (User $record): string => $record->email)
                     ->icon(Heroicon::OutlinedUserCircle)
                     ->schema([
+                        TextEntry::make('name')
+                            ->label('Name'),
+                        TextEntry::make('email')
+                            ->label('Email'),
                         TextEntry::make('role')
-                            ->badge()
-                            ->columnSpanFull(),
+                            ->label('Role')
+                            ->badge(),
                         TextEntry::make('created_at')
                             ->dateTime(),
                         TextEntry::make('updated_at')
                             ->dateTime(),
                     ])
-                    ->columns(2),
+                    ->columns(1)
+                    ->inlineLabel(),
             ]);
     }
 

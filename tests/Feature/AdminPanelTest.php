@@ -191,7 +191,14 @@ it('allows viewing but not editing or deleting administrator records', function 
         ->assertTableActionHidden('delete', $administrator);
 
     Livewire::test(ViewUser::class, ['record' => $administrator->getKey()])
-        ->assertActionHidden('edit');
+        ->assertActionHidden('edit')
+        ->assertSee($administrator->name)
+        ->assertSee($administrator->email)
+        ->assertSee('Name')
+        ->assertSee('Email')
+        ->assertSee('Role')
+        ->assertSee('Created at')
+        ->assertSee('Updated at');
 });
 
 it('allows full CRUD authorization for user and operator records', function (UserRole $role): void {
