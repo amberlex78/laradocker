@@ -47,16 +47,19 @@ overlay. Контейнери використовують сталі внутр
 
 ```bash
 make                 # показати всі доступні targets
+
 make up              # запустити development stack
 make down            # зупинити його без видалення даних
 make ps              # стан контейнерів
 make logs            # логи development stack
 make laravel-logs    # Laravel-логи development через Pail
-make test            # тести
-make pint            # форматування PHP
+make test            # запустити Laravel тести
+make pint            # запустити Laravel Pint
+make phpstan         # запустити PHPStan (статичний аналізатор коду)
+
+make composer CMD="-V"
 make artisan CMD="about"
 make npm CMD="run build"
-make prod-ps         # стан production stack
 ```
 
 ## Що ви хочете зробити?
