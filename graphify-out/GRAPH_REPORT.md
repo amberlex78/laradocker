@@ -1,17 +1,17 @@
 # Graph Report - laradocker  (2026-11-16)
 
 ## Corpus Check
-- 101 files · ~22,576 words
+- 101 files · ~22,700 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 32 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 4)
 
 ## Summary
-- 728 nodes · 1143 edges · 60 communities (30 shown, 30 thin omitted)
+- 727 nodes · 1144 edges · 53 communities (26 shown, 27 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `990932e5`
+- Built from commit: `b834447e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -25,25 +25,16 @@
 - AppServiceProvider.php
 - package.json
 - Filament\Facades\Filament
-- LoginSessionTrackingTest.php
-- ActiveSessionsTable.php
-- LoginSession
-- Docker networking: звичайна та ізольована схема
-- LoginSessionStatus
+- EndLoginSession
 - LoginHistoryTable.php
+- Docker networking: звичайна та ізольована схема
+- LoginSessionEndReason
 - Експлуатація production-середовища
 - UserResource.php
-- ViewUser.php
-- Filament\Schemas\Schema
-- EditProfile
 - scripts
-- ViewProfile.php
 - composer.json
 - require-dev
-- LoginSessionStatusContext
-- TerminateOtherSessions.php
 - require
-- ViewProfile
 - config
 - Pest.php
 - psr-4
@@ -55,10 +46,9 @@
 - entrypoint.sh
 - AdminPanelTest.php
 - UserRole
-- LoginSessionStatusResolver
 
 ## God Nodes (most connected - your core abstractions)
-1. `UserRole` - 62 edges
+1. `UserRole` - 64 edges
 2. `User` - 37 edges
 3. `LoginSession` - 27 edges
 4. `LoginSessionStatus` - 22 edges
@@ -84,15 +74,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (60 total, 30 thin omitted)
+## Communities (53 total, 27 thin omitted)
 
 ### Community 0 - "PanelAccessTest.php"
 Cohesion: 0.08
-Nodes (10): {closure#14}(), {closure#15}(), {closure#17}(), {closure#2}(), {closure#24}(), {closure#26}(), {closure#27}(), {closure#28}() (+2 more)
+Nodes (10): {closure#14}(), {closure#17}(), {closure#21}(), {closure#25}(), {closure#27}(), {closure#28}(), {closure#29}(), {closure#30}() (+2 more)
 
 ### Community 1 - "User"
 Cohesion: 0.05
-Nodes (6): User, UserPolicy, LoginSessionFactory, UserFactory, DatabaseSeeder, {closure#2}()
+Nodes (8): {closure#1}(), {closure#2}(), User, UserPolicy, LoginSessionFactory, UserFactory, DatabaseSeeder, {closure#2}()
 
 ### Community 2 - "SitePanelProvider.php"
 Cohesion: 0.06
@@ -122,33 +112,25 @@ Nodes (30): dependencies, concurrently, laravel-vite-plugin, tailwindcss, @tailw
 Cohesion: 0.12
 Nodes (3): DeveloperAccountWidget, DeveloperFilamentInfoWidget, SystemOverview
 
-### Community 10 - "ActiveSessionsTable.php"
-Cohesion: 0.27
-Nodes (5): TerminateOtherSessions, ActiveSessionsTable, {closure#1}(), {closure#2}(), {closure#4}()
-
-### Community 12 - "LoginSession"
-Cohesion: 0.17
-Nodes (5): {closure#1}(), {closure#2}(), DeviceColumn, {closure#13}(), LoginSession
+### Community 12 - "LoginHistoryTable.php"
+Cohesion: 0.05
+Nodes (31): TerminateOtherSessions, LoginSessionStatus, Active, Current, Expired, SignedOut, Terminated, {closure#1}() (+23 more)
 
 ### Community 13 - "Docker networking: звичайна та ізольована схема"
 Cohesion: 0.13
 Nodes (14): DBeaver через SSH, Docker networking: звичайна та ізольована схема, Важливий trade-off, Варіант 1: одна звичайна `default` network, Варіант 2: розділені мережі та приватний backend, Додаткові матеріали, Недоліки, Особливість host port publishing (+6 more)
 
-### Community 14 - "LoginSessionStatus"
-Cohesion: 0.19
-Nodes (9): LoginSessionStatus, Active, Current, Expired, SignedOut, Terminated, {closure#3}(), {closure#10}() (+1 more)
-
-### Community 15 - "LoginHistoryTable.php"
-Cohesion: 0.24
-Nodes (7): {closure#1}(), {closure#11}(), {closure#2}(), {closure#3}(), {closure#7}(), {closure#8}(), {closure#9}()
+### Community 14 - "LoginSessionEndReason"
+Cohesion: 0.40
+Nodes (3): LoginSessionEndReason, LoggedOut, Terminated
 
 ### Community 16 - "Експлуатація production-середовища"
 Cohesion: 0.14
 Nodes (14): 1. Конфігурація Docker Compose, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Видалення одного проєкту, Відновлення MariaDB (+6 more)
 
-### Community 17 - "UserResource.php"
-Cohesion: 0.19
-Nodes (4): CreateUser, {closure#1}(), {closure#2}(), UserResource
+### Community 18 - "UserResource.php"
+Cohesion: 0.05
+Nodes (9): CreateUser, ListUsers, ViewUser, UserForm, UserResource, ActiveSessions, EditProfile, SessionHistory (+1 more)
 
 ### Community 21 - "scripts"
 Cohesion: 0.15
@@ -161,10 +143,6 @@ Nodes (11): autoload-dev, psr-4, description, keywords, license, minimum-stabili
 ### Community 24 - "require-dev"
 Cohesion: 0.17
 Nodes (12): require-dev, fakerphp/faker, larastan/larastan, laravel/boost, laravel/pail, laravel/pao, laravel/pint, laravel/sail (+4 more)
-
-### Community 26 - "TerminateOtherSessions.php"
-Cohesion: 0.20
-Nodes (3): LoginSessionEndReason, LoggedOut, Terminated
 
 ### Community 27 - "require"
 Cohesion: 0.25
@@ -199,17 +177,13 @@ Cohesion: 0.10
 Nodes (18): {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {closure#13}(), {closure#14}(), {closure#15}(), {closure#16}() (+10 more)
 
 ### Community 57 - "UserRole"
-Cohesion: 0.14
-Nodes (11): UserRole, Admin, Developer, Operator, User, {closure#1}(), {closure#13}(), {closure#21}() (+3 more)
-
-### Community 58 - "LoginSessionStatusResolver"
-Cohesion: 0.22
-Nodes (4): LoginHistoryTable, LoginSessionStatusResolver, {closure#17}(), {closure#18}()
+Cohesion: 0.13
+Nodes (12): UserRole, Admin, Developer, Operator, User, {closure#1}(), {closure#13}(), {closure#15}() (+4 more)
 
 ## Knowledge Gaps
 - **18 isolated node(s):** `LoggedOut`, `Terminated`, `Current`, `Active`, `Expired` (+13 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 339 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 337 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Work-memory lessons
 
@@ -220,17 +194,17 @@ Nodes (4): LoginHistoryTable, LoginSessionStatusResolver, {closure#17}(), {closu
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `PanelAccessTest.php`, `SitePanelProvider.php`, `AppServiceProvider.php`, `Filament\Facades\Filament`, `LoginSessionTrackingTest.php`, `ActiveSessionsTest.php`, `UserResource.php`, `ViewProfile.php`, `AdminPanelTest.php`?**
-  _High betweenness centrality (0.091) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `PanelAccessTest.php`, `SitePanelProvider.php`, `AppServiceProvider.php`, `Filament\Facades\Filament`, `LoginSessionTrackingTest.php`, `ActiveSessionsTest.php`, `RememberMeTest.php`, `UserResource.php`, `AdminPanelTest.php`?**
+  _High betweenness centrality (0.090) - this node is a cross-community bridge._
 - **What connects `LoggedOut`, `Terminated`, `Current` to the rest of the system?**
   _18 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `PanelAccessTest.php` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
-- **Why does `UserRole` connect `UserRole` to `PanelAccessTest.php`, `User`, `SitePanelProvider.php`, `AppServiceProvider.php`, `Filament\Facades\Filament`, `UserResource.php`, `Filament\Schemas\Schema`, `AdminPanelTest.php`, `Filament\Support\Colors\Color`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+- **Why does `UserRole` connect `UserRole` to `PanelAccessTest.php`, `User`, `SitePanelProvider.php`, `AppServiceProvider.php`, `Filament\Facades\Filament`, `UserResource.php`, `AdminPanelTest.php`, `Filament\Support\Colors\Color`?**
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **Should `User` be split into smaller, more focused modules?**
-  _Cohesion score 0.05370101596516691 - nodes in this community are weakly interconnected._
-- **Why does `LoginSession` connect `LoginSession` to `User`, `DeviceDetectionService`, `LoginSessionTrackingTest.php`, `ActiveSessionsTable.php`, `ActiveSessionsTest.php`, `LoginSessionStatus`, `LoginHistoryTable.php`, `LoginSessionStatusContext`, `TerminateOtherSessions.php`?**
+  _Cohesion score 0.05117845117845118 - nodes in this community are weakly interconnected._
+- **Why does `LoginSession` connect `LoginHistoryTable.php` to `User`, `DeviceDetectionService`, `LoginSessionTrackingTest.php`, `ActiveSessionsTest.php`, `LoginSessionEndReason`, `TerminateOtherSessions.php`?**
   _High betweenness centrality (0.057) - this node is a cross-community bridge._
 - **Should `SitePanelProvider.php` be split into smaller, more focused modules?**
   _Cohesion score 0.06493506493506493 - nodes in this community are weakly interconnected._

@@ -174,10 +174,10 @@
     "semantic_hash": "7a75d403db003b3621a05ddce925663e"
   },
   "package.json": {
-    "mtime": 1794198245.8237193,
-    "seen": 1794201054.3491526,
-    "ast_hash": "a1c31b28b0b4eb4957013126388657dd",
-    "semantic_hash": "a1c31b28b0b4eb4957013126388657dd"
+    "mtime": 1794841098.8241878,
+    "seen": 1794841239.4753227,
+    "ast_hash": "67cc19cfc95655fe5292a43aacf3e1ea",
+    "semantic_hash": ""
   },
   "pint.json": {
     "mtime": 1792034868.0,
@@ -288,16 +288,16 @@
     "semantic_hash": "a17b27c138a5017eab9c39b91cb67b5d"
   },
   "tests/Feature/PanelAccessTest.php": {
-    "mtime": 1794662218.7433548,
-    "seen": 1794814031.9570823,
-    "ast_hash": "6916a3183c8a8d76eca4c2744f43c7e8",
-    "semantic_hash": "6916a3183c8a8d76eca4c2744f43c7e8"
+    "mtime": 1794831405.9662278,
+    "seen": 1794841239.475344,
+    "ast_hash": "09312f5058c72537a069d193e8003a0d",
+    "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
-    "mtime": 1794731496.3649602,
-    "seen": 1794814031.9543676,
-    "ast_hash": "779aa4520d723032c3ffc6d69a2c9e54",
-    "semantic_hash": "779aa4520d723032c3ffc6d69a2c9e54"
+    "mtime": 1794833398.6025057,
+    "seen": 1794841239.4752398,
+    "ast_hash": "68670b5ce037093ca99b1ecd53f8774f",
+    "semantic_hash": ""
   },
   "app/Http/Middleware/RedirectGuestsToSiteLogin.php": {
     "mtime": 1794641838.5437388,
