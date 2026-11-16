@@ -315,7 +315,6 @@ it('allows every role to access the shared profile edit page', function (UserRol
         ->assertSee('Ada Lovelace')
         ->assertSee('ada@example.com')
         ->assertSee('Name')
-        ->assertSee('Email')
         ->assertSee('New password')
         ->assertSee('--primary-500:'.$primaryColor[500], false)
         ->assertSee('--gray-900:'.$grayColor[900], false)
@@ -329,6 +328,53 @@ it('allows every role to access the shared profile edit page', function (UserRol
     'operator sees blue and slate' => [UserRole::Operator, Color::Blue, Color::Slate],
     'admin sees amber and stone' => [UserRole::Admin, Color::Amber, Color::Stone],
     'developer sees amber and stone' => [UserRole::Developer, Color::Amber, Color::Stone],
+]);
+
+it('restricts profile email editing by role', function (UserRole $role, bool $canEditEmail): void {
+    $user = User::factory()->create([
+        'email' => 'original@example.com',
+        'role' => $role,
+    ]);
+
+    $this->actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $profile = Livewire::test(EditProfile::class);
+
+    if ($canEditEmail) {
+        $profile
+            ->assertSee('Email')
+            ->fillForm([
+                'email' => 'updated@example.com',
+                'password' => null,
+                'passwordConfirmation' => null,
+                'currentPassword' => 'password',
+            ])
+            ->call('save')
+            ->assertHasNoFormErrors();
+
+        expect($user->refresh()->email)->toBe('updated@example.com');
+
+        return;
+    }
+
+    $profile
+        ->assertDontSee('Email')
+        ->fillForm([
+            'email' => 'forged@example.com',
+            'password' => null,
+            'passwordConfirmation' => null,
+            'currentPassword' => 'password',
+        ])
+        ->call('save')
+        ->assertHasNoFormErrors();
+
+    expect($user->refresh()->email)->toBe('original@example.com');
+})->with([
+    'user cannot edit profile email' => [UserRole::User, false],
+    'operator cannot edit profile email' => [UserRole::Operator, false],
+    'admin can edit profile email' => [UserRole::Admin, true],
+    'developer can edit profile email' => [UserRole::Developer, true],
 ]);
 
 it('reveals conditional password fields when a new password is entered', function (): void {

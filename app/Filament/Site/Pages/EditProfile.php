@@ -2,6 +2,7 @@
 
 namespace App\Filament\Site\Pages;
 
+use App\Enums\UserRole;
 use BackedEnum;
 use Filament\Auth\Pages\EditProfile as BaseEditProfile;
 use Filament\Schemas\Components\Section;
@@ -41,15 +42,19 @@ class EditProfile extends BaseEditProfile
 
     public function form(Schema $schema): Schema
     {
+        $user = filament()->auth()->user();
+
         return $schema
             ->components([
-                Section::make(fn (): string => filament()->auth()->user()->name)
-                    ->description(fn (): string => filament()->auth()->user()->email)
+                Section::make($user->name)
+                    ->description($user->email)
                     ->columns(1)
                     ->icon(Heroicon::OutlinedPencilSquare)
                     ->schema([
                         $this->getNameFormComponent(),
-                        $this->getEmailFormComponent(),
+                        ...(in_array($user->role, [UserRole::Admin, UserRole::Developer], true)
+                            ? [$this->getEmailFormComponent()]
+                            : []),
                         $this->getCurrentPasswordFormComponent(),
                         $this->getPasswordFormComponent(),
                         $this->getPasswordConfirmationFormComponent(),
