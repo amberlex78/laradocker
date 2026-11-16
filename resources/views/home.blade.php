@@ -152,6 +152,16 @@
                                     <x-filament::icon icon="heroicon-o-arrow-right" class="size-4" />
                                     <span>My profile</span>
                                 </a>
+
+                                @if ($ctaDestination)
+                                    <a
+                                        href="{{ $ctaDestination['url'] }}"
+                                        class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-900 shadow-2xs transition hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 dark:border-white/15 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-white/20 dark:focus:ring-offset-gray-950"
+                                    >
+                                        <x-filament::icon icon="heroicon-o-squares-2x2" class="size-4" />
+                                        <span>{{ $ctaDestination['label'] }}</span>
+                                    </a>
+                                @endif
                             @else
                                 <a
                                     href="{{ route('filament.site.auth.login') }}"
