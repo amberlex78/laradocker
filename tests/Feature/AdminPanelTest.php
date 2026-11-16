@@ -8,6 +8,7 @@ use App\Filament\Resources\Users\Pages\ViewUser;
 use App\Filament\Resources\Users\UserResource;
 use App\Models\User;
 use Filament\Facades\Filament;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Livewire;
 
@@ -93,6 +94,51 @@ it('filters users by email verification status', function (): void {
         ->filterTable('email_verified_at', false)
         ->assertCanSeeTableRecords([$unverifiedUser])
         ->assertCanNotSeeTableRecords([$admin, $verifiedUser]);
+});
+
+it('filters users by role using roles available to the current user', function (): void {
+    $admin = User::factory()->create([
+        'role' => UserRole::Admin,
+    ]);
+    $user = User::factory()->create([
+        'role' => UserRole::User,
+    ]);
+    $operator = User::factory()->create([
+        'role' => UserRole::Operator,
+    ]);
+    $developer = User::factory()->create([
+        'role' => UserRole::Developer,
+    ]);
+
+    $this->actingAs($admin);
+    Filament::setCurrentPanel('admin');
+
+    Livewire::test(ListUsers::class)
+        ->assertTableFilterExists('role', function (SelectFilter $filter): bool {
+            return $filter->getOptions() === [
+                UserRole::User->value => UserRole::User->getLabel(),
+                UserRole::Operator->value => UserRole::Operator->getLabel(),
+                UserRole::Admin->value => UserRole::Admin->getLabel(),
+            ];
+        })
+        ->filterTable('role', UserRole::Operator)
+        ->assertCanSeeTableRecords([$operator])
+        ->assertCanNotSeeTableRecords([$admin, $user]);
+
+    $this->actingAs($developer);
+
+    Livewire::test(ListUsers::class)
+        ->assertTableFilterExists('role', function (SelectFilter $filter): bool {
+            return $filter->getOptions() === [
+                UserRole::User->value => UserRole::User->getLabel(),
+                UserRole::Operator->value => UserRole::Operator->getLabel(),
+                UserRole::Admin->value => UserRole::Admin->getLabel(),
+                UserRole::Developer->value => UserRole::Developer->getLabel(),
+            ];
+        })
+        ->filterTable('role', UserRole::Developer)
+        ->assertCanSeeTableRecords([$developer])
+        ->assertCanNotSeeTableRecords([$admin, $user, $operator]);
 });
 
 it('sorts users by creation date with newest users first by default', function (): void {

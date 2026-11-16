@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources\Users\Tables;
 
+use App\Enums\UserRole;
 use App\Models\User;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
@@ -16,6 +19,27 @@ class UsersTable
     {
         return $table
             ->filters([
+                SelectFilter::make('role')
+                    ->label('Role')
+                    ->placeholder('All')
+                    ->options(function (): array {
+                        $currentUser = Filament::auth()->user();
+
+                        if ($currentUser?->role === UserRole::Developer) {
+                            return [
+                                UserRole::User->value => UserRole::User->getLabel(),
+                                UserRole::Operator->value => UserRole::Operator->getLabel(),
+                                UserRole::Admin->value => UserRole::Admin->getLabel(),
+                                UserRole::Developer->value => UserRole::Developer->getLabel(),
+                            ];
+                        }
+
+                        return [
+                            UserRole::User->value => UserRole::User->getLabel(),
+                            UserRole::Operator->value => UserRole::Operator->getLabel(),
+                            UserRole::Admin->value => UserRole::Admin->getLabel(),
+                        ];
+                    }),
                 TernaryFilter::make('email_verified_at')
                     ->label('Verified')
                     ->nullable()
