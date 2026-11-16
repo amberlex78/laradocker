@@ -49,6 +49,10 @@
                 $profileUrl = route('filament.site.pages.profile');
 
                 $ctaDestination = match ($user->role) {
+                    \App\Enums\UserRole::Developer => [
+                        'label' => 'Developer panel',
+                        'url' => filament()->getPanel('admin')->getUrl(),
+                    ],
                     \App\Enums\UserRole::Admin => [
                         'label' => 'Admin panel',
                         'url' => filament()->getPanel('admin')->getUrl(),
