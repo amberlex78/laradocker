@@ -38,7 +38,6 @@ class UserForm
                             ->maxLength(255),
                         Select::make('role')
                             ->required()
-                            ->native(false)
                             ->enum(UserRole::class)
                             ->options(function (): array {
                                 $currentUser = Filament::auth()->user();
