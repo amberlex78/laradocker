@@ -30,10 +30,10 @@
     "semantic_hash": ""
   },
   "app/Filament/Resources/Users/UserResource.php": {
-    "mtime": 1794816989.5799453,
-    "seen": 1794818068.876369,
-    "ast_hash": "f31eb9c1b5a21949960e7e0cc38bf4f6",
-    "semantic_hash": "f31eb9c1b5a21949960e7e0cc38bf4f6"
+    "mtime": 1794842105.483389,
+    "seen": 1794856156.4362206,
+    "ast_hash": "f3945a00ae15151d50186157ff689c46",
+    "semantic_hash": ""
   },
   "app/Http/Controllers/Controller.php": {
     "mtime": 1792034868.0,
@@ -204,9 +204,9 @@
     "semantic_hash": "c2bd9cec429df5f0f51f60594a8d7085"
   },
   "tests/Feature/AdminPanelTest.php": {
-    "mtime": 1794817589.574201,
-    "seen": 1794818068.8764591,
-    "ast_hash": "05afd9c57c5b5f21c278b94e29b4e29d",
+    "mtime": 1794842083.5055506,
+    "seen": 1794856156.4363136,
+    "ast_hash": "7fb6f07c9e84b095cfba0893cb944c22",
     "semantic_hash": ""
   },
   "tests/Feature/ExampleTest.php": {
@@ -330,10 +330,10 @@
     "semantic_hash": "e10169a2bad8781a2813af3e2d894143"
   },
   "resources/views/home.blade.php": {
-    "mtime": 1794643791.95759,
-    "seen": 1794814031.956824,
-    "ast_hash": "08e8ef8e05edb5a42d1f073d34b847d2",
-    "semantic_hash": "08e8ef8e05edb5a42d1f073d34b847d2"
+    "mtime": 1794843732.1488595,
+    "seen": 1794856156.43631,
+    "ast_hash": "e174395fde076fbda16d9659806da6ed",
+    "semantic_hash": ""
   },
   "tests/Feature/Filament/Widgets/SystemOverviewTest.php": {
     "mtime": 1794308272.7824914,
@@ -588,10 +588,10 @@
     "semantic_hash": ""
   },
   "app/Filament/Widgets/DeveloperAccountWidget.php": {
-    "mtime": 1794200343.2498927,
-    "seen": 1794201054.3482625,
-    "ast_hash": "1cc158bafe99fce43767cf5ad1f581a1",
-    "semantic_hash": "1cc158bafe99fce43767cf5ad1f581a1"
+    "mtime": 1794844198.8968022,
+    "seen": 1794856156.4362338,
+    "ast_hash": "3e4c6ea306b331ed3a6584d19c4648d3",
+    "semantic_hash": ""
   },
   "app/Filament/Widgets/DeveloperFilamentInfoWidget.php": {
     "mtime": 1794200343.385895,
@@ -651,6 +651,18 @@
     "mtime": 1794742758.0156276,
     "seen": 1794811658.769875,
     "ast_hash": "a38a668c2a3f429e6e0480734d574a4e",
+    "semantic_hash": ""
+  },
+  "resources/views/filament/widgets/developer-account-widget.blade.php": {
+    "mtime": 1794844199.1358275,
+    "seen": 1794856156.4363084,
+    "ast_hash": "636a8e8ec8031626913ba2496f6918da",
+    "semantic_hash": ""
+  },
+  "tests/Feature/Filament/Widgets/DeveloperAccountWidgetTest.php": {
+    "mtime": 1794844171.012692,
+    "seen": 1794856156.4363189,
+    "ast_hash": "b2ace94373f8ae861ed77b2ac81eb836",
     "semantic_hash": ""
   }
 }
