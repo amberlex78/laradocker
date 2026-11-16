@@ -15,7 +15,6 @@
     "**/.git/**",
     "**/.worktrees/**",
     "**/node_modules/**",
-    "**/vendor/**",
     "**/storage/framework/**",
     "**/storage/logs/**",
     "**/storage/pail/**",
