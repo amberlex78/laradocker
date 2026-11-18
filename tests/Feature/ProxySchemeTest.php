@@ -27,18 +27,23 @@ it('generates secure URLs behind a trusted reverse proxy', function (): void {
 });
 
 it('generates local URLs when the container receives no forwarded headers', function (): void {
+    $applicationUrl = rtrim((string) config('app.url'), '/');
+    $applicationHost = (string) parse_url($applicationUrl, PHP_URL_HOST);
+    $applicationPort = parse_url($applicationUrl, PHP_URL_PORT);
+    $host = $applicationHost.($applicationPort !== null ? ':'.$applicationPort : '');
+
     $response = $this->withServerVariables([
         'REMOTE_ADDR' => '127.0.0.1',
     ])->withHeaders([
-        'Host' => 'localhost:8000',
+        'Host' => $host,
     ])->get('/login');
 
     $response
         ->assertOk()
-        ->assertSee('http://localhost:8000/js/filament/forms/components/text-input/password-reveal.js', false)
+        ->assertSee($applicationUrl.'/js/filament/forms/components/text-input/password-reveal.js', false)
         ->assertDontSee('/http:/', false)
         ->assertDontSee('http://localhost/livewire-', false);
 
     expect($response->getContent())
-        ->toMatch('/data-update-uri="http:\/\/localhost:8000\/livewire-[^"]+\/update"/');
+        ->toMatch('/data-update-uri="'.preg_quote($applicationUrl, '/').'\/livewire-[^"]+\/update"/');
 });
