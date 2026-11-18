@@ -120,6 +120,14 @@
                         </form>
                     @else
                         <a
+                            href="{{ route('filament.site.auth.register') }}"
+                            class="inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-green-600 px-3 py-2 text-sm font-medium text-green-700 transition hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 dark:border-green-500 dark:text-green-400 dark:hover:bg-green-500/10 dark:focus:ring-green-500 dark:focus:ring-offset-gray-950"
+                        >
+                            <x-filament::icon icon="heroicon-o-user-plus" class="size-4" />
+                            <span>Sign up</span>
+                        </a>
+
+                        <a
                             href="{{ route('filament.site.auth.login') }}"
                             class="inline-flex w-fit shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-green-600 px-3.5 py-2 text-sm font-medium text-white shadow-xs transition hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500 dark:focus:ring-offset-gray-950"
                         >
@@ -173,6 +181,14 @@
                                 >
                                     <x-filament::icon icon="heroicon-o-arrow-right-end-on-rectangle" class="size-4" />
                                     <span>Sign in</span>
+                                </a>
+
+                                <a
+                                    href="{{ route('filament.site.auth.register') }}"
+                                    class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg border border-green-600 px-5 py-2.5 text-sm font-medium text-green-700 transition hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 dark:border-green-500 dark:text-green-400 dark:hover:bg-green-500/10 dark:focus:ring-green-500 dark:focus:ring-offset-gray-950"
+                                >
+                                    <x-filament::icon icon="heroicon-o-user-plus" class="size-4" />
+                                    <span>Sign up</span>
                                 </a>
 
                                 <a
@@ -384,8 +400,15 @@
 
                             @guest
                                 <a
-                                    href="{{ route('filament.site.auth.login') }}"
+                                    href="{{ route('filament.site.auth.register') }}"
                                     class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg border border-white/60 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/30"
+                                >
+                                    <x-filament::icon icon="heroicon-o-user-plus" class="size-4" />
+                                    <span>Sign up</span>
+                                </a>
+                                <a
+                                    href="{{ route('filament.site.auth.login') }}"
+                                    class="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm shadow-green-600/20 transition hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500 dark:focus:ring-offset-gray-950"
                                 >
                                     <x-filament::icon icon="heroicon-o-arrow-right-end-on-rectangle" class="size-4" />
                                     <span>Sign in</span>

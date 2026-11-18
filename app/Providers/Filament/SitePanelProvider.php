@@ -35,6 +35,8 @@ class SitePanelProvider extends PanelProvider
             ->brandLogo(fn (): View => view('components.brand-logo'))
             ->brandLogoHeight('2.5rem')
             ->login()
+            ->registration()
+            ->passwordReset()
             ->discoverPages(in: app_path('Filament/Site/Pages'), for: 'App\\Filament\\Site\\Pages')
             ->profile(EditProfile::class, isSimple: false)
             ->colors([

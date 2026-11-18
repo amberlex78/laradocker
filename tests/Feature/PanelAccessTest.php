@@ -61,9 +61,11 @@ it('shows guests a sign in button on the home page', function (): void {
     $this->get('/')
         ->assertOk()
         ->assertSee('Sign in')
+        ->assertSee('Sign up')
         ->assertSee(asset('images/laradocker-logo.svg'), false)
         ->assertSee(asset('images/laradocker-logo-dark.svg'), false)
-        ->assertSee(route('filament.site.auth.login'), false);
+        ->assertSee(route('filament.site.auth.login'), false)
+        ->assertSee(route('filament.site.auth.register'), false);
 });
 
 it('links the login logo to the home page', function (): void {
