@@ -18,10 +18,10 @@
     "semantic_hash": "0021d09eae0fd92397b529e3d32956c4"
   },
   "app/Filament/Resources/Users/Schemas/UserForm.php": {
-    "mtime": 1794816989.6949477,
-    "seen": 1794818068.876365,
-    "ast_hash": "ac2ee62d0ed63490cb6b0d370e71ad07",
-    "semantic_hash": "ac2ee62d0ed63490cb6b0d370e71ad07"
+    "mtime": 1794859706.5567863,
+    "seen": 1795001143.3012366,
+    "ast_hash": "19c85077ebee3c5c0921428cc2f9b92e",
+    "semantic_hash": ""
   },
   "app/Filament/Resources/Users/Tables/UsersTable.php": {
     "mtime": 1794817605.1125634,
@@ -288,9 +288,9 @@
     "semantic_hash": "a17b27c138a5017eab9c39b91cb67b5d"
   },
   "tests/Feature/PanelAccessTest.php": {
-    "mtime": 1794831405.9662278,
-    "seen": 1794841239.475344,
-    "ast_hash": "09312f5058c72537a069d193e8003a0d",
+    "mtime": 1794934456.4367974,
+    "seen": 1795001143.301352,
+    "ast_hash": "12aece7110ab9bb45c639a03b96f2b1e",
     "semantic_hash": ""
   },
   "app/Filament/Site/Pages/EditProfile.php": {
@@ -318,10 +318,10 @@
     "semantic_hash": "75c67363f2581bb4657c36ceb4dd93fb"
   },
   "app/Providers/Filament/SitePanelProvider.php": {
-    "mtime": 1794643342.8140895,
-    "seen": 1794814031.9552944,
-    "ast_hash": "dcf534e17899bdd6e17a8a4448fcf6b4",
-    "semantic_hash": "dcf534e17899bdd6e17a8a4448fcf6b4"
+    "mtime": 1794921476.620325,
+    "seen": 1795001143.30128,
+    "ast_hash": "cb0779545663ea51bbe33c8d7665cbe9",
+    "semantic_hash": ""
   },
   "app/Filament/Widgets/SystemOverview.php": {
     "mtime": 1794308242.9331138,
@@ -330,9 +330,9 @@
     "semantic_hash": "e10169a2bad8781a2813af3e2d894143"
   },
   "resources/views/home.blade.php": {
-    "mtime": 1794843732.1488595,
-    "seen": 1794856156.43631,
-    "ast_hash": "e174395fde076fbda16d9659806da6ed",
+    "mtime": 1795000890.2965567,
+    "seen": 1795001143.3013372,
+    "ast_hash": "588589dc3cae798c64799b129fc3a845",
     "semantic_hash": ""
   },
   "tests/Feature/Filament/Widgets/SystemOverviewTest.php": {
@@ -408,9 +408,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794341281.4451067,
-    "seen": 1794587229.6817575,
-    "ast_hash": "a22de02cf3fde324c5f4e8f7c14f304c",
+    "mtime": 1794995034.0623322,
+    "seen": 1795001143.3013725,
+    "ast_hash": "e3d3148f7aaec8e553bc44998281bbdb",
     "semantic_hash": ""
   },
   "docs/cloudflare.md": {
@@ -426,9 +426,9 @@
     "semantic_hash": ""
   },
   "docs/development.md": {
-    "mtime": 1794588137.8866928,
-    "seen": 1794636284.29359,
-    "ast_hash": "5113f2fb59e99e09e268efce859724e2",
+    "mtime": 1794995033.9773319,
+    "seen": 1795001143.3013763,
+    "ast_hash": "e2ad4b5dfc3c75a0e6557fec0b612104",
     "semantic_hash": ""
   },
   "docs/operations.md": {
@@ -438,9 +438,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794588137.7786825,
-    "seen": 1794636284.2935817,
-    "ast_hash": "22538b92c883457078cf3d14876d04e5",
+    "mtime": 1794995385.1458037,
+    "seen": 1795001143.301367,
+    "ast_hash": "b362eebb4b33daa085f88e0e283bbc43",
     "semantic_hash": ""
   },
   "public/images/laradocker-logo-dark.svg": {
@@ -654,15 +654,21 @@
     "semantic_hash": ""
   },
   "resources/views/filament/widgets/developer-account-widget.blade.php": {
-    "mtime": 1794844199.1358275,
-    "seen": 1794856156.4363084,
-    "ast_hash": "636a8e8ec8031626913ba2496f6918da",
+    "mtime": 1794858668.5622375,
+    "seen": 1795001143.3013358,
+    "ast_hash": "c2376be295c215fb578f7dcab41084bc",
     "semantic_hash": ""
   },
   "tests/Feature/Filament/Widgets/DeveloperAccountWidgetTest.php": {
     "mtime": 1794844171.012692,
     "seen": 1794856156.4363189,
     "ast_hash": "b2ace94373f8ae861ed77b2ac81eb836",
+    "semantic_hash": ""
+  },
+  "tests/Feature/RegistrationTest.php": {
+    "mtime": 1794921498.54778,
+    "seen": 1795001143.3013551,
+    "ast_hash": "1aa4d055880102ffa13b1a66b9a4c545",
     "semantic_hash": ""
   }
 }
