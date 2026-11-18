@@ -61,7 +61,7 @@ it('resets the password and terminates all existing sessions', function (): void
         ->assertRedirect('/login');
 
     expect(Hash::check('NewPassword123!', $user->refresh()->password))->toBeTrue()
-        ->and($loginSession->refresh()->end_reason)->toBe(LoginSessionEndReason::Terminated)
+        ->and($loginSession->refresh()->end_reason)->toBe(LoginSessionEndReason::PasswordReset)
         ->and($loginSession->logged_out_at)->not->toBeNull()
         ->and($otherLoginSession->refresh()->logged_out_at)->toBeNull()
         ->and(DB::table('sessions')->where('id', 'user-session')->exists())->toBeFalse()

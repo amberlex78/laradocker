@@ -72,7 +72,7 @@ it('does not overwrite an already-ended login session', function (): void {
     $endedAt = now()->subMinute();
     $loginSession = LoginSession::factory()->for($user)->ended()->create([
         'logged_out_at' => $endedAt,
-        'end_reason' => LoginSessionEndReason::Terminated,
+        'end_reason' => LoginSessionEndReason::ManuallyTerminated,
     ]);
     $originalLoggedOutAt = $loginSession->getRawOriginal('logged_out_at');
 
@@ -81,7 +81,7 @@ it('does not overwrite an already-ended login session', function (): void {
     app(EndLoginSession::class)->handle();
 
     expect($loginSession->refresh()->getRawOriginal('logged_out_at'))->toBe($originalLoggedOutAt)
-        ->and($loginSession->end_reason)->toBe(LoginSessionEndReason::Terminated)
+        ->and($loginSession->end_reason)->toBe(LoginSessionEndReason::ManuallyTerminated)
         ->and(session()->has(LoginSession::SESSION_KEY))->toBeFalse();
 });
 

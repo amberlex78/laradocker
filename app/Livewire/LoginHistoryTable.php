@@ -33,15 +33,16 @@ class LoginHistoryTable extends TableWidget
             'date_formats.date_time.'.app()->getLocale(),
             config('date_formats.date_time.'.config('date_formats.default_locale')),
         );
+        $terminationReasonValues = LoginSessionEndReason::terminationValues();
 
         return $table
             ->heading(null)
             ->description(null)
             ->query(fn (): Builder => LoginSession::query()
                 ->where('user_id', Filament::auth()->id())
-                ->where(function (Builder $query) use ($context): void {
+                ->where(function (Builder $query) use ($context, $terminationReasonValues): void {
                     $query
-                        ->where('end_reason', LoginSessionEndReason::Terminated->value)
+                        ->whereIn('end_reason', $terminationReasonValues)
                         ->orWhereNotNull('logged_out_at')
                         ->orWhere(function (Builder $query) use ($context): void {
                             $query
@@ -83,25 +84,25 @@ class LoginHistoryTable extends TableWidget
                         LoginSessionStatus::SignedOut->value => LoginSessionStatus::SignedOut->getLabel(),
                         LoginSessionStatus::Terminated->value => LoginSessionStatus::Terminated->getLabel(),
                     ])
-                    ->query(function (Builder $query, array $data) use ($context): void {
+                    ->query(function (Builder $query, array $data) use ($context, $terminationReasonValues): void {
                         match ($data['value'] ?? null) {
                             LoginSessionStatus::Expired->value => $query
-                                ->where(function (Builder $query): void {
+                                ->where(function (Builder $query) use ($terminationReasonValues): void {
                                     $query
                                         ->whereNull('end_reason')
-                                        ->orWhere('end_reason', '!=', LoginSessionEndReason::Terminated->value);
+                                        ->orWhereNotIn('end_reason', $terminationReasonValues);
                                 })
                                 ->whereNull('logged_out_at')
                                 ->where('last_seen_at', '<', $context->inactivityThreshold),
                             LoginSessionStatus::SignedOut->value => $query
                                 ->whereNotNull('logged_out_at')
-                                ->where(function (Builder $query): void {
+                                ->where(function (Builder $query) use ($terminationReasonValues): void {
                                     $query
                                         ->whereNull('end_reason')
-                                        ->orWhere('end_reason', '!=', LoginSessionEndReason::Terminated->value);
+                                        ->orWhereNotIn('end_reason', $terminationReasonValues);
                                 }),
                             LoginSessionStatus::Terminated->value => $query
-                                ->where('end_reason', LoginSessionEndReason::Terminated->value),
+                                ->whereIn('end_reason', $terminationReasonValues),
                             default => null,
                         };
                     }),

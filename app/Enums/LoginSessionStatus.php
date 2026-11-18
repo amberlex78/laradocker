@@ -41,7 +41,7 @@ enum LoginSessionStatus: string implements HasColor, HasLabel
             self::Current => 'This is your current session.',
             self::Active => 'This session is still signed in.',
             self::SignedOut => 'You signed out of this session.',
-            self::Terminated => 'Ended remotely with "Terminate other sessions".',
+            self::Terminated => 'This session was terminated remotely.',
             self::Expired => 'The session timed out due to inactivity. Shown time is the last activity.',
         };
     }

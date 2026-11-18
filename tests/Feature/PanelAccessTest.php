@@ -1,8 +1,10 @@
 <?php
 
+use App\Enums\LoginSessionEndReason;
 use App\Enums\UserRole;
 use App\Filament\Site\Pages\EditProfile;
 use App\Filament\Site\Pages\ViewProfile;
+use App\Models\LoginSession;
 use App\Models\User;
 use Filament\Auth\Http\Responses\Contracts\LoginResponse;
 use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
@@ -13,6 +15,8 @@ use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentColor;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Notifications\AnonymousNotifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
@@ -410,6 +414,8 @@ it('saves profile details without changing the password when password fields are
     $this->actingAs($user);
     Filament::setCurrentPanel('site');
 
+    $otherLoginSession = LoginSession::factory()->for($user)->create();
+
     Livewire::test(EditProfile::class)
         ->fillForm([
             'name' => 'Updated name',
@@ -421,7 +427,8 @@ it('saves profile details without changing the password when password fields are
         ->call('save')
         ->assertHasNoFormErrors();
 
-    expect($user->refresh()->name)->toBe('Updated name');
+    expect($user->refresh()->name)->toBe('Updated name')
+        ->and($otherLoginSession->refresh()->logged_out_at)->toBeNull();
 });
 
 it('allows an admin to update their own details through the profile', function (): void {
@@ -471,6 +478,54 @@ it('hides conditional password fields after saving a password change', function 
             'passwordConfirmation' => null,
         ])
         ->assertDontSee('Confirm new password');
+});
+
+it('terminates other sessions immediately after changing the profile password', function (): void {
+    config()->set('session.driver', 'database');
+
+    $user = User::factory()->create(['password' => 'password']);
+    $otherUser = User::factory()->create();
+
+    $this->actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $currentSessionId = session()->getId();
+    $currentLoginSession = LoginSession::factory()->for($user)->create([
+        'session_id' => $currentSessionId,
+    ]);
+    $otherLoginSession = LoginSession::factory()->for($user)->create([
+        'session_id' => 'other-session-id',
+    ]);
+    $otherUserLoginSession = LoginSession::factory()->for($otherUser)->create([
+        'session_id' => 'other-user-session-id',
+    ]);
+
+    foreach ([$currentSessionId => $user, 'other-session-id' => $user, 'other-user-session-id' => $otherUser] as $sessionId => $owner) {
+        DB::table('sessions')->insert([
+            'id' => $sessionId,
+            'user_id' => $owner->getKey(),
+            'payload' => base64_encode(serialize([])),
+            'last_activity' => now()->timestamp,
+        ]);
+    }
+
+    Livewire::test(EditProfile::class)
+        ->fillForm([
+            'currentPassword' => 'password',
+            'password' => 'NewPassword123!',
+            'passwordConfirmation' => 'NewPassword123!',
+        ])
+        ->call('save')
+        ->assertHasNoFormErrors();
+
+    expect(Hash::check('NewPassword123!', $user->refresh()->password))->toBeTrue()
+        ->and($currentLoginSession->refresh()->logged_out_at)->toBeNull()
+        ->and($otherLoginSession->refresh()->end_reason)->toBe(LoginSessionEndReason::PasswordChanged)
+        ->and($otherLoginSession->logged_out_at)->not->toBeNull()
+        ->and($otherUserLoginSession->refresh()->logged_out_at)->toBeNull()
+        ->and(DB::table('sessions')->where('id', $currentSessionId)->exists())->toBeTrue()
+        ->and(DB::table('sessions')->where('id', 'other-session-id')->exists())->toBeFalse()
+        ->and(DB::table('sessions')->where('id', 'other-user-session-id')->exists())->toBeTrue();
 });
 
 it('shows both panel links to admins in the profile menu', function (): void {

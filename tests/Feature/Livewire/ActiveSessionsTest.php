@@ -232,6 +232,8 @@ it('does not terminate sessions when the current password is invalid', function 
 });
 
 it('terminates other sessions after the current password is confirmed', function (): void {
+    config()->set('session.driver', 'database');
+
     $user = User::factory()->create();
     $otherUser = User::factory()->create();
 
@@ -263,7 +265,7 @@ it('terminates other sessions after the current password is confirmed', function
         ->toBe(Auth::user()->getAuthPassword())
         ->and($currentSession->refresh()->logged_out_at)->toBeNull()
         ->and($otherSession->refresh()->logged_out_at)->not->toBeNull()
-        ->and($otherSession->end_reason->value)->toBe('terminated')
+        ->and($otherSession->end_reason->value)->toBe('manually_terminated')
         ->and($otherUserSession->refresh()->logged_out_at)->toBeNull()
         ->and(DB::table(config('session.table'))->where('id', 'other-session-id')->exists())->toBeFalse()
         ->and(DB::table(config('session.table'))->where('id', 'other-user-session-id')->exists())->toBeTrue();
@@ -287,7 +289,7 @@ it('renders only historical login sessions for the authenticated user', function
     $signedOutSession = LoginSession::factory()->for($user)->ended()->create(['ip_address' => '203.0.113.32']);
     $terminatedSession = LoginSession::factory()->for($user)->ended()->create([
         'ip_address' => '203.0.113.33',
-        'end_reason' => 'terminated',
+        'end_reason' => LoginSessionEndReason::PasswordReset,
     ]);
     $otherUserSession = LoginSession::factory()->for($otherUser)->ended()->create(['ip_address' => '203.0.113.34']);
 
@@ -324,7 +326,7 @@ it('filters login history by its computed historical status', function (): void 
     $expiredSession = LoginSession::factory()->for($user)->expired()->create();
     $signedOutSession = LoginSession::factory()->for($user)->ended()->create();
     $terminatedSession = LoginSession::factory()->for($user)->ended()->create([
-        'end_reason' => 'terminated',
+        'end_reason' => LoginSessionEndReason::PasswordReset,
         'logged_out_at' => null,
     ]);
 
@@ -445,7 +447,7 @@ it('resolves login session status with the documented precedence', function (): 
         'session_id' => 'current-http-session-id',
         'last_seen_at' => $now->copy()->subMinutes(31),
         'logged_out_at' => $now,
-        'end_reason' => LoginSessionEndReason::Terminated,
+        'end_reason' => LoginSessionEndReason::PasswordReset,
     ]);
     $signedOut = LoginSession::factory()->for($user)->create([
         'session_id' => 'current-http-session-id',
