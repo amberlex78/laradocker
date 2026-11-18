@@ -31,6 +31,7 @@ class OperatorPanelProvider extends PanelProvider
         return $panel
             ->id('operator')
             ->path('operator')
+            ->emailVerification()
             ->brandLogo(fn (): View => view('components.brand-logo'))
             ->brandLogoHeight('2.5rem')
             ->globalSearch(false)

@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Enums\UserRole;
+use App\Filament\Auth\Pages\RequestPasswordReset;
 use App\Filament\Site\Pages\EditProfile;
 use App\Filament\Site\Pages\ViewProfile;
 use App\Http\Middleware\TrackLoginSession;
@@ -36,7 +37,9 @@ class SitePanelProvider extends PanelProvider
             ->brandLogoHeight('2.5rem')
             ->login()
             ->registration()
-            ->passwordReset()
+            ->emailVerification()
+            ->emailChangeVerification()
+            ->passwordReset(RequestPasswordReset::class)
             ->discoverPages(in: app_path('Filament/Site/Pages'), for: 'App\\Filament\\Site\\Pages')
             ->profile(EditProfile::class, isSimple: false)
             ->colors([

@@ -6,11 +6,14 @@ use App\Filament\Site\Pages\ViewProfile;
 use App\Models\User;
 use Filament\Auth\Http\Responses\Contracts\LoginResponse;
 use Filament\Auth\Http\Responses\Contracts\LogoutResponse;
+use Filament\Auth\Notifications\VerifyEmailChange;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentColor;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Notifications\AnonymousNotifiable;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
 it('resolves site panel colors after a session user becomes available', function (): void {
@@ -344,6 +347,8 @@ it('restricts profile email editing by role', function (UserRole $role, bool $ca
     $profile = Livewire::test(EditProfile::class);
 
     if ($canEditEmail) {
+        Notification::fake();
+
         $profile
             ->assertSee('Email')
             ->fillForm([
@@ -355,7 +360,11 @@ it('restricts profile email editing by role', function (UserRole $role, bool $ca
             ->call('save')
             ->assertHasNoFormErrors();
 
-        expect($user->refresh()->email)->toBe('updated@example.com');
+        expect($user->refresh()->email)->toBe('original@example.com');
+        Notification::assertSentOnDemand(
+            VerifyEmailChange::class,
+            fn (VerifyEmailChange $notification, array $channels, AnonymousNotifiable $notifiable): bool => $channels === ['mail'] && $notifiable->routes['mail'] === 'updated@example.com',
+        );
 
         return;
     }
