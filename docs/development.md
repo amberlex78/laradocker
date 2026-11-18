@@ -61,6 +61,8 @@ dependencies та створює `APP_KEY`, якщо він порожній. Н
 | Health endpoint | <http://localhost:8000/up> |
 | Vite HMR | <http://localhost:5173> |
 | MariaDB для host-клієнта | `127.0.0.1:3306` |
+| Mailpit web-інтерфейс | <http://localhost:8025> |
+| Mailpit SMTP для host-клієнта | `127.0.0.1:1025` |
 | Adminer | <http://localhost:8090> |
 
 ## Щоденні команди
@@ -135,6 +137,8 @@ make shell-mariadb
 | `VITE_HMR_PORT` | `5173` | `5174` |
 | `DB_FORWARD_PORT` | `3306` | `3307` |
 | `ADMINER_FORWARD_PORT` | `8090` | `8091` |
+| `MAILPIT_SMTP_FORWARD_PORT` | `1025` | `1026` |
+| `MAILPIT_FORWARD_PORT` | `8025` | `8026` |
 
 Мінімальні зміни в `.env` другого проєкту:
 
@@ -148,11 +152,17 @@ VITE_PORT=5173
 VITE_HMR_PORT=5174
 DB_FORWARD_PORT=3307
 ADMINER_FORWARD_PORT=8091
+MAILPIT_SMTP_FORWARD_PORT=1026
+MAILPIT_FORWARD_PORT=8026
 ```
 
-`VITE_PORT=5173`, `DB_HOST=mariadb` і `DB_PORT=3306` залишаються
-незмінними: це адреси всередині окремих Docker-мереж. Змінюються лише
-host-facing порти.
+`VITE_PORT=5173`, `DB_HOST=mariadb`, `DB_PORT=3306`, `MAIL_HOST=mailpit` і
+`MAIL_PORT=1025` залишаються незмінними: це адреси та порти всередині
+окремих Docker-мереж. Змінюються лише host-facing порти.
+
+Для Mailpit це означає: Laravel у контейнері підключається до
+`mailpit:1025`, web-інтерфейс другого проєкту відкривається на
+<http://localhost:8026>, а зовнішній SMTP-порт другого проєкту — `1026`.
 
 ## Production-образ локально
 
@@ -199,9 +209,10 @@ make logs
 curl -I http://127.0.0.1:8000/up
 ```
 
-Якщо другий проєкт не запускається, перевірте всі п'ять host-портів:
-application, Vite, HMR, MariaDB та Adminer. Якщо frontend-зміни не видно,
-перезапустіть Vite через `make vite` або перевірте `make logs`.
+Якщо другий проєкт не запускається, перевірте у його `.env` унікальність
+`COMPOSE_PROJECT_NAME` і host-портів application, Vite/HMR, MariaDB, Mailpit
+(SMTP та web) і Adminer. Якщо frontend-зміни не видно, перезапустіть Vite
+через `make vite` або перевірте `make logs`.
 
 Деталі мереж і портів описані в [Docker-архітектурі](architecture.md).
 Production deployment дивіться в [інструкції для Ubuntu VPS](deployment.md).

@@ -100,12 +100,16 @@ Compose створює окремі мережі для кожного `COMPOSE_
 | PHP-FPM | `app:9000` | Ні |
 | MariaDB | `mariadb:3306` | Ні |
 | Vite | `node:5173` | Ні |
+| Mailpit SMTP | `mailpit:1025` | Ні |
+| Mailpit web | `mailpit:8025` | Ні |
 
 Host-порти потрібні лише для входу з операційної системи. У development це:
 
 - `DEV_HTTP_PORT` для застосунку;
 - `VITE_FORWARD_PORT` і `VITE_HMR_PORT` для Vite/HMR;
 - `DB_FORWARD_PORT` для host-клієнтів MariaDB;
+- `MAILPIT_SMTP_FORWARD_PORT` для SMTP-клієнтів на host;
+- `MAILPIT_FORWARD_PORT` для web-інтерфейсу Mailpit;
 - `ADMINER_FORWARD_PORT` для Adminer.
 
 У production змінна `PROD_HTTP_PORT` публікує Docker Nginx тільки на

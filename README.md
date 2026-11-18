@@ -36,12 +36,15 @@ make db-seed
 | Health endpoint | <http://localhost:8000/up> |
 | Vite HMR | <http://localhost:5173> |
 | MariaDB для host-клієнта | `127.0.0.1:3306` |
+| Mailpit web-інтерфейс | <http://localhost:8025> |
+| Mailpit SMTP для host-клієнта | `127.0.0.1:1025` |
 | Adminer | <http://localhost:8090> |
 
 Compose складається зі спільного файла та окремих development/production
 overlay. Контейнери використовують сталі внутрішні порти, а конфлікти між
-копіями усуваються зміною host-портів. Детальна схема — у
-[Docker-архітектурі](docs/architecture.md).
+копіями усуваються зміною host-портів. Для запуску кількох development-копій
+дивіться [окрему інструкцію](docs/development.md#кілька-проєктів-одночасно), а
+схема мереж описана в [Docker-архітектурі](docs/architecture.md).
 
 ## Основні команди
 
