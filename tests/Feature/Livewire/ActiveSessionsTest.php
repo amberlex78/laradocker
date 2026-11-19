@@ -317,6 +317,35 @@ it('renders device models in session history', function (): void {
         ->assertSee('Smartphone · iPhone');
 });
 
+it('displays the specific reason for terminated sessions in login history', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $passwordChangedSession = LoginSession::factory()->for($user)->ended()->create([
+        'end_reason' => LoginSessionEndReason::PasswordChanged,
+    ]);
+    $passwordResetSession = LoginSession::factory()->for($user)->ended()->create([
+        'end_reason' => LoginSessionEndReason::PasswordReset,
+    ]);
+    $manuallyTerminatedSession = LoginSession::factory()->for($user)->ended()->create([
+        'end_reason' => LoginSessionEndReason::ManuallyTerminated,
+    ]);
+    $signedOutSession = LoginSession::factory()->for($user)->ended()->create();
+    $expiredSession = LoginSession::factory()->for($user)->expired()->create();
+
+    Livewire::test(LoginHistoryTable::class)
+        ->assertTableColumnDoesNotExist('end_reason')
+        ->assertTableColumnExists('status_date')
+        ->assertSee('Password changed')
+        ->assertSee('Password reset')
+        ->assertSee('Manually terminated')
+        ->assertDontSee('This session was terminated remotely.')
+        ->assertDontSee('You signed out of this session.')
+        ->assertSee('This is the last activity before the session expired.');
+});
+
 it('filters login history by its computed historical status', function (): void {
     $user = User::factory()->create();
 
@@ -429,7 +458,7 @@ it('sorts login history by the status date after applying a status filter', func
 
     Livewire::test(LoginHistoryTable::class)
         ->filterTable('status', LoginSessionStatus::Expired)
-        ->sortTable('status', 'asc')
+        ->sortTable('status_date', 'asc')
         ->assertCanSeeTableRecords([$olderExpiredSession, $newerExpiredSession], inOrder: true);
 });
 

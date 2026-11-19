@@ -2,7 +2,9 @@
 
 namespace App\Enums;
 
-enum LoginSessionEndReason: string
+use Filament\Support\Contracts\HasLabel;
+
+enum LoginSessionEndReason: string implements HasLabel
 {
     case LoggedOut = 'logged_out';
     case ManuallyTerminated = 'manually_terminated';
@@ -12,6 +14,16 @@ enum LoginSessionEndReason: string
     public function isTermination(): bool
     {
         return $this !== self::LoggedOut;
+    }
+
+    public function getLabel(): string
+    {
+        return match ($this) {
+            self::LoggedOut => 'Signed out',
+            self::ManuallyTerminated => 'Manually terminated',
+            self::PasswordReset => 'Password reset',
+            self::PasswordChanged => 'Password changed',
+        };
     }
 
     /**

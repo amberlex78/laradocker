@@ -8,6 +8,7 @@ use App\Filament\Tables\Columns\DeviceColumn;
 use App\Models\LoginSession;
 use App\Services\LoginSessionStatusContext;
 use App\Services\LoginSessionStatusResolver;
+use Carbon\CarbonInterface;
 use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\PaginationMode;
@@ -29,11 +30,15 @@ class LoginHistoryTable extends TableWidget
     {
         $context = LoginSessionStatusContext::fromCurrentRequest();
         $resolver = new LoginSessionStatusResolver;
-        $dateTimeFormat = config(
-            'date_formats.date_time.'.app()->getLocale(),
-            config('date_formats.date_time.'.config('date_formats.default_locale')),
-        );
         $terminationReasonValues = LoginSessionEndReason::terminationValues();
+        $statusDate = static function (LoginSession $record) use ($context, $resolver): ?CarbonInterface {
+            return match ($resolver->resolveStatus($record, $context)) {
+                LoginSessionStatus::Terminated,
+                LoginSessionStatus::SignedOut => $record->logged_out_at,
+                LoginSessionStatus::Expired => $record->last_seen_at,
+                default => null,
+            };
+        };
 
         return $table
             ->heading(null)
@@ -117,24 +122,27 @@ class LoginHistoryTable extends TableWidget
                     ->label('Signed in at')
                     ->dateTime()
                     ->sortable(),
-                TextColumn::make('status')
-                    ->label('Status')
-                    ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
-                    ->badge()
+                TextColumn::make('status_date')
+                    ->label('Date')
+                    ->state($statusDate)
+                    ->dateTime()
+                    ->tooltip(function (LoginSession $record) use ($context, $resolver): ?string {
+                        return $resolver->resolveStatus($record, $context) === LoginSessionStatus::Expired
+                            ? 'This is the last activity before the session expired.'
+                            : null;
+                    })
                     ->sortable(query: function (Builder $query, string $direction): void {
                         $direction = $direction === 'desc' ? 'desc' : 'asc';
 
                         $query->orderByRaw("COALESCE(logged_out_at, last_seen_at) {$direction}");
-                    })
-                    ->tooltip(fn (LoginSessionStatus $state): string => $state->getTooltip())
-                    ->description(function (LoginSession $record, LoginSessionStatus $state) use ($dateTimeFormat): ?string {
-                        return match ($state) {
-                            LoginSessionStatus::Terminated,
-                            LoginSessionStatus::SignedOut => $record->logged_out_at?->translatedFormat($dateTimeFormat),
-                            LoginSessionStatus::Expired => $record->last_seen_at->translatedFormat($dateTimeFormat),
-                            default => null,
-                        };
                     }),
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->state(fn (LoginSession $record): LoginSessionStatus => $resolver->resolveStatus($record, $context))
+                    ->badge()
+                    ->description(fn (LoginSession $record, LoginSessionStatus $state): ?string => $state === LoginSessionStatus::Terminated
+                        ? $record->end_reason?->getLabel()
+                        : null),
             ])
             ->defaultSort('logged_in_at', 'desc')
             ->paginationMode(PaginationMode::Default)
