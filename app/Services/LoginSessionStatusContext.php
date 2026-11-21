@@ -13,7 +13,7 @@ final readonly class LoginSessionStatusContext
     public function __construct(
         public ?string $currentLoginJournalId,
         public string $currentHttpSessionId,
-        public CarbonInterface $inactivityThreshold,
+        public CarbonInterface $currentTime,
     ) {}
 
     /**
@@ -26,7 +26,7 @@ final readonly class LoginSessionStatusContext
         return new self(
             currentLoginJournalId: $currentLoginJournalId === null ? null : (string) $currentLoginJournalId,
             currentHttpSessionId: session()->getId(),
-            inactivityThreshold: now()->subMinutes((int) config('session.lifetime')),
+            currentTime: now(),
         );
     }
 }

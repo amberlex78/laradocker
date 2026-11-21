@@ -40,9 +40,12 @@ class TrackLoginSession
         }
 
         if ($loginSession->last_seen_at->lte(now()->subMinutes(self::TOUCH_INTERVAL_MINUTES))) {
+            $now = now();
+
             $loginSession->forceFill([
                 'session_id' => session()->getId(),
-                'last_seen_at' => now(),
+                'last_seen_at' => $now,
+                'expires_at' => $now->copy()->addMinutes((int) config('session.lifetime')),
             ])->save();
         }
 

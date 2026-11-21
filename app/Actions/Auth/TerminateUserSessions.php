@@ -18,7 +18,7 @@ class TerminateUserSessions
 
         LoginSession::query()
             ->whereBelongsTo($user)
-            ->whereNull('logged_out_at')
+            ->active()
             ->when($currentLoginSessionId !== null, fn ($query) => $query->whereKeyNot($currentLoginSessionId))
             ->when($currentSessionId !== null, fn ($query) => $query
                 ->where(fn ($query) => $query

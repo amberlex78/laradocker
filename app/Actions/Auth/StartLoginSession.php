@@ -18,6 +18,8 @@ class StartLoginSession
             $request->server->all(),
         );
 
+        $now = now();
+
         $loginSession = LoginSession::query()->create([
             'user_id' => $user->getAuthIdentifier(),
             'guard' => $guard,
@@ -28,8 +30,9 @@ class StartLoginSession
             'operating_system' => $device['operatingSystem'],
             'device' => $device['device'],
             'device_model' => $device['model'],
-            'logged_in_at' => now(),
-            'last_seen_at' => now(),
+            'logged_in_at' => $now,
+            'last_seen_at' => $now,
+            'expires_at' => $now->copy()->addMinutes((int) config('session.lifetime')),
         ]);
 
         session()->put(LoginSession::SESSION_KEY, $loginSession->getKey());

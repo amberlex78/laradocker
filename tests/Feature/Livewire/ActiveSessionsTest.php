@@ -273,6 +273,32 @@ it('terminates other sessions after the current password is confirmed', function
     $this->get('/profile')->assertOk();
 });
 
+it('does not manually terminate login sessions that already expired', function (): void {
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $currentSession = LoginSession::factory()->for($user)->create([
+        'session_id' => session()->getId(),
+    ]);
+    $expiredSession = LoginSession::factory()->for($user)->expired()->create();
+    $activeSession = LoginSession::factory()->for($user)->create();
+
+    Livewire::test(ActiveSessionsTable::class)
+        ->callAction(
+            TestAction::make('terminateOtherSessions')->table(),
+            data: ['currentPassword' => 'password'],
+        )
+        ->assertNotified('Other sessions terminated');
+
+    expect($currentSession->refresh()->logged_out_at)->toBeNull()
+        ->and($expiredSession->refresh()->end_reason)->toBeNull()
+        ->and($expiredSession->logged_out_at)->toBeNull()
+        ->and($activeSession->refresh()->end_reason)->toBe(LoginSessionEndReason::ManuallyTerminated)
+        ->and($activeSession->logged_out_at)->not->toBeNull();
+});
+
 it('renders only historical login sessions for the authenticated user', function (): void {
     $user = User::factory()->create();
     $otherUser = User::factory()->create();
@@ -449,11 +475,13 @@ it('sorts login history by the status date after applying a status filter', func
 
     $olderExpiredSession = LoginSession::factory()->for($user)->expired()->create([
         'logged_in_at' => now()->subDay(),
-        'last_seen_at' => now()->subMinutes((int) config('session.lifetime') + 60),
+        'last_seen_at' => now()->subHours(3),
+        'expires_at' => now()->subHours(2),
     ]);
     $newerExpiredSession = LoginSession::factory()->for($user)->expired()->create([
         'logged_in_at' => now()->subHours(2),
-        'last_seen_at' => now()->subMinutes((int) config('session.lifetime') + 30),
+        'last_seen_at' => now()->subHours(4),
+        'expires_at' => now()->subHour(),
     ]);
 
     Livewire::test(LoginHistoryTable::class)
@@ -468,7 +496,7 @@ it('resolves login session status with the documented precedence', function (): 
     $context = new LoginSessionStatusContext(
         currentLoginJournalId: 'current-journal-id',
         currentHttpSessionId: 'current-http-session-id',
-        inactivityThreshold: $now->copy()->subMinutes(30),
+        currentTime: $now,
     );
     $resolver = new LoginSessionStatusResolver;
 
@@ -487,6 +515,7 @@ it('resolves login session status with the documented precedence', function (): 
     $expired = LoginSession::factory()->for($user)->create([
         'session_id' => 'current-http-session-id',
         'last_seen_at' => $now->copy()->subMinutes(31),
+        'expires_at' => $now->copy()->subMinute(),
     ]);
     $current = LoginSession::factory()->for($user)->create([
         'id' => 'current-journal-id',
@@ -505,6 +534,27 @@ it('resolves login session status with the documented precedence', function (): 
         ->and(LoginSessionStatus::Terminated->getColor())->toBe(Color::Red);
 });
 
+it('displays the inactivity expiration deadline for expired history', function (): void {
+    $now = Carbon::create(2026, 11, 21, 16);
+    $this->travelTo($now);
+
+    $user = User::factory()->create();
+
+    actingAs($user);
+    Filament::setCurrentPanel('site');
+
+    $expiredSession = LoginSession::factory()->for($user)->create([
+        'logged_in_at' => $now->copy()->subHours(5),
+        'last_seen_at' => $now->copy()->subHours(3),
+        'expires_at' => $now->copy()->subHours(2),
+    ]);
+
+    Livewire::test(LoginHistoryTable::class)
+        ->assertCanSeeTableRecords([$expiredSession])
+        ->assertSee('Nov 21, 2026 14:00:00')
+        ->assertDontSee('Nov 21, 2026 13:00:00');
+});
+
 it('captures the current request values in the login session status context', function (): void {
     $now = Carbon::create(2026, 11, 8, 12);
     $this->travelTo($now);
@@ -515,7 +565,7 @@ it('captures the current request values in the login session status context', fu
 
     expect($context->currentLoginJournalId)->toBe('12345')
         ->and($context->currentHttpSessionId)->toBe(session()->getId())
-        ->and($context->inactivityThreshold->equalTo($now->copy()->subMinutes(30)))->toBeTrue();
+        ->and($context->currentTime->equalTo($now))->toBeTrue();
 });
 
 it('renders the session history page', function (): void {

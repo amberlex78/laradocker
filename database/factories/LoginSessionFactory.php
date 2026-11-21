@@ -18,6 +18,8 @@ class LoginSessionFactory extends Factory
      */
     public function definition(): array
     {
+        $now = now();
+
         return [
             'user_id' => User::factory(),
             'guard' => 'web',
@@ -28,8 +30,9 @@ class LoginSessionFactory extends Factory
             'operating_system' => null,
             'device' => null,
             'device_model' => null,
-            'logged_in_at' => now(),
-            'last_seen_at' => now(),
+            'logged_in_at' => $now,
+            'last_seen_at' => $now,
+            'expires_at' => $now->copy()->addMinutes((int) config('session.lifetime')),
             'logged_out_at' => null,
             'end_reason' => null,
         ];
@@ -39,6 +42,7 @@ class LoginSessionFactory extends Factory
     {
         return $this->state(fn (): array => [
             'last_seen_at' => now()->subMinutes((int) config('session.lifetime') + 1),
+            'expires_at' => now()->subMinute(),
         ]);
     }
 

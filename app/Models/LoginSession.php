@@ -26,6 +26,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $device_model
  * @property Carbon $logged_in_at
  * @property Carbon $last_seen_at
+ * @property Carbon $expires_at
  * @property Carbon|null $logged_out_at
  * @property LoginSessionEndReason|null $end_reason
  */
@@ -41,6 +42,7 @@ use Illuminate\Support\Carbon;
     'device_model',
     'logged_in_at',
     'last_seen_at',
+    'expires_at',
     'logged_out_at',
     'end_reason',
 ])]
@@ -64,6 +66,7 @@ class LoginSession extends Model
         return [
             'logged_in_at' => 'datetime',
             'last_seen_at' => 'datetime',
+            'expires_at' => 'datetime',
             'logged_out_at' => 'datetime',
             'end_reason' => LoginSessionEndReason::class,
         ];
@@ -78,7 +81,7 @@ class LoginSession extends Model
     }
 
     /**
-     * Sessions that were not ended and have been seen within the session lifetime.
+     * Sessions that have not ended and have not reached their inactivity deadline.
      *
      * @param  Builder<LoginSession>  $query
      * @return Builder<LoginSession>
@@ -88,6 +91,6 @@ class LoginSession extends Model
     {
         return $query
             ->whereNull('logged_out_at')
-            ->where('last_seen_at', '>=', now()->subMinutes((int) config('session.lifetime')));
+            ->where('expires_at', '>=', now());
     }
 }

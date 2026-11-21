@@ -21,6 +21,18 @@ it('records a login session with a session token on login', function (): void {
         ->and($loginSession->logged_out_at)->toBeNull();
 });
 
+it('stores the inactivity expiration deadline when starting a login session', function (): void {
+    config()->set('session.lifetime', 30);
+
+    $user = User::factory()->create();
+
+    actingAs($user)->get('/profile')->assertOk();
+
+    $loginSession = LoginSession::query()->whereBelongsTo($user)->sole();
+
+    expect($loginSession->expires_at->equalTo($loginSession->last_seen_at->copy()->addMinutes(30)))->toBeTrue();
+});
+
 it('stores browser details from client hints when tracking a login session', function (): void {
     $user = User::factory()->create();
 
@@ -109,6 +121,9 @@ it('does not write on every request but refreshes stale activity', function (): 
 
     $this->get('/profile')->assertOk();
 
-    expect($loginSession->refresh()->last_seen_at->gt(now()->subMinute()))->toBeTrue()
+    $refreshedLoginSession = $loginSession->refresh();
+
+    expect($refreshedLoginSession->last_seen_at->gt(now()->subMinute()))->toBeTrue()
+        ->and($refreshedLoginSession->expires_at->gt(now()->addMinutes((int) config('session.lifetime') - 1)))->toBeTrue()
         ->and(LoginSession::query()->whereBelongsTo($user)->count())->toBe(1);
 });

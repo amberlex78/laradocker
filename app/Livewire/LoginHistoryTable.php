@@ -35,7 +35,7 @@ class LoginHistoryTable extends TableWidget
             return match ($resolver->resolveStatus($record, $context)) {
                 LoginSessionStatus::Terminated,
                 LoginSessionStatus::SignedOut => $record->logged_out_at,
-                LoginSessionStatus::Expired => $record->last_seen_at,
+                LoginSessionStatus::Expired => $record->expires_at,
                 default => null,
             };
         };
@@ -52,7 +52,7 @@ class LoginHistoryTable extends TableWidget
                         ->orWhere(function (Builder $query) use ($context): void {
                             $query
                                 ->whereNull('logged_out_at')
-                                ->where('last_seen_at', '<', $context->inactivityThreshold);
+                                ->where('expires_at', '<', $context->currentTime);
                         });
                 }))
             ->filters([
@@ -98,7 +98,7 @@ class LoginHistoryTable extends TableWidget
                                         ->orWhereNotIn('end_reason', $terminationReasonValues);
                                 })
                                 ->whereNull('logged_out_at')
-                                ->where('last_seen_at', '<', $context->inactivityThreshold),
+                                ->where('expires_at', '<', $context->currentTime),
                             LoginSessionStatus::SignedOut->value => $query
                                 ->whereNotNull('logged_out_at')
                                 ->where(function (Builder $query) use ($terminationReasonValues): void {
@@ -123,7 +123,7 @@ class LoginHistoryTable extends TableWidget
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('status_date')
-                    ->label('Date')
+                    ->label('Ended at')
                     ->state($statusDate)
                     ->dateTime()
                     ->tooltip(function (LoginSession $record) use ($context, $resolver): ?string {
@@ -134,7 +134,7 @@ class LoginHistoryTable extends TableWidget
                     ->sortable(query: function (Builder $query, string $direction): void {
                         $direction = $direction === 'desc' ? 'desc' : 'asc';
 
-                        $query->orderByRaw("COALESCE(logged_out_at, last_seen_at) {$direction}");
+                        $query->orderByRaw("COALESCE(logged_out_at, expires_at) {$direction}");
                     }),
                 TextColumn::make('status')
                     ->label('Status')

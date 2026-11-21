@@ -18,7 +18,7 @@ final class LoginSessionStatusResolver
         return match (true) {
             $loginSession->end_reason?->isTermination() === true => LoginSessionStatus::Terminated,
             $loginSession->logged_out_at !== null => LoginSessionStatus::SignedOut,
-            $loginSession->last_seen_at->lt($context->inactivityThreshold) => LoginSessionStatus::Expired,
+            $loginSession->expires_at->lt($context->currentTime) => LoginSessionStatus::Expired,
             $loginSession->getKey() === $context->currentLoginJournalId
                 || ($loginSession->session_id !== null
                     && $loginSession->session_id === $context->currentHttpSessionId) => LoginSessionStatus::Current,
