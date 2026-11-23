@@ -7,6 +7,12 @@
 
         <title>{{ config('app.name', 'LaraDocker') }} — Docker-ready Laravel &amp; Filament starter</title>
 
+        <meta
+            name="description"
+            content="Docker-first Laravel starter with Filament panels for local development and production deployment to Ubuntu VPS."
+        >
+        <link rel="canonical" href="{{ route('home') }}">
+
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
