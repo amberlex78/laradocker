@@ -152,7 +152,7 @@
                         </h1>
 
                         <p class="mt-6 max-w-2xl text-pretty text-lg leading-8 text-gray-600 dark:text-gray-300">
-                            Clone a&nbsp;clean Laravel&nbsp;13 base, develop in isolated containers, deploy the same foundation to production, and manage users, roles, and operations through ready-made Filament panels.
+                            Clone a&nbsp;clean Laravel&nbsp;13 base, develop in isolated containers, and deploy the same foundation to production with Nginx, MariaDB, HTTPS, and ready-made Filament panels.
                         </p>
 
                         <div class="mt-8 flex flex-wrap items-center gap-3">
