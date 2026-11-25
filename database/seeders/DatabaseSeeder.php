@@ -40,15 +40,19 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($accounts as $account) {
-            User::updateOrCreate(
-                ['email' => $account['email']],
-                [
-                    'name' => $account['name'],
-                    'password' => 'password',
-                    'role' => $account['role'],
-                    'email_verified_at' => now(),
-                ],
-            );
+            $user = User::firstOrNew(['email' => $account['email']]);
+
+            $user->fill([
+                'name' => $account['name'],
+                'role' => $account['role'],
+            ]);
+
+            if (! $user->exists) {
+                $user->password = config('app.seeder_default_password');
+            }
+
+            $user->email_verified_at = now();
+            $user->save();
         }
     }
 }

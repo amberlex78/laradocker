@@ -2,6 +2,7 @@
 
 use App\Enums\UserRole;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 it('seeds one test account for each user role', function () {
     $this->seed();
@@ -18,4 +19,26 @@ it('seeds one test account for each user role', function () {
             'admin@example.com' => UserRole::Admin->value,
             'developer@example.com' => UserRole::Developer->value,
         ]);
+});
+
+it('uses the configured default password for new accounts', function () {
+    config(['app.seeder_default_password' => 'configured-seeder-password']);
+
+    $this->seed();
+
+    $user = User::query()->where('email', 'user@example.com')->firstOrFail();
+
+    expect(Hash::check('configured-seeder-password', $user->password))->toBeTrue();
+});
+
+it('preserves existing account passwords when rerun', function () {
+    $this->seed();
+
+    $user = User::query()->where('email', 'user@example.com')->firstOrFail();
+    $user->password = 'changed-in-profile';
+    $user->save();
+
+    $this->seed();
+
+    expect(Hash::check('changed-in-profile', $user->refresh()->password))->toBeTrue();
 });
