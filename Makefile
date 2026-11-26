@@ -41,13 +41,13 @@ TEST_PHP_EXEC := $(DOCKER_DEV) exec $(TEST_ENV) app
 ## —————————————————————————————————————————————————————————————————————————————
 
 .PHONY: help config-dev config-prod validate \
-        install build up down ps logs env \
+        install build up down ps logs env key-generate \
         laravel-logs \
         stats clear tinker artisan migrate migrate-fresh db-seed \
         test pint phpstan composer npm vite shell-php shell-node shell-mariadb \
         prod-build prod-up prod-down \
         prod-ps prod-logs prod-laravel-logs prod-stats \
-        prod-migrate prod-migrate-fresh prod-seed prod-optimize \
+        prod-migrate prod-migrate-fresh prod-seed prod-optimize prod-key-generate \
         prod-db-backup prod-db-restore deploy
 
 help: ## Show available commands
@@ -70,6 +70,9 @@ validate: config-dev config-prod ## Validate both Compose configurations
 ## —————————————————————————————————————————————————————————————————————————————
 
 ## SETUP & LIFECYCLE
+
+key-generate: ## Generate the development APP_KEY
+	@$(PHP_EXEC) php artisan key:generate
 
 install: build ## Install development dependencies and generate APP_KEY if missing
 	$(DOCKER_DEV) --profile tools run --rm --no-deps composer install --no-interaction --prefer-dist
@@ -193,6 +196,9 @@ prod-stats: ## Show live resource usage for the production Compose project
 	$(DOCKER_PROD) stats
 
 ## LARAVEL
+
+prod-key-generate: ## Generate the production APP_KEY
+	$(DOCKER_PROD) exec -T app php artisan key:generate --force
 
 prod-migrate: ## Run production migrations with --force
 	$(DOCKER_PROD) exec -T app php artisan migrate --force --no-interaction
