@@ -1,7 +1,7 @@
 # Laravel Docker Starter
 
 Шаблон Laravel-застосунку, у якому локальна розробка та production deployment
-працюють через Docker Compose. Репозиторій можна клонувати як основу нового
+працюють через Docker Compose. Репозиторій можна взяти за основу нового
 проєкту, запустити кілька копій одночасно або розгорнути на Ubuntu VPS.
 
 Стек: Laravel 13, PHP-FPM 8.5, Nginx, MariaDB, Node.js/Vite і Composer.
@@ -17,6 +17,11 @@
 PHP, Composer, Node.js, Nginx і MariaDB на host встановлювати не потрібно.
 
 ## Швидкий старт
+
+```bash
+git clone git@github.com:amberlex78/laradocker.git
+cd laradocker
+```
 
 Після клонування перейдіть у каталог проєкту та виконайте:
 
@@ -80,3 +85,41 @@ make npm CMD="run build"
 
 Звичайний HTTPS через Let's Encrypt є основним production-маршрутом.
 Cloudflare описаний окремо як необов'язкова заміна DNS/TLS-рівня.
+
+## Новий проєкт на базі цього репозиторію
+
+### Створити проєкт
+
+Клонуйте шаблон під назвою нового проєкту, створіть порожній репозиторій на
+GitHub і налаштуйте адреси:
+
+```bash
+git clone git@github.com:amberlex78/laradocker.git new-project
+cd new-project
+git remote rename origin template
+git remote add origin git@github.com:amberlex78/new-project.git
+git push -u origin main
+```
+
+`origin` вказує на робочий репозиторій `new-project`, а `template` — на цей шаблон.
+
+### Переглянути оновлення шаблону
+
+Коли в шаблоні з’являться нові зміни, отримайте їх і перегляньте різницю:
+
+```bash
+git fetch template
+git diff --stat HEAD..template/main
+git diff HEAD..template/main
+```
+
+### Застосувати оновлення
+
+Після перегляду злийте зміни в робочу гілку та надішліть їх у свій репозиторій:
+
+```bash
+git merge template/main
+git push origin main
+```
+
+Якщо виникнуть конфлікти, розв’яжіть їх перед push.
