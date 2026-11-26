@@ -1,17 +1,17 @@
-# Graph Report - laradocker  (2026-11-22)
+# Graph Report - laradocker  (2026-11-26)
 
 ## Corpus Check
-- 112 files · ~24,665 words
+- 112 files · ~24,870 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 32 file(s) not represented in the graph (top: (none) 14, .example 6, .conf 4)
 
 ## Summary
-- 805 nodes · 1300 edges · 63 communities (30 shown, 33 thin omitted)
+- 811 nodes · 1308 edges · 74 communities (33 shown, 41 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `89fe17dc`
+- Built from commit: `8abee736`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,13 +24,14 @@
 - Illuminate\Database\Schema\Blueprint
 - AppServiceProvider.php
 - package.json
+- UsersTable.php
 - LoginSessionTrackingTest.php
 - PasswordResetTest.php
 - ActiveSessionsTable.php
 - Docker networking: звичайна та ізольована схема
 - ActiveSessionsTable.php
 - LoginHistoryTable.php
-- Експлуатація production-середовища
+- Діагностика
 - LoginSessionStatus
 - LoginSessionEndReason
 - LoginSessionStatusContext
@@ -38,6 +39,7 @@
 - LoginSessionFactory.php
 - composer.json
 - require-dev
+- ViewProfile
 - require
 - UserFactory.php
 - config
@@ -53,10 +55,18 @@
 - UserRole
 - DatabaseSeeder.php
 - RequestPasswordReset.php
+- UserForm.php
+- Laravel Docker Starter
 - UserResource.php
 - Filament\Schemas\Schema
+- Docker-архітектура
 - .request
+- Необов'язкова інтеграція Cloudflare
 - {closure#22}
+- Локальна розробка
+- Експлуатація production-середовища
+- ViewUser.php
+- ListUsers
 
 ## God Nodes (most connected - your core abstractions)
 1. `UserRole` - 68 edges
@@ -85,23 +95,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (63 total, 33 thin omitted)
+## Communities (74 total, 41 thin omitted)
 
 ### Community 0 - "PanelAccessTest.php"
 Cohesion: 0.09
 Nodes (9): {closure#1}(), {closure#13}(), {closure#2}(), {closure#23}(), {closure#29}(), {closure#30}(), {closure#31}(), {closure#6}() (+1 more)
 
-### Community 1 - "User"
-Cohesion: 0.16
-Nodes (3): User, UserPolicy, {closure#2}()
-
 ### Community 2 - "SitePanelProvider.php"
 Cohesion: 0.06
-Nodes (11): RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), OperatorPanelProvider, {closure#2}() (+3 more)
+Nodes (12): SystemOverview, RedirectGuestsToSiteLogin, AdminPanelProvider, {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), OperatorPanelProvider (+4 more)
 
 ### Community 3 - "Розгортання на Ubuntu VPS"
-Cohesion: 0.05
-Nodes (39): Compose-файли, Docker-архітектура, Nginx і forwarded headers, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту (+31 more)
+Cohesion: 0.20
+Nodes (10): Вибір публічного доступу, Вимоги, Домен і звичайний HTTPS, Доступ без домену, Клонування та production-конфігурація, Кілька проєктів на одному VPS, Наступні кроки, Перевірка приватного Docker stack (+2 more)
 
 ### Community 4 - "DeviceDetectionService"
 Cohesion: 0.09
@@ -112,8 +118,8 @@ Cohesion: 0.07
 Nodes (16): {closure#1}(), {closure#2}(), {closure#3}(), {closure#1}(), {closure#2}(), {closure#1}(), {closure#2}(), {closure#3}() (+8 more)
 
 ### Community 6 - "AppServiceProvider.php"
-Cohesion: 0.15
-Nodes (4): FilamentLoginResponse, FilamentLogoutResponse, AppServiceProvider, {closure#3}()
+Cohesion: 0.14
+Nodes (5): FilamentLoginResponse, FilamentLogoutResponse, AppServiceProvider, {closure#1}(), {closure#3}()
 
 ### Community 7 - "package.json"
 Cohesion: 0.07
@@ -139,17 +145,17 @@ Nodes (4): ActiveSessionsTable, {closure#1}(), {closure#4}(), LoginHistoryTable
 Cohesion: 0.24
 Nodes (7): {closure#10}(), {closure#12}(), {closure#2}(), {closure#3}(), {closure#4}(), {closure#8}(), {closure#9}()
 
-### Community 16 - "Експлуатація production-середовища"
-Cohesion: 0.14
-Nodes (14): 1. Конфігурація Docker Compose, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Видалення одного проєкту, Відновлення MariaDB (+6 more)
+### Community 16 - "Діагностика"
+Cohesion: 0.29
+Nodes (7): 1. Конфігурація Docker Compose, 2. Контейнери та healthchecks, 3. Laravel, 4. Приватний upstream, 5. Системний Nginx, 6. Firewall, DNS і TLS, Діагностика
 
 ### Community 17 - "LoginSessionStatus"
 Cohesion: 0.16
 Nodes (14): LoginSessionStatus, Active, Current, Expired, SignedOut, Terminated, {closure#3}(), {closure#1}() (+6 more)
 
 ### Community 18 - "LoginSessionEndReason"
-Cohesion: 0.09
-Nodes (11): TerminateOtherSessions, TerminateUserSessions, {closure#1}(), {closure#2}(), LoginSessionEndReason, LoggedOut, ManuallyTerminated, PasswordChanged (+3 more)
+Cohesion: 0.06
+Nodes (12): TerminateOtherSessions, TerminateUserSessions, {closure#1}(), {closure#2}(), LoginSessionEndReason, LoggedOut, ManuallyTerminated, PasswordChanged (+4 more)
 
 ### Community 21 - "scripts"
 Cohesion: 0.15
@@ -199,18 +205,34 @@ Nodes (18): {closure#1}(), {closure#10}(), {closure#11}(), {closure#12}(), {clos
 Cohesion: 0.13
 Nodes (12): UserRole, Admin, Developer, Operator, User, {closure#14}(), {closure#17}(), {closure#21}() (+4 more)
 
-### Community 63 - "UserResource.php"
-Cohesion: 0.07
-Nodes (10): CreateUser, EditUser, ListUsers, ViewUser, {closure#2}(), UsersTable, {closure#1}(), {closure#2}() (+2 more)
+### Community 62 - "Laravel Docker Starter"
+Cohesion: 0.22
+Nodes (9): Laravel Docker Starter, Вимоги, Застосувати оновлення, Новий проєкт на базі цього репозиторію, Основні команди, Переглянути оновлення шаблону, Створити проєкт, Швидкий старт (+1 more)
 
-### Community 64 - "Filament\Schemas\Schema"
-Cohesion: 0.05
-Nodes (6): UserForm, ActiveSessions, EditProfile, SessionHistory, ViewProfile, SystemOverview
+### Community 63 - "UserResource.php"
+Cohesion: 0.17
+Nodes (5): CreateUser, UsersTable, {closure#1}(), {closure#2}(), UserResource
+
+### Community 65 - "Docker-архітектура"
+Cohesion: 0.25
+Nodes (8): Compose-файли, Docker-архітектура, Nginx і forwarded headers, Внутрішні та host-порти, Дані та файлові системи, Мережі, Сервіси та образи, Шляхи HTTP-запиту
+
+### Community 67 - "Необов'язкова інтеграція Cloudflare"
+Cohesion: 0.25
+Nodes (8): Cloudflare networks і client IP, Cloudflare Origin Certificate, DNS і SSL/TLS mode, Nginx reverse proxy, Необов'язкова інтеграція Cloudflare, Перевірка, Передумови, Повернення до звичайного HTTPS
+
+### Community 69 - "Локальна розробка"
+Cohesion: 0.25
+Nodes (8): Production-образ локально, Вимоги, Діагностика, Кілька проєктів одночасно, Локальна розробка, Перший запуск, Створення нового проєкту, Щоденні команди
+
+### Community 70 - "Експлуатація production-середовища"
+Cohesion: 0.29
+Nodes (7): Видалення одного проєкту, Відновлення MariaDB, Експлуатація production-середовища, Міграції, Оновлення застосунку, Резервна копія MariaDB, Статус і логи
 
 ## Knowledge Gaps
 - **20 isolated node(s):** `LoggedOut`, `ManuallyTerminated`, `PasswordReset`, `PasswordChanged`, `Current` (+15 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 369 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 374 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Work-memory lessons
 
@@ -221,17 +243,17 @@ Nodes (6): UserForm, ActiveSessions, EditProfile, SessionHistory, ViewProfile, S
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `User` connect `User` to `Filament\Schemas\Schema`, `PanelAccessTest.php`, `SitePanelProvider.php`, `LoginSessionTrackingTest.php`, `PasswordResetTest.php`, `ActiveSessionsTest.php`, `LoginSessionEndReason`, `User.php`, `LoginSessionFactory.php`, `AdminPanelTest.php`, `DatabaseSeeder.php`, `UserFactory.php`, `UserResource.php`?**
-  _High betweenness centrality (0.103) - this node is a cross-community bridge._
+- **Why does `User` connect `User` to `PanelAccessTest.php`, `SitePanelProvider.php`, `DatabaseSeeder.php`, `UsersTable.php`, `LoginSessionTrackingTest.php`, `PasswordResetTest.php`, `ActiveSessionsTest.php`, `LoginSessionEndReason`, `User.php`, `LoginSessionFactory.php`, `AdminPanelTest.php`, `ViewProfile`, `UserFactory.php`, `UserResource.php`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
 - **What connects `LoggedOut`, `ManuallyTerminated`, `PasswordReset` to the rest of the system?**
   _20 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `PanelAccessTest.php` be split into smaller, more focused modules?**
   _Cohesion score 0.08666666666666667 - nodes in this community are weakly interconnected._
-- **Why does `UserRole` connect `UserRole` to `Filament\Schemas\Schema`, `User`, `SitePanelProvider.php`, `PanelAccessTest.php`, `.request`, `{closure#22}`, `AppServiceProvider.php`, `PasswordResetTest.php`, `LoginSessionEndReason`, `User.php`, `AdminPanelTest.php`, `DatabaseSeeder.php`, `UserFactory.php`, `UserResource.php`?**
+- **Why does `UserRole` connect `UserRole` to `PanelAccessTest.php`, `User`, `SitePanelProvider.php`, `.request`, `{closure#22}`, `AppServiceProvider.php`, `UsersTable.php`, `PasswordResetTest.php`, `LoginSessionEndReason`, `User.php`, `AdminPanelTest.php`, `DatabaseSeeder.php`, `UserFactory.php`, `UserForm.php`, `UserResource.php`?**
   _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **Should `SitePanelProvider.php` be split into smaller, more focused modules?**
-  _Cohesion score 0.06493506493506493 - nodes in this community are weakly interconnected._
-- **Why does `LoginSession` connect `LoginSessionStatus` to `Filament\Schemas\Schema`, `PanelAccessTest.php`, `DeviceDetectionService`, `LoginSessionTrackingTest.php`, `PasswordResetTest.php`, `ActiveSessionsTest.php`, `ActiveSessionsTable.php`, `ActiveSessionsTable.php`, `LoginHistoryTable.php`, `LoginSessionEndReason`, `LoginSessionStatusContext`, `User.php`, `LoginSessionFactory.php`?**
+  _Cohesion score 0.05501165501165501 - nodes in this community are weakly interconnected._
+- **Why does `LoginSession` connect `LoginSessionStatus` to `PanelAccessTest.php`, `DeviceDetectionService`, `LoginSessionTrackingTest.php`, `PasswordResetTest.php`, `ActiveSessionsTest.php`, `ActiveSessionsTable.php`, `ActiveSessionsTable.php`, `LoginHistoryTable.php`, `LoginSessionEndReason`, `LoginSessionStatusContext`, `User.php`, `LoginSessionFactory.php`?**
   _High betweenness centrality (0.068) - this node is a cross-community bridge._
-- **Should `Розгортання на Ubuntu VPS` be split into smaller, more focused modules?**
-  _Cohesion score 0.051515151515151514 - nodes in this community are weakly interconnected._
+- **Should `DeviceDetectionService` be split into smaller, more focused modules?**
+  _Cohesion score 0.09446693657219973 - nodes in this community are weakly interconnected._
